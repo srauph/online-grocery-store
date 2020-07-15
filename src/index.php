@@ -67,6 +67,7 @@
 						<li><input type="submit" name="__tag_search_btn" value="Beverages"></li>
 						<li><input type="submit" name="__tag_search_btn" value="Frozen"></li>
 						<li><input type="submit" name="__tag_search_btn" value="Fruit"></li>
+						<li><input type="submit" name="__tag_search_btn" value="vegetables"></li>
 						<li><input type="submit" name="__tag_search_btn" value="Dairy Products"></li>			
 						<li><input type="submit" name="__tag_search_btn" value="Snacks"></li>					
 					</ul>
