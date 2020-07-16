@@ -1,7 +1,7 @@
 <html>
-	<head>
+<head>
 <link rel="stylesheet" type="text/css" href="css/main.css">
-        <title>Aisle page</title>
+        <title>Frozen</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         </head>
 	<body>
@@ -21,7 +21,7 @@
 					</span>
 				</button>
 			</a>
-		</div>			
+            </div>			
 		<div id="menu">
 			<ul>
 				<li><a href="index.php">Home</li></a>
@@ -36,14 +36,14 @@
             <h3 style="margin-right:100%; padding:2%;">Categories</h3>	
 
 			<div class="sub_menus" id="aisle_categories" onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">
-				<form action="aisle.php" method="POST">	
-					<ul> 
+				<form action="frozen.php" method="POST">	
+					<ul>
 						<li><input type="submit" name="__tag_search_btn" value="Bakery" formaction="bakery.php"></li>
 						<li><input type="submit" name="__tag_search_btn" value="Beauty Products" formaction="beautyproducts.php"></li>
 						<li><input type="submit" name="__tag_search_btn" value="Beverages" formaction="beverages.php"></li>
 						<li><input type="submit" name="__tag_search_btn" value="Frozen" formaction="frozen.php"></li>
 						<li><input type="submit" name="__tag_search_btn" value="Fruits" formaction="fruits.php"></li>
-						<li><input type="submit" name="__tag_search_btn" value="Vegetables" formaction="vegetables.php"></li>
+                        <li><input type="submit" name="__tag_search_btn" value="Vegetables" formaction="vegetables.php"></li>
 						<li><input type="submit" name="__tag_search_btn" value="Dairy Products" formaction="dairyproducts.php"></li>			
 						<li><input type="submit" name="__tag_search_btn" value="Snacks" formaction="snacks.php"></li>					
 					</ul>
@@ -92,4 +92,4 @@
 				</li>
 			<ul>
 		</div>
-		</html>
+</html>

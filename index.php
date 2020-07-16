@@ -2,6 +2,9 @@
 	<head>
 <link rel="stylesheet" type="text/css" href="css/main.css">
 		<title>Store main page</title>
+		  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="scripts/Util.js"></script>
 		<script src="scripts/Cart.js"></script>
 		<script src="scripts/item.js"></script>
@@ -52,7 +55,7 @@
 		</div>			
 		<div id="menu">
 			<ul>
-				<li>Home</li>
+				<li><a href="index.php">Home</li></a>
 				<li>Sales</li>
 				<li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');"><a href="aisle.php">Aisle</li></a>
 				<li>Contact us</li>
@@ -62,13 +65,14 @@
 			<div class="sub_menus" id="menu_aisle" onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">
 				<form action="index.php" method="POST">	
 					<ul>
-						<li><input type="submit" name="__tag_search_btn" value="Bakery"></li>
-						<li><input type="submit" name="__tag_search_btn" value="Beauty Products"></li>
-						<li><input type="submit" name="__tag_search_btn" value="Beverages"></li>
-						<li><input type="submit" name="__tag_search_btn" value="Frozen"></li>
-						<li><input type="submit" name="__tag_search_btn" value="Fruit"></li>
-						<li><input type="submit" name="__tag_search_btn" value="Dairy Products"></li>			
-						<li><input type="submit" name="__tag_search_btn" value="Snacks"></li>					
+						<li><input type="submit" name="__tag_search_btn" value="Bakery" formaction="bakery.php"></li>
+						<li><input type="submit" name="__tag_search_btn" value="Beauty Products" formaction="beautyproducts.php"></li>
+						<li><input type="submit" name="__tag_search_btn" value="Beverages" formaction="beverages.php"></li>
+						<li><input type="submit" name="__tag_search_btn" value="Frozen" formaction="frozen.php"></li>
+						<li><input type="submit" name="__tag_search_btn" value="Fruits" formaction="fruits.php"></li>
+						<li><input type="submit" name="__tag_search_btn" value="Vegetables" formaction="vegetables.php"></li>
+						<li><input type="submit" name="__tag_search_btn" value="Dairy Products" formaction="dairyproducts.php"></li>			
+						<li><input type="submit" name="__tag_search_btn" value="Snacks" formaction="snacks.php"></li>							
 					</ul>
 				</form>
 			</div>			
@@ -81,10 +85,13 @@
 			<div id="slidshow_price">
 				$0.00
 			</div>
+			<br />
+			<br />
+			<br />
 		</div>
 		<div id="__search_result">
 		</div>
-		<div id="__footer">
+		<div class="flex-container" id="__footer">
 			<ul id="__outer_ul">
 				<li>
 					<b>Online</b>
@@ -104,7 +111,7 @@
 						<li>AIR MILEStm</li>
 						<li>Promotions & rewards</li>
 						<li>Gasoline discount</li>
-						<li>X gift cards</li>
+						<li>IGA gift cards</li>
 						<li>Flyer</li>
 						<li>Contests</li>
 					</ul>					

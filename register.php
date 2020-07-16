@@ -8,6 +8,7 @@ require_once('php/config.php');
 <head>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<title>Store main page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="scripts/item.js"></script>
 	<script src="scripts/sales.js"></script>
 	<script type="module" src="scripts/main.js"></script>
@@ -44,13 +45,14 @@ require_once('php/config.php');
 			<div class="sub_menus" id="menu_aisle" onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">
 				<form action="register.php" method="POST">	
 					<ul>
-						<li><input type="submit" name="__tag_search_btn" value="Bakery"></li>
-						<li><input type="submit" name="__tag_search_btn" value="Beauty Products"></li>
-						<li><input type="submit" name="__tag_search_btn" value="Beverages"></li>
-						<li><input type="submit" name="__tag_search_btn" value="Frozen"></li>
-						<li><input type="submit" name="__tag_search_btn" value="Fruit"></li>
-						<li><input type="submit" name="__tag_search_btn" value="Dairy Products"></li>			
-						<li><input type="submit" name="__tag_search_btn" value="Snacks"></li>					
+					<li><input type="submit" name="__tag_search_btn" value="Bakery" formaction="bakery.php"></li>
+						<li><input type="submit" name="__tag_search_btn" value="Beauty Products" formaction="beautyproducts.php"></li>
+						<li><input type="submit" name="__tag_search_btn" value="Beverages" formaction="beverages.php"></li>
+						<li><input type="submit" name="__tag_search_btn" value="Frozen" formaction="frozen.php"></li>
+						<li><input type="submit" name="__tag_search_btn" value="Fruits" formaction="fruits.php"></li>
+						<li><input type="submit" name="__tag_search_btn" value="Vegetables" formaction="vegetables.php"></li>
+						<li><input type="submit" name="__tag_search_btn" value="Dairy Products" formaction="dairyproducts.php"></li>			
+						<li><input type="submit" name="__tag_search_btn" value="Snacks" formaction="snacks.php"></li>					
 					</ul>
 				</form>
 			</div>			

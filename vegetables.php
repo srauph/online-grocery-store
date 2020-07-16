@@ -1,7 +1,7 @@
 <html>
 	<head>
 <link rel="stylesheet" type="text/css" href="css/main.css">
-        <title>Aisle page</title>
+        <title>Vegetables</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         </head>
 	<body>
@@ -36,7 +36,7 @@
             <h3 style="margin-right:100%; padding:2%;">Categories</h3>	
 
 			<div class="sub_menus" id="aisle_categories" onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">
-				<form action="aisle.php" method="POST">	
+				<form action="vegetables.php" method="POST">	
 					<ul> 
 						<li><input type="submit" name="__tag_search_btn" value="Bakery" formaction="bakery.php"></li>
 						<li><input type="submit" name="__tag_search_btn" value="Beauty Products" formaction="beautyproducts.php"></li>

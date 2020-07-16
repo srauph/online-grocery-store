@@ -66,7 +66,7 @@ a:visited {
 	height: 40%;
 	width: 60%;
 	background-size: cover;
-	position: absolute;
+	position: relative;
 	left: 50%;
 	transform: translate(-50%, 0);
 	transition: opacity 1s;
@@ -133,12 +133,12 @@ a:visited {
 
 #menu {
 	background-color: rgb(108, 108, 108);
-	height: 60px;
+	height: 40px;
 	padding: 20px;
 	padding-top: 0px !important;
 	margin-top: -32px;
 	text-align: center;
-	font-size: 32px;
+	font-size: !important;
 	font-family: "Roboto";
 	color: white;
 }
@@ -190,9 +190,10 @@ a:visited {
 	background-color: #161616;
 	color: white;
 	padding: 20px;
-	height: 250px;
+	height: 25%;
 	margin-top: 30%;
 	text-align: center;
+	position: relative!important;
 }
 
 #__outer_ul li {
@@ -245,3 +246,7 @@ a:visited {
 	list-style-type: none;
 	
 }
+
+.flex-container {
+	display: flex;
+  }
