@@ -56,10 +56,7 @@ class Sales {
 		}
 
 		// Display the results
-		Sales.void_displayItems(
-			filteredItems,
-			document.getElementById("__search_result")
-		);
+		Sales.void_displayItems(filteredItems, "__search_result");
 	}
 
 	static void_displayItems(ItemArray_allItems, string_elementID) {
@@ -89,12 +86,36 @@ class Sales {
 					<h1>${nameCapitalized}</h1>
 					<img src="../assets/images/${item.image}" title="${nameCapitalized}" />
 					<br />
+					<br />
+
+					<span>${Sales.private_string_reduceChars(item.description, 30)}</span>
+
+					<br />
+
 					<h2>$${item.cost}</h2>
-					<input type="button" value="Add to cart" onclick="cart.void_add(
-						new Item(${item.id}, '${item.name}', '${item.category}', '${item.image}', ${item.cost}, ${item.quantity}, ${item.onSale})
-						)" />
+
+					<form action="itemDescription.php?id=${item.id}">
+						<input class="__learn_more_btn" type="submit" value="Learn more" />
+
+						<!-- Add to cart button -->
+
+						<input type="button" value="Add to cart" onclick="cart.void_add(
+							new Item(${item.id}, '${item.name}', '${item.category}', '${item.image}', ${
+				item.cost
+			}, ${item.quantity}, ${item.onSale})
+							)" />
+					</form>
+					
 				</div>
 			`;
+		}
+	}
+
+	static private_string_reduceChars(string_originalString, int_maxChars) {
+		if (string_originalString.length <= int_maxChars)
+			return string_originalString;
+		else {
+			return string_originalString.substring(0, int_maxChars - 1) + "...";
 		}
 	}
 }
