@@ -55,8 +55,8 @@
         <div>
             <div id="menu">
                 <ul>
-                    <li>Home</li>
-                    <li onclick="window.location.href = 'all_items.php';">All products</li>
+                    <li onclick="goto('index.php')">Home</li>
+                    <li onclick="goto('all_items.php');">All products</li>
                     <li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</li>
                     <li>Contact us</li>
                 <ul>

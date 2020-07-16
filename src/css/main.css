@@ -241,3 +241,10 @@ a:visited {
 	border: none;
 	cursor: pointer;
 }
+
+.__learn_more_btn {
+	background-color: #161616;
+	color: white;
+	padding: 15px;
+	border: none;
+}

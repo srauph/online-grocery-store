@@ -150,7 +150,7 @@ function ItemsArray_getItem($string_fieldName, $string_fieldValue)	{
 	while($row = $result->fetch_assoc())	{
 		array_push(
 			$array, 
-			new Item($row['id'], $row['name'], $row['category'], $row['image'], $row['cost'], $row['quantity'], $row['onsale'])
+			new Item($row['id'], $row['name'], $row['category'], $row['image'], $row['cost'], $row['quantity'], $row['onsale'], $row['description'])
 		);
 	}
 
@@ -183,7 +183,7 @@ function ItemArray_getAllItems()	{
 	while($row = $result->fetch_assoc())	{
 		array_push(
 			$array, 
-			new Item($row['id'], $row['name'], $row['category'], $row['image'], $row['cost'], $row['quantity'], $row['onsale'])
+			new Item($row['id'], $row['name'], $row['category'], $row['image'], $row['cost'], $row['quantity'], $row['onsale'], $row['description'])
 		);
 	}
 
