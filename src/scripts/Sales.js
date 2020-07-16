@@ -81,10 +81,13 @@ class Sales {
 
 		// TODO: change this
 		for (const item of ItemArray_allItems) {
+			const nameCapitalized =
+				item.name.charAt(0).toUpperCase() + item.name.slice(1);
+
 			DIV.innerHTML += `
 				<div class="__search_result_block">
-					<h1>${item.name}</h1>
-					<img src="../assets/images/${item.image}" title="${item.name}" />
+					<h1>${nameCapitalized}</h1>
+					<img src="../assets/images/${item.image}" title="${nameCapitalized}" />
 					<br />
 					<h2>$${item.cost}</h2>
 					<input type="button" value="Add to cart" onclick="cart.void_add(
