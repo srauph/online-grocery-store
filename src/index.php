@@ -49,16 +49,19 @@
 					</span>
 				</button>
 			</a>
-		</div>			
-		<div id="menu">
-			<ul>
-				<li>Home</li>
-				<li>Sales</li>
-				<li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</li>
-				<li>Contact us</li>
-			<ul>
-		</div>		
-		<div>				
+		</div>	
+
+		 <!-- Menu is here -->	
+		 <div>		
+			<div id="menu">
+				<ul>
+					<li>Home</li>
+					<li onclick="window.location.href = 'all_items.php';">All products</li>
+					<li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</li>
+					<li>Contact us</li>
+				<ul>
+			</div>		
+			<div>				
 			<div class="sub_menus" id="menu_aisle" onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">
 				<form action="index.php" method="POST">	
 					<ul>
@@ -85,49 +88,13 @@
 		</div>
 		<div id="__search_result">
 		</div>
+
+		<!-- FOOTER HERE -->
 		<div id="__footer">
-			<ul id="__outer_ul">
-				<li>
-					<b>Online</b>
-					<br />
-					<ul>
-						<li>Online grocery</li>
-						<li>Online buffet</li>
-						<li>Videos</li>
-						<li>Blog</li>
-					</ul>					
-				</li>
-				<li>
-					<b>Promotions </b>
-					<br />
-					<ul>						
-						<li>Newsletter</li>
-						<li>AIR MILEStm</li>
-						<li>Promotions & rewards</li>
-						<li>Gasoline discount</li>
-						<li>IGA gift cards</li>
-						<li>Flyer</li>
-						<li>Contests</li>
-					</ul>					
-				</li>
-				<li>
-					<b>Customer Service</b>
-					<br />
-					<ul>
-						<li>Contact us</li>
-						<li>Terms and conditions</li>
-						<li>Privacy Policy</li>
-						<li>Find a store</li>
-						<li>FAQ	</li>		
-					</ul>
-				</li>
-			<ul>
+			Place holder
 		</div>
 
 		<?php 
-
-			include "php/Debug.php";
-
 			if (isset($_POST['__tag_search_btn']))	{
 				$temp_tag = $_POST['__tag_search_btn'];
 				ItemArray_searchByTag($temp_tag);

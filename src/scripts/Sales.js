@@ -56,11 +56,31 @@ class Sales {
 		}
 
 		// Display the results
-		const DIV = document.getElementById("__search_result");
+		Sales.void_displayItems(
+			filteredItems,
+			document.getElementById("__search_result")
+		);
+	}
+
+	static void_displayItems(ItemArray_allItems, string_elementID) {
+		const temp = `<div id="void_displayItems"></div>`;
+		document.querySelector("body").innerHTML += temp;
+
+		const DIV =
+			document.getElementById(string_elementID) ||
+			document.getElementById("void_displayItems");
 		DIV.innerHTML = "";
 
+		// Sort the array in Alphabatical order
+		ItemArray_allItems.sort(
+			(a, b) =>
+				(a.name === null) - (b.name === null) ||
+				a.category - b.category ||
+				b.id - a.id
+		);
+
 		// TODO: change this
-		for (const item of filteredItems) {
+		for (const item of ItemArray_allItems) {
 			DIV.innerHTML += `
 				<div class="__search_result_block">
 					<h1>${item.name}</h1>
