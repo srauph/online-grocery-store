@@ -22,6 +22,9 @@ SET time_zone = "+00:00";
 -- Database: `soen_287_project`
 --
 
+CREATE DATABASE IF NOT EXISTS IvqolEzAXD;
+USE IvqolEzAXD;
+
 -- --------------------------------------------------------
 
 --
