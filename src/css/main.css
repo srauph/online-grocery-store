@@ -186,15 +186,6 @@ a:visited {
 	transition: 0.5s all, 1s opacity;
 }
 
-#__footer {
-	background-color: #161616;
-	color: white;
-	padding: 20px;
-	height: 500px;
-	margin-top: 30%;
-	text-align: center;
-}
-
 #__outer_ul li {
 	list-style-type: none;
 	display: inline-block;
@@ -248,7 +239,6 @@ a:visited {
 	padding: 15px;
 	border: none;
 }
-
 #magnifying_button {
 	text-align: right;
 	background-color: transparent;
@@ -301,6 +291,7 @@ input {
 .border1 {
 	background-color: white;
 	width: 300px;
+
 	padding: 50px;
 	margin: 20px;
 	height: 500px !important;
