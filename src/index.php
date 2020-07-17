@@ -2,12 +2,12 @@
 	<head>
 <link rel="stylesheet" type="text/css" href="css/main.css">
 		<title>Store main page</title>
-		<script src="scripts/Util.js"></script>
-		<script src="scripts/Cart.js"></script>
-		<script src="scripts/item.js"></script>
-		<script src="scripts/sales.js"></script>
-		<script src="scripts/AbstractComponent.js"></script>
-		<script src="scripts/main.js"></script>
+		<script type="text/javascript" src="scripts/Util.js"></script>
+		<script type="text/javascript" src="scripts/Cart.js"></script>
+		<script type="text/javascript" src="scripts/item.js"></script>
+		<script type="text/javascript" src="scripts/sales.js"></script>
+		<script type="text/javascript" src="scripts/AbstractComponent.js"></script>
+		<script type="text/javascript" src="scripts/main.js"></script>
 <!-- Load on sale items to display them-->
 <?php
 	include "php/Util.php";
