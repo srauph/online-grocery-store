@@ -6,7 +6,8 @@
 		<script src="scripts/Cart.js"></script>
 		<script src="scripts/item.js"></script>
 		<script src="scripts/sales.js"></script>
-		<script type="module" src="scripts/main.js"></script>
+		<script src="scripts/AbstractComponent.js"></script>
+		<script src="scripts/main.js"></script>
 <!-- Load on sale items to display them-->
 <?php
 	include "php/Util.php";
