@@ -8,12 +8,19 @@
 		<div id="__top_banner"></div>			
 		<div id="menu">
 			<ul>
-				<li><a href="userlist.php">Save</li></a>
+				<li><a href="index.php">Main home page</li></a>
 			<ul>
 		</div>
 		        
 		<div id="categories">
-            <h3 style="padding:2%;">Edit user</h3>	
+            <h2 style="padding:2%;">Edit user</h2>
+			<div>
+				<form method="POST">
+					<ul>
+						<input type="submit" name="__tag_search_btn" value="Save" formaction="userlist.php">
+					</ul>
+				</form>
+			</div>
 		</div>
 
 		<br />

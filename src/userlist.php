@@ -8,17 +8,19 @@
 		<div id="__top_banner"></div>			
 		<div id="menu">
 			<ul>
-				<li><a href="useredit.php">Add a user</li></a>
+				<li><a href="index.php">Main home page</li></a>
 			<ul>
         </div>		
         
 		<div id="categories">
-
-            <h3 style="padding:2%;">User list</h3>	
+            <h2 style="padding:2%;">User list</h2>	
 
 			<div>
 				<form method="POST">	
 					<ul> 
+						<input type="submit" name="__tag_search_btn" value="Add a user" formaction="useredit.php">
+						<br>
+						<br>
 						<li>
 							User 1:
 							<input type="submit" name="__tag_search_btn" value="Delete" formaction="">
@@ -33,8 +35,8 @@
 				</form>
 			</div>			
 		</div>
-		<br />
-		<br />
+		<br>
+		<br>
 		</div>
 		
 		<div id="__footer">
