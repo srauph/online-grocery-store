@@ -1,1 +1,1 @@
-web: soen287-team-project src/
+web: vendor/bin/heroku-php-apache2 src/
