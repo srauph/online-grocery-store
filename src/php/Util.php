@@ -1,7 +1,7 @@
 <?php
 
-include_once "config.php"
-include_once "Structures.php";
+require_once("config.php");
+require_once("Structures.php");
 
 # This file contains main untility functions to communicate with server
 function void_updateDataBase($string_DBName, $string_tableName, $int_idOfRow, $string_fieldName, $any_newValue)	{
@@ -117,15 +117,16 @@ function UsersArray_getUser($string_fieldName, $string_fieldValue)	{
 }
 
 function ItemsArray_getItem($string_fieldName, $string_fieldValue)	{
-	$servername = $db_server;
-	$username = $db_username;
-	$password = $db_password;
-	$dbname = $string_DBName;
+	$servername = $GLOBALS['db_server'];
+	$username = $GLOBALS['db_username'];
+	$password = $GLOBALS['db_password'];
+	$dbname = $GLOBALS['db_name'];
 	$sql = "";
 
 	// Create connection
 	//$conn = new mysqli($servername, $username, $password, $dbname);
 	// Check connection
+	$conn = $GLOBALS['conn'];
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
@@ -166,15 +167,16 @@ function ItemsArray_getItem($string_fieldName, $string_fieldValue)	{
 
 function ItemArray_getAllItems()	{
 
-	$servername = $db_server;
-	$username = $db_username;
-	$password = $db_password;
-	$dbname = $string_DBName;
+	$servername = $GLOBALS['db_server'];
+	$username = $GLOBALS['db_username'];
+	$password = $GLOBALS['db_password'];
+	$dbname = $GLOBALS['db_name'];
 	$sql = "SELECT * FROM items";
 
 	// Create connection
 	//$conn = new mysqli($servername, $username, $password, $dbname);
 	// Check connection
+	$conn = $GLOBALS['conn'];
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
