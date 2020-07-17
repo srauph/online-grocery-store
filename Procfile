@@ -1,0 +1,1 @@
+web: vendor/bin/soen287-team-project src/
