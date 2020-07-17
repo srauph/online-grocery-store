@@ -51,47 +51,42 @@
 					</span>
 				</button>
 			</a>
-		</div>	
-
-		 <!-- Menu is here -->	
-		 <div>		
-			<div id="menu">
-				<ul>
-					<li onclick="goto('index.php')">Home</li>
-					<li onclick="goto('all_items.php')">All products</li>
-					<li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</li>
-					<li>Contact us</li>
-				<ul>
-			</div>		
-			<div>				
-			<div class="sub_menus" id="menu_aisle" onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">
-				<form action="index.php" method="POST">	
-					<ul>
-						<li><input type="submit" name="__tag_search_btn" value="Bakery"></li>
-						<li><input type="submit" name="__tag_search_btn" value="Beauty Products"></li>
-						<li><input type="submit" name="__tag_search_btn" value="Beverages"></li>
-						<li><input type="submit" name="__tag_search_btn" value="Frozen"></li>
-						<li><input type="submit" name="__tag_search_btn" value="Fruit"></li>
-						<li><input type="submit" name="__tag_search_btn" value="vegetables"></li>
-						<li><input type="submit" name="__tag_search_btn" value="Dairy Products"></li>			
-						<li><input type="submit" name="__tag_search_btn" value="Snacks"></li>					
-					</ul>
-				</form>
-			</div>			
-		</div>
-		<br />
-		<br />
-		<!-- This div is resposible for the display of the items on Sale -->
-		<div id="slidshow" style="">
-			This text exists to show the div only
-			<div id="slidshow_price">
-				$0.00
-			</div>
-		</div>
-		<div id="__search_result">
 		</div>
 
-		<!-- FOOTER HERE -->
+        <!-- Menu is here -->	
+        <div>
+            <div id="menu">
+                <ul>
+                    <li onclick="goto('index.php')">Home</li>
+                    <li onclick="goto('all_items.php');">All products</li>
+                    <li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</li>
+                    <li>Contact us</li>
+                <ul>
+            </div>		
+            <div>				
+                <div class="sub_menus" id="menu_aisle" onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">
+                    <form action="index.php" method="POST">	
+                        <ul>
+                            <li><input type="submit" name="__tag_search_btn" value="Bakery"></li>
+                            <li><input type="submit" name="__tag_search_btn" value="Beauty Products"></li>
+                            <li><input type="submit" name="__tag_search_btn" value="Beverages"></li>
+                            <li><input type="submit" name="__tag_search_btn" value="Frozen"></li>
+                            <li><input type="submit" name="__tag_search_btn" value="Fruit"></li>
+                            <li><input type="submit" name="__tag_search_btn" value="vegetables"></li>
+                            <li><input type="submit" name="__tag_search_btn" value="Dairy Products"></li>			
+                            <li><input type="submit" name="__tag_search_btn" value="Snacks"></li>					
+                        </ul>
+                    </form>
+                </div>			
+            </div>
+        </div>
+		<br />
+		<br />
+
+        <div id="all_items">
+        </div>
+
+        <!-- FOOTER HERE -->
 		<div id="footer">
    <center>
    <table>
@@ -125,33 +120,25 @@
 </center>
 </div>
 
-		<?php 
-			if (isset($_POST['__tag_search_btn']))	{
-				$temp_tag = $_POST['__tag_search_btn'];
-				ItemArray_searchByTag($temp_tag);
+
+        <?php 
+        
+            // load all the items in the database
+            $result = ItemArray_getAllItems();
+            
+            // Convert this to JS array
+			$js_array = "[";
+
+			for ($i = 0; $i < count($result); $i++) {
+				$js_array = $js_array . "new Item(". $result[$i]->toString() ."), ";
 			}
 
-			function ItemArray_searchByTag($tag)	{
-
-				// Load all data from the database
-				$result = ItemArray_getAllItems();
-
-				// Convert this to JS array
-				$js_array = "[";
-
-				for ($i = 0; $i < count($result); $i++) {
-					$js_array = $js_array . "new Item(". $result[$i]->toString() ."), ";
-				}
-
-				$js_array = $js_array . "]";
-
-				// Exceute script
-				echo "<script>window.addEventListener('load', function()	{
-						Sales.void_processSearch('$tag', $js_array);
-				});</script>";
-
-			}
-
-		?>
+            $js_array = $js_array . "]";
+            
+			// Exceute script
+			echo "<script>window.addEventListener('load', function()	{
+				Sales.void_displayItems($js_array, 'all_items');
+			});</script>";        
+        ?>
 	</body>
 </html>

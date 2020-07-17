@@ -1,8 +1,4 @@
-<?php
-session_start();
-require_once('php/config.php');
-//phpinfo();
-?>
+
 <html>
 
 <head>
@@ -12,6 +8,7 @@ require_once('php/config.php');
 	<script src="scripts/item.js"></script>
 	<script src="scripts/sales.js"></script>
 	<script type="module" src="scripts/main.js"></script>
+	
 </head>
 
 <body>
@@ -97,47 +94,44 @@ require_once('php/config.php');
 					</div>
 				</form>	
 			</center>
+	
 		</div>
-
-		<div class="flex-container" id="__footer">
-			<ul id="__outer_ul">
-				<li>
-					<b>Online</b>
-					<br />
-					<ul>
-						<li>Online grocery</li>
-						<li>Online buffet</li>
-						<li>Videos</li>
-						<li>Blog</li>
-					</ul>					
-				</li>
-				<li>
-					<b>Promotions </b>
-					<br />
-					<ul>						
-						<li>Newsletter</li>
-						<li>AIR MILEStm</li>
-						<li>Promotions & rewards</li>
-						<li>Gasoline discount</li>
-						<li>X gift cards</li>
-						<li>Flyer</li>
-						<li>Contests</li>
-					</ul>					
-				</li>
-				<li>
-					<b>Customer Service</b>
-					<br />
-					<ul>
-						<li>Contact us</li>
-						<li>Terms and conditions</li>
-						<li>Privacy Policy</li>
-						<li>Find a store</li>
-						<li>FAQ	</li>		
-					</ul>
-				</li>
-			<ul>
-		</div>
+<br>
+<br>
+<br>
 
 
-        </body>
+<div id="footer">
+   <center>
+   <table>
+
+	   <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+   <td></td><td></td><td></td><td></td><td></td><td></td>
+
+   <th><h3 style="color:white; text-align:center;">Caliprex<h3>			
+
+		
+<tr> 
+		<th><h3 style="color:white; font-style:robotto;"> <br>Subscribe to our Newsletter!</h3>
+		<td></td>
+		<td></td>
+		<td></td>
+	  <th> <input type="text" style="height:30px;font-size:20;width:200px;"placeholder="Email address">
+	 <th> <input type="submit" id="btn_work" class="btn" size="20"; value="GO">
+	<td><pre>	</pre></td>
+	<th><a href="https://www.facebook.com/Caliprex-121401789649042" target="_blank"><image src="../assets/Icons/facebook.png" alt="Facebook image"style="float:right; margin-right:0.5em" width="50" height="35"></a>
+	<th><a href="https://www.instagram.com/caliprex/" target="_blank"><image src="../assets/Icons/instagram.png" alt="Instagram image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
+	<th><a href="https://twitter.com/caliprex" target="_blank"><image src="../assets/Icons/twitter.png" alt="Twitter image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
+	<th><a href="https://Pintrest.com/caliprex" target="_blank"><image src="../assets/Icons/pinterest.png" alt="Pintrest image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
+	<th><a href="https://www.youtube.com/channel/UCvZRW67axwzk6fw5dBSw-iQ?view_as=subscriber" target="_blank"><image src="../assets/Icons/youtube.png" alt="Youtube image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
+	
+	<th><a href="contactus.php" style="color:white;"><h3>About Us |</a></h3>      
+	<th><a href="login.php" ><h3 style="color:white;">Login</h3></a>
+
+</tr>
+
+</table>
+</center>
+</div>
+</body>
         </html>
