@@ -44,7 +44,7 @@
 				<button id="cart_button">
 					<br>
 					<br>
-					<img src="../assets/Icons/cart.png" style="float:left; margin-right:0.5em" width="25" height="25">
+					<img src="assets/Icons/cart.png" style="float:left; margin-right:0.5em" width="25" height="25">
 					<span id="cart_total_value">
 						$0.00
 					</span>
@@ -107,11 +107,12 @@
 					<th> <input type="text" style="height:30px;font-size:20;width:200px;"placeholder="Email address">
 					<th> <input type="submit" id="btn_work" class="btn" size="20"; value="GO">
 					<td><pre>	</pre></td>
-					<th><a href="https://www.facebook.com/Caliprex-121401789649042" target="_blank"><image src="../assets/Icons/facebook.png" alt="Facebook image"style="float:right; margin-right:0.5em" width="50" height="35"></a>
-					<th><a href="https://www.instagram.com/caliprex/" target="_blank"><image src="../assets/Icons/instagram.png" alt="Instagram image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
-					<th><a href="https://twitter.com/caliprex" target="_blank"><image src="../assets/Icons/twitter.png" alt="Twitter image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
-					<th><a href="https://Pintrest.com/caliprex" target="_blank"><image src="../assets/Icons/pinterest.png" alt="Pintrest image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
-					<th><a href="https://www.youtube.com/channel/UCvZRW67axwzk6fw5dBSw-iQ?view_as=subscriber" target="_blank"><image src="../assets/Icons/youtube.png" alt="Youtube image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
+					<th><a href="https://www.facebook.com/Caliprex-121401789649042" target="_blank"><img src="assets/Icons/facebook.png" alt="Facebook image"style="float:right; margin-right:0.5em" width="50" height="35"></a>
+					<th><a href="https://www.instagram.com/caliprex/" target="_blank"><img src="assets/Icons/instagram.png" alt="Instagram image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
+					<th><a href="https://twitter.com/caliprex" target="_blank"><img src="assets/Icons/twitter.png" alt="Twitter image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
+					<th><a href="https://Pintrest.com/caliprex" target="_blank"><img src="assets/Icons/pinterest.png" alt="Pintrest image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
+					<th><a href="https://www.youtube.com/channel/UCvZRW67axwzk6fw5dBSw-iQ?view_as=subscriber" target="_blank">
+					<img src="assets/Icons/youtube.png" alt="Youtube image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
 					<th><a href="contactus.php" style="color:white;"><h3>About Us |</a></h3>      
 					<th><a href="login.php" ><h3 style="color:white;">Login</h3></a>
 			</tr>
