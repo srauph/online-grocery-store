@@ -84,7 +84,7 @@ class Sales {
 			DIV.innerHTML += `
 				<div class="__search_result_block">
 					<h1>${nameCapitalized}</h1>
-					<img src="../assets/images/${item.image}" title="${nameCapitalized}" />
+					<img src="assets/images/${item.image}" title="${nameCapitalized}" />
 					<br />
 					<br />
 
