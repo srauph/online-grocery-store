@@ -39,7 +39,7 @@ class Sales {
 
 		// After 1 second show the element
 		setTimeout(function () {
-			imgObj.style.backgroundImage = `url('../assets/images/${ItemArray_items[int_index].image}')`;
+			imgObj.style.backgroundImage = `url('assets/images/${ItemArray_items[int_index].image}')`;
 			info.innerHTML = "$" + ItemArray_items[int_index].getCost();
 			imgObj.style.opacity = 1;
 		}, 1000);
