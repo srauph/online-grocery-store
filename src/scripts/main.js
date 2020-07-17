@@ -3,11 +3,6 @@
  *
  */
 
-import { IAbstractComponent } from "./AbstractComponent";
-//import { Cart } from "./Cart";
-//import { Item } from "./Item";
-//import { Sales } from "./Sales.js";
-
 window.onload = function () {
 	// Initialize Objects
 	//cart = new Cart();
