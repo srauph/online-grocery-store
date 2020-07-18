@@ -4,8 +4,8 @@
         <title>Cart Summary page</title>
         <style>
             input {
-  text-align: center;
-}
+                text-align: center;
+            }
 
 ::-webkit-input-placeholder {
   text-align: center;
