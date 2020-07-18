@@ -44,38 +44,34 @@
 			</a>
             
 </div>
-
-<div id="menu">
-			<ul>
-				<li>Home</li>
-				<li>Sales</li>
-				<li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</li>
-				<li>Contact us</li>
-			<ul>
-		</div>		
-		<div name="sub_menus">				
-			<div id="menu_aisle" onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">
+       <!-- Menu is here -->	
+       <div>
+            <div id="menu">
 				<ul>
-					<li>Bakery</li>
-					<li>Beauty Products</li>
-					<li>Beverages</li>
-					<li>Frozen</li>
-					<li>Fruits & Vegetables</li>
-					<li>Dairy Products</li>			
-					<li>Snacks</li>					
-				</ul>
-			</div>
+					<li onclick="goto('index.php')">Home</li>
+					<li onclick="goto('all_items.php')">All products</li>
+					<li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</li>
+					<li onclick="goto('contactus.php');">Contact us</li>
+				<ul>
+            </div>		
+            <div>				
+                <div class="sub_menus" id="menu_aisle" onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">
+                    <form action="index.php" method="POST">	
+                        <ul>
+                            <li><input type="submit" name="__tag_search_btn" value="Bakery"></li>
+                            <li><input type="submit" name="__tag_search_btn" value="Beauty Products"></li>
+                            <li><input type="submit" name="__tag_search_btn" value="Beverages"></li>
+                            <li><input type="submit" name="__tag_search_btn" value="Frozen"></li>
+                            <li><input type="submit" name="__tag_search_btn" value="Fruit"></li>
+                            <li><input type="submit" name="__tag_search_btn" value="vegetables"></li>
+                            <li><input type="submit" name="__tag_search_btn" value="Dairy Products"></li>			
+                            <li><input type="submit" name="__tag_search_btn" value="Snacks"></li>					
+                        </ul>
+                    </form>
+                </div>			
+            </div>
         </div>
-        <br>
-        <br>
-        <br>
-        <center>
-<div id="top_banner">
-            <h1 class="center "  style="font-size:60;">SHOPPING CART</h1><br>
-</center>
-<br>
-</div>
-<br>
+
 <br>
 <br>
 <br>

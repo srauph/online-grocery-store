@@ -55,12 +55,12 @@
         <!-- Menu is here -->	
         <div>
             <div id="menu">
-                <ul>
-                    <li onclick="goto('index.php')">Home</li>
-                    <li onclick="goto('all_items.php');">All products</li>
-                    <li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</li>
-                    <li>Contact us</li>
-                <ul>
+				<ul>
+					<li onclick="goto('index.php')">Home</li>
+					<li onclick="goto('all_items.php')">All products</li>
+					<li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</li>
+					<li onclick="goto('contactus.php');">Contact us</li>
+				<ul>
             </div>		
             <div>				
                 <div class="sub_menus" id="menu_aisle" onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">
