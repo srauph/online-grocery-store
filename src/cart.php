@@ -108,7 +108,7 @@
       </tr>
       <tr>
 
-          <td style="text-align:center"> <image src="assets/Images/cheetos.jpg" alt="cheetos image"  width="150" height="150"></td>
+          <td style="text-align:center"> <image src="assets/images/cheetos.jpg" alt="cheetos image"  width="150" height="150"></td>
           <td width="100" style="text-align:center"><h2 >Cheetos</h2></td>
           
           <td  style=  "text-align:center;"><input type="number" style="text-align:center; width:90; height:45;" placeholder="QUANTITY"/></td>
@@ -142,7 +142,7 @@
       </tr>
       <tr>
 
-          <td style="text-align:center"> <image src="assets/Images/frozenfries.jpg" alt="cheetos image"  width="150" height="150"></td>
+          <td style="text-align:center"> <image src="assets/images/frozenfries.jpg" alt="cheetos image"  width="150" height="150"></td>
           <td width="100" style="text-align:center"><h2 >Frozen Fries</h2></td>
           
           <td  style=  "text-align:center;"><input type="number" style="text-align:center; width:90; height:45;" placeholder="QUANTITY"/></td>
@@ -261,13 +261,9 @@
 
 <h4> Please log in or create an account to reserve your timeslot</h4>
 <button class="btn" style= width:300; size="20" onclick="goto('login.php');">LOGIN</button><br><br>
-<button class="btn" style= width:300; size="20"; onclick="goto('login.php');">CREATE AN ACCOUNT</button><br><br>
+<button class="btn" style= width:300; size="20"; onclick="goto('register.php');">CREATE AN ACCOUNT</button><br><br>
 </a>
-</div>
-
-
-
-            
+</div>            
 </div>
 <div id="footer">
    <center>
