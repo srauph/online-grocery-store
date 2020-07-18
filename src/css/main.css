@@ -416,3 +416,9 @@ a:visited {
 	background: black;
 	text-align: center;
 }
+
+@media only screen and (max-width: 600px) {
+	#footer {
+		margin-top: 50%;
+	}
+}
