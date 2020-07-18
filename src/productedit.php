@@ -51,7 +51,7 @@
               </tr>
               <tr>
 
-                  <td style="text-align:center"> <image src="../assets/images/apple.jpg" alt="green apples image"  width="150" height="100"></td>
+                  <td style="text-align:center"> <image src="assets/images/apple.jpg" alt="green apples image"  width="150" height="100"></td>
           
                   <td width="100" style="text-align:center"><h2 >Green Apples</h2></td>
           
@@ -100,7 +100,7 @@
       		  </tr>
       		  <tr>
 
-          		  <td style="text-align:center"> <image src="../assets/images/carrots.jpg" alt="carrots image"  width="150" height="100"></td>
+          		  <td style="text-align:center"> <image src="assets/images/carrots.jpg" alt="carrots image"  width="150" height="100"></td>
           
           		  <td width="100" style="text-align:center"><h2 >Carrots</h2></td>
           
@@ -149,7 +149,7 @@
       		  </tr>
       		  <tr>
 
-          		  <td style="text-align:center"> <image src="../assets/images/strawberry.jpg" alt="strawberries image"  width="150" height="100"></td>
+          		  <td style="text-align:center"> <image src="assets/images/strawberry.jpg" alt="strawberries image"  width="150" height="100"></td>
           
           		  <td width="100" style="text-align:center"><h2 >Strawberries</h2></td>
           
