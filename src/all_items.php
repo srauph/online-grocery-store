@@ -115,7 +115,6 @@
 			</center>
 		</div>
 
-
         <?php 
         
             // load all the items in the database
@@ -136,6 +135,7 @@
             $js_array = $js_array . "]";
             
 			// Exceute script
+			// This goes Sales.js and exceute void_displayItems()
 			echo "<script>window.addEventListener('load', function()	{
 				Sales.void_displayItems($js_array, 'all_items');
 			});</script>";        
