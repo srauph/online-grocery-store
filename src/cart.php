@@ -246,8 +246,10 @@
     <table border="1">
         <tr>
    <th> <input type="text" style="height:60px;font-size:15;width:200px; "placeholder="Our only location H3A 1M7"></th>
-       <th><a href="https://www.google.com/maps/place/1150+Maisonneuve+Blvd+W,+Montreal,+QC/@45.5000431,-73.5778952,17.18z/data=!4m5!3m4!1s0x4cc91a416d27dcf1:0xe258368f00acb82c!8m2!3d45.5002825!4d-73.5749175" target="_blank"> <image src="assets/Icons/magnifyingglass.png" alt="A magnifying glass image"style="float:right; margin-right:0.5em" width="50" height="25"></th>
-</a>
+       <th><a href="https://www.google.com/maps/place/1150+Maisonneuve+Blvd+W,+Montreal,+QC/@45.5000431,-73.5778952,17.18z/data=!4m5!3m4!1s0x4cc91a416d27dcf1:0xe258368f00acb82c!8m2!3d45.5002825!4d-73.5749175" target="_blank"> 
+       <image src="assets/Icons/magnifyingglass.png" alt="A magnifying glass image"style="float:right; margin-right:0.5em" width="50" height="25"></a>
+    </th>
+
     </tr>
 </table>
 <br>
