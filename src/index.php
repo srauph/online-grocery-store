@@ -59,7 +59,7 @@
 					<li onclick="goto('index.php')">Home</li>
 					<li onclick="goto('all_items.php')">All products</li>
 					<li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</li>
-					<li>Contact us</li>
+					<li onclick="goto('contactus.php');">Contact us</li>
 				<ul>
 			</div>		
 			<div>				
