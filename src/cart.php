@@ -137,10 +137,7 @@
      <td><pre>  </pre></td>
      <td><pre>  </pre></td>
      <td><pre>  </pre></td>
-        <th  height="50" width="360" style="text-align:right"><input type="submit" style="text-align:center; width:90; height:45; padding:10px;" size="10"; class="btn1" value="Delete"></th>
-
-
-      
+        <th  height="50" width="360" style="text-align:right"><input type="submit" style="text-align:center; width:90; height:45; padding:10px;" size="10"; class="btn1" value="Delete"></th>    
       
       </tr>
       <tr>
@@ -264,9 +261,9 @@
 
 <h4> Please log in or create an account to reserve your timeslot</h4>
 <a href="login.php">
-<button type="submit" class="btn" style= width:300; size="20">LOGIN</button><br><br>
+<button class="btn" style= width:300; size="20">LOGIN</button><br><br>
 </a>
-<a href="register.php"><button type="submit" class="btn" style= width:300; size="20";>CREATE AN ACCOUNT</button><br><br>
+<a href="register.php"><button class="btn" style= width:300; size="20";>CREATE AN ACCOUNT</button><br><br>
 </a>
 </div>
 
