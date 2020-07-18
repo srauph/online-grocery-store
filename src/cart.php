@@ -36,7 +36,7 @@
 				<button id="cart_button">
 					<br>
 					<br>
-					<img src="../assets/Icons/cart.png" style="float:left; margin-right:0.5em" width="25" height="25">
+					<img src="assets/Icons/cart.png" style="float:left; margin-right:0.5em" width="25" height="25">
 					<span id="cart_total_value">
 						$0.00
 					</span>
@@ -108,7 +108,7 @@
       </tr>
       <tr>
 
-          <td style="text-align:center"> <image src="../assets/Images/cheetos.jpg" alt="cheetos image"  width="150" height="150"></td>
+          <td style="text-align:center"> <image src="assets/Images/cheetos.jpg" alt="cheetos image"  width="150" height="150"></td>
           <td width="100" style="text-align:center"><h2 >Cheetos</h2></td>
           
           <td  style=  "text-align:center;"><input type="number" style="text-align:center; width:90; height:45;" placeholder="QUANTITY"/></td>
@@ -145,7 +145,7 @@
       </tr>
       <tr>
 
-          <td style="text-align:center"> <image src="../assets/Images/frozenfries.jpg" alt="cheetos image"  width="150" height="150"></td>
+          <td style="text-align:center"> <image src="assets/Images/frozenfries.jpg" alt="cheetos image"  width="150" height="150"></td>
           <td width="100" style="text-align:center"><h2 >Frozen Fries</h2></td>
           
           <td  style=  "text-align:center;"><input type="number" style="text-align:center; width:90; height:45;" placeholder="QUANTITY"/></td>
@@ -226,7 +226,7 @@
     <table>
         <tr>
 <th><label class="name">Apply a promotional code</label>
-<th><image src="../assets/Icons/questionmark.png" alt="question mark icon" style="float:right; margin-right:0.5em" width="50" height="25">
+<th><image src="assets/Icons/questionmark.png" alt="question mark icon" style="float:right; margin-right:0.5em" width="50" height="25">
 </tr>
 </table>
 
@@ -253,7 +253,7 @@
     <table border="1">
         <tr>
    <th> <input type="text" style="height:60px;font-size:15;width:200px; "placeholder="Our only location H3A 1M7"></th>
-       <th><a href="https://www.google.com/maps/place/1150+Maisonneuve+Blvd+W,+Montreal,+QC/@45.5000431,-73.5778952,17.18z/data=!4m5!3m4!1s0x4cc91a416d27dcf1:0xe258368f00acb82c!8m2!3d45.5002825!4d-73.5749175" target="_blank"> <image src="../assets/Icons/magnifyingglass.png" alt="A magnifying glass image"style="float:right; margin-right:0.5em" width="50" height="25"></th>
+       <th><a href="https://www.google.com/maps/place/1150+Maisonneuve+Blvd+W,+Montreal,+QC/@45.5000431,-73.5778952,17.18z/data=!4m5!3m4!1s0x4cc91a416d27dcf1:0xe258368f00acb82c!8m2!3d45.5002825!4d-73.5749175" target="_blank"> <image src="assets/Icons/magnifyingglass.png" alt="A magnifying glass image"style="float:right; margin-right:0.5em" width="50" height="25"></th>
 </a>
     </tr>
 </table>
@@ -292,11 +292,11 @@
 	  <th> <input type="text" style="height:30px;font-size:20;width:200px;"placeholder="Email address">
 	 <th> <input type="submit" id="btn_work" class="btn" size="20"; value="GO">
 	<td><pre>	</pre></td>
-	<th><a href="https://www.facebook.com/Caliprex-121401789649042" target="_blank"><image src="../assets/Icons/facebook.png" alt="Facebook image"style="float:right; margin-right:0.5em" width="50" height="35"></a>
-	<th><a href="https://www.instagram.com/caliprex/" target="_blank"><image src="../assets/Icons/instagram.png" alt="Instagram image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
-	<th><a href="https://twitter.com/caliprex" target="_blank"><image src="../assets/Icons/twitter.png" alt="Twitter image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
-	<th><a href="https://Pintrest.com/caliprex" target="_blank"><image src="../assets/Icons/pinterest.png" alt="Pintrest image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
-	<th><a href="https://www.youtube.com/channel/UCvZRW67axwzk6fw5dBSw-iQ?view_as=subscriber" target="_blank"><image src="../assets/Icons/youtube.png" alt="Youtube image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
+	<th><a href="https://www.facebook.com/Caliprex-121401789649042" target="_blank"><image src="assets/Icons/facebook.png" alt="Facebook image"style="float:right; margin-right:0.5em" width="50" height="35"></a>
+	<th><a href="https://www.instagram.com/caliprex/" target="_blank"><image src="assets/Icons/instagram.png" alt="Instagram image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
+	<th><a href="https://twitter.com/caliprex" target="_blank"><image src="assets/Icons/twitter.png" alt="Twitter image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
+	<th><a href="https://Pintrest.com/caliprex" target="_blank"><image src="assets/Icons/pinterest.png" alt="Pintrest image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
+	<th><a href="https://www.youtube.com/channel/UCvZRW67axwzk6fw5dBSw-iQ?view_as=subscriber" target="_blank"><image src="assets/Icons/youtube.png" alt="Youtube image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
 	
 	<th><a href="contactus.php" style="color:white;"><h3>About Us |</a></h3>      
 	<th><a href="login.php" ><h3 style="color:white;">Login</h3></a>
