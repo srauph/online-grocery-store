@@ -256,14 +256,12 @@
 </table>
 <br>
 
-<<a href="login.php"><input type="submit" class="btn" style= "width:300; size=20;" value="MY POSITION"></a></center>
+<a href="login.php"><input type="submit" class="btn" style= "width:300; size=20;" value="MY POSITION"></a></center>
 
 
 <h4> Please log in or create an account to reserve your timeslot</h4>
-<a href="login.php">
-<button class="btn" style= width:300; size="20">LOGIN</button><br><br>
-</a>
-<a href="register.php"><button class="btn" style= width:300; size="20";>CREATE AN ACCOUNT</button><br><br>
+<button class="btn" style= width:300; size="20" onclick="goto('login.php');">LOGIN</button><br><br>
+<button class="btn" style= width:300; size="20"; onclick="goto('login.php');">CREATE AN ACCOUNT</button><br><br>
 </a>
 </div>
 
