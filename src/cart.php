@@ -47,10 +47,10 @@
        <!-- Menu is here -->	
        <div>
             <div id="menu">
-				<ul>
+            <ul>
 					<li onclick="goto('index.php')">Home</li>
 					<li onclick="goto('all_items.php')">All products</li>
-					<li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</li>
+					<li onclick="goto('aisle.php')">Aisle</li>
 					<li onclick="goto('contactus.php');">Contact us</li>
 				<ul>
             </div>		
