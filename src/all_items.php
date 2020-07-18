@@ -124,7 +124,12 @@
             // Convert this to JS array
 			$js_array = "[";
 
-			for ($i = 0; $i < count($result); $i++) {
+			// TODO: Fix this
+			// Right now only showing 7 items because of javascript signle line statement being too large
+			// in the future must make PHP display the items instead of javascript
+
+			//for ($i = 0; $i < count($result); $i++) {
+			for ($i = 0; $i < min(count($result), 7); $i++) {
 				$js_array = $js_array . "new Item(". $result[$i]->toString() ."), ";
 			}
 
