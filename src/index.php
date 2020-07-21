@@ -1,6 +1,11 @@
+<?php
+session_start();
+require_once('php/config.php');
+//phpinfo();
+?>
 <html>
 	<head>
-<link rel="stylesheet" type="text/css" href="/src/css/main.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 		<title>Store main page</title>
 		<script type="text/javascript" src="scripts/Util.js"></script>
 		<script type="text/javascript" src="scripts/Cart.js"></script>

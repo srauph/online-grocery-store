@@ -2,13 +2,15 @@
 /*For My LocalPC*/
 // Create connection
 
-$DEV_MODE = false;
+$DEV_MODE = true;
 
 $db_server = "localhost";
 $db_username = "root";
 $db_name = "soen_287_project";
 $db_password = "";
-$db_port = "80";
+$db_port = 80;
+
+$conn;
 
 if ($DEV_MODE == false) {
   $db_server = "remotemysql.com";
@@ -16,9 +18,12 @@ if ($DEV_MODE == false) {
   $db_name = "IvqolEzAXD";
   $db_password = "kLbKsvhkYf";
   $db_port = "3306";
+
+  $conn = new mysqli($db_server, $db_username, $db_password, $db_name, $db_port);
+} else  {
+  $conn = new mysqli($db_server, $db_username, $db_password, $db_name);
 }
 
-$conn = new mysqli($db_server, $db_username, $db_password, $db_name, $db_port);
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);

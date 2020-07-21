@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 require_once('php/config.php');
 //phpinfo();
@@ -14,6 +15,25 @@ require_once('php/config.php');
 		<script type="text/javascript" src="scripts/Sales.js"></script>
 		<script type="text/javascript" src="scripts/AbstractComponent.js"></script>
 		<script type="text/javascript" src="scripts/main.js"></script>
+
+<style>
+#Invalid_Credentials	{
+	background-color: #fdd;
+	border: 1px solid #c77;
+	border-radius: 5px;
+	color: #c77;
+	padding: 10px;
+	display: none;
+}
+#db_error	{
+	background-color: #fdd;
+	border: 1px solid #c77;
+	border-radius: 5px;
+	color: #c77;
+	padding: 10px;
+	display: none;
+}
+</style>
 </head>
 
 <body>
@@ -37,36 +57,45 @@ require_once('php/config.php');
 		<div class="login_form" style="font-family: 'Roboto';">
 			<br />
 			<br />
-				<h1 class="center">Sign In</h1><br>
-				<form action="#" method="post">				
-			<center>			
-				<table>
-						<tr>
-							<td><h5>Username <span class="red">*</span></h5></td>        
-						</tr>
-						<tr>
-							<td><input style="height:55px; font-size:16;" type="text" name="username" size="20" placeholder="Username..." required="true"></td>
-							<tr></tr> <tr></tr> <tr></tr> <tr></tr><tr></tr> <tr></tr> <tr></tr> <tr></tr>
-							</tr>
-						
-							<tr>
-							<td>
-								<h5>Password <span class="red">*</span></h5>
-								</td>
+			<h1 class="center">Sign In</h1><br>
+			<div class="message">
+				<div id="Invalid_Credentials">
+					No such User exists. Invalid Credentials
+				</div>
+				<div id="db_error">
+					Database Error
+				</div>
+			</div>
+			<form action="login.php" method="post">				
+				<center>			
+						<table>
+								<tr>
+									<td><h5>Username <span class="red">*</span></h5></td>        
+								</tr>
+								<tr>
+									<td><input style="height:55px; font-size:16;" type="text" name="username" size="20" placeholder="Username..." required="true"></td>
+									<tr></tr> <tr></tr> <tr></tr> <tr></tr><tr></tr> <tr></tr> <tr></tr> <tr></tr>
+									</tr>
 								
-							</tr>
-							<tr>
-							<td><input style="height:55px;font-size:16" type="password" name="Password" placeholder="Password..." required="true"></td>
-							</tr>
-					</table>
-					<br>
-						
-					<a class="black" href="forgetpassword.php" title="Can't remember your password?"><small>Forgotten your password?</small></a><br><br>
-						
-					<input class="btn btn-success" type="submit" value="Login">
-					</div>
-				</form>	
-			</center>
+									<tr>
+									<td>
+										<h5>Password <span class="red">*</span></h5>
+										</td>
+										
+									</tr>
+									<tr>
+									<td><input style="height:55px;font-size:16" type="password" name="password" placeholder="Password..." required="true"></td>
+									</tr>
+							</table>
+						<br>
+							
+						<a class="black" href="forgetpassword.php" title="Can't remember your password?"><small>Forgotten your password?</small></a><br><br>
+							
+							<input class="btn btn-success" type="submit" name="login" value="Login">
+						</div>
+				</center>
+			</form>	
+			
 		</div>
 
 		<!-- FOOTER HERE -->
@@ -98,5 +127,45 @@ require_once('php/config.php');
 			</table>
 			</center>
 		</div>
+
+		<?php		 	
+
+			if(isset($_POST['login']))
+			{
+				$username = $_POST['username'];
+				$password = $_POST['password'];
+				
+				$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+				
+				$conn = $GLOBALS['conn'];
+				if ($conn->connect_error) {
+					die("Connection failed: " . $conn->connect_error);
+				}
+
+				$query_run = mysqli_query($conn, $query);
+				if(mysqli_num_rows($query_run) > 0)
+				{
+					$row = mysqli_fetch_assoc($query_run);
+					// valid
+					$_SESSION['id']= $row['id'];
+					$_SESSION['username']= $row['username'];
+					$_SESSION['password']= $row['password'];
+					$_SESSION['email']= $row['email'];
+					$_SESSION['cart']= $row['cart'];
+
+					header('location:index.php');
+					
+					// For some reason there were a problem with php header so I used JS
+					echo '<script type="text/javascript">window.location.href = "index.php"</script>';					
+				}
+				else
+				{
+					// invalid
+					echo '<script type="text/javascript">document.getElementById("Invalid_Credentials").style.display = "block";</script>';
+				}
+				
+			}	
+		
+		?>
     </body>
 </html>
