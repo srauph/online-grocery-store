@@ -1,6 +1,6 @@
 <html>
 	<head>
-<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="/src/css/main.css">
 		<title>Store main page</title>
 		<script type="text/javascript" src="scripts/Util.js"></script>
 		<script type="text/javascript" src="scripts/Cart.js"></script>
@@ -8,30 +8,6 @@
 		<script type="text/javascript" src="scripts/Sales.js"></script>
 		<script type="text/javascript" src="scripts/AbstractComponent.js"></script>
 		<script type="text/javascript" src="scripts/main.js"></script>
-<!-- Load on sale items to display them-->
-<?php
-	include "php/Util.php";
-
-	$result = ItemsArray_getItem("onsale", 1);
-	
-	// Convert this to JS array
-	$js_array = "[";
-
-	// foreach ($result as $value)	{
-		
-	// }
-
-	for ($i = 0; $i < count($result); $i++) {
-		$js_array = $js_array . "new Item(". $result[$i]->toString() ."), ";
-	 }
-
-	$js_array = $js_array . "]";
-
-	// Exceute script
-	echo "<script>window.addEventListener('load', function()	{
-			Sales.void_processSales($js_array);
-	});</script>";
-?>
 	</head>
 	<body>
 		<div id="__top_banner">
@@ -115,7 +91,8 @@
 			</center>
 		</div>
 
-        <?php 
+		<?php 
+			include "php/Util.php";
         
             // load all the items in the database
 			$result = ItemArray_getAllItems();
