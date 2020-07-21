@@ -1,6 +1,6 @@
 <html>
 	<head>
-	<link rel="stylesheet" type="text/css" href="/src/css/main.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 		<title>Store main page</title>
 		<script type="text/javascript" src="scripts/Util.js"></script>
 		<script type="text/javascript" src="scripts/Cart.js"></script>
@@ -8,6 +8,30 @@
 		<script type="text/javascript" src="scripts/Sales.js"></script>
 		<script type="text/javascript" src="scripts/AbstractComponent.js"></script>
 		<script type="text/javascript" src="scripts/main.js"></script>
+<!-- Load on sale items to display them-->
+<?php
+	include "php/Util.php";
+
+	$result = ItemsArray_getItem("onsale", 1);
+	
+	// Convert this to JS array
+	$js_array = "[";
+
+	// foreach ($result as $value)	{
+		
+	// }
+
+	for ($i = 0; $i < count($result); $i++) {
+		$js_array = $js_array . "new Item(". $result[$i]->toString() ."), ";
+	 }
+
+	$js_array = $js_array . "]";
+
+	// Exceute script
+	echo "<script>window.addEventListener('load', function()	{
+			Sales.void_processSales($js_array);
+	});</script>";
+?>
 	</head>
 	<body>
 		<div id="__top_banner">
@@ -91,61 +115,30 @@
 			</center>
 		</div>
 
-		<?php 
-			include "php/Util.php";
+        <?php 
         
             // load all the items in the database
-			$result = ItemArray_getAllItems();
-			sort($result);
-			
-			// Loop throught the items and display them all
-			echo `<div id="void_displayItems">`;
-			for ($i = 0; $i < count($result); $i++)	{
-				void_displayItem($result[$i]);
-			}
-			echo "</div>"
-			
-			function void_displayItem(Item $item): void {
+            $result = ItemArray_getAllItems();
+            
+            // Convert this to JS array
+			$js_array = "[";
 
-				$des = string_reduceChars($item->description, 30);
-		
+			// TODO: Fix this
+			// Right now only showing 7 items because of javascript signle line statement being too large
+			// in the future must make PHP display the items instead of javascript
 
-				echo `
-						<div class="__search_result_block">
-							<h1>$item->name</h1>
-							<img src="assets/images/${item.image}" title="$item->name" />
-							<br />
-							<br />
-		
-							<span>$des</span>
-		
-							<br />
-		
-							<h2>$$item->cost</h2>
-		
-							<form action="itemDescription.php?id=$item->id">
-								<input class="__learn_more_btn" type="submit" value="Learn more" />
-		
-								<!-- Add to cart button -->
-		
-								<input type="button" value="Add to cart" onclick="cart.void_add(
-									new Item($item->id}, '$item->name}', '$item->category}', '$item->image}', $item->cost
-					, $item->quantity}, $item->onSale)
-									)" />
-							</form>
-							
-						</div>
-					`;
-				}
+			//for ($i = 0; $i < count($result); $i++) {
+			for ($i = 0; $i < min(count($result), 7); $i++) {
+				$js_array = $js_array . "new Item(". $result[$i]->toString() ."), ";
 			}
-		
-			function string_reduceChars(string $originalString, int $maxChars): string {
-				if (strlen($originalString) <= maxChars)
-					return $originalString;
-				else {
-					return substr($originalString, 0, maxChars - 1) + "...";
-				}
-			}
+
+            $js_array = $js_array . "]";
+            
+			// Exceute script
+			// This goes Sales.js and exceute void_displayItems()
+			echo "<script>window.addEventListener('load', function()	{
+				Sales.void_displayItems($js_array, 'all_items');
+			});</script>";        
         ?>
 	</body>
 </html>
