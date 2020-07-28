@@ -60,10 +60,14 @@
         <div id="menu">
             <ul>
                 <li onclick="goto('index.php')">Home</li>
-                <li onclick="goto('all_items.php');">All products</li>
-                <li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle
-                </li>
-                <li>Contact us</li>
+                <li onclick="goto('all_items.php')">All products</li>
+                <a href="aisle.php">
+                    <li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle
+                    </li>
+                </a>
+                <a href="contactus.php">
+                    <li>Contact us</li>
+                </a>
                 <ul>
         </div>
         <div>
