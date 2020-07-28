@@ -4,11 +4,12 @@
     <link rel="stylesheet" type="text/css" href="./css/main.css">
     <title>Store main page</title>
     <meta name="viewport" content="width-device-width, initial-scale=1.0">
-    <script src="./scripts/Util.js"></script>
-    <script src="./scripts/Cart.js"></script>
-    <script src="./scripts/Item.js"></script>
-    <script src="./scripts/Sales.js"></script>
-    <script type="module" src="scripts/main.js"></script>
+    <script type="text/javascript" src="scripts/Util.js"></script>
+    <script type="text/javascript" src="scripts/Cart.js"></script>
+    <script type="text/javascript" src="scripts/Item.js"></script>
+    <script type="text/javascript" src="scripts/Sales.js"></script>
+    <script type="text/javascript" src="scripts/AbstractComponent.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
     <style>
     img {
         width: 100%;
