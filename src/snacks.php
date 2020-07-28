@@ -98,7 +98,7 @@
 
                     <tr class="beverage_list">
                         <td><a href="mars.php">
-                                <img src="../assets/images/mars.jpg" style="width:100px; height=100px;" alt="Mars bar">
+                                <img src="../assets/Images/mars.jpg" style="width:100px; height=100px;" alt="Mars bar">
                         </td></a>
                         <td><a href="mars.php" style="color:mediumslateblue;">Mars</td></a>
                         <td>A 47g Mars chocolate bar</td>
@@ -107,7 +107,7 @@
 
                     <tr class="beverage_list">
                         <td><a href="twix.php">
-                                <img src="../assets/images/twix.jpg" style="width:100px; height=100px;" alt="Twix bar">
+                                <img src="../assets/Images/twix.jpg" style="width:100px; height=100px;" alt="Twix bar">
                         </td></a>
                         <td><a href="twix.php" style="color:mediumslateblue;">Twix</td></a>
                         <td>A 52g Twix chocolate bar</td>

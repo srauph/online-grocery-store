@@ -51,7 +51,7 @@
         <table style="padding:2%; width:100%;">
             <tr>
                 <th class="beverage_left">
-                    <img src="../assets/images/twix.jpg" style="width:80%; height=80%;" alt="Twix">
+                    <img src="../assets/Images/twix.jpg" style="width:80%; height=80%;" alt="Twix">
                 </th>
 
                 <th class="beverage_right" colspan="4">
@@ -67,16 +67,6 @@
         </table>
         </tr>
     </div>
-
-
-
-
-
-
-
-
-
-
     <br />
     <br />
     </div>
