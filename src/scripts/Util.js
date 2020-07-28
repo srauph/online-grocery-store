@@ -8,7 +8,9 @@ function void_showElement(string_elementID) {
 }
 
 function void_hideElement(string_elementID) {
-	setTimeout(function () {
-		document.getElementById(string_elementID).style.display = "none";
-	}, 500);
+	//document.getElementById(string_elementID).style.display = "none";
+}
+
+function goto(string_url) {
+	window.location.href = string_url;
 }
