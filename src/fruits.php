@@ -101,7 +101,7 @@
 
                     <tr class="beverage_list">
                         <td><a href="apple.php">
-                                <img src="../assets/images/apple.jpg" style="width:100px; height=300px;" alt="Apple">
+                                <img src="../assets/Images/apple.jpg" style="width:100px; height=300px;" alt="Apple">
                         </td></a>
                         <td><a href="apple.php" style="color:mediumslateblue;">Apple (One Apple)</td></a>
                         <td>A soft green apple.</td>

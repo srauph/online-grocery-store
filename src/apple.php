@@ -49,7 +49,7 @@
     <div class="beverage_page">
 
         <div class="beverage_left">
-            <img src="../assets/images/apple.jpg" style="width:80%; height=80%;" alt="Apples">
+            <img src="../assets/Images/apple.jpg" style="width:80%; height=80%;" alt="Apples">
         </div>
 
         <div class="beverage_right">

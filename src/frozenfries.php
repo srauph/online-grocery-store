@@ -48,7 +48,7 @@
 
     <div class="beverage_page">
         <div class="beverage_left">
-            <img src="../assets/images/frozenfries.jpg" style="width:80%; height=80%;" alt="Frozen Fries">
+            <img src="../assets/Images/frozenfries.jpg" style="width:80%; height=80%;" alt="Frozen Fries">
         </div>
 
         <div class="beverage_right">
@@ -131,7 +131,7 @@
                                     </a>
                                 <th><a href="https://www.youtube.com/channel/UCvZRW67axwzk6fw5dBSw-iQ?view_as=subscriber"
                                         target="_blank">
-                                        <image src="assets/Icons/youtube.png" alt="Youtube image"
+                                        <image src="../assets/Icons/youtube.png" alt="Youtube image"
                                             style="float:right; margin-right:0.5em" width="50" height="35">
                                     </a>
 

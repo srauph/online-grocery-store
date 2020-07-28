@@ -99,7 +99,7 @@
 
                     <tr class="beverage_list">
                         <td><a href="sprite.php">
-                                <img src="../assets/images/sprite.jpg" style="width:100px; height=100px;"
+                                <img src="../assets/Images/sprite.jpg" style="width:100px; height=100px;"
                                     alt="Sprite Can">
                         </td></a>
                         <td><a href="sprite.php" style="color:mediumslateblue;">Sprite (355mL Can)</td></a>
@@ -109,7 +109,7 @@
 
                     <tr class="beverage_list">
                         <td><a href="cocacola.php">
-                                <img src="../assets/images/cocacola.jpg" style="width:100px; height=100px;"
+                                <img src="../assets/Images/cocacola.jpg" style="width:100px; height=100px;"
                                     alt="Coca-Cola Can">
                         </td></a>
                         <td><a href="cocacola.php" style="color:mediumslateblue;">Coca-Cola (355mL Can)</td></a>
@@ -159,24 +159,24 @@
                                     <pre>	</pre>
                                 </td>
                                 <th><a href="https://www.facebook.com/Caliprex-121401789649042" target="_blank">
-                                        <image src="assets/Icons/facebook.png" alt="Facebook image"
+                                        <image src="../assets/Icons/facebook.png" alt="Facebook image"
                                             style="float:right; margin-right:0.5em" width="50" height="35">
                                     </a>
                                 <th><a href="https://www.instagram.com/caliprex/" target="_blank">
-                                        <image src="assets/Icons/instagram.png" alt="Instagram image"
+                                        <image src="../assets/Icons/instagram.png" alt="Instagram image"
                                             style="float:right; margin-right:0.5em" width="50" height="35">
                                     </a>
                                 <th><a href="https://twitter.com/caliprex" target="_blank">
-                                        <image src="assets/Icons/twitter.png" alt="Twitter image"
+                                        <image src="../assets/Icons/twitter.png" alt="Twitter image"
                                             style="float:right; margin-right:0.5em" width="50" height="35">
                                     </a>
                                 <th><a href="https://Pintrest.com/caliprex" target="_blank">
-                                        <image src="assets/Icons/pinterest.png" alt="Pintrest image"
+                                        <image src="../assets/Icons/pinterest.png" alt="Pintrest image"
                                             style="float:right; margin-right:0.5em" width="50" height="35">
                                     </a>
                                 <th><a href="https://www.youtube.com/channel/UCvZRW67axwzk6fw5dBSw-iQ?view_as=subscriber"
                                         target="_blank">
-                                        <image src="assets/Icons/youtube.png" alt="Youtube image"
+                                        <image src="../assets/Icons/youtube.png" alt="Youtube image"
                                             style="float:right; margin-right:0.5em" width="50" height="35">
                                     </a>
 

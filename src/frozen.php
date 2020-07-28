@@ -101,7 +101,7 @@
 
                     <tr class="beverage_list">
                         <td><a href="frozenfries.php">
-                                <img src="../assets/images/frozenfries.jpg" style="width:100px; height=300px;"
+                                <img src="../assets/Images/frozenfries.jpg" style="width:100px; height=300px;"
                                     alt="Frozen Fries">
                         </td></a>
                         <td><a href="frozenfries.php" style="color:mediumslateblue;">Frozen Fries (One bag)</td></a>
