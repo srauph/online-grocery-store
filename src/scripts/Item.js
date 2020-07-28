@@ -10,8 +10,7 @@ class Item {
 		string_image,
 		double_cost,
 		int_quantity,
-		bool_onSale,
-		description
+		bool_onSale
 	) {
 		this.id = int_id;
 		this.name = string_name;
@@ -20,7 +19,6 @@ class Item {
 		this.image = string_image;
 		this.onSale = bool_onSale;
 		this.category = string_category;
-		this.description = description || "";
 	}
 
 	getCost() {

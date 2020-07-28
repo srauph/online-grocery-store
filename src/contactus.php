@@ -1,26 +1,22 @@
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="/src/css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
         <title>Cart Summary page</title>
         <style>
             input {
-             text-align: center;
-            }
+  text-align: center;
+}
 
-            ::-webkit-input-placeholder {
-             text-align: center;
-            }
+::-webkit-input-placeholder {
+  text-align: center;
+}
 
-            :-moz-placeholder {
-            text-align: center;
-            }
-            </style>            
-		<script type="text/javascript" src="scripts/Util.js"></script>
-		<script type="text/javascript" src="scripts/Cart.js"></script>
-		<script type="text/javascript" src="scripts/Item.js"></script>
-		<script type="text/javascript" src="scripts/Sales.js"></script>
-		<script type="text/javascript" src="scripts/AbstractComponent.js"></script>
-		<script type="text/javascript" src="scripts/main.js"></script>
+:-moz-placeholder {
+  text-align: center;
+}
+
+
+</style>
 </head>
 <body>
 <body style="background-color:lightgrey;">
@@ -33,7 +29,7 @@
 				<button id="cart_button">
 					<br>
 					<br>
-					<img src="assets/Icons/cart.png" style="float:left; margin-right:0.5em" width="25" height="25">
+					<img src="../assets/Icons/cart.png" style="float:left; margin-right:0.5em" width="25" height="25">
 					<span id="cart_total_value">
 						$0.00
 					</span>
@@ -121,11 +117,11 @@
       <br>
       <table >
           <tr>
-              <td  height="100" width="360" style="text-align:center" ><image src="assets/Icons/pen.png" alt="pen image" width="150" height="150" ></td>
+              <td  height="100" width="360" style="text-align:center" ><image src="../assets/Icons/pen.png" alt="pen image" width="150" height="150" ></td>
               
-              <td  height="100" width="360" style="text-align:center"><image src="assets/Icons/calender1.jpg" alt="calender image" width="150" height="150" style="text-align:left"></td>
+              <td  height="100" width="360" style="text-align:center"><image src="../assets/Icons/calender1.jpg" alt="calender image" width="150" height="150" style="text-align:left"></td>
               
-              <td  height="100" width="360" style="text-align:center"><image src="assets/Icons/cross.jpg" alt="cross image" width="150" height="150"></td>
+              <td  height="100" width="360" style="text-align:center"><image src="../assets/Icons/cross.jpg" alt="cross image" width="150" height="150"></td>
 </tr>
 <tr>
     <td><h1 style="color:grey; font-size:30;">to add,remove or check product avaliability</h1></td>
@@ -148,7 +144,7 @@
       <table border="1">
         <tr>
    <th> <input type="text" style="height:67px;font-size:15;width:190px; "placeholder="Our only location H3A 1M7">
-       <th><a href="https://www.google.com/maps/place/1150+Maisonneuve+Blvd+W,+Montreal,+QC/@45.5000431,-73.5778952,17.18z/data=!4m5!3m4!1s0x4cc91a416d27dcf1:0xe258368f00acb82c!8m2!3d45.5002825!4d-73.5749175" target="_blank"> <image src="assets/Icons/magnifyingglass.png" alt="A magnifying glass image"style="float:right; margin-right:0.5em" width="75" height="65">
+       <th><a href="https://www.google.com/maps/place/1150+Maisonneuve+Blvd+W,+Montreal,+QC/@45.5000431,-73.5778952,17.18z/data=!4m5!3m4!1s0x4cc91a416d27dcf1:0xe258368f00acb82c!8m2!3d45.5002825!4d-73.5749175" target="_blank"> <image src="../assets/Icons/magnifyingglass.png" alt="A magnifying glass image"style="float:right; margin-right:0.5em" width="75" height="65">
 </a>
     </tr>
 </table>

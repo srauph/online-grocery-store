@@ -1,9 +1,8 @@
 <html>
-	<head>
+<head>
 <link rel="stylesheet" type="text/css" href="css/main.css">
-        <title>Aisle page</title>
+        <title>Beauty Products</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         </head>
 	<body>
 		<div id="__top_banner">
@@ -22,7 +21,7 @@
 					</span>
 				</button>
 			</a>
-		</div>			
+            </div>			
 		<div id="menu">
 			<ul>
 				<li><a href="index.php">Home</li></a>
@@ -37,14 +36,14 @@
             <h3 style="margin-right:100%; padding:2%;">Categories</h3>	
 
 			<div class="sub_menus" id="aisle_categories" onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">
-				<form action="aisle.php" method="POST">	
-					<ul> 
+				<form action="beautyproducts.php" method="POST">	
+					<ul>
 						<li><input type="submit" name="__tag_search_btn" value="Bakery" formaction="bakery.php"></li>
 						<li><input type="submit" name="__tag_search_btn" value="Beauty Products" formaction="beautyproducts.php"></li>
 						<li><input type="submit" name="__tag_search_btn" value="Beverages" formaction="beverages.php"></li>
 						<li><input type="submit" name="__tag_search_btn" value="Frozen" formaction="frozen.php"></li>
 						<li><input type="submit" name="__tag_search_btn" value="Fruits" formaction="fruits.php"></li>
-						<li><input type="submit" name="__tag_search_btn" value="Vegetables" formaction="vegetables.php"></li>
+                        <li><input type="submit" name="__tag_search_btn" value="Vegetables" formaction="vegetables.php"></li>
 						<li><input type="submit" name="__tag_search_btn" value="Dairy Products" formaction="dairyproducts.php"></li>			
 						<li><input type="submit" name="__tag_search_btn" value="Snacks" formaction="snacks.php"></li>					
 					</ul>
@@ -53,14 +52,17 @@
 		</div>
 		<br />
 		<br />
-
+		</div>
+		
 		<div id="footer">
    <center>
    <table>
 
 	   <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
    <td></td><td></td><td></td><td></td><td></td><td></td>
-   <th><h3 style="color:white; text-align:center;">Caliprex<h3> 
+
+   <th><h3 style="color:white; text-align:center;">Caliprex<h3>			
+
 		
 <tr> 
 		<th><h3 style="color:white; font-style:robotto;"> <br>Subscribe to our Newsletter!</h3>
@@ -69,7 +71,7 @@
 		<td></td>
 	  <th> <input type="text" style="height:30px;font-size:20;width:200px;"placeholder="Email address">
 	 <th> <input type="submit" id="btn_work" class="btn" size="20"; value="GO">
-	 <td><pre>	</pre></td>
+	<td><pre>	</pre></td>
 	<th><a href="https://www.facebook.com/Caliprex-121401789649042" target="_blank"><image src="../assets/Icons/facebook.png" alt="Facebook image"style="float:right; margin-right:0.5em" width="50" height="35"></a>
 	<th><a href="https://www.instagram.com/caliprex/" target="_blank"><image src="../assets/Icons/instagram.png" alt="Instagram image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
 	<th><a href="https://twitter.com/caliprex" target="_blank"><image src="../assets/Icons/twitter.png" alt="Twitter image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
@@ -82,6 +84,7 @@
 </tr>
 
 </table>
+</center>
 </div>
 </body>
-		</html>
+</html>

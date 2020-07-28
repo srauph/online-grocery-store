@@ -13,9 +13,8 @@ class Item {
 	public $cost;
 	public $quantity;
 	public $onsale;
-	public $description;
     
-	function __construct($int_id, $string_name, $string_category, $string_image, $double_cost, $int_quantity, $byte_onSale, $string_description) {
+	function __construct($int_id, $string_name, $string_category, $string_image, $double_cost, $int_quantity, $byte_onSale) {
 		$this->id = $int_id;
 		$this->name = $string_name;
 		$this->category = $string_category;
@@ -23,7 +22,6 @@ class Item {
 		$this->cost = $double_cost;
 		$this->quantity = $int_quantity;
 		$this->onsale = $byte_onSale;
-		$this->description = $string_description;
 	 }
 
 	 function getID()	{
@@ -31,7 +29,7 @@ class Item {
 	 }
 
 	 function toString()	{
-		 return "$this->id, '$this->name', '$this->category', '$this->image', $this->cost, $this->quantity, $this->onsale, '$this->description'";
+		 return "$this->id, '$this->name', '$this->category', '$this->image', $this->cost, $this->quantity, $this->onsale";
 	 }
 }
 

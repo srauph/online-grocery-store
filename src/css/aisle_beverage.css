@@ -1,0 +1,74 @@
+
+#beverage_grid {
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+
+#beverages {
+	height:100%;
+	background-color:lightgray;
+}
+#beverage_items {
+	margin: 20px;
+	color: black;
+}
+
+.beverage_list {
+	text-align:center;
+	height:120px;
+}
+
+#beverage_table {
+	text-align:center;
+	background-color:white;
+	width:100%;
+	padding-left:5%;
+	padding-right:5%;
+}
+
+.beverage_page {
+    background-color: lightgray;
+}
+
+.beverage_left {
+    text-align:center;
+    background-color: white;
+	padding:5%;
+}
+
+.beverage_right {
+    text-align:left;
+    background-color: white;
+	padding:2%;
+}
+
+.product_option_btn {
+	color: black;
+	padding: 10px;
+	background-color: lightgray;
+	border: 0;
+	cursor: pointer;
+	transition: all 1s;
+	text-align: center;
+}
+
+.product_description_btn {
+	color: white;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:10px;
+    padding-bottom:10px;
+	background-color: gray;
+	border: 0;
+	cursor: pointer;
+	transition: all 1s;
+	text-align: center;
+}
+
+.product_option_btn:hover {
+	background-color: #e53134;
+}
+
+.product_description_btn:hover {
+	background-color: #e53134;
+}

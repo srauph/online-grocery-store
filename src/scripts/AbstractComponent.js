@@ -4,7 +4,7 @@
  * ex: Cart, user, Grocery list, etc
  */
 
-class IAbstractComponent {
+export class IAbstractComponent {
 	constructor() {
 		if (new.target == IAbstractComponent) {
 			throw new Error("Cannot initialize an interface!");

@@ -2,9 +2,10 @@
 *	Main CSS file
 */
 
+/** Shadi CSS **/
 @font-face {
 	font-family: "Roboto";
-	src: url(../../assets/Fonts/Roboto/Roboto-Regular.ttf);
+	src: url(../assets/Fonts/Roboto/Roboto-Regular.ttf);
 }
 
 body {
@@ -34,6 +35,16 @@ a:visited {
 
 .red {
 	color: red;
+	font-size: 17;
+}
+.green {
+	color: green;
+}
+.grey {
+	color: grey;
+	width: 100px;
+	height: 30px;
+	font-size: 20;
 }
 
 .center {
@@ -90,11 +101,12 @@ a:visited {
 
 .btn {
 	color: white;
-	padding: 20px;
+	padding: 30px;
 	background-color: #161616;
 	border: 0;
 	cursor: pointer;
 	transition: all 1s;
+	text-align: center;
 }
 
 .btn:hover {
@@ -186,6 +198,15 @@ a:visited {
 	transition: 0.5s all, 1s opacity;
 }
 
+#__footer {
+	background-color: #161616;
+	color: white;
+	padding: 20px;
+	height: 500px;
+	margin-top: 30%;
+	text-align: center;
+}
+
 #__outer_ul li {
 	list-style-type: none;
 	display: inline-block;
@@ -233,14 +254,9 @@ a:visited {
 	cursor: pointer;
 }
 
-.__learn_more_btn {
-	background-color: #161616;
-	color: white;
-	padding: 15px;
-	border: none;
-}
-#magnifying_button{
-    text-align: right;
+/** Amer CSS **/
+#magnifying_button {
+	text-align: right;
 	background-color: transparent;
 	padding: 2px;
 	border-radius: 5px;
@@ -248,14 +264,14 @@ a:visited {
 	margin-top: -70px;
 	cursor: pointer;
 
-	
 	display: inline-block;
 }
-.cart_right{
+.cart_right {
 	margin-left: 76%;
 	border-style: solid;
-	border:black;
-
+	border: black;
+	position: relative;
+	top: -73%;
 }
 
 #__promotion_code {
@@ -264,101 +280,153 @@ a:visited {
 	padding: 20px;
 	color: white;
 }
-.__Cart_Summary{
+.__Cart_Summary {
 	background-color: transparent;
-	width:250px;
-	left:100%;
-	border:black;
+	width: 250px;
+	left: 100%;
+	border: black;
 	height: 20px;
 	padding: 20px;
-	color:black;
-	
-
+	color: black;
 }
-	
-	input {
-		text-align: center;
-	  }
-	  
-	  ::-webkit-input-placeholder {
-		text-align: center;
-	  }
-	  
-	  :-moz-placeholder {
-		text-align: center;
-	  }
-	  .minimum45{
-		  font-size: 13;
-		  width:240px;
-		  height:500px;
-	  }
-.border1{
 
-		background-color: white;
-		width: 300px;
-		
-		padding: 50px;
-		margin: 20px;
-		height: 500px !important;
-		color:black;
-	  
+::-webkit-input-placeholder {
+	text-align: center;
 }
-.marginright{
+
+:-moz-placeholder {
+	text-align: center;
+}
+.minimum45 {
+	font-size: 13;
+	width: 240px;
+	height: 500px;
+}
+.border1 {
+	background-color: white;
+	width: 300px;
+
+	padding: 50px;
+	margin: 20px;
+	height: 500px !important;
+	color: black;
+}
+.marginright {
 	margin-right: 20%;
-	
 }
-.name{
+.name {
 	background-color: white;
 	color: grey;
 	border: transparent;
 	font-weight: bold;
 	font-size: 18;
 }
-.border2{
-
+.border2 {
 	background-color: white;
 	width: 300px;
+
 	padding: 50px;
 	margin: 20px;
 	height: 180px;
-	color:black;
-  
+	color: black;
 }
 #top_banner {
 	background-color: #161616;
 	height: 15%;
 	padding: 10;
 	color: whitesmoke;
-	width:70%;
+	width: 70%;
 }
-.border3{
-
+.border3 {
 	background-color: white;
 	width: 300px;
-	
+
 	padding: 50px;
 	margin: 20px;
 	height: 500px;
-	color:black;
-  
+	color: black;
 }
-
-.cart_left{
+.bottom_banner {
+	background-color: black;
+	height: 15%;
+	padding: 10;
+	color: white;
+	width: 100%;
+}
+.cart_left {
 	margin-right: 100%;
 	border-style: solid;
-	border:black;
+	border: black;
+	position: relative;
+	left: 0;
+	top: 0;
+	left: 12%;
 }
-#btn_work {
-    padding: 9px;
-    margin: 0 auto;
-    vertical-align: middle;
+.border4 {
+	background-color: white;
+	width: 700px;
+
+	padding: 50px;
+	margin: 20px;
+	height: 250px;
+	color: black;
+}
+.btn1 {
+	color: white;
+	padding: 30px;
+	background-color: red;
+	border: 0;
+	cursor: pointer;
+	transition: all 1s;
+	text-align: center;
+}
+.btn1:hover {
+	background-color: grey;
+}
+.cart_left1 {
+	margin-right: 30%;
+	border-style: solid;
+	border: black;
+	position: relative;
+	left: 0;
+	top: 0;
+	left: 16%;
+}
+.Customer_service {
+	border-style: dashed;
+	width: 1200;
+}
+.border5 {
+	background-color: black;
+	width: 1000px;
+	padding: 50px;
+	margin: 20px;
+	height: 500px;
+	color: white;
 }
 
-#footer {
-position:relative;
-bottom:0;
-width:100%;
-height:130px;   /* Height of the footer */
-background:black;
-text-align:center;
+#btn_work {
+	padding: 9px;
+	margin: 0 auto;
+	vertical-align: middle;
 }
+
+/** Mango CSS **/
+#footer {
+	position: relative;
+	bottom: 0;
+	width: 100%;
+	height: 40%; /* Height of the footer */
+	background: black;
+	text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+	#footer {
+		margin-top: 150%;
+	}
+}
+
+/** Moe CSS **/
+
+/** af CSS **/
