@@ -49,16 +49,46 @@
     <script>
     let bars = 1;
 
+    /**
+     * This function will update how many choclate bars the user wants to put at once in his cart
+     */
     function void_updateNumber(int_num) {
         bars = int_num;
     }
 
+    /**
+     * This function will display the changes on the cart
+     */
     function void_addItemsToCart() {
 
         for (let i = 0; i < bars; i++)
             cart.void_add(new Item(121, 'Mars', 'mars, chocolat', 'mars.jpg', 1.49, 1, 0, ''));
-
     }
+
+    // =================== DESCRIPTION HANDLING ======================
+
+    // Replace the content of this variable with your own product description
+    const description = "A 47g Mars chocolate bar (limited to 3 per costumer)";
+
+    /**
+     * This function will only show the first 15 caracters of the description of the product
+     */
+    function handleDescription() {
+        document.getElementById("description").innerHTML = Sales.private_string_reduceChars(description,
+            15);
+    }
+
+    /**
+     * This function will show the full descrption of the product
+     */
+    function showAllDescription() {
+        document.getElementById("description").innerHTML = description;
+    }
+
+    // When the page is loaded, don't show all the description. Show only a breif part of it
+    window.addEventListener("load", function() {
+        handleDescription();
+    });
     </script>
 
     <div class="beverage_page">
@@ -71,10 +101,11 @@
 
                 <th class="beverage_right" colspan="4">
                     <h1 style="font-size:48; padding:2%; background-color:white;">Twix choclate bar</h1><br>
-                    <p style="font-size:24px">A 47g Mars chocolate bar (limited to 3 per costumer)</p>
-                    <button type="submit" class="product_description_btn">More Description...</button><br><br><br>
+                    <p style="font-size:24px" id="description">A 47g Mars chocolate bar (limited to 3 per costumer)</p>
+                    <button class="product_description_btn" onclick="showAllDescription();">More
+                        Description...</button><br><br><br>
                     <p>You may choose a different size using the options below...</p>
-                    <button class="product_option_btn" onclick="void_updateNumber(1);">1 bar</button>
+                    <button class=" product_option_btn" onclick="void_updateNumber(1);">1 bar</button>
                     <button class="product_option_btn" onclick="void_updateNumber(2);">2 bars</button>
                     <button class="product_option_btn" onclick="void_updateNumber(3);">3 bars</button><br><br><br>
                     <button type="submit" class="btn" onclick="void_addItemsToCart();">Add
