@@ -55,7 +55,7 @@
 
     function void_addItemsToCart() {
 
-        for (int i = 0; i < bars; i++)
+        for (let i = 0; i < bars; i++)
             cart.void_add(new Item(121, 'Mars', 'mars, chocolat', 'mars.jpg', 1.49, bars, 0, ''));
 
     }
