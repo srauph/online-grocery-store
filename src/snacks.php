@@ -36,8 +36,13 @@
         <ul>
             <li><a href="index.php">Home</li></a>
             <li>Sales</li>
-            <li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</li>
-            <li>Contact us</li>
+            <a href="aisle.php">
+                <li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle
+                </li>
+            </a>
+            <a href="Contactus.php">
+                <li>Contact us</li>
+            </a>
             <ul>
     </div>
 

@@ -40,7 +40,9 @@
                 <li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle
                 </li>
             </a>
-            <li>Contact us</li>
+            <a href="Contactus.php">
+                <li>Contact us</li>
+            </a>
             <ul>
     </div>
 
@@ -51,7 +53,7 @@
         <table style="padding:2%; width:100%;">
             <tr>
                 <th class="beverage_left">
-                    <img src="../assets/images/mars.jpg" style="width:80%; height=80%;" alt="Mars bar">
+                    <img src="../assets/Images/mars.jpg" style="width:80%; height=80%;" alt="Mars bar">
                 </th>
 
                 <th class="beverage_right" colspan="4">

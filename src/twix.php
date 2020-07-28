@@ -40,7 +40,9 @@
                 <li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle
                 </li>
             </a>
-            <li>Contact us</li>
+            <a href="Contactus.php">
+                <li>Contact us</li>
+            </a>
             <ul>
     </div>
 
