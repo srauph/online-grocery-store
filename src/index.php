@@ -54,8 +54,7 @@
             <button id="cart_button">
                 <br>
                 <br>
-                <img src="../assets/Icons/cart.png" style="float:left; margin-right:0.5em;width: 25px; height: 25px"
-                    width="25" height="25">
+                <img src="../assets/Icons/cart.png" style="float:left; margin-right:0.5em;" width="25" height="25">
                 <span id="cart_total_value">
                     $0.00
                 </span>
@@ -111,7 +110,6 @@
         <div id="footer">
             <center>
                 <table>
-
                     <tr></tr>
                     <tr></tr>
                     <tr></tr>
@@ -123,7 +121,6 @@
                     <td></td>
                     <td></td>
                     <td></td>
-
                     <th>
                         <h3 style="color:white; text-align:center;">Caliprex<h3>
 

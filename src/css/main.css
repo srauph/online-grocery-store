@@ -239,8 +239,8 @@ a:visited {
 	padding: 15px;
 	border: none;
 }
-#magnifying_button{
-    text-align: right;
+#magnifying_button {
+	text-align: right;
 	background-color: transparent;
 	padding: 2px;
 	border-radius: 5px;
@@ -248,14 +248,12 @@ a:visited {
 	margin-top: -70px;
 	cursor: pointer;
 
-	
 	display: inline-block;
 }
-.cart_right{
+.cart_right {
 	margin-left: 76%;
 	border-style: solid;
-	border:black;
-
+	border: black;
 }
 
 #__promotion_code {
@@ -264,101 +262,107 @@ a:visited {
 	padding: 20px;
 	color: white;
 }
-.__Cart_Summary{
+.__Cart_Summary {
 	background-color: transparent;
-	width:250px;
-	left:100%;
-	border:black;
+	width: 250px;
+	left: 100%;
+	border: black;
 	height: 20px;
 	padding: 20px;
-	color:black;
-	
-
+	color: black;
 }
-	
-	input {
-		text-align: center;
-	  }
-	  
-	  ::-webkit-input-placeholder {
-		text-align: center;
-	  }
-	  
-	  :-moz-placeholder {
-		text-align: center;
-	  }
-	  .minimum45{
-		  font-size: 13;
-		  width:240px;
-		  height:500px;
-	  }
-.border1{
 
-		background-color: white;
-		width: 300px;
-		
-		padding: 50px;
-		margin: 20px;
-		height: 500px !important;
-		color:black;
-	  
+input {
+	text-align: center;
 }
-.marginright{
+
+::-webkit-input-placeholder {
+	text-align: center;
+}
+
+:-moz-placeholder {
+	text-align: center;
+}
+.minimum45 {
+	font-size: 13;
+	width: 240px;
+	height: 500px;
+}
+.border1 {
+	background-color: white;
+	width: 300px;
+
+	padding: 50px;
+	margin: 20px;
+	height: 500px !important;
+	color: black;
+}
+.marginright {
 	margin-right: 20%;
-	
 }
-.name{
+.name {
 	background-color: white;
 	color: grey;
 	border: transparent;
 	font-weight: bold;
 	font-size: 18;
 }
-.border2{
-
+.border2 {
 	background-color: white;
 	width: 300px;
 	padding: 50px;
 	margin: 20px;
 	height: 180px;
-	color:black;
-  
+	color: black;
 }
 #top_banner {
 	background-color: #161616;
 	height: 15%;
 	padding: 10;
 	color: whitesmoke;
-	width:70%;
+	width: 70%;
 }
-.border3{
-
+.border3 {
 	background-color: white;
 	width: 300px;
-	
+
 	padding: 50px;
 	margin: 20px;
 	height: 500px;
-	color:black;
-  
+	color: black;
 }
 
-.cart_left{
+.cart_left {
 	margin-right: 100%;
 	border-style: solid;
-	border:black;
+	border: black;
 }
 #btn_work {
-    padding: 9px;
-    margin: 0 auto;
-    vertical-align: middle;
+	padding: 9px;
+	margin: 0 auto;
+	vertical-align: middle;
 }
 
 #footer {
-position:relative;
-bottom:0;
-width:100%;
-height:130px;   /* Height of the footer */
-background:black;
-text-align:center;
+	position: relative;
+	bottom: 0;
+	width: 100%;
+	height: 130px; /* Height of the footer */
+	background: black;
+	text-align: center;
+}
+
+#__top_banner button img {
+	height: 25px;
+	width: 25px;
+}
+
+#footer image {
+	width: 50px;
+	height: 50px;
+}
+
+#footer img {
+	width: 50px;
+	height: 50px;
 }
