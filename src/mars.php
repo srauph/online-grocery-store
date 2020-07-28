@@ -65,13 +65,27 @@
             cart.void_add(new Item(121, 'Mars', 'mars, chocolat', 'mars.jpg', 1.49, 1, 0, ''));
     }
 
+    // =================== DESCRIPTION HANDLING ======================
+
+    // Replace the content of this variable with your own product description
+    const description = "A 47g Mars chocolate bar (limited to 3 per costumer)";
+
+    /**
+     * This function will only show the first 15 caracters of the description of the product
+     */
     function handleDescription() {
-
-        const DOM = document.getElementById("description").innerHTML = Sales.private_string_reduceChars(
-            "A 47g Mars chocolate bar (limited to 3 per costumer)", 15);
-
+        document.getElementById("description").innerHTML = Sales.private_string_reduceChars(description,
+            15);
     }
 
+    /**
+     * This function will show the full descrption of the product
+     */
+    function showAllDescription() {
+        document.getElementById("description").innerHTML = description;
+    }
+
+    // When the page is loaded, don't show all the description. Show only a breif part of it
     window.addEventListener("load", function() {
         handleDescription();
     });
@@ -87,7 +101,8 @@
                 <th class="beverage_right" colspan="4">
                     <h1 style="font-size:48; padding:2%; background-color:white;">Mars chocolate bar</h1><br>
                     <p style="font-size:24px" id="description"></p>
-                    <button type="submit" class="product_description_btn">More Description...</button><br><br><br>
+                    <button class="product_description_btn" onclick="showAllDescription();">More
+                        Description...</button><br><br><br>
                     <p>You may choose a different size using the options below...</p>
                     <button class="product_option_btn" onclick="void_updateNumber(1);">1 bar</button>
                     <button class="product_option_btn" onclick="void_updateNumber(2);">2 bars</button>
