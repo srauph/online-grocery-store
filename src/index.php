@@ -30,7 +30,7 @@
 		
 	// }
 
-	for ($i = 0; $i < count($result); $i++) {
+	for ($i = 0; $i < min(count($result), 5); $i++) {
 		$js_array = $js_array . "new Item(". $result[$i]->toString() ."), ";
 	 }
 
