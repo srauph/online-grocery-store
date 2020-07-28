@@ -1,16 +1,21 @@
 
+
+/** for beverages aisle page **/
 #beverage_grid {
-    display: grid;
-    grid-template-columns: 15% 85%;
+	display: grid;
+	grid-column-gap: 5px;
+	grid-template-columns: 15% 85%;
+	padding: 2%;
 }
 
 #beverages {
 	height:100%;
 	background-color:lightgray;
+	padding:2%
 }
 #beverage_items {
-	margin: 20px;
-	color: black;
+	background-color:white;
+	height: 100%;
 }
 
 .beverage_list {
@@ -26,14 +31,26 @@
 	padding-right:5%;
 }
 
+/** for individual beverage pages**/
 .beverage_page {
-    background-color: lightgray;
+	display: grid;
+	grid-template-columns: 40% 60%;
+	grid-column-gap: 5px;
+	background-color: lightgray;
+	padding:2%;
+	padding-left:5%;
+	padding-right:5%;
+	
 }
 
 .beverage_left {
-    text-align:center;
+	display: grid;
     background-color: white;
-	padding:5%;
+	padding:2%;
+}
+
+.beverage_left img {
+	margin: auto;
 }
 
 .beverage_right {
@@ -42,6 +59,7 @@
 	padding:2%;
 }
 
+/** buttons for the beverage pages **/
 .product_option_btn {
 	color: black;
 	padding: 10px;

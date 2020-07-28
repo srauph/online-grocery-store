@@ -3,7 +3,7 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <link rel="stylesheet" type="text/css" href="css/aisle_vegetables.css" />
+    <link rel="stylesheet" type="text/css" href="css/aisle_beverage.css" />
     <title>
         Product: Onions
     </title>
@@ -63,47 +63,43 @@
             <ul>
     </div>
 
-    <div class="vegetables_page">
-        <table style="padding:2%; width:100%;">
-            <tr>
-                <th class="vegetables_left">
-                    <img src="../assets/images/onions.jpeg" style="width:80%" alt="onions image" />
-                </th>
-                <th class="vegetables_right" colspan="4">
-                    <h1 style="font-size:48; padding:2%; background-color:white;">
-                        Onions (One Bag)
-                    </h1>
-                    <br />
-                    <p style="font-size:24px">
-                        Onions freshly grown from your local farms.
-                    </p>
-                    <button type="submit" class="product_description_btn">
-                        More Description...
-                    </button>
-                    <br />
-                    <br />
-                    <br />
-                    <p>
-                        You may choose a different size using the options below...
-                    </p>
-                    <button type="submit" class="product_option_btn">
-                        A bag of 5 onions
-                    </button>
-                    <button type="submit" class="product_option_btn">
-                        A bag of 10 onions
-                    </button>
-                    <button type="submit" class="product_option_btn">
-                        A bag of 25 onions
-                    </button>
-                    <br />
-                    <br />
-                    <br />
-                    <button type="submit" class="btn">
-                        Add To Cart
-                    </button>
-                </th>
-        </table>
-        </tr>
+    <div class="beverage_page">
+        <div class="beverage_left">
+            <img src="../assets/images/onions.jpeg" style="width:80%" alt="onions image" />
+        </div>
+        <div class="beverage_right" colspan="4">
+            <h1 style="font-size:48; padding:2%; background-color:white;">
+                Onions (One Bag)
+            </h1>
+            <br />
+            <p style="font-size:24px">
+                Onions freshly grown from your local farms.
+            </p>
+            <button type="submit" class="product_description_btn">
+                More Description...
+            </button>
+            <br />
+            <br />
+            <br />
+            <p>
+                You may choose a different size using the options below...
+            </p>
+            <button type="submit" class="product_option_btn">
+                A bag of 5 onions
+            </button>
+            <button type="submit" class="product_option_btn">
+                A bag of 10 onions
+            </button>
+            <button type="submit" class="product_option_btn">
+                A bag of 25 onions
+            </button>
+            <br />
+            <br />
+            <br />
+            <button type="submit" class="btn">
+                Add To Cart
+            </button>
+        </div>
     </div>
     <br />
     <br />

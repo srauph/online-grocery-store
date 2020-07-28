@@ -47,30 +47,25 @@
 
 
     <div class="beverage_page">
+        <div class="beverage_left">
+            <img src="../assets/images/frozenfries.jpg" style="width:80%; height=80%;" alt="Frozen Fries">
+        </div>
 
-        <table style="padding:2%; width:100%;">
-            <tr>
-                <th class="beverage_left">
-                    <img src="../assets/images/frozenfries.jpg" style="width:80%; height=80%;" alt="Frozen Fries">
-                </th>
-
-                <th class="beverage_right" colspan="4">
-                    <h1 style="font-size:48; padding:2%; background-color:white;">Mccain Fries (One bag)</h1><br>
-                    <p style="font-size:24px">A 550g bag of fries. Also comes in 300g and 150g varieties.</p>
-                    <button type="submit" class="product_description_btn">More Description...</button><br><br><br>
-                    <p>You may choose a different size using the options below...</p>
-                    <button type="submit" class="product_option_btn">550g bag</button>
-                    <button type="submit" class="product_option_btn">300g bag</button>
-                    <button type="submit" class="product_option_btn">150g bag</button><br><br><br>
-                    <button type="submit" class="btn">Add To Cart</button><br><br>
-                    <label class="red">Quantity</label>
-                    <br>
-                    <input type="number" max="10" min="1" style="text-align:center; width:90; height:45;"
-                        placeholder="QUANTITY" />
-                    <br>
-                </th>
-        </table>
-        </tr>
+        <div class="beverage_right">
+            <h1 style="font-size:48; padding:2%; background-color:white;">Mccain Fries (One bag)</h1><br>
+            <p style="font-size:24px">A 550g bag of fries. Also comes in 300g and 150g varieties.</p>
+            <button type="submit" class="product_description_btn">More Description...</button><br><br><br>
+            <p>You may choose a different size using the options below...</p>
+            <button type="submit" class="product_option_btn">550g bag</button>
+            <button type="submit" class="product_option_btn">300g bag</button>
+            <button type="submit" class="product_option_btn">150g bag</button><br><br><br>
+            <button type="submit" class="btn">Add To Cart</button><br><br>
+            <label class="red">Quantity</label>
+            <br>
+            <input type="number" max="10" min="1" style="text-align:center; width:90; height:45;"
+                placeholder="QUANTITY" />
+            <br>
+        </div>
     </div>
 
 

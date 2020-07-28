@@ -2,7 +2,7 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/aisle_vegetables.css">
+    <link rel="stylesheet" type="text/css" href="css/aisle_beverage.css">
     <title>Vegetables</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -51,7 +51,7 @@
 
     <h1 style="font-size:48; padding:2%; text-align:center; background-color:white;">Vegetables</h1>
 
-    <div id="vegetables_grid">
+    <div id="beverage_grid">
 
         <div id="categories">
 
@@ -78,10 +78,10 @@
             </div>
         </div>
 
-        <div id="vegetables">
-            <div id="vegetables_items">
+        <div id="beverages">
+            <div id="beverage_items">
                 <br><br>
-                <table id="vegetables_table">
+                <table id="beverage_table">
                     <tr style="text-align:center; height:80px; background-color:white;">
                         <th colspan="4">
                             <h2 style="color:crimson;"> Click on a product image (or its corresponding title) to go to
@@ -104,7 +104,7 @@
                         </th>
                     </tr>
 
-                    <tr class="vegetables_list">
+                    <tr class="beverage_list">
                         <td><a href="carrots.php">
                                 <img src="../assets/images/carrots.jpg" style="width:100px; height=100px;"
                                     alt="carrots image">
@@ -114,7 +114,7 @@
                         <td>$1.49</td>
                     </tr>
 
-                    <tr class="vegetables_list">
+                    <tr class="beverage_list">
                         <td><a href="cucumbers.php">
                                 <img src="../assets/images/cucumbers.jpg" style="width:100px; height=100px;"
                                     alt="cucumbers image">
@@ -124,7 +124,7 @@
                         <td>$1.69</td>
                     </tr>
 
-                    <tr class="vegetables_list">
+                    <tr class="beverage_list">
                         <td><a href="onions.php">
                                 <img src="../assets/images/onions.jpeg" style="width:100px; height=100px;"
                                     alt="onions image">
@@ -135,7 +135,7 @@
                         <td>$0.99</td>
                     </tr>
 
-                    <tr class="vegetables_list">
+                    <tr class="beverage_list">
                         <td><a href="tomatoes.php">
                                 <img src="../assets/images/tomato.jpg" style="width:100px; height=100px;"
                                     alt="tomatoes image">

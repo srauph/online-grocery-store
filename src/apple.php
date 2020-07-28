@@ -48,29 +48,25 @@
 
     <div class="beverage_page">
 
-        <table style="padding:2%; width:100%;">
-            <tr>
-                <th class="beverage_left">
-                    <img src="../assets/images/apple.jpg" style="width:80%; height=80%;" alt="Apples">
-                </th>
+        <div class="beverage_left">
+            <img src="../assets/images/apple.jpg" style="width:80%; height=80%;" alt="Apples">
+        </div>
 
-                <th class="beverage_right" colspan="4">
-                    <h1 style="font-size:48; padding:2%; background-color:white;">Apple (One apple)</h1><br>
-                    <p style="font-size:24px">A soft green apple. Also comes in juicy and hard.</p>
-                    <button type="submit" class="product_description_btn">More Description...</button><br><br><br>
-                    <p>You may choose a different size using the options below...</p>
-                    <button type="submit" class="product_option_btn">soft apple</button>
-                    <button type="submit" class="product_option_btn">juicy apple</button>
-                    <button type="submit" class="product_option_btn">hard apple</button><br><br><br>
-                    <button type="submit" class="btn">Add To Cart</button><br><br>
-                    <label class="red">Quantity</label>
-                    <br>
-                    <input type="number" max="10" min="1" style="text-align:center; width:90; height:45;"
-                        placeholder="QUANTITY" />
-                    <br>
-                </th>
-        </table>
-        </tr>
+        <div class="beverage_right">
+            <h1 style="font-size:48; padding:2%; background-color:white;">Apple (One apple)</h1><br>
+            <p style="font-size:24px">A soft green apple. Also comes in juicy and hard.</p>
+            <button type="submit" class="product_description_btn">More Description...</button><br><br><br>
+            <p>You may choose a different size using the options below...</p>
+            <button type="submit" class="product_option_btn">soft apple</button>
+            <button type="submit" class="product_option_btn">juicy apple</button>
+            <button type="submit" class="product_option_btn">hard apple</button><br><br><br>
+            <button type="submit" class="btn">Add To Cart</button><br><br>
+            <label class="red">Quantity</label>
+            <br>
+            <input type="number" max="10" min="1" style="text-align:center; width:90; height:45;"
+                placeholder="QUANTITY" />
+            <br>
+        </div>
     </div>
 
 

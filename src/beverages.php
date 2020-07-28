@@ -47,7 +47,7 @@
 
         <div id="categories">
 
-            <h3 style="margin-right:100%;">Categories</h3>
+            <h3 style="margin-right:100%; padding:2%;">Categories</h3>
 
             <div class="sub_menus" id="aisle_categories" onmouseover="void_showElement('menu_aisle');"
                 onmouseout="void_hideElement('menu_aisle');">

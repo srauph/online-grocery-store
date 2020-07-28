@@ -92,27 +92,23 @@
     </script>
 
     <div class="beverage_page">
-        <table style="padding:2%; width:100%;">
-            <tr>
-                <th class="beverage_left">
-                    <img src="../assets/Images/mars.jpg" style="width:80%; height=80%;" alt="Mars bar">
-                </th>
+        <div class="beverage_left">
+            <img src="../assets/Images/mars.jpg" style="width:80%; height=80%;" alt="Mars bar">
+        </div>
 
-                <th class="beverage_right" colspan="4">
-                    <h1 style="font-size:48; padding:2%; background-color:white;">Mars chocolate bar</h1><br>
-                    <p style="font-size:24px" id="description"></p>
-                    <button class="product_description_btn" onclick="showAllDescription();">More
-                        Description...</button><br><br><br>
-                    <p>You may choose a different size using the options below...</p>
-                    <button class="product_option_btn" onclick="void_updateNumber(1);">1 bar</button>
-                    <button class="product_option_btn" onclick="void_updateNumber(2);">2 bars</button>
-                    <button class="product_option_btn" onclick="void_updateNumber(3);">3 bars</button><br><br><br>
-                    <button type="submit" class="btn" onclick="void_addItemsToCart();">Add
-                        To
-                        Cart</button>
-                </th>
-        </table>
-        </tr>
+        <div class="beverage_right">
+            <h1 style="font-size:48; padding:2%; background-color:white;">Mars chocolate bar</h1><br>
+            <p style="font-size:24px" id="description"></p>
+            <button class="product_description_btn" onclick="showAllDescription();">More
+                Description...</button><br><br><br>
+            <p>You may choose a different size using the options below...</p>
+            <button class="product_option_btn" onclick="void_updateNumber(1);">1 bar</button>
+            <button class="product_option_btn" onclick="void_updateNumber(2);">2 bars</button>
+            <button class="product_option_btn" onclick="void_updateNumber(3);">3 bars</button><br><br><br>
+            <button type="submit" class="btn" onclick="void_addItemsToCart();">Add
+                To
+                Cart</button>
+        </div>
     </div>
     <br />
     <br />
