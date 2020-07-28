@@ -54,7 +54,8 @@
             <button id="cart_button">
                 <br>
                 <br>
-                <img src="../assets/Icons/cart.png" style="float:left; margin-right:0.5em" width="25" height="25">
+                <img src="../assets/Icons/cart.png" style="float:left; margin-right:0.5em"
+                    style="width: 25px; height: 25px" width="25" height="25">
                 <span id="cart_total_value">
                     $0.00
                 </span>
