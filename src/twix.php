@@ -46,7 +46,20 @@
             <ul>
     </div>
 
+    <script>
+    let bars = 1;
 
+    function void_updateNumber(int_num) {
+        bars = int_num;
+    }
+
+    function void_addItemsToCart() {
+
+        for (let i = 0; i < bars; i++)
+            cart.void_add(new Item(121, 'Mars', 'mars, chocolat', 'mars.jpg', 1.49, 1, 0, ''));
+
+    }
+    </script>
 
     <div class="beverage_page">
 
@@ -61,10 +74,12 @@
                     <p style="font-size:24px">A 47g Mars chocolate bar (limited to 3 per costumer)</p>
                     <button type="submit" class="product_description_btn">More Description...</button><br><br><br>
                     <p>You may choose a different size using the options below...</p>
-                    <button type="submit" class="product_option_btn">1 bar</button>
-                    <button type="submit" class="product_option_btn">2 bars</button>
-                    <button type="submit" class="product_option_btn">3 bars</button><br><br><br>
-                    <button type="submit" class="btn">Add To Cart</button>
+                    <button class="product_option_btn" onclick="void_updateNumber(1);">1 bar</button>
+                    <button class="product_option_btn" onclick="void_updateNumber(2);">2 bars</button>
+                    <button class="product_option_btn" onclick="void_updateNumber(3);">3 bars</button><br><br><br>
+                    <button type="submit" class="btn" onclick="void_addItemsToCart();">Add
+                        To
+                        Cart</button>
                 </th>
         </table>
         </tr>
