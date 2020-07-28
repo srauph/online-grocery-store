@@ -46,13 +46,13 @@
 
     <div id="menu">
         <ul>
-            <li><a href="index.php">Home</li></a>
-            <li>Sales</li>
-            <a href="aisle.php">
+            <li onclick="goto('index.php')">Home</li>
+            <li onclick="goto('all_items.php')">All products</li>
+            <a href="aisle.php" class="white">
                 <li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle
                 </li>
             </a>
-            <a href="Contactus.php">
+            <a href="contactus.php" class="white">
                 <li>Contact us</li>
             </a>
             <ul>
