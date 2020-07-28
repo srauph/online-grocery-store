@@ -52,6 +52,13 @@
     function void_updateNumber(int_num) {
         bars = int_num;
     }
+
+    function void_addItemsToCart() {
+
+        for (int i = 0; i < bars; i++)
+            cart.void_add(new Item(121, 'Mars', 'mars, chocolat', 'mars.jpg', 1.49, bars, 0, ''));
+
+    }
     </script>
 
     <div class="beverage_page">
@@ -69,8 +76,7 @@
                     <button class="product_option_btn" onclick="void_updateNumber(1);">1 bar</button>
                     <button class="product_option_btn" onclick="void_updateNumber(2);">2 bars</button>
                     <button class="product_option_btn" onclick="void_updateNumber(3);">3 bars</button><br><br><br>
-                    <button type="submit" class="btn"
-                        onclick="cart.void_add(new Item(121, 'Mars', 'mars, chocolat', 'mars.jpg', 1.49, bars, 0, ''));">Add
+                    <button type="submit" class="btn" onclick="void_addItemsToCart();">Add
                         To
                         Cart</button>
                 </th>
