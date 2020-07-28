@@ -5,6 +5,13 @@
     <link rel="stylesheet" type="text/css" href="css/aisle_beverage.css">
     <title>Snacks</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script type="text/javascript" src="scripts/Util.js"></script>
+    <script type="text/javascript" src="scripts/Cart.js"></script>
+    <script type="text/javascript" src="scripts/Item.js"></script>
+    <script type="text/javascript" src="scripts/Sales.js"></script>
+    <script type="text/javascript" src="scripts/AbstractComponent.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
 </head>
 
 <body>
