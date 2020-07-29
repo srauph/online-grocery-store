@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/aisle_beverage.css">
-    <title>Beverages</title>
+    <title>Coca-Cola (355mL Can)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script type="text/javascript" src="scripts/Util.js"></script>
@@ -36,91 +36,45 @@
         <ul>
             <li><a href="index.php">Home</li></a>
             <li>Sales</li>
-            <li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</li>
+            <a href="aisle.php">
+                <li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle
+                </li>
+            </a>
             <li>Contact us</li>
             <ul>
     </div>
 
-    <h1 style="font-size:48; padding:2%; text-align:center; background-color:white;">Beverages</h1>
 
-    <div id="beverage_grid">
 
-        <div id="categories">
+    <div class="beverage_page">
 
-            <h3 style="margin-right:100%; padding:2%;">Categories</h3>
-
-            <div class="sub_menus" id="aisle_categories" onmouseover="void_showElement('menu_aisle');"
-                onmouseout="void_hideElement('menu_aisle');">
-                <form action="frozen.php" method="POST">
-                    <ul>
-                        <li><input type="submit" name="tag_search_btn" value="Bakery" formaction="bakery.php"></li>
-                        <li><input type="submit" name="tag_search_btn" value="Beauty Products"
-                                formaction="beautyproducts.php"></li>
-                        <li><input type="submit" name="tag_search_btn" value="Beverages" formaction="beverages.php">
-                        </li>
-                        <li><input type="submit" name="tag_search_btn" value="Frozen" formaction="frozen.php"></li>
-                        <li><input type="submit" name="tag_search_btn" value="Fruits" formaction="fruits.php"></li>
-                        <li><input type="submit" name="tag_search_btn" value="Vegetables" formaction="vegetables.php">
-                        </li>
-                        <li><input type="submit" name="tag_search_btn" value="Dairy Products"
-                                formaction="dairyproducts.php"></li>
-                        <li><input type="submit" name="tag_search_btn" value="Snacks" formaction="snacks.php"></li>
-                    </ul>
-                </form>
-            </div>
+        <div class="beverage_left">
+            <img src="../assets/Images/cocacola.jpg" style="width:80%; height=80%;" alt="Coca-Cola Can">
         </div>
 
-        <div id="beverages">
-            <div id="beverage_items">
+        <div class="beverage_right">
+            <h1 style="font-size:48; padding:2%; background-color:white;">Coca-Cola (355mL Can)</h1><br>
+            <p style="font-size:24px">A 355mL Can of Coca-Cola. Also comes in 710mL and 2L varieties.</p>
+            <button type="submit" class="product_description_btn">More Description...</button><br><br><br>
+            <p>You may choose a different size using the options below...</p>
+            <button type="submit" class="product_option_btn">355mL Can</button>
+            <button type="submit" class="product_option_btn">710mL Bottle</button>
+            <button type="submit" class="product_option_btn">2L Bottle</button><br><br><br>
+            <input type="text" style="padding-top:10px; padding-bottom:10px; padding-left:5px;"
+                placeholder="Indicate quantity" formaction="">
+            <button type="submit" class="btn">Add To Cart</button>
 
-                <table id="beverage_table">
-                    <tr style="text-align:center; height:80px; background-color:white;">
-                        <br>
-                        <th colspan="4">
-                            <h2 style="color:crimson;"> Click on a product image (or its corresponding title) to go to
-                                the corresponding product page.</h2>
-                        </th>
-                    </tr>
-
-                    <tr style="text-align:center; height:80px; background-color:white;">
-                        <th>
-                            <h2>Product Image</h2>
-                        </th>
-                        <th>
-                            <h2>Product Title</h2>
-                        </th>
-                        <th>
-                            <h2>Brief Description</h2>
-                        </th>
-                        <th>
-                            <h2>Product Price</h2>
-                        </th>
-                    </tr>
-
-                    <tr class="beverage_list">
-                        <td><a href="sprite.php">
-                                <img src="../assets/Images/sprite.jpg" style="width:100px; height=100px;"
-                                    alt="Sprite Can">
-                        </td></a>
-                        <td><a href="sprite.php" style="color:mediumslateblue;">Sprite (355mL Can)</td></a>
-                        <td>A 355mL can of Sprite.</td>
-                        <td>$0.99</td>
-                    </tr>
-
-                    <tr class="beverage_list">
-                        <td><a href="cocacola.php">
-                                <img src="../assets/Images/cocacola.jpg" style="width:100px; height=100px;"
-                                    alt="Coca-Cola Can">
-                        </td></a>
-                        <td><a href="cocacola.php" style="color:mediumslateblue;">Coca-Cola (355mL Can)</td></a>
-                        <td>A 355mL can of Coca-Cola.</td>
-                        <td>$0.99</td>
-                    </tr>
-
-                </table>
-            </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
 
     <br />
     <br />

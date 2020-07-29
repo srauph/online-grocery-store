@@ -17,7 +17,7 @@
 <body>
     <div id="__top_banner">
         <a class="white" href="login.php" title="Login to your account">Login</a>
-
+        |
         <a class="white" href="register.php" title="First time user? Register now!">Register</a>
 
         <!-- cart -->
