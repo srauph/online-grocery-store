@@ -112,7 +112,7 @@
     }
 </script>
 
-<body onload="loadSessionData()" onunload="saveSessionData()">
+<body>
     <div id="__top_banner">
         <a class="white" href="login.php" title="Login to your account">Login</a>
         |

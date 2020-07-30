@@ -11,8 +11,8 @@
     <script type="text/javascript" src="scripts/Item.js"></script>
     <script type="text/javascript" src="scripts/Sales.js"></script>
     <script type="text/javascript" src="scripts/AbstractComponent.js"></script>
-    <script type="text/javascript" src="scripts/main.js"></script>
     <script type="text/javascript" src="scripts/Beverage.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
 </head>
 
 <script>
@@ -110,10 +110,10 @@
                 break;
         }
     }
-    
+        
 </script>
 
-<body onload="loadSessionData()" onunload="saveSessionData()">
+<body>
     <div id="__top_banner">
         <a class="white" href="login.php" title="Login to your account">Login</a>
         |
@@ -133,13 +133,15 @@
     </div>
     <div id="menu">
         <ul>
-            <li><a href="index.php">Home</li></a>
-            <li>Sales</li>
-            <a href="aisle.php">
+            <li onclick="goto('index.php')">Home</li>
+            <li onclick="goto('all_items.php')">All products</li>
+            <a href="aisle.php" class="white">
                 <li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle
                 </li>
             </a>
-            <li>Contact us</li>
+            <a href="contactus.php" class="white">
+                <li>Contact us</li>
+            </a>
             <ul>
     </div>
 
@@ -182,7 +184,6 @@
     <div id="footer">
         <center>
             <table>
-
                 <tr></tr>
                 <tr></tr>
                 <tr></tr>

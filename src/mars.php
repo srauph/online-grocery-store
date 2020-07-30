@@ -65,9 +65,7 @@
      * @see Please see the Cart class in cart.js
      */
     function void_addItemsToCart() {
-
-        for (let i = 0; i < bars; i++)
-            cart.void_add(new Item(121, 'Mars', 'mars, chocolat', 'mars.jpg', 1.49, 1, 0, ''));
+        cart.void_add(new Item(121, 'Mars', 'mars, chocolat', 'mars.jpg', 1.49, 1, 0, ''), bars);
     }
 
     // =================== DESCRIPTION HANDLING ======================

@@ -135,7 +135,8 @@ function addToCart(limit) {
         document.getElementById("productQty").value = limit;
         return;
     } else {
-        for (let i = 0; i < qty; i++)
-            cart.void_add(new Item(42, name, 'Beverages', 'sprite.jpg', price, 1, 0, ''));
+        // for (let i = 0; i < qty; i++) {
+        cart.void_add(new Item(42, name, currentItem, img.substring(17), price, 1, 0, ''), qty);
+        // }
     }
 }
