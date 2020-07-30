@@ -12,7 +12,7 @@
     <script type="text/javascript" src="scripts/Sales.js"></script>
     <script type="text/javascript" src="scripts/AbstractComponent.js"></script>
     <script type="text/javascript" src="scripts/main.js"></script>
-    <script type="text/javascript" src="scripts/Sprite.js"></script>
+    <script type="text/javascript" src="scripts/Beverage.js"></script>
 </head>
 
 <script>
@@ -21,6 +21,28 @@
     price = 0.99;
     img = "sprite.jpg";
     options = 3;
+
+    function saveSessionData() {
+        sessionStorage.spriteQty = qty;
+        sessionStorage.spriteCurrentItem = currentItem;
+        sessionStorage.spriteShowAll = showAll;
+    }
+
+    function loadSessionData() {
+        if (sessionStorage.spriteCurrentItem) {
+            currentItem = parseInt(sessionStorage.spriteCurrentItem);
+        }
+        if (sessionStorage.spriteQty) {
+            qty = parseInt(sessionStorage.spriteQty);
+        }
+        if (sessionStorage.spriteShowAll == "true") {
+            document.getElementById("showDescBtn").innerHTML = "Less Description...";
+            showAll = true;
+        }
+        changeProduct(currentItem);
+        setQty(qty);
+        displayDesc();
+    }
 
     function changeProduct(type) {
 

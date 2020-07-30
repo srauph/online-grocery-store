@@ -22,6 +22,28 @@
     img = "cocacola.jpg";
     options = 3;
 
+    function saveSessionData() {
+        sessionStorage.cocacolaQty = qty;
+        sessionStorage.cocacolaCurrentItem = currentItem;
+        sessionStorage.cocacolaShowAll = showAll;
+    }
+
+    function loadSessionData() {
+        if (sessionStorage.cocacolaCurrentItem) {
+            currentItem = parseInt(sessionStorage.cocacolaCurrentItem);
+        }
+        if (sessionStorage.cocacolaQty) {
+            qty = parseInt(sessionStorage.cocacolaQty);
+        }
+        if (sessionStorage.cocacolaShowAll == "true") {
+            document.getElementById("showDescBtn").innerHTML = "Less Description...";
+            showAll = true;
+        }
+        changeProduct(currentItem);
+        setQty(qty);
+        displayDesc();
+    }
+
     function changeProduct(type) {
 
         switch (type) {

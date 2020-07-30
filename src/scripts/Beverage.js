@@ -8,28 +8,6 @@ var showAll = false;
 var currentItem = 1;
 var qty = 0;
 
-function saveSessionData() {
-    sessionStorage.savedQty = qty;
-    sessionStorage.savedCurrentItem = currentItem;
-    sessionStorage.savedShowAll = showAll;
-}
-
-function loadSessionData() {
-    if (sessionStorage.savedCurrentItem) {
-        currentItem = parseInt(sessionStorage.savedCurrentItem);
-    }
-    if (sessionStorage.savedQty) {
-        qty = parseInt(sessionStorage.savedQty);
-    }
-    if (sessionStorage.savedShowAll == "true") {
-        document.getElementById("showDescBtn").innerHTML = "Less Description...";
-        showAll = true;
-    }
-    changeProduct(currentItem);
-    setQty(qty);
-    displayDesc();
-}
-
 function displayDesc() {
     if (showAll) {
         document.getElementById("productDesc").innerHTML = desc;
