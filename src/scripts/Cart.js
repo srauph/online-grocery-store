@@ -49,7 +49,15 @@ class Cart {
 	 */
 	protected_void_flush() {
 		// Push to the local storage
-		localStorage.setItem("cart", JSON.stringify(this.items));
+		// Get previous items
+		const previousItems = JSON.parse(localStorage.getItem("cart"));
+		if (previousItems == null || previousItems.length == 0)
+			previousItems = this.items;
+		else {
+			previousItems = previousItems.concat(this.items);
+		}
+
+		localStorage.setItem("cart", JSON.stringify(previousItems));
 	}
 
 	void_toString() {
