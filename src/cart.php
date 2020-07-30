@@ -42,6 +42,7 @@
 
         DOM.innerHTML = document.getElementById("___init").innerHTML;
 
+        let totalPrice = 0.0;
         for (const item of items) {
 
             DOM.innerHTML +=
@@ -55,8 +56,14 @@
                     </td>                     
                      <td style = "text-align:right" ><h2> $${item.cost} </h2> </td> 
                 </tr>`;
+
+            totalPrice += item.cost;
         }
 
+        // Write the GST and QST
+        document.getElementById("qst").innerHTML = "$" + (totalPrice * 0.0995);
+        document.getElementById("gst").innerHTML = "$" + (totalPrice * 0.015);
+        document.getElementById("total").innerHTML = "$" + (totalPrice * (1.015 + 1.0995));
     }
 
     document.addEventListener("DOMContentLoaded", function() {
@@ -208,7 +215,7 @@
                     <td>
                     <td>
                     <td>
-                        <h3>$0.00</h3>
+                        <h3 id="qst">$0.00</h3>
                 </tr>
                 <tr>
                     <td>
@@ -221,7 +228,7 @@
                     <td>
                     <td>
                     <td>
-                        <h3>$0.00<h3>
+                        <h3 id="gst">$0.00<h3>
                 </tr>
                 <tr>
                     <td>
@@ -234,7 +241,7 @@
                     <td>
                     <td>
                     <td>
-                        <h3>$0.00</h3>
+                        <h3 id="total">$0.00</h3>
 
                 </tr>
             </table>
@@ -252,8 +259,6 @@
                                     style="float:right; margin-right:0.5em" width="50" height="25">
                         </tr>
                     </table>
-
-
                     <table>
                         <tr>
                             <th><input type="text" style="height:60px;font-size:10;width:200px;"
