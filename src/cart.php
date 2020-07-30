@@ -37,6 +37,10 @@
 
         if (items == null || items.length == 0) {
             DOM.innerHTML = "Cart is empty";
+            // Write the GST and QST
+            document.getElementById("qst").innerHTML = "$" + (0).toFixed(2);
+            document.getElementById("gst").innerHTML = "$" + (0).toFixed(2);
+            document.getElementById("total").innerHTML = "$" + (0).toFixed(2);
             return;
         }
 
