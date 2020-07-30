@@ -35,26 +35,36 @@
         const items = JSON.parse(localStorage.getItem("cart"));
         const DOM = document.getElementById("__cart_content_table");
 
-        DOM.innerHTML = "";
+        DOM.innerHTML = `<tr>
+                    <th height="100" width="360" style="text-align:right">
+                        <h2 class="grey">Product Image</h2>
+                    </th>
+
+                    <th height="100" width="360" style="text-align:right">
+                        <h2 class="grey">Product name</h2>
+                    </th>
+
+                    <th height="100" width="360" style="text-align:right">
+                        <h2 class="grey">Quantity</h2>
+                    </th>
+
+                    <th style="text-align:right">
+                        <h2 class="grey">Total Price</h2>
+                    </th>`;
 
         for (const item of items) {
 
             DOM.innerHTML +=
                 `<tr>
-                    <td style="text-align:center">
-                        <image src="../assets/Images/${item.image}" alt="" width="150" height="150">
+                    <td style = "text-align:center">
+                        <img src = "../assets/Images/${item.image}" alt = "" width = "150" height = "150" ></td>
+                        <td width = "100" style = "text-align:center" ><h2> ${item.name} < /h2> 
                     </td>
-                    <td width="100" style="text-align:center">
-                        <h2>${item.name}</h2>
-                    </td>
-
-                    <td style="text-align:center;"><input type="number" style="text-align:center; width:90; height:45;"
-                            placeholder="QUANTITY" /></td>
-                    <td style="text-align:right">
-                        <h2>$${item.cost}</h2>
-                    </td>
+                    <td style = "text-align:center;" > 
+                        < input type = "number" style = "text-align:center; width:90; height:45;" placeholder = "QUANTITY" / > 
+                    </td>                     
+                     <td style = "text-align:right" ><h2> $${item.cost} < /h2> </td> 
                 </tr>`;
-
         }
 
     }
@@ -139,6 +149,9 @@
                     <th style="text-align:right">
                         <h2 class="grey">Total Price</h2>
                     </th>
+                    <td>
+                        <input type="button" onclick="localStorage.clear()" value="Clear All" />
+                    </td>
                 </tr>
                 <tr>
 
