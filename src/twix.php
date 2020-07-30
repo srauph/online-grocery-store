@@ -14,6 +14,8 @@
     <script type="text/javascript" src="scripts/main.js"></script>
 </head>
 
+<!-- AUTHOR: Shadi Jiha 40131284 -->
+
 <body>
     <div id="__top_banner">
         <a class="white" href="login.php" title="Login to your account">Login</a>
@@ -62,7 +64,7 @@
     function void_addItemsToCart() {
 
         for (let i = 0; i < bars; i++)
-            cart.void_add(new Item(121, 'Mars', 'mars, chocolat', 'mars.jpg', 1.49, 1, 0, ''));
+            cart.void_add(new Item(122, 'Twix', 'twix, chocolat', 'twix.jpg', 1.49, 1, 0, ''));
     }
 
     // =================== DESCRIPTION HANDLING ======================

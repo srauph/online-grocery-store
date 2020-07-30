@@ -14,6 +14,8 @@
     <script type="text/javascript" src="scripts/main.js"></script>
 </head>
 
+<!-- AUTHOR: Shadi Jiha 40131284 -->
+
 <body>
     <div id="__top_banner">
         <a class="white" href="login.php" title="Login to your account">Login</a>
@@ -58,6 +60,9 @@
 
     /**
      * This function will display the changes on the cart
+     * and will add items to the cart
+     * 
+     * @see Please see the Cart class in cart.js
      */
     function void_addItemsToCart() {
 

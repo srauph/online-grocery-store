@@ -23,6 +23,46 @@
     <script type="text/javascript" src="scripts/Sales.js"></script>
     <script type="text/javascript" src="scripts/AbstractComponent.js"></script>
     <script type="text/javascript" src="scripts/main.js"></script>
+
+
+    <!-- Get all the items that the user has added to the cart and display them -->
+    <script>
+    /**
+     * This function gets all the cart items from the localstorage and displays them in the page
+     */
+    function init() {
+
+        const items = JSON.parse(localStorage.getItem("cart"));
+        const DOM = document.getElementById("__cart_content_table");
+
+        if (items == null || items.length == 0) {
+            DOM.innerHTML = "Cart is empty";
+            return;
+        }
+
+        DOM.innerHTML = document.getElementById("___init").innerHTML;
+
+        for (const item of items) {
+
+            DOM.innerHTML +=
+                `<tr>
+                    <td style = "text-align:center">
+                        <img src = "../assets/Images/${item.image}" alt = "" width = "150" height = "150" ></td>
+                        <td width = "100" style = "text-align:center" ><h2>${item.name}</h2> 
+                    </td>
+                    <td style="text-align:center;" > 
+                        <input type="number" style="text-align:center; width:90; height:45;" placeholder = "QUANTITY" /> 
+                    </td>                     
+                     <td style = "text-align:right" ><h2> $${item.cost} </h2> </td> 
+                </tr>`;
+        }
+
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        init();
+    });
+    </script>
 </head>
 
 <body style="background-color:lightgrey;">
@@ -73,25 +113,16 @@
     <br>
     <br>
     <br>
-    <center>
-        <div id="top_banner">
-            <h1 class="center " style="font-size:60;">SHOPPING CART</h1><br>
-    </center>
-    <br>
-    </div>
     <br>
     <br>
     <br>
     <br>
     <br>
     <br>
-
     <div class="cart_left">
         <div class="border4">
-
-            <table style="width:100%">
-                <tr>
-
+            <table style="width:100%" id="__cart_content_table">
+                <tr id="___init">
                     <th height="100" width="360" style="text-align:right">
                         <h2 class="grey">Product Image</h2>
                     </th>
@@ -107,24 +138,9 @@
                     <th style="text-align:right">
                         <h2 class="grey">Total Price</h2>
                     </th>
-
-
                     <td>
-                        <pre>  </pre>
+                        <input type="button" onclick="localStorage.clear(); init();" value="Clear All" />
                     </td>
-                    <td>
-                        <pre>  </pre>
-                    </td>
-                    <td>
-                        <pre>  </pre>
-                    </td>
-                    <th height="50" width="360" style="text-align:right"><input type="submit"
-                            style="text-align:top; width:90; height:45; padding:10px;" size="10" ; class="btn1"
-                            value="Delete"></th>
-
-
-
-
                 </tr>
                 <tr>
 
@@ -140,55 +156,8 @@
                     <td style="text-align:center">
                         <h2>$5.99</h2>
                     </td>
-                    <td style="text-align:right">
-                        <form method="POST">
-
-
-
-                </tr>
-
-            </table>
-        </div>
-        <div class="border4">
-            <table style="width:100%">
-                <tr>
-
-                    <th height="100" width="360" style="text-align:right">
-                        <h2 class="grey">Product Image</h2>
-                    </th>
-
-                    <th height="100" width="360" style="text-align:right">
-                        <h2 class="grey">Product name</h2>
-                    </th>
-
-                    <th height="100" width="360" style="text-align:right">
-                        <h2 class="grey">Quantity</h2>
-                    </th>
-
-                    <th style="text-align:right">
-                        <h2 class="grey">Total Price</h2>
-                    </th>
-
-
-                    <td>
-                        <pre>  </pre>
-                    </td>
-                    <td>
-                        <pre>  </pre>
-                    </td>
-                    <td>
-                        <pre>  </pre>
-                    </td>
-                    <th height="50" width="360" style="text-align:right"><input type="submit"
-                            style="text-align:center; width:90; height:45; padding:10px;" size="10" ; class="btn1"
-                            value="Delete"></th>
-
-
-
-
                 </tr>
                 <tr>
-
                     <td style="text-align:center">
                         <image src="../assets/Images/frozenfries.jpg" alt="cheetos image" width="150" height="150">
                     </td>
@@ -201,18 +170,11 @@
                     <td style="text-align:right">
                         <h2>$15.98</h2>
                     </td>
-
-
                 </tr>
-
             </table>
         </div>
     </div>
-
-
-
     <div class="cart_right">
-
         <div class="border1">
             <h1>CART SUMMARY</h1>
             <label class="name">Estimated total</label><br>
