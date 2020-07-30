@@ -59,7 +59,7 @@
 
     }
 
-    document.addEventListener("load", function() {
+    document.addEventListener("DOMContentLoaded", function() {
         init();
     });
     </script>
