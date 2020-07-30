@@ -50,7 +50,7 @@ class Cart {
 	protected_void_flush() {
 		// Push to the local storage
 		// Get previous items
-		const previousItems = JSON.parse(localStorage.getItem("cart"));
+		let previousItems = JSON.parse(localStorage.getItem("cart"));
 		if (previousItems == null || previousItems.length == 0)
 			previousItems = this.items;
 		else {
