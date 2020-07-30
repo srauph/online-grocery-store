@@ -35,6 +35,11 @@
         const items = JSON.parse(localStorage.getItem("cart"));
         const DOM = document.getElementById("__cart_content_table");
 
+        if (items == null || items.length == 0) {
+            DOM.innerHTML = "Cart is empty";
+            return;
+        }
+
         DOM.innerHTML = `<tr>
                     <th height="100" width="360" style="text-align:right">
                         <h2 class="grey">Product Image</h2>
