@@ -61,9 +61,9 @@
         }
 
         // Write the GST and QST
-        document.getElementById("qst").innerHTML = "$" + (totalPrice * 0.0995);
-        document.getElementById("gst").innerHTML = "$" + (totalPrice * 0.015);
-        document.getElementById("total").innerHTML = "$" + (totalPrice * (1.015 + 1.0995));
+        document.getElementById("qst").innerHTML = "$" + (totalPrice * 0.0995).toFixed(2);
+        document.getElementById("gst").innerHTML = "$" + (totalPrice * 0.015).toFixed(2);
+        document.getElementById("total").innerHTML = "$" + (totalPrice * (1.015 + 1.0995)).toFixed(2);
     }
 
     document.addEventListener("DOMContentLoaded", function() {
