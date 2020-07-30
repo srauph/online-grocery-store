@@ -3,15 +3,9 @@
  *
  */
 
-let cart = new Cart();
-
-window.onbeforeunload = function (e) {
-	window.onunload = function () {
-		window.localStorage.isMySessionActive = "false";
-	};
-	return undefined;
-};
+let cart;
 
 window.onload = function () {
-	window.localStorage.isMySessionActive = "true";
+	//Initialize Objects
+	cart = new Cart();
 };
