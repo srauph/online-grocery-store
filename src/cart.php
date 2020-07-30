@@ -129,24 +129,6 @@
                     <th style="text-align:right">
                         <h2 class="grey">Total Price</h2>
                     </th>
-
-
-                    <td>
-                        <pre>  </pre>
-                    </td>
-                    <td>
-                        <pre>  </pre>
-                    </td>
-                    <td>
-                        <pre>  </pre>
-                    </td>
-                    <th height="50" width="360" style="text-align:right"><input type="submit"
-                            style="text-align:top; width:90; height:45; padding:10px;" size="10" ; class="btn1"
-                            value="Delete"></th>
-
-
-
-
                 </tr>
                 <tr>
 
@@ -164,44 +146,6 @@
                     </td>
                     <td style="text-align:right">
                         <form method="POST">
-                </tr>
-
-            </table>
-        </div>
-        <div class="border4">
-            <table style="width:100%">
-                <tr>
-                    <th height="100" width="360" style="text-align:right">
-                        <h2 class="grey">Product Image</h2>
-                    </th>
-
-                    <th height="100" width="360" style="text-align:right">
-                        <h2 class="grey">Product name</h2>
-                    </th>
-
-                    <th height="100" width="360" style="text-align:right">
-                        <h2 class="grey">Quantity</h2>
-                    </th>
-
-                    <th style="text-align:right">
-                        <h2 class="grey">Total Price</h2>
-                    </th>
-                </tr>
-                <tr>
-
-                    <td>
-                        <pre>  </pre>
-                    </td>
-                    <td>
-                        <pre>  </pre>
-                    </td>
-                    <td>
-                        <pre>  </pre>
-                    </td>
-                    <th height="50" width="360" style="text-align:right"><input type="submit"
-                            style="text-align:center; width:90; height:45; padding:10px;" size="10" ; class="btn1"
-                            value="Delete"></th>
-
                 </tr>
                 <tr>
                     <td style="text-align:center">
