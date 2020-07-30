@@ -144,8 +144,6 @@
                     <td style="text-align:center">
                         <h2>$5.99</h2>
                     </td>
-                    <td style="text-align:right">
-                        <form method="POST">
                 </tr>
                 <tr>
                     <td style="text-align:center">
