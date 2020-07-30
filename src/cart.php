@@ -139,7 +139,7 @@
                         <h2 class="grey">Total Price</h2>
                     </th>
                     <td>
-                        <input type="button" onclick="localStorage.clear()" value="Clear All" />
+                        <input type="button" onclick="localStorage.clear(); init();" value="Clear All" />
                     </td>
                 </tr>
                 <tr>
