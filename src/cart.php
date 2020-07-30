@@ -63,12 +63,12 @@
                 `<tr>
                     <td style = "text-align:center">
                         <img src = "../assets/Images/${item.image}" alt = "" width = "150" height = "150" ></td>
-                        <td width = "100" style = "text-align:center" ><h2> ${item.name} < /h2> 
+                        <td width = "100" style = "text-align:center" ><h2>${item.name}</h2> 
                     </td>
-                    <td style = "text-align:center;" > 
-                        < input type = "number" style = "text-align:center; width:90; height:45;" placeholder = "QUANTITY" / > 
+                    <td style="text-align:center;" > 
+                        <input type="number" style="text-align:center; width:90; height:45;" placeholder = "QUANTITY" /> 
                     </td>                     
-                     <td style = "text-align:right" ><h2> $${item.cost} < /h2> </td> 
+                     <td style = "text-align:right" ><h2> $${item.cost} </h2> </td> 
                 </tr>`;
         }
 
