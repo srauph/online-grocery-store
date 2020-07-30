@@ -65,7 +65,7 @@ class Cart {
 	}
 }
 
-let cart;
-window.addEventListener("load", function () {
-	cart = new Cart();
-});
+// let cart;
+// window.addEventListener("load", function () {
+// 	cart = new Cart();
+// });
