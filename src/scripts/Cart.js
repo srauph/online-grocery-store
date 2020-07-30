@@ -6,7 +6,7 @@
 //import { IAbstractComponent } from "./AbstractComponent";
 //import { Item } from "./Item";
 
-class Cart extends IAbstractComponent {
+class Cart {
 	constructor() {
 		//super();
 		this.HTMLSpamElement_valueContainer = document.getElementById(
