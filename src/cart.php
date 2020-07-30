@@ -40,7 +40,7 @@
             return;
         }
 
-        DOM.innerHTML = document.getElementById("___init");
+        DOM.innerHTML = document.getElementById("___init").innerHTML;
 
         for (const item of items) {
 
