@@ -35,8 +35,25 @@
         const items = JSON.parse(localStorage.getItem("cart"));
         const DOM = document.getElementById("__cart_content_table");
 
+        DOM.innerHTML = "";
+
         for (const item of items) {
 
+            DOM.innerHTML +=
+                `<tr>
+                    <td style="text-align:center">
+                        <image src="../assets/Images/${item.image}" alt="" width="150" height="150">
+                    </td>
+                    <td width="100" style="text-align:center">
+                        <h2>${item.name}</h2>
+                    </td>
+
+                    <td style="text-align:center;"><input type="number" style="text-align:center; width:90; height:45;"
+                            placeholder="QUANTITY" /></td>
+                    <td style="text-align:right">
+                        <h2>$${item.cost}</h2>
+                    </td>
+                </tr>`;
 
         }
 
@@ -96,19 +113,12 @@
     <br>
     <br>
     <br>
-    <center>
-        <div id="top_banner">
-            <h1 class="center " style="font-size:60;">SHOPPING CART</h1><br>
-    </center>
-    <br>
-    </div>
     <br>
     <br>
     <br>
     <br>
     <br>
     <br>
-
     <div class="cart_left">
         <div class="border4">
             <table style="width:100%" id="__cart_content_table">
