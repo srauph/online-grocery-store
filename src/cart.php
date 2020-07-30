@@ -23,6 +23,29 @@
     <script type="text/javascript" src="scripts/Sales.js"></script>
     <script type="text/javascript" src="scripts/AbstractComponent.js"></script>
     <script type="text/javascript" src="scripts/main.js"></script>
+
+
+    <!-- Get all the items that the user has added to the cart and display them -->
+    <script>
+    /**
+     * This function gets all the cart items from the localstorage and displays them in the page
+     */
+    function init() {
+
+        const items = JSON.parse(localStorage.getItem("cart"));
+        const DOM = document.getElementById("__cart_content_table");
+
+        for (const item of items) {
+
+
+        }
+
+    }
+
+    document.addEventListener("load", function() {
+        init();
+    });
+    </script>
 </head>
 
 <body style="background-color:lightgrey;">
@@ -88,8 +111,7 @@
 
     <div class="cart_left">
         <div class="border4">
-
-            <table style="width:100%">
+            <table style="width:100%" id="__cart_content_table">
                 <tr>
 
                     <th height="100" width="360" style="text-align:right">
@@ -142,9 +164,6 @@
                     </td>
                     <td style="text-align:right">
                         <form method="POST">
-
-
-
                 </tr>
 
             </table>
@@ -152,7 +171,6 @@
         <div class="border4">
             <table style="width:100%">
                 <tr>
-
                     <th height="100" width="360" style="text-align:right">
                         <h2 class="grey">Product Image</h2>
                     </th>
@@ -168,7 +186,8 @@
                     <th style="text-align:right">
                         <h2 class="grey">Total Price</h2>
                     </th>
-
+                </tr>
+                <tr>
 
                     <td>
                         <pre>  </pre>
@@ -183,12 +202,8 @@
                             style="text-align:center; width:90; height:45; padding:10px;" size="10" ; class="btn1"
                             value="Delete"></th>
 
-
-
-
                 </tr>
                 <tr>
-
                     <td style="text-align:center">
                         <image src="../assets/Images/frozenfries.jpg" alt="cheetos image" width="150" height="150">
                     </td>
@@ -201,18 +216,11 @@
                     <td style="text-align:right">
                         <h2>$15.98</h2>
                     </td>
-
-
                 </tr>
-
             </table>
         </div>
     </div>
-
-
-
     <div class="cart_right">
-
         <div class="border1">
             <h1>CART SUMMARY</h1>
             <label class="name">Estimated total</label><br>

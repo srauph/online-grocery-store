@@ -14,7 +14,7 @@ class IAbstractComponent {
 	/**
 	 * Pushes all changes of the stat to the server
 	 */
-	void_flush() {
+	protected_void_flush() {
 		throw new Error("An abstract method must be overriden");
 	}
 
