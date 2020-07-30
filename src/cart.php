@@ -40,22 +40,7 @@
             return;
         }
 
-        DOM.innerHTML = `<tr>
-                    <th height="100" width="360" style="text-align:right">
-                        <h2 class="grey">Product Image</h2>
-                    </th>
-
-                    <th height="100" width="360" style="text-align:right">
-                        <h2 class="grey">Product name</h2>
-                    </th>
-
-                    <th height="100" width="360" style="text-align:right">
-                        <h2 class="grey">Quantity</h2>
-                    </th>
-
-                    <th style="text-align:right">
-                        <h2 class="grey">Total Price</h2>
-                    </th>`;
+        DOM.innerHTML = document.getElementById("___init");
 
         for (const item of items) {
 
@@ -137,8 +122,7 @@
     <div class="cart_left">
         <div class="border4">
             <table style="width:100%" id="__cart_content_table">
-                <tr>
-
+                <tr id="___init">
                     <th height="100" width="360" style="text-align:right">
                         <h2 class="grey">Product Image</h2>
                     </th>
