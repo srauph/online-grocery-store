@@ -31,14 +31,15 @@ class Cart {
 		this.protected_void_flush();
 	}
 
-	private_void_updateValue() {
+	private_void_updateValue(ItemsArray_array) {
 		let sum = 0;
-		for (const item of this.items) {
+		let items = ItemsArray_array || this.items;
+		for (const item of items) {
 			sum += Number(item.cost);
 		}
 
 		this.HTMLSpamElement_valueContainer.innerHTML = `(${
-			this.items.length
+			items.length
 		}) \$${sum.toFixed(2)}`;
 	}
 
@@ -71,12 +72,7 @@ window.addEventListener("load", function () {
 
 	// This script updates the cart items even if the page was refreshed
 	const items = JSON.parse(localStorage.getItem("cart"));
-	console.log(items);
 	if (items != null || items.length > 0) {
-		cart.items = [];
-		localStorage.clear();
-		for (const item of items) {
-			cart.void_add(item);
-		}
+		cart.private_void_updateValue(items);
 	}
 });
