@@ -49,7 +49,7 @@
         |
         <a class="white" href="register.php" title="First time user? Register now!">Register</a>
 
-        <!-- cart, PLEASE View Cart.js and Main.js -->
+        <!-- cart -->
         <a href="cart.php">
             <button id="cart_button">
                 <br>

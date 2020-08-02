@@ -2,6 +2,7 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/cart.css">
     <title>Cart Summary page</title>
     <style>
     input {
@@ -12,7 +13,7 @@
         text-align: center;
     }
 
-    :-moz-placeholder {
+    ::-moz-placeholder {
         text-align: center;
     }
     </style>
@@ -22,72 +23,187 @@
     <script type="text/javascript" src="scripts/Item.js"></script>
     <script type="text/javascript" src="scripts/Sales.js"></script>
     <script type="text/javascript" src="scripts/AbstractComponent.js"></script>
+    <script type="text/javascript" src="scripts/Beverage.js"></script>
     <script type="text/javascript" src="scripts/main.js"></script>
 
 
     <!-- Get all the items that the user has added to the cart and display them -->
     <script>
-    /**
-     * This function gets all the cart items from the localstorage and displays them in the page
-     */
-    function init() {
 
-        const items = JSON.parse(localStorage.getItem("cart"));
-        const DOM = document.getElementById("__cart_content_table");
+        var totalPrice;
+        var numberOfItems;
+        var items;
 
-        if (items == null || items.length == 0) {
-            DOM.innerHTML = "Cart is empty";
+        /** 
+         * Saves the cart to localStorage
+         */
+        function saveSessionData() {
+            localStorage.setItem("cart", JSON.stringify(items));
+        }
+
+        /**  
+         * Loads the cart to localStorage
+         */
+        function loadSessionData() {
+            items = JSON.parse(localStorage.getItem("cart"));
+        }
+        
+        function removeItem(id) {
+            console.log(id);
+            for (i of items) {
+                console.log(i);
+                console.log(i.id);
+                if (i.id == id) {
+                    console.log("found");
+                    var index = items.indexOf(i);
+                }
+            }
+            items.splice(index, 1);
+            location.reload();
+        }
+
+        function updateQtyCartPage(id, direction) {
+
+            for (i of items) {
+                if (i.id == id) {
+                    var index = items.indexOf(i);
+                }
+            }
+
+            if (items[index].quantity < 0) {
+                items[index].quantity = 0;
+                document.getElementById("productQty" + items[index].id).value = 0;
+                return;
+            } else if (items[index].quantity > items[index].limit) {
+                alert("Warning: Maximum item purchase limit exceeded. Reverting to " + items[index].limit + ".");
+                items[index].quantity = items[index].limit;
+                document.getElementById("productQty" + items[index].id).value = items[index].limit;
+                return;
+            }
+
+            if (direction) {
+                if (items[index].quantity == items[index].limit) {
+                    return;
+                } else {
+                    items[index].quantity++;
+                    document.getElementById("productQty" + items[index].id).value = items[index].quantity;
+                }
+            } else {
+                if (items[index].quantity == 0) {
+                    return;
+                } else {
+                    items[index].quantity--;
+                    document.getElementById("productQty" + items[index].id).value = items[index].quantity;
+                }
+            }
+
+            getNumberOfItems();
+            calculateCost();
+        }
+
+        function calculateCost() {
+            totalPrice = 0;
+            for (item of items) {
+                totalPrice += (item.cost * item.quantity);
+            }
+            document.getElementById("bigTotal").value = "$" + (totalPrice * 1.14975).toFixed(2);
+            document.getElementById("subtotal").innerHTML = "$" + (totalPrice.toFixed(2));
+            document.getElementById("qst").innerHTML = "$" + (totalPrice * 0.09975).toFixed(2);
+            document.getElementById("gst").innerHTML = "$" + (totalPrice * 0.05).toFixed(2);
+            document.getElementById("total").innerHTML = "$" + (totalPrice * 1.14975).toFixed(2);
+        }
+
+        function getNumberOfItems() {
+            numberOfItems = 0;
+            for (item of items) {
+                numberOfItems += item.quantity;
+            }
+            document.getElementById("numberOfItems").innerHTML = numberOfItems;
+        }
+        
+        /**
+         * This function gets all the cart items from the localstorage and displays them in the page
+         */
+        function init() {
+
+            items = JSON.parse(localStorage.getItem("cart"));
+            const DOM = document.getElementById("__cart_content_table");
+
+            if (items == null || items.length == 0) {
+                //document.getElementById("___cart_content_table_r2").innerHTML = "<br><br>Cart is empty.";
+                DOM.innerHTML = "<h2>Cart is empty.</h2> Let's add some stuff to this!";
+                
+                // Write the GST and QST
+                document.getElementById("subtotal").innerHTML = "$" + (0).toFixed(2);
+                document.getElementById("qst").innerHTML = "$" + (0).toFixed(2);
+                document.getElementById("gst").innerHTML = "$" + (0).toFixed(2);
+                document.getElementById("total").innerHTML = "$" + (0).toFixed(2);
+                return;
+            }
+
+            DOM.innerHTML = document.getElementById("___init").innerHTML;
+
+            for (const item of items) {
+                
+                /*
+                <div class="cart_grid">
+                    <div class="cart_qty_selector">
+                        <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(false);">-</button>
+                        <input id="productQty" type="text" class="cart_qty" value="0" readonly></input>
+                        <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(true);">+</button>
+                    </div>
+                    <div id="productMax" class="cart_qty_max_msg">
+                        Quantity Limit: 20
+                    </div>
+                </div>
+                */
+
+                DOM.innerHTML +=
+                    `<tr class="cart_list">
+                        <td style = "text-align:center">
+                            <img src = "../assets/Images/${item.image}" alt = "" width = "150" height = "150" >
+                        </td>
+                        <td style = "text-align:center" >
+                            <div><h2>${item.name}</h2></div>
+                        </td>
+                        <td style="text-align:center;" > 
+                            <div class="cart_qty_selector_grid">
+                                <div class="cart_qty_selector">
+                                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQtyCartPage(${item.id}, false);">-</button>
+                                    <input id="productQty${item.id}" type="text" class="cart_qty" value="${item.quantity}" readonly></input>
+                                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQtyCartPage(${item.id}, true);">+</button>
+                                </div>
+                                <div class="cart_qty_max_msg">
+                                    Quantity Limit: ${item.limit}
+                                </div>
+                            </div>
+                        </td>                     
+                        <td style = "text-align:center" >
+                            <div><h2> $${item.cost} </h2></div> 
+                        </td>
+                        <td style = "text-align:center" >
+                            <input type="button" class="cart_remove_btn" onclick="removeItem(${item.id});" value="Remove Item" /> 
+                        </td> 
+                    </tr>`;
+            }
+
             // Write the GST and QST
-            document.getElementById("qst").innerHTML = "$" + (0).toFixed(2);
-            document.getElementById("gst").innerHTML = "$" + (0).toFixed(2);
-            document.getElementById("total").innerHTML = "$" + (0).toFixed(2);
-            document.getElementById("__input_Estimated_total").value = "$" + (0).toFixed(2);
-            document.getElementById("__cart_total_items").innerHTML = 0;
-            return;
+            getNumberOfItems();
+            calculateCost();
         }
 
-        DOM.innerHTML = '<tr id="___init">' + document.getElementById("___init").innerHTML + '</tr>';
+        document.addEventListener("DOMContentLoaded", function() {
+            init();
+        });
 
-        let totalPrice = 0.0;
-        let totalItems = 0;
-        for (const item of items) {
-
-            totalItems += item.quantity;
-
-            DOM.innerHTML +=
-                `<tr>
-                    <td style = "text-align:center">
-                        <img src = "../assets/Images/${item.image}" alt = "" width = "150" height = "150" ></td>
-                        <td width = "100" style = "text-align:center" ><h2>${item.name}</h2> 
-                    </td>
-                    <td style="text-align:center;" > 
-                        <input type="number" style="text-align:center; width:90; height:45;" value="${item.quantity}" placeholder = "QUANTITY" /> 
-                    </td>                     
-                    <td style = "text-align:right" ><h2> $${item.cost} </h2> </td> 
-                    <td style = "text-align:right" >
-                        <input type="button" class="delete" value="delete" onclick="cart.void_delete(${item.id}); init();" />
-                    </td> 
-                </tr>`;
-
-            totalPrice += item.cost;
+        function clearCart() {
+            localStorage.removeItem("cart");
+            init();
         }
-
-        // Write the GST and QST
-        __input_Estimated_total
-        document.getElementById("qst").innerHTML = "$" + (totalPrice * 0.0995).toFixed(2);
-        document.getElementById("gst").innerHTML = "$" + (totalPrice * 0.015).toFixed(2);
-        document.getElementById("total").innerHTML = "$" + (totalPrice * (1.015 + 1.0995)).toFixed(2);
-        document.getElementById("__input_Estimated_total").value = "$" + (totalPrice * (1.015 + 1.0995)).toFixed(2);
-        document.getElementById("__cart_total_items").innerHTML = totalItems;
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-        init();
-    });
     </script>
 </head>
 
-<body style="background-color:lightgrey;">
+<body>
     <div id="__top_banner">
         <a class="white" href="login.php" title="Login to your account">Login</a>
         |
@@ -105,200 +221,159 @@
         </a>
 
     </div>
+
     <div id="menu">
         <ul>
             <li onclick="goto('index.php')">Home</li>
             <li onclick="goto('all_items.php')">All products</li>
-            <li><a href="aisle.php" class="white">Aisle</li></a>
+            <a href="aisle.php" class="white">
+                <li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle
+                </li>
+            </a>
             <a href="contactus.php" class="white">
                 <li>Contact us</li>
             </a>
             <ul>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="cart_left">
-        <div class="border4">
-            <table style="width:100%" id="__cart_content_table">
-                <tr id="___init">
-                    <th height="100" width="360" style="text-align:right">
-                        <h2 class="grey">Product Image</h2>
-                    </th>
-
-                    <th height="100" width="360" style="text-align:right">
-                        <h2 class="grey">Product name</h2>
-                    </th>
-
-                    <th height="100" width="360" style="text-align:right">
-                        <h2 class="grey">Quantity</h2>
-                    </th>
-
-                    <th style="text-align:right">
-                        <h2 class="grey">Total Price</h2>
-                    </th>
-                    <td>
-                        <input type="button" onclick="localStorage.clear(); init();" value="Clear All" />
-                    </td>
-                </tr>
-                <tr>
-
-                    <td style="text-align:center">
-                        <image src="../assets/Images/cheetos.jpg" alt="cheetos image" width="150" height="150">
-                    </td>
-                    <td width="100" style="text-align:center">
-                        <h2>Cheetos</h2>
-                    </td>
-
-                    <td style="text-align:center;"><input type="number" style="text-align:center; width:90; height:45;"
-                            placeholder="QUANTITY" /></td>
-                    <td style="text-align:center">
-                        <h2>$5.99</h2>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="text-align:center">
-                        <image src="../assets/Images/frozenfries.jpg" alt="cheetos image" width="150" height="150">
-                    </td>
-                    <td width="100" style="text-align:center">
-                        <h2>Frozen Fries</h2>
-                    </td>
-
-                    <td style="text-align:center;"><input type="number" style="text-align:center; width:90; height:45;"
-                            placeholder="QUANTITY" /></td>
-                    <td style="text-align:right">
-                        <h2>$15.98</h2>
-                    </td>
-                </tr>
-            </table>
+    <div name="sub_menus">
+        <div id="menu_aisle" onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">
+            <ul>
+                <li>Bakery</li>
+                <li>Beauty Products</li>
+                <li>Beverages</li>
+                <li>Frozen</li>
+                <li>Fruits & Vegetables</li>
+                <li>Dairy Products</li>
+                <li>Snacks</li>
+            </ul>
         </div>
     </div>
-    <div class="cart_right">
-        <div class="border1">
-            <h1>CART SUMMARY</h1>
-            <label class="name">Estimated total</label><br>
-            <input id="__input_Estimated_total" type="text" style="height:80px; font-size:40; width:300;"
-                placeholder="$0.00" disabled="disabled"><br><br>
 
-            <input type="submit" class="btn" style=width:300; size="20" ; placeholder="PLACE ORDER" value="PLACE ORDER">
+    <h1 style="font-size:48; padding:2%; text-align:center; background-color:white;">Cart</h1>
 
-            <pre><h3 class="red" style= "font-size:17;" >     Minimum $45.00 order.    </h3></pre>
-            <table>
-                <tr>
-                    <td>
-                        <pre><h3 class="black" style="font-size:17;">Number of items: <span id="__cart_total_items">0</span></h3></pre>
-                    <td>
-                </tr>
-                <tr>
-                    <td>
-                        <h3 class="black" style="font-size:17;">QST:</h3>
-                    <td>
-                    <td>
-                    <td>
-                    <td>
-                    <td>
-                    <td>
-                    <td>
-                    <td>
-                        <h3 id="qst">$0.00</h3>
-                </tr>
-                <tr>
-                    <td>
-                        <h3 class="black" style="font-size:17;">GST:</h3>
-                    <td>
-                    <td>
-                    <td>
-                    <td>
-                    <td>
-                    <td>
-                    <td>
-                    <td>
-                        <h3 id="gst">$0.00<h3>
-                </tr>
-                <tr>
-                    <td>
-                        <h3 class="black" style="font-size:17;">Total:</h3>
-                    <td>
-                    <td>
-                    <td>
-                    <td>
-                    <td>
-                    <td>
-                    <td>
-                    <td>
-                        <h3 id="total">$0.00</h3>
+    <div class="cart_grid">
+        <div class="cart_items">
+            <table id="__cart_content_table">
+                <tr id="___init">
+                    <th>
+                        <div><h2 class="grey">Product Image</h2></div>
+                    </th>
 
+                    <th>
+                        <div><h2 class="grey">Product name</h2></div>
+                    </th>
+
+                    <th>
+                        <div><h2 class="grey">Quantity</h2></div>
+                    </th>
+
+                    <th>
+                        <div><h2 class="grey">Total Price</h2></div>
+                    </th>
+                    <td>
+                        <input type="button" class="cart_btn" style="font-size: 16px;" onclick="clearCart();" value="Clear All" />
+                    </td>
                 </tr>
+                <!-- <tr><td id="___cart_content_table_r2" colspan="5"></td></tr> -->
             </table>
-
-
         </div>
+        <div class="cart_right">
+            <div class="border">
+                <h1>CART SUMMARY</h1>
+                <label class="name">Estimated total</label><br>
+                <input id="bigTotal" type="text" style="height:80px; font-size:40; width:300;" value="$0.00" readonly><br><br>
 
-        <div class="border2">
-            <h1 style="font-size:26;"> PROMOTIONAL CODE<h1>
-                    <table>
-                        <tr>
-                            <th><label class="name">Apply a promotional code</label>
-                            <th>
-                                <image src="../assets/Icons/questionmark.png" alt="question mark icon"
-                                    style="float:right; margin-right:0.5em" width="50" height="25">
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <th><input type="text" style="height:60px;font-size:10;width:200px;"
-                                    placeholder="EX: PROMCODE1     ">
-                            <th><input type="submit" style="height:60; text-align:center; font-size:10;" class="btn"
-                                    value="APPLY">
-                        </tr>
-                    </table>
-        </div>
-        <div class="border1">
-            <center>
-                <h2>Delivery</h2>
-            </center>
-            <h4>Caliprix Atwater</h4>
-            <p>1150 Maisonneuve BLVD W, H3A 1M7 , Montreal , Canada</p>
-            <p>(514) 553-4360</p>
-            <p>Thursday: 07:00 - 22:00</p>
-        </div>
-        <div class="border3">
-            <h4> To ensure accurate product avaliability and pricing, please choose your store.</h4>
-            <center>
-                <table border="1">
+                <input type="submit" class="cart_btn" style="width:300; size:20;" value="PLACE ORDER">
+
+                <h3 class="red" style= "font-size:17; font-family:'Courier New';" >Price Breakdown:</h3>
+
+                <table style=width:100%>
                     <tr>
-                        <th> <input type="text" style="height:60px;font-size:15;width:200px; "
-                                placeholder="Our only location H3A 1M7"></th>
-                        <th><a href="https://www.google.com/maps/place/1150+Maisonneuve+Blvd+W,+Montreal,+QC/@45.5000431,-73.5778952,17.18z/data=!4m5!3m4!1s0x4cc91a416d27dcf1:0xe258368f00acb82c!8m2!3d45.5002825!4d-73.5749175"
-                                target="_blank">
-                                <image src="../assets/Icons/magnifyingglass.png" alt="A magnifying glass image"
-                                    style="float:right; margin-right:0.5em" width="50" height="25">
-                        </th>
-                        </a>
+                        <td><h3 class="black" style="font-size:17;">Number of items:</h3></td>
+                        <td style="text-align:right;"><h3 id="numberOfItems">0</h3></td>
+                    </tr>
+                    <tr>
+                        <td><h3 class="black" style="font-size:17;">Subtotal:</h3></td>
+                        <td style="text-align:right;"><h3 id="subtotal">$0.00</h3></td>
+                    </tr>
+                    <tr>
+                        <td><h3 class="black" style="font-size:17;">QST:</h3></td>
+                        <td style="text-align:right;"><h3 id="qst">$0.00</h3></td>
+                    </tr>
+                    <tr>
+                        <td><h3 class="black" style="font-size:17;">GST:</h3></td>
+                        <td style="text-align:right;"><h3 id="gst">$0.00<h3></td>
+                    </tr>
+                    <tr>
+                        <td><h3 class="black" style="font-size:17;">Total:</h3></td>
+                        <td style="text-align:right;"><h3 id="total">$0.00</h3></td>
                     </tr>
                 </table>
-                <br>
+            </div>
 
-                <<a href="login.php"><input type="submit" class="btn" style="width:300; size=20;"
-                        value="MY POSITION"></a>
-            </center>
+            <div class="border">
+                <h1 style="font-size:26;"> PROMOTIONAL CODE<h1>
+                        <table style="width:100%;">
+                            <tr>
+                                <td><label class="name">Apply a promotional code</label></td>
+                                <td style="text-align:right;">
+                                    <image src="../assets/Icons/questionmark.png" alt="question mark icon"
+                                        width="50" height="25"></image>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" style="height:60px;font-size:10;width:200px;"
+                                        placeholder="EX: PROMCODE1     "></td>
+                                <td style="text-align:right;"><input type="submit" style="height:60; text-align:center; padding: 22px;" class="cart_btn"
+                                        value="APPLY"></td>
+                            </tr>
+                        </table>
+            </div>
+
+            <div class="border">
+                <h2>Delivery</h2>
+                <h4>Caliprix Atwater</h4>
+                <p>1150 Maisonneuve BLVD W, H3A 1M7 , Montreal , Canada</p>
+                <p>(514) 553-4360</p>
+                <p>Thursday: 07:00 - 22:00</p>
+            </div>
+            <div class="border">
+                <h4> To ensure accurate product avaliability and pricing, please choose your store.</h4>
+                <center>
+                    <!-- <table border="1"> -->
+                    <table style="border:1;">
+                        <tr>
+                            <th> <input type="text" style="height:60px;font-size:15;width:200px; "
+                                    placeholder="Our only location H3A 1M7"></th>
+                            <th><a href="https://www.google.com/maps/place/1150+Maisonneuve+Blvd+W,+Montreal,+QC/@45.5000431,-73.5778952,17.18z/data=!4m5!3m4!1s0x4cc91a416d27dcf1:0xe258368f00acb82c!8m2!3d45.5002825!4d-73.5749175"
+                                    target="_blank">
+                                    <image src="../assets/Icons/magnifyingglass.png" alt="A magnifying glass image"
+                                        style="float:right; margin-right:0.5em" width="50" height="25">
+                            </th>
+                            </a>
+                        </tr>
+                    </table>
+                    <br>
+
+                    <<a href="login.php"><input type="submit" class="cart_btn" style="width:300; size=20;"
+                            value="MY POSITION"></a>
+                </center>
 
 
-            <h4> Please log in or create an account to reserve your timeslot</h4>
-            <a href="login.php">
-                <button type="submit" class="btn" style=width:300; size="20">LOGIN</button><br><br>
-            </a>
-            <a href="register.php"><button type="submit" class="btn" style=width:300; size="20" ;>CREATE AN
-                    ACCOUNT</button><br><br>
-            </a>
+                <h4> Please log in or create an account to reserve your timeslot</h4>
+                <a href="login.php">
+                    <button type="submit" class="cart_btn" style=width:300; size="20">LOGIN</button><br><br>
+                </a>
+                <a href="register.php"><button type="submit" class="cart_btn" style=width:300; size="20" ;>CREATE AN
+                        ACCOUNT</button><br><br>
+                </a>
+            </div>
         </div>
-
-
-
-
     </div>
+
+    <br />
+    <br />
+
     <div id="footer">
         <center>
             <table>
@@ -367,6 +442,9 @@
         </center>
     </div>
     </center>
+
+
+
 </body>
 
 </html>

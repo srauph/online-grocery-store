@@ -29,6 +29,8 @@
     price = 0.99;
     img = "../assets/Images/cocacola.jpg";
     options = 3;
+    limit = 24;
+    id = 201;
 
     /** 
      * Saves the session data. 
@@ -87,6 +89,8 @@
                 desc = "Coca-Cola, the ubiquitous flavored soft drink. <br><br>Coca-Cola is one of the best-selling soft drinks in the world. Coca-Cola also comes in 355mL cans or 2L bottles.";
                 price = 1.49;
                 img = "../assets/Images/cocacola_710ml.jpg";
+                limit = 12;
+                id = 202;
                 currentItem = 2;
                 updatePageContents(); // Ditto.
                 break;
@@ -96,6 +100,8 @@
                 desc = "Coca-Cola, the ubiquitous flavored soft drink. <br><br>Coca-Cola is one of the best-selling soft drinks in the world. Coca-Cola also comes in 355mL cans or 710mL bottles.";
                 price = 1.99;
                 img = "../assets/Images/cocacola_2l.jpg";
+                limit = 6;
+                id = 203;
                 currentItem = 3;
                 updatePageContents(); 
                 break;
@@ -105,6 +111,8 @@
                 desc = "Coca-Cola, the ubiquitous flavored soft drink. <br><br>Coca-Cola is one of the best-selling soft drinks in the world. Coca-Cola also comes in 710mL bottles or 2L bottles.";
                 price = 0.99;
                 img = "../assets/Images/cocacola.jpg";
+                limit = 24;
+                id = 201;
                 currentItem = 1;
                 updatePageContents(); 
                 break;
@@ -112,7 +120,7 @@
     }
 </script>
 
-<body onload="loadSessionData()" onunload="saveSessionData()">
+<body>
     <div id="__top_banner">
         <a class="white" href="login.php" title="Login to your account">Login</a>
         |
@@ -164,14 +172,14 @@
             <!-- Quantity selector and Add to Cart functionality -->
             <div class="cart_grid">
                 <div class="cart_qty_selector">
-                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(false, 20);">-</button>
+                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(false);">-</button>
                     <input id="productQty" type="text" class="cart_qty"  value="0" readonly></input>
-                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(true, 20);">+</button>
+                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(true);">+</button>
                 </div>
-                <div class="cart_qty_max_msg">
-                    Quantity Limit: 20
+                <div id="productMax" class="cart_qty_max_msg">
+                    Quantity Limit: 0
                 </div>
-                <button type="submit" class="cart_btn" onclick="addToCart(20);">Add To Cart</button>
+                <button type="submit" class="cart_btn" onclick="addToCart();">Add To Cart</button>
             </div>
         </div>
     </div>
