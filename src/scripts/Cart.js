@@ -20,7 +20,7 @@ class Cart {
 	 * @param {Item} Item_item Adds an item to the cart of the store
 	 */
 	void_add(Item_item) {
-		if (!(Item_item instanceof Item)) {
+		if (!(Item_item instanceof Object)) {
 			throw new Error("Cannot add a non Item object to the cart");
 		}
 
