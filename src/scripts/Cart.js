@@ -69,6 +69,7 @@ let cart;
 window.addEventListener("load", function () {
 	cart = new Cart();
 
+	// This script updates the cart items even if the page was refreshed
 	const items = JSON.parse(localStorage.getItem("cart"));
 	if (items != null || items.length > 0) {
 		for (const item of items) {
