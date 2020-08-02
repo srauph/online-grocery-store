@@ -106,6 +106,7 @@
             for (item of items) {
                 totalPrice += (item.cost * item.quantity);
             }
+            document.getElementById("bigTotal").value = "$" + (totalPrice * 1.14975).toFixed(2);
             document.getElementById("subtotal").innerHTML = "$" + (totalPrice.toFixed(2));
             document.getElementById("qst").innerHTML = "$" + (totalPrice * 0.09975).toFixed(2);
             document.getElementById("gst").innerHTML = "$" + (totalPrice * 0.05).toFixed(2);
@@ -120,85 +121,85 @@
             document.getElementById("numberOfItems").innerHTML = numberOfItems;
         }
         
-    /**
-     * This function gets all the cart items from the localstorage and displays them in the page
-     */
-    function init() {
+        /**
+         * This function gets all the cart items from the localstorage and displays them in the page
+         */
+        function init() {
 
-        items = JSON.parse(localStorage.getItem("cart"));
-        const DOM = document.getElementById("__cart_content_table");
+            items = JSON.parse(localStorage.getItem("cart"));
+            const DOM = document.getElementById("__cart_content_table");
 
-        if (items == null || items.length == 0) {
-            //document.getElementById("___cart_content_table_r2").innerHTML = "<br><br>Cart is empty.";
-            DOM.innerHTML = "<h2>Cart is empty.</h2> Let's add some stuff to this!";
-            
+            if (items == null || items.length == 0) {
+                //document.getElementById("___cart_content_table_r2").innerHTML = "<br><br>Cart is empty.";
+                DOM.innerHTML = "<h2>Cart is empty.</h2> Let's add some stuff to this!";
+                
+                // Write the GST and QST
+                document.getElementById("subtotal").innerHTML = "$" + (0).toFixed(2);
+                document.getElementById("qst").innerHTML = "$" + (0).toFixed(2);
+                document.getElementById("gst").innerHTML = "$" + (0).toFixed(2);
+                document.getElementById("total").innerHTML = "$" + (0).toFixed(2);
+                return;
+            }
+
+            DOM.innerHTML = document.getElementById("___init").innerHTML;
+
+            for (const item of items) {
+                
+                /*
+                <div class="cart_grid">
+                    <div class="cart_qty_selector">
+                        <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(false);">-</button>
+                        <input id="productQty" type="text" class="cart_qty" value="0" readonly></input>
+                        <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(true);">+</button>
+                    </div>
+                    <div id="productMax" class="cart_qty_max_msg">
+                        Quantity Limit: 20
+                    </div>
+                </div>
+                */
+
+                DOM.innerHTML +=
+                    `<tr class="cart_list">
+                        <td style = "text-align:center">
+                            <img src = "../assets/Images/${item.image}" alt = "" width = "150" height = "150" >
+                        </td>
+                        <td style = "text-align:center" >
+                            <div><h2>${item.name}</h2></div>
+                        </td>
+                        <td style="text-align:center;" > 
+                            <div class="cart_qty_selector_grid">
+                                <div class="cart_qty_selector">
+                                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQtyCartPage(${item.id}, false);">-</button>
+                                    <input id="productQty${item.id}" type="text" class="cart_qty" value="${item.quantity}" readonly></input>
+                                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQtyCartPage(${item.id}, true);">+</button>
+                                </div>
+                                <div class="cart_qty_max_msg">
+                                    Quantity Limit: ${item.limit}
+                                </div>
+                            </div>
+                        </td>                     
+                        <td style = "text-align:center" >
+                            <div><h2> $${item.cost} </h2></div> 
+                        </td>
+                        <td style = "text-align:center" >
+                            <input type="button" class="cart_remove_btn" onclick="removeItem(${item.id});" value="Remove Item" /> 
+                        </td> 
+                    </tr>`;
+            }
+
             // Write the GST and QST
-            document.getElementById("subtotal").innerHTML = "$" + (0).toFixed(2);
-            document.getElementById("qst").innerHTML = "$" + (0).toFixed(2);
-            document.getElementById("gst").innerHTML = "$" + (0).toFixed(2);
-            document.getElementById("total").innerHTML = "$" + (0).toFixed(2);
-            return;
+            getNumberOfItems();
+            calculateCost();
         }
 
-        DOM.innerHTML = document.getElementById("___init").innerHTML;
+        document.addEventListener("DOMContentLoaded", function() {
+            init();
+        });
 
-        for (const item of items) {
-            
-            /*
-            <div class="cart_grid">
-                <div class="cart_qty_selector">
-                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(false);">-</button>
-                    <input id="productQty" type="text" class="cart_qty" value="0" readonly></input>
-                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(true);">+</button>
-                </div>
-                <div id="productMax" class="cart_qty_max_msg">
-                    Quantity Limit: 20
-                </div>
-            </div>
-            */
-
-            DOM.innerHTML +=
-                `<tr class="cart_list">
-                    <td style = "text-align:center">
-                        <img src = "../assets/Images/${item.image}" alt = "" width = "150" height = "150" >
-                    </td>
-                    <td style = "text-align:center" >
-                        <div><h2>${item.name}</h2></div>
-                    </td>
-                    <td style="text-align:center;" > 
-                        <div class="cart_qty_selector_grid">
-                            <div class="cart_qty_selector">
-                                <button type="submit" class="cart_plus_minus_btn" onclick="updateQtyCartPage(${item.id}, false);">-</button>
-                                <input id="productQty${item.id}" type="text" class="cart_qty" value="${item.quantity}" readonly></input>
-                                <button type="submit" class="cart_plus_minus_btn" onclick="updateQtyCartPage(${item.id}, true);">+</button>
-                            </div>
-                            <div class="cart_qty_max_msg">
-                                Quantity Limit: ${item.limit}
-                            </div>
-                        </div>
-                    </td>                     
-                    <td style = "text-align:center" >
-                        <div><h2> $${item.cost} </h2></div> 
-                    </td>
-                    <td style = "text-align:center" >
-                        <input type="button" class="cart_remove_btn" onclick="removeItem(${item.id});" value="Remove Item" /> 
-                    </td> 
-                </tr>`;
+        function clearCart() {
+            localStorage.removeItem("cart");
+            init();
         }
-
-        // Write the GST and QST
-        getNumberOfItems();
-        calculateCost();
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-        init();
-    });
-
-    function clearCart() {
-        localStorage.removeItem("cart");
-        init();
-    }
     </script>
 </head>
 
@@ -280,11 +281,11 @@
             <div class="border">
                 <h1>CART SUMMARY</h1>
                 <label class="name">Estimated total</label><br>
-                <input type="text" style="height:80px; font-size:40; width:300;" placeholder="$0.00"><br><br>
+                <input id="bigTotal" type="text" style="height:80px; font-size:40; width:300;" value="$0.00" readonly><br><br>
 
-                <input type="submit" class="cart_btn" style=width:300; size="20" ; placeholder="PLACE ORDER" value="PLACE ORDER">
+                <input type="submit" class="cart_btn" style="width:300; size:20;" value="PLACE ORDER">
 
-                <pre><h3 class="red" style= "font-size:17;" >     Minimum $45.00 order.    </h3></pre>
+                <h3 class="red" style= "font-size:17; font-family:'Courier New';" >Price Breakdown:</h3>
 
                 <table style=width:100%>
                     <tr>
