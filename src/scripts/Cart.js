@@ -65,7 +65,14 @@ class Cart {
 	}
 }
 
-// let cart;
-// window.addEventListener("load", function () {
-// 	cart = new Cart();
-// });
+let cart;
+window.addEventListener("load", function () {
+	cart = new Cart();
+
+	const items = JSON.parse(localStorage.getItem("cart"));
+	if (items != null || items.length > 0) {
+		for (const item of items) {
+			cart.void_add(item);
+		}
+	}
+});
