@@ -52,22 +52,25 @@ class Cart {
         // this.items.push(Item_item);
 
         // Push changes to the server
+        this.private_void_updateValue();
         this.protected_void_flush();
 
         // this.items = [];
 
     }
 
-    private_void_updateValue() {
+    private_void_updateValue(ItemsArray_array) {
         let sum = 0;
-        for (const item of this.items) {
-            sum += Number(item.getCost());
+        let items = ItemsArray_array || this.items;
+        let totalQuantity = 0;
+        for (const item of items) {
+            sum += Number(item.cost) * Number(item.quantity);
+            totalQuantity += Number(item.quantity);
         }
 
-        this.HTMLSpamElement_valueContainer.innerHTML = `(${
-			this.items.length
-		}) \$${sum.toFixed(2)}`;
+        this.HTMLSpamElement_valueContainer.innerHTML = `(${totalQuantity}) \$${sum.toFixed(2)} (+ tax)`;
     }
+
 
 
     /**
@@ -88,6 +91,7 @@ class Cart {
 
         // localStorage.setItem("cart", JSON.stringify(previousItems));
         localStorage.setItem("cart", JSON.stringify(this.items));
+        this.private_void_updateValue();
     }
 
     void_toString() {

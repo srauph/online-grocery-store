@@ -99,6 +99,7 @@
 
             getNumberOfItems();
             calculateCost();
+            updateCartValue();
         }
 
         function calculateCost() {
@@ -119,6 +120,10 @@
                 numberOfItems += item.quantity;
             }
             document.getElementById("numberOfItems").innerHTML = numberOfItems;
+        }
+
+        function updateCartValue(ItemsArray_array) {
+            document.getElementById("cart_total_value").innerHTML = `(${numberOfItems}) \$${(totalPrice * 1.14975).toFixed(2)}`;
         }
         
         /**
