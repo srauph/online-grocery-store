@@ -51,25 +51,11 @@
     <script>
     let bars = 1;
 
-    function saveSessionData() {
-        sessionStorage.marsQty = bars;
-    }
-    function loadSessionData() {
-        if (sessionStorage.marsQty) {
-            void_updateNumber(sessionStorage.marsQty);
-        }
-    }
-
-
     /**
      * This function will update how many choclate bars the user wants to put at once in his cart
      */
     function void_updateNumber(int_num) {
         bars = int_num;
-        for (let i = 1; i <= 3; i++) {
-            document.getElementById("productOption" + i).className = "product_option_btn";
-        }
-        document.getElementById("productOption" + bars).className = "product_option_btn_selected";
     }
 
     /**
@@ -78,12 +64,8 @@
      * 
      * @see Please see the Cart class in cart.js
      */
-    // function void_addItemsToCart() {
-    //     cart.void_add(new Item(121, 'Mars', 'mars, chocolat', 'mars.jpg', 1.49, 1, 0, ''), bars);
-    // }
-
     function void_addItemsToCart() {
-        cart.void_add(new Item(121, 'Mars', 'mars, chocolat', 'mars.jpg', 1.49, parseInt(bars), 3, 0, ''));
+        cart.void_add(new Item(121, 'Mars', 'mars, chocolat', 'mars.jpg', 1.49, bars, 3));
     }
 
     // =================== DESCRIPTION HANDLING ======================
@@ -123,9 +105,9 @@
             <button class="product_description_btn" onclick="showAllDescription();">More
                 Description...</button><br><br><br>
             <p>You may choose a different size using the options below...</p>
-            <button id="productOption1" class="product_option_btn_selected" onclick="void_updateNumber(1);">1 bar</button>
-            <button id="productOption2" class="product_option_btn" onclick="void_updateNumber(2);">2 bars</button>
-            <button id="productOption3" class="product_option_btn" onclick="void_updateNumber(3);">3 bars</button><br><br><br>
+            <button class="product_option_btn" onclick="void_updateNumber(1);">1 bar</button>
+            <button class="product_option_btn" onclick="void_updateNumber(2);">2 bars</button>
+            <button class="product_option_btn" onclick="void_updateNumber(3);">3 bars</button><br><br><br>
             <button type="submit" class="btn" onclick="void_addItemsToCart();">Add
                 To
                 Cart</button>
@@ -151,8 +133,6 @@
 
                 <th>
                     <h3 style="color:white; text-align:center;">Caliprex<h3>
-
-
                             <tr>
                                 <th>
                                     <h3 style="color:white; font-style:robotto;"> <br>Subscribe to our Newsletter!</h3>
