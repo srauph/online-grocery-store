@@ -70,13 +70,16 @@ class Cart {
 
 	private_void_updateValue() {
 		let sum = 0;
-		for (const item of this.items) {
-			sum += Number(item.getCost());
+		let items = JSON.parse(localStorage.getItem("cart")) || [];
+		let total = 0;
+		for (const item of items) {
+			sum += item.cost * Number(item.quantity);
+			total += Number(item.quantity);
 		}
 
-		this.HTMLSpamElement_valueContainer.innerHTML = `(${
-			this.items.length
-		}) \$${sum.toFixed(2)}`;
+		this.HTMLSpamElement_valueContainer.innerHTML = `(${total}) \$${sum.toFixed(
+			2
+		)}`;
 	}
 
 	/**
