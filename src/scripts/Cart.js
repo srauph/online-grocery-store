@@ -73,6 +73,7 @@ window.addEventListener("load", function () {
 	const items = JSON.parse(localStorage.getItem("cart"));
 	console.log(items);
 	if (items != null || items.length > 0) {
+		cart.items = [];
 		for (const item of items) {
 			cart.void_add(item);
 		}
