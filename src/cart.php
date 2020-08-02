@@ -30,6 +30,8 @@
     <!-- Get all the items that the user has added to the cart and display them -->
     <script>
 
+        var totalPrice;
+        var numberOfItems;
         var items;
 
         /** 
@@ -95,9 +97,27 @@
                 }
             }
 
-            console.log(items[index].quantity);
-            console.log(index);
-            console.log(items);
+            getNumberOfItems();
+            calculateCost();
+        }
+
+        function calculateCost() {
+            totalPrice = 0;
+            for (item of items) {
+                totalPrice += (item.cost * item.quantity);
+            }
+            document.getElementById("subtotal").innerHTML = "$" + (totalPrice.toFixed(2));
+            document.getElementById("qst").innerHTML = "$" + (totalPrice * 0.09975).toFixed(2);
+            document.getElementById("gst").innerHTML = "$" + (totalPrice * 0.05).toFixed(2);
+            document.getElementById("total").innerHTML = "$" + (totalPrice * 1.14975).toFixed(2);
+        }
+
+        function getNumberOfItems() {
+            numberOfItems = 0;
+            for (item of items) {
+                numberOfItems += item.quantity;
+            }
+            document.getElementById("numberOfItems").innerHTML = numberOfItems;
         }
         
     /**
@@ -113,6 +133,7 @@
             DOM.innerHTML = "<h2>Cart is empty.</h2> Let's add some stuff to this!";
             
             // Write the GST and QST
+            document.getElementById("subtotal").innerHTML = "$" + (0).toFixed(2);
             document.getElementById("qst").innerHTML = "$" + (0).toFixed(2);
             document.getElementById("gst").innerHTML = "$" + (0).toFixed(2);
             document.getElementById("total").innerHTML = "$" + (0).toFixed(2);
@@ -121,7 +142,6 @@
 
         DOM.innerHTML = document.getElementById("___init").innerHTML;
 
-        let totalPrice = 0.0;
         for (const item of items) {
             
             /*
@@ -164,14 +184,11 @@
                         <input type="button" class="cart_remove_btn" onclick="removeItem(${item.id});" value="Remove Item" /> 
                     </td> 
                 </tr>`;
-
-            totalPrice += item.cost;
         }
 
         // Write the GST and QST
-        document.getElementById("qst").innerHTML = "$" + (totalPrice * 0.0995).toFixed(2);
-        document.getElementById("gst").innerHTML = "$" + (totalPrice * 0.015).toFixed(2);
-        document.getElementById("total").innerHTML = "$" + (totalPrice * (1.015 + 1.0995)).toFixed(2);
+        getNumberOfItems();
+        calculateCost();
     }
 
     document.addEventListener("DOMContentLoaded", function() {
@@ -272,7 +289,11 @@
                 <table style=width:100%>
                     <tr>
                         <td><h3 class="black" style="font-size:17;">Number of items:</h3></td>
-                        <td style="text-align:right;"><h3>0</h3></td>
+                        <td style="text-align:right;"><h3 id="numberOfItems">0</h3></td>
+                    </tr>
+                    <tr>
+                        <td><h3 class="black" style="font-size:17;">Subtotal:</h3></td>
+                        <td style="text-align:right;"><h3 id="subtotal">$0.00</h3></td>
                     </tr>
                     <tr>
                         <td><h3 class="black" style="font-size:17;">QST:</h3></td>
