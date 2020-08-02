@@ -23,17 +23,89 @@
     <script type="text/javascript" src="scripts/Item.js"></script>
     <script type="text/javascript" src="scripts/Sales.js"></script>
     <script type="text/javascript" src="scripts/AbstractComponent.js"></script>
+    <script type="text/javascript" src="scripts/Beverage.js"></script>
     <script type="text/javascript" src="scripts/main.js"></script>
 
 
     <!-- Get all the items that the user has added to the cart and display them -->
     <script>
+
+        var items;
+
+        /** 
+         * Saves the cart to localStorage
+         */
+        function saveSessionData() {
+            localStorage.setItem("cart", JSON.stringify(items));
+        }
+
+        /**  
+         * Loads the cart to localStorage
+         */
+        function loadSessionData() {
+            items = JSON.parse(localStorage.getItem("cart"));
+        }
+        
+        function removeItem(id) {
+            console.log(id);
+            for (i of items) {
+                console.log(i);
+                console.log(i.id);
+                if (i.id == id) {
+                    console.log("found");
+                    var index = items.indexOf(i);
+                }
+            }
+            items.splice(index, 1);
+            location.reload();
+        }
+
+        function updateQtyCartPage(id, direction) {
+
+            for (i of items) {
+                if (i.id == id) {
+                    var index = items.indexOf(i);
+                }
+            }
+
+            if (items[index].quantity < 0) {
+                items[index].quantity = 0;
+                document.getElementById("productQty" + items[index].id).value = 0;
+                return;
+            } else if (items[index].quantity > items[index].limit) {
+                alert("Warning: Maximum item purchase limit exceeded. Reverting to " + items[index].limit + ".");
+                items[index].quantity = items[index].limit;
+                document.getElementById("productQty" + items[index].id).value = items[index].limit;
+                return;
+            }
+
+            if (direction) {
+                if (items[index].quantity == items[index].limit) {
+                    return;
+                } else {
+                    items[index].quantity++;
+                    document.getElementById("productQty" + items[index].id).value = items[index].quantity;
+                }
+            } else {
+                if (items[index].quantity == 0) {
+                    return;
+                } else {
+                    items[index].quantity--;
+                    document.getElementById("productQty" + items[index].id).value = items[index].quantity;
+                }
+            }
+
+            console.log(items[index].quantity);
+            console.log(index);
+            console.log(items);
+        }
+        
     /**
      * This function gets all the cart items from the localstorage and displays them in the page
      */
     function init() {
 
-        const items = JSON.parse(localStorage.getItem("cart"));
+        items = JSON.parse(localStorage.getItem("cart"));
         const DOM = document.getElementById("__cart_content_table");
 
         if (items == null || items.length == 0) {
@@ -51,6 +123,19 @@
 
         let totalPrice = 0.0;
         for (const item of items) {
+            
+            /*
+            <div class="cart_grid">
+                <div class="cart_qty_selector">
+                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(false);">-</button>
+                    <input id="productQty" type="text" class="cart_qty" value="0" readonly></input>
+                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(true);">+</button>
+                </div>
+                <div id="productMax" class="cart_qty_max_msg">
+                    Quantity Limit: 20
+                </div>
+            </div>
+            */
 
             DOM.innerHTML +=
                 `<tr class="cart_list">
@@ -61,17 +146,22 @@
                         <div><h2>${item.name}</h2></div>
                     </td>
                     <td style="text-align:center;" > 
-                        <div class="cart_qty_selector">
-                            <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(false, 20);">-</button>
-                            <input id="productQty" type="text" class="cart_qty" value="0" readonly></input>
-                            <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(true, 20);">+</button>
+                        <div class="cart_qty_selector_grid">
+                            <div class="cart_qty_selector">
+                                <button type="submit" class="cart_plus_minus_btn" onclick="updateQtyCartPage(${item.id}, false);">-</button>
+                                <input id="productQty${item.id}" type="text" class="cart_qty" value="${item.quantity}" readonly></input>
+                                <button type="submit" class="cart_plus_minus_btn" onclick="updateQtyCartPage(${item.id}, true);">+</button>
+                            </div>
+                            <div class="cart_qty_max_msg">
+                                Quantity Limit: ${item.limit}
+                            </div>
                         </div>
                     </td>                     
                     <td style = "text-align:center" >
                         <div><h2> $${item.cost} </h2></div> 
                     </td>
                     <td style = "text-align:center" >
-                        <input type="button" class="cart_remove_btn" onclick="" value="Remove Item" /> 
+                        <input type="button" class="cart_remove_btn" onclick="removeItem(${item.id});" value="Remove Item" /> 
                     </td> 
                 </tr>`;
 
@@ -175,7 +265,7 @@
                 <label class="name">Estimated total</label><br>
                 <input type="text" style="height:80px; font-size:40; width:300;" placeholder="$0.00"><br><br>
 
-                <input type="submit" class="btn" style=width:300; size="20" ; placeholder="PLACE ORDER" value="PLACE ORDER">
+                <input type="submit" class="cart_btn" style=width:300; size="20" ; placeholder="PLACE ORDER" value="PLACE ORDER">
 
                 <pre><h3 class="red" style= "font-size:17;" >     Minimum $45.00 order.    </h3></pre>
 
@@ -212,7 +302,7 @@
                             <tr>
                                 <td><input type="text" style="height:60px;font-size:10;width:200px;"
                                         placeholder="EX: PROMCODE1     "></td>
-                                <td style="text-align:right;"><input type="submit" style="height:60; text-align:center; font-size:10;" class="btn"
+                                <td style="text-align:right;"><input type="submit" style="height:60; text-align:center; padding: 22px;" class="cart_btn"
                                         value="APPLY"></td>
                             </tr>
                         </table>
@@ -243,16 +333,16 @@
                     </table>
                     <br>
 
-                    <<a href="login.php"><input type="submit" class="btn" style="width:300; size=20;"
+                    <<a href="login.php"><input type="submit" class="cart_btn" style="width:300; size=20;"
                             value="MY POSITION"></a>
                 </center>
 
 
                 <h4> Please log in or create an account to reserve your timeslot</h4>
                 <a href="login.php">
-                    <button type="submit" class="btn" style=width:300; size="20">LOGIN</button><br><br>
+                    <button type="submit" class="cart_btn" style=width:300; size="20">LOGIN</button><br><br>
                 </a>
-                <a href="register.php"><button type="submit" class="btn" style=width:300; size="20" ;>CREATE AN
+                <a href="register.php"><button type="submit" class="cart_btn" style=width:300; size="20" ;>CREATE AN
                         ACCOUNT</button><br><br>
                 </a>
             </div>

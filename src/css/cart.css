@@ -132,6 +132,15 @@
     text-align: center;
 }
 
+.cart_qty_selector_grid {
+    display: grid;
+    grid-row-gap: 5px;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    padding: 2%;
+    text-align: center;
+}
+
 
 /** for individual beverage pages**/
 

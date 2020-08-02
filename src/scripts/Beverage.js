@@ -10,6 +10,8 @@ var desc = "";
 var price = 0.0;
 var img = "";
 var options = 1;
+var id = 0;
+var limit = 12;
 
 /**
  * showAll:     When true, show the product description in its entirety.
@@ -30,6 +32,10 @@ function updatePageContents() {
     document.getElementById("productImg").alt = name; // Product image alt text
     document.getElementById("productName").innerHTML = name; // Product title
     document.getElementById("productPrice").innerHTML = "$" + price + " (In stock!)"; // Product price
+    document.getElementById("productMax").innerHTML = "Quantity Limit: " + limit
+    if (qty > limit) {
+        setQty(limit);
+    }
     changeSelectionBtn(currentItem); // Product option buttons
     displayDesc(); // Product description
 }
@@ -79,26 +85,24 @@ function changeSelectionBtn(productOption) {
  * @param {*} newQty Quantity value to use.
  */
 function setQty(newQty) {
+    qty = newQty;
     document.getElementById("productQty").value = newQty;
 }
 
 /**
  * Updates the quantity to add to cart
  * @param {*} direction When true, increment qty. Else, decrement qty.
- * @param {*} limit Max amount to allow increasing to
  */
-function updateQty(direction, limit) {
+function updateQty(direction) {
 
     qty = document.getElementById("productQty").value;
 
     if (qty < 0) {
-        qty = 0;
-        document.getElementById("productQty").value = 0;
+        setQty(0);
         return;
     } else if (qty > limit) {
         alert("Warning: Maximum item purchase limit exceeded. Reverting to " + limit + ".");
-        qty = limit;
-        document.getElementById("productQty").value = limit;
+        setQty(limit);
         return;
     }
 
@@ -121,9 +125,8 @@ function updateQty(direction, limit) {
 
 /**
  * This function adds the selected quantity of the selected product to the cart.
- * @param {*} limit The maximum allowable quantity to add to cart.
  */
-function addToCart(limit) {
+function addToCart() {
     qty = document.getElementById("productQty").value;
 
     if (qty <= 0) {
@@ -136,7 +139,7 @@ function addToCart(limit) {
         return;
     } else {
         // for (let i = 0; i < qty; i++) {
-        cart.void_add(new Item(42, name, currentItem, img.substring(17), price, 1, 0, ''), qty);
+        cart.void_add(new Item(id, name, currentItem, img.substring(17), price, parseInt(qty), limit, 0, ''));
         // }
     }
 }

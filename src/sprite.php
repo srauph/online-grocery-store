@@ -29,6 +29,8 @@
     price = 0.99;
     img = "../assets/Images/sprite.jpg";
     options = 3;
+    limit = 24;
+    id = 101;
 
     /** 
      * Saves the session data. 
@@ -87,7 +89,10 @@
                 desc = "Sprite, a lemon-lime flavored soft drink. <br><br>From the Coca-Cola Company, Sprite is one of the best-selling soft drinks in the world. Sprite also comes in 355mL cans or 2L bottles.";
                 price = 1.49;
                 img = "../assets/Images/sprite_710ml.jpg";
-                currentItem = 2;   
+                limit = 12;
+                id = 102;
+                currentItem = 2;
+
                 updatePageContents(); // Ditto.
                 break;
 
@@ -96,6 +101,8 @@
                 desc = "Sprite, a lemon-lime flavored soft drink. <br><br>From the Coca-Cola Company, Sprite is one of the best-selling soft drinks in the world. Sprite also comes in 355mL cans or 710mL bottles.";
                 price = 1.99;
                 img = "../assets/Images/sprite_2l.jpg";
+                limit = 6;
+                id = 103;
                 currentItem = 3;
                 updatePageContents(); 
                 break;
@@ -105,6 +112,8 @@
                 desc = "Sprite, a lemon-lime flavored soft drink. <br><br>From the Coca-Cola Company, Sprite is one of the best-selling soft drinks in the world. Sprite also comes in 710mL bottles or 2L bottles.";
                 price = 0.99;
                 img = "../assets/Images/sprite.jpg";
+                limit = 24;
+                id = 101;
                 currentItem = 1;
                 updatePageContents();
                 break;
@@ -167,14 +176,14 @@
             <!-- Quantity selector and Add to Cart functionality -->
             <div class="cart_grid">
                 <div class="cart_qty_selector">
-                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(false, 20);">-</button>
+                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(false);">-</button>
                     <input id="productQty" type="text" class="cart_qty" value="0" readonly></input>
-                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(true, 20);">+</button>
+                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(true);">+</button>
                 </div>
-                <div class="cart_qty_max_msg">
+                <div id="productMax" class="cart_qty_max_msg">
                     Quantity Limit: 20
                 </div>
-                <button type="submit" class="cart_btn" onclick="addToCart(20);">Add To Cart</button>
+                <button type="submit" class="cart_btn" onclick="addToCart();">Add To Cart</button>
             </div>
         </div>
     </div>
