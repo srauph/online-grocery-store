@@ -11,6 +11,7 @@ window.onload = function() {
         cart = new Cart();
     } else {
         cart = new Cart(JSON.parse(localStorage.getItem("cart")));
+        cart.private_void_updateValue();
     }
 
     if (typeof loadSessionData === "function")
