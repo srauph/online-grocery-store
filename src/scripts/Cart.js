@@ -74,6 +74,7 @@ window.addEventListener("load", function () {
 	console.log(items);
 	if (items != null || items.length > 0) {
 		cart.items = [];
+		localStorage.clear();
 		for (const item of items) {
 			cart.void_add(item);
 		}
