@@ -41,13 +41,18 @@
             document.getElementById("qst").innerHTML = "$" + (0).toFixed(2);
             document.getElementById("gst").innerHTML = "$" + (0).toFixed(2);
             document.getElementById("total").innerHTML = "$" + (0).toFixed(2);
+            document.getElementById("__input_Estimated_total").value = "$" + (0).toFixed(2);
+            document.getElementById("__cart_total_items").innerHTML = 0;
             return;
         }
 
         DOM.innerHTML = '<tr id="___init">' + document.getElementById("___init").innerHTML + '</tr>';
 
         let totalPrice = 0.0;
+        let totalItems = 0;
         for (const item of items) {
+
+            totalItems += item.quantity;
 
             DOM.innerHTML +=
                 `<tr>
@@ -68,9 +73,12 @@
         }
 
         // Write the GST and QST
+        __input_Estimated_total
         document.getElementById("qst").innerHTML = "$" + (totalPrice * 0.0995).toFixed(2);
         document.getElementById("gst").innerHTML = "$" + (totalPrice * 0.015).toFixed(2);
         document.getElementById("total").innerHTML = "$" + (totalPrice * (1.015 + 1.0995)).toFixed(2);
+        document.getElementById("__input_Estimated_total").value = "$" + (totalPrice * (1.015 + 1.0995)).toFixed(2);
+        document.getElementById("__cart_total_items").innerHTML = totalItems;
     }
 
     document.addEventListener("DOMContentLoaded", function() {
@@ -171,7 +179,8 @@
         <div class="border1">
             <h1>CART SUMMARY</h1>
             <label class="name">Estimated total</label><br>
-            <input type="text" style="height:80px; font-size:40; width:300;" placeholder="$0.00"><br><br>
+            <input id="__input_Estimated_total" type="text" style="height:80px; font-size:40; width:300;"
+                placeholder="$0.00" disabled="disabled"><br><br>
 
             <input type="submit" class="btn" style=width:300; size="20" ; placeholder="PLACE ORDER" value="PLACE ORDER">
 
@@ -179,16 +188,8 @@
             <table>
                 <tr>
                     <td>
-                        <pre><h3 class="black" style="font-size:17;">Number of items:   </h3></pre>
+                        <pre><h3 class="black" style="font-size:17;">Number of items: <span id="__cart_total_items">0</span></h3></pre>
                     <td>
-                    <td>
-                    <td>
-                    <td>
-                    <td>
-                    <td>
-                    <td>
-                    <td>
-                        <h3>0 </h3>
                 </tr>
                 <tr>
                     <td>
