@@ -7,12 +7,12 @@
 //import { Item } from "./Item";
 
 class Cart {
-	constructor() {
+	constructor(items = []) {
 		//super();
 		this.HTMLSpamElement_valueContainer = document.getElementById(
 			"cart_total_value"
 		);
-		this.items = []; // Array of items
+		this.items = items; // Array of items
 	}
 
 	/**
@@ -20,51 +20,61 @@ class Cart {
 	 * @param {Item} Item_item Adds an item to the cart of the store
 	 */
 	void_add(Item_item) {
-		if (!(Item_item instanceof Object)) {
+		if (!(Item_item instanceof Item)) {
 			throw new Error("Cannot add a non Item object to the cart");
 		}
 
-		this.items.push(Item_item);
+		var index = -1;
 
-		this.private_void_updateValue();
+		if (this.items.length == 0) {
+			this.items.push(Item_item);
+		} else {
+			for (let i of this.items) {
+				if (i.id == Item_item.id) {
+					index = this.items.indexOf(i);
+					break;
+				}
+			}
+			if (index == -1) {
+				this.items.push(Item_item);
+			} else if (
+				this.items[index].quantity + Item_item.quantity >
+				Item_item.limit
+			) {
+				if (Item_item.limit - this.items[index].quantity == 0) {
+					alert(
+						"Cannot add to cart:\nAdding this quantity would exceed the quantity limit.\n\nYou already have the quantity limit in your cart."
+					);
+				} else {
+					alert(
+						"Cannot add to cart:\nAdding this quantity would exceed the quantity limit.\n\nPlease lower the quantity to at most " +
+							(Item_item.limit - this.items[index].quantity) +
+							" and try again."
+					);
+				}
+				return;
+			} else {
+				this.items[index].quantity += Item_item.quantity;
+			}
+		}
+
+		// this.items.push(Item_item);
 
 		// Push changes to the server
 		this.protected_void_flush();
+
+		// this.items = [];
 	}
 
-	private_void_updateValue(ItemsArray_array) {
+	private_void_updateValue() {
 		let sum = 0;
-		let items = ItemsArray_array || this.items;
-		let totalQuantity = 0;
-		for (const item of items) {
-			sum += Number(item.cost) * Number(item.quantity);
-			totalQuantity += Number(item.quantity);
+		for (const item of this.items) {
+			sum += Number(item.getCost());
 		}
 
-		this.HTMLSpamElement_valueContainer.innerHTML = `(${totalQuantity}) \$${sum.toFixed(
-			2
-		)}`;
-	}
-
-	void_delete(int_id) {
-		for (let i = 0; i < this.items.length; i++) {
-			if (this.items[i].id == int_id) {
-				this.items.splice(i, 1);
-			}
-		}
-
-		// Delete from the session
-		let previousItems = JSON.parse(localStorage.getItem("cart"));
-		if (previousItems == null || previousItems.length == 0) previousItems = [];
-		else {
-			for (let i = 0; i < previousItems.length; i++) {
-				if (previousItems[i].id == int_id) {
-					previousItems.splice(i, 1);
-				}
-			}
-		}
-
-		localStorage.setItem("cart", JSON.stringify(previousItems));
+		this.HTMLSpamElement_valueContainer.innerHTML = `(${
+			this.items.length
+		}) \$${sum.toFixed(2)}`;
 	}
 
 	/**
@@ -75,30 +85,16 @@ class Cart {
 	protected_void_flush() {
 		// Push to the local storage
 		// Get previous items
-		let previousItems = JSON.parse(localStorage.getItem("cart"));
-		if (previousItems == null || previousItems.length == 0)
-			previousItems = this.items;
-		else {
-			previousItems = previousItems.concat(this.items);
-		}
+		// let previousItems = JSON.parse(localStorage.getItem("cart"));
 
-		let removedDuplicates = [];
-		for (const item of previousItems) {
-			let exists = false;
-			for (const temp of removedDuplicates) {
-				if (item.id == temp.id) {
-					temp.quantity++;
-					exists = true;
-				}
-			}
+		// if (previousItems == null || previousItems.length == 0)
+		//     previousItems = this.items;
+		// else {
+		//     previousItems = previousItems.concat(this.items);
+		// }
 
-			if (!exists) removedDuplicates.push(item);
-		}
-
-		localStorage.setItem("cart", JSON.stringify(removedDuplicates));
-
-		//Show items
-		this.private_void_updateValue(removedDuplicates);
+		// localStorage.setItem("cart", JSON.stringify(previousItems));
+		localStorage.setItem("cart", JSON.stringify(this.items));
 	}
 
 	void_toString() {
