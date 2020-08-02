@@ -139,6 +139,7 @@
                 DOM.innerHTML = "<h2>Cart is empty.</h2> Let's add some stuff to this!";
                 
                 // Write the GST and QST
+                document.getElementById("bigTotal").value = "$" + (0).toFixed(2);
                 document.getElementById("subtotal").innerHTML = "$" + (0).toFixed(2);
                 document.getElementById("qst").innerHTML = "$" + (0).toFixed(2);
                 document.getElementById("gst").innerHTML = "$" + (0).toFixed(2);
