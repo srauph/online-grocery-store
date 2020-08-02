@@ -110,6 +110,7 @@
                 break;
         }
     }
+    
 </script>
 
 <body onload="loadSessionData()" onunload="saveSessionData()">
@@ -165,7 +166,7 @@
             <div class="cart_grid">
                 <div class="cart_qty_selector">
                     <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(false, 20);">-</button>
-                    <input id="productQty" type="text" class="cart_qty"  value="0" readonly></input>
+                    <input id="productQty" type="text" class="cart_qty" value="0" readonly></input>
                     <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(true, 20);">+</button>
                 </div>
                 <div class="cart_qty_max_msg">
@@ -175,20 +176,9 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
     <br />
     <br />
     </div>
-
     <div id="footer">
         <center>
             <table>
