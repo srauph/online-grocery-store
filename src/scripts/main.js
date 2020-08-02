@@ -14,6 +14,7 @@ window.onload = function () {
 		cart = new Cart(JSON.parse(localStorage.getItem("cart")));
 	}
 
+	cart.private_void_updateValue();
 	cart_top_right_updater = setInterval(function () {
 		cart.private_void_updateValue();
 	}, 1000);
