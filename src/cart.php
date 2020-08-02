@@ -123,7 +123,7 @@
         }
 
         function updateCartValue(ItemsArray_array) {
-            document.getElementById("cart_total_value").innerHTML = `(${numberOfItems}) \$${(totalPrice * 1.14975).toFixed(2)}`;
+            document.getElementById("cart_total_value").innerHTML = `(${numberOfItems}) \$${(totalPrice * 1.14975).toFixed(2)} (+ tax)`;
         }
         
         /**
