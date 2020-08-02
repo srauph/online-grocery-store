@@ -25,6 +25,7 @@ class Cart {
 		}
 
 		this.items.push(Item_item);
+
 		this.private_void_updateValue();
 
 		// Push changes to the server
@@ -34,13 +35,15 @@ class Cart {
 	private_void_updateValue(ItemsArray_array) {
 		let sum = 0;
 		let items = ItemsArray_array || this.items;
+		let totalQuantity = 0;
 		for (const item of items) {
-			sum += Number(item.cost);
+			sum += Number(item.cost) * Number(item.quantity);
+			totalQuantity += Number(item.quantity);
 		}
 
-		this.HTMLSpamElement_valueContainer.innerHTML = `(${
-			items.length
-		}) \$${sum.toFixed(2)}`;
+		this.HTMLSpamElement_valueContainer.innerHTML = `(${totalQuantity}) \$${sum.toFixed(
+			2
+		)}`;
 	}
 
 	void_delete(int_id) {
@@ -79,7 +82,23 @@ class Cart {
 			previousItems = previousItems.concat(this.items);
 		}
 
-		localStorage.setItem("cart", JSON.stringify(previousItems));
+		let removedDuplicates = [];
+		for (const item of previousItems) {
+			let exists = false;
+			for (const temp of removedDuplicates) {
+				if (item.id == temp.id) {
+					temp.quantity++;
+					exists = true;
+				}
+			}
+
+			if (!exists) removedDuplicates.push(item);
+		}
+
+		localStorage.setItem("cart", JSON.stringify(removedDuplicates));
+
+		//Show items
+		this.private_void_updateValue(removedDuplicates);
 	}
 
 	void_toString() {

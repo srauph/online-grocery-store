@@ -63,6 +63,7 @@
      */
     function void_addItemsToCart() {
         cart.void_add(new Item(122, 'Twix', 'twix, chocolat', 'twix.jpg', 1.49, bars));
+        window.location.reload();
     }
 
     // =================== DESCRIPTION HANDLING ======================
