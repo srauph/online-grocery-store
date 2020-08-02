@@ -43,6 +43,27 @@ class Cart {
 		}) \$${sum.toFixed(2)}`;
 	}
 
+	void_delete(int_id) {
+		for (let i = 0; i < this.items.length; i++) {
+			if (this.items[i].id == int_id) {
+				this.items.splice(i, 1);
+			}
+		}
+
+		// Delete from the session
+		let previousItems = JSON.parse(localStorage.getItem("cart"));
+		if (previousItems == null || previousItems.length == 0) previousItems = [];
+		else {
+			for (let i = 0; i < previousItems.length; i++) {
+				if (tpreviousItems[i].id == int_id) {
+					previousItems.splice(i, 1);
+				}
+			}
+		}
+
+		localStorage.setItem("cart", JSON.stringify(previousItems));
+	}
+
 	/**
 	 * This function pushes all the item changes to the localStorag BECAUSE WE ARE NOT ALLOWED TO USE PHP NOW FOR SOME REASON
 	 *

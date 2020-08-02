@@ -333,10 +333,33 @@ input {
 }
 
 .cart_left {
-	margin-right: 100%;
+	margin-left: 10%;
+	width: 50%;
 	border-style: solid;
 	border: black;
 }
+
+.cart_left input[type="button"] {
+	padding: 15px;
+	border: 0px;
+	color: white;
+	background-color: #161616;
+}
+
+.cart_left input.delete {
+	padding: 15px;
+	border: 0px;
+	color: white;
+	background-color: #e53134;
+}
+
+.cart_left table tr td,
+.cart_left table tr th {
+	padding: 20px;
+	vertical-align: center;
+	border-bottom: 1px solid #ddd;
+}
+
 #btn_work {
 	padding: 9px;
 	margin: 0 auto;

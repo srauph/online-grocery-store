@@ -56,9 +56,12 @@
                         <td width = "100" style = "text-align:center" ><h2>${item.name}</h2> 
                     </td>
                     <td style="text-align:center;" > 
-                        <input type="number" style="text-align:center; width:90; height:45;" placeholder = "QUANTITY" /> 
+                        <input type="number" style="text-align:center; width:90; height:45;" value="${item.quantity}" placeholder = "QUANTITY" /> 
                     </td>                     
-                     <td style = "text-align:right" ><h2> $${item.cost} </h2> </td> 
+                    <td style = "text-align:right" ><h2> $${item.cost} </h2> </td> 
+                    <td style = "text-align:right" >
+                        <input type="button" class="delete" value="delete" onclick="cart.void_delete(${item.id});" />
+                    </td> 
                 </tr>`;
 
             totalPrice += item.cost;
@@ -94,37 +97,16 @@
         </a>
 
     </div>
-
     <div id="menu">
         <ul>
             <li onclick="goto('index.php')">Home</li>
             <li onclick="goto('all_items.php')">All products</li>
-            <a href="aisle.php" class="white">
-                <li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle
-                </li>
-            </a>
+            <li><a href="aisle.php" class="white">Aisle</li></a>
             <a href="contactus.php" class="white">
                 <li>Contact us</li>
             </a>
             <ul>
     </div>
-    <div name="sub_menus">
-        <div id="menu_aisle" onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">
-            <ul>
-                <li>Bakery</li>
-                <li>Beauty Products</li>
-                <li>Beverages</li>
-                <li>Frozen</li>
-                <li>Fruits & Vegetables</li>
-                <li>Dairy Products</li>
-                <li>Snacks</li>
-            </ul>
-        </div>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
     <br>
     <br>
     <br>
@@ -384,9 +366,6 @@
         </center>
     </div>
     </center>
-
-
-
 </body>
 
 </html>
