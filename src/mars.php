@@ -65,7 +65,7 @@
      * @see Please see the Cart class in cart.js
      */
     function void_addItemsToCart() {
-        cart.void_add(new Item(121, 'Mars', 'mars, chocolat', 'mars.jpg', 1.49, 1, 0, ''), bars);
+        cart.void_add(new Item(121, 'Mars', 'mars, chocolat', 'mars.jpg', 1.49, bars, 3));
     }
 
     // =================== DESCRIPTION HANDLING ======================
@@ -133,8 +133,6 @@
 
                 <th>
                     <h3 style="color:white; text-align:center;">Caliprex<h3>
-
-
                             <tr>
                                 <th>
                                     <h3 style="color:white; font-style:robotto;"> <br>Subscribe to our Newsletter!</h3>
