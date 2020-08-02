@@ -34,7 +34,7 @@ class Cart {
 	private_void_updateValue() {
 		let sum = 0;
 		for (const item of this.items) {
-			sum += Number(item.getCost());
+			sum += Number(item.cost);
 		}
 
 		this.HTMLSpamElement_valueContainer.innerHTML = `(${
