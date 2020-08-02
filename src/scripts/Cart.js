@@ -55,7 +55,7 @@ class Cart {
 		if (previousItems == null || previousItems.length == 0) previousItems = [];
 		else {
 			for (let i = 0; i < previousItems.length; i++) {
-				if (tpreviousItems[i].id == int_id) {
+				if (previousItems[i].id == int_id) {
 					previousItems.splice(i, 1);
 				}
 			}

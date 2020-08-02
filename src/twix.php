@@ -62,9 +62,7 @@
      * This function will display the changes on the cart
      */
     function void_addItemsToCart() {
-
-        for (let i = 0; i < bars; i++)
-            cart.void_add(new Item(122, 'Twix', 'twix, chocolat', 'twix.jpg', 1.49, 1, 0, ''));
+        cart.void_add(new Item(122, 'Twix', 'twix, chocolat', 'twix.jpg', 1.49, bars));
     }
 
     // =================== DESCRIPTION HANDLING ======================

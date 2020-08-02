@@ -44,7 +44,7 @@
             return;
         }
 
-        DOM.innerHTML = document.getElementById("___init").innerHTML;
+        DOM.innerHTML = '<tr id="___init">' + document.getElementById("___init").innerHTML + '</tr>';
 
         let totalPrice = 0.0;
         for (const item of items) {
@@ -60,7 +60,7 @@
                     </td>                     
                     <td style = "text-align:right" ><h2> $${item.cost} </h2> </td> 
                     <td style = "text-align:right" >
-                        <input type="button" class="delete" value="delete" onclick="cart.void_delete(${item.id});" />
+                        <input type="button" class="delete" value="delete" onclick="cart.void_delete(${item.id}); init();" />
                     </td> 
                 </tr>`;
 
