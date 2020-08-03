@@ -157,7 +157,7 @@ function addToCart() {
         return;
     } else {
         // for (let i = 0; i < qty; i++) {
-        cart.void_add(new Item(id, name, currentItem, img.substring(17), price, parseInt(qty), limit, 0, ''));
+        cart.void_add(new Item(id, (sizeName + " " + itemName + " " + name), (currentItem * 10 + currentSize), img.substring(17), price, parseInt(qty), limit, 0, ''));
         // }
     }
 }

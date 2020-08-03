@@ -68,6 +68,9 @@
         grid-row-start: 1;
         grid-row-end: 5;
     }
+    .beverage_aisle_item_img img {
+        box-shadow: 5px 5px 10px rgba(192, 192, 192, 0.6);
+    }
 }
 
 @media only screen and (min-width: 1000px) {
@@ -99,6 +102,9 @@
         grid-row: 1;
         grid-column: 1;
         width: 100%;
+    }
+    .beverage_aisle_item_img img {
+        box-shadow: 5px 5px 10px rgba(192, 192, 192, 0.6);
     }
 }
 
@@ -286,27 +292,28 @@
     grid-column-start: 1;
 }
 
-.cart_btn {
-    color: white;
-    font-size: 20px;
-    padding: 2%;
-    background-color: #161616;
-    border: 0;
-    cursor: pointer;
-    transition: all 0.5s;
-    margin: auto;
-    margin-top: 20px;
-}
-
-.cart_btn_aisle {
-    color: white;
-    font-size: 12px;
-    padding: 3%;
-    background-color: #161616;
-    border: 0;
-    cursor: pointer;
-    transition: all 0.5s;
-    margin: auto;
+@media only screen and (max-width: 1000px) {
+    .cart_btn {
+        color: white;
+        font-size: 20px;
+        padding: 2%;
+        background-color: #161616;
+        border: 0;
+        cursor: pointer;
+        transition: all 0.5s;
+        margin: auto;
+        margin-top: 20px;
+    }
+    .cart_btn_aisle {
+        color: white;
+        font-size: 12px;
+        padding: 3%;
+        background-color: #161616;
+        border: 0;
+        cursor: pointer;
+        transition: all 0.5s;
+        margin: auto;
+    }
 }
 
 @media only screen and (min-width: 1000px) {
