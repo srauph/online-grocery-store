@@ -17,7 +17,7 @@
 <!-- AUTHOR: Shadi Jiha 40131284 -->
 
 <body>
-<div id="__top_banner">
+    <div id="__top_banner">
         <a class="white" href="login.php" title="Login to your account">Login</a>
         |
         <a class="white" href="register.php" title="First time user? Register now!">Register</a>
@@ -34,20 +34,41 @@
             </button>
         </a>
     </div>
+
     <div style="text-align:center;">
         <div id="menu">
-                <div class="menu_item" onclick="goto('index.php')">
-                    <div style="margin-top:10px">Home</div>
-                </div>
-                <div class="menu_item" onclick="goto('all_items.php')">
-                    <div style="margin-top:10px">All products</div>
-                </div>
-                <div class="menu_item" onclick="goto('aisle.php')">
-                    <div style="margin-top:10px" onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</div>
-                </div>
-                <div class="menu_item" onclick="goto('all_items.php')">
-                    <div style="margin-top:10px">Contact us</div>
-                </div>
+            <div class="menu_item" onclick="goto('index.php')">
+                <div>Home</div>
+            </div>
+            <div class="menu_item" onclick="goto('all_items.php')">
+                <div>All products</div>
+            </div>
+            <div class="menu_item" onclick="goto('aisle.php')">
+                <div onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</div>
+            </div>
+            <div class="menu_item" onclick="goto('contactus.php')">
+                <div>Contact us</div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="sub_menus" id="menu_aisle" onmouseover="void_showElement('menu_aisle');"
+            onmouseout="void_hideElement('menu_aisle');">
+            <form action="register.php" method="POST">
+                <ul>
+                    <li><input type="submit" name="__tag_search_btn" value="Bakery" formaction="bakery.php" style="color:white; font-weight:bold"></li>
+                    <li><input type="submit" name="__tag_search_btn" value="Beauty Products"
+                            formaction="beautyproducts.php" style="color:white; font-weight:bold"></li>
+                    <li><input type="submit" name="__tag_search_btn" value="Beverages" formaction="beverages.php" style="color:white; font-weight:bold"></li>
+                    <li><input type="submit" name="__tag_search_btn" value="Frozen" formaction="frozen.php" style="color:white; font-weight:bold"></li>
+                    <li><input type="submit" name="__tag_search_btn" value="Fruits" formaction="fruits.php" style="color:white; font-weight:bold"></li>
+                    <li><input type="submit" name="__tag_search_btn" value="Vegetables" formaction="vegetables.php" style="color:white; font-weight:bold">
+                    </li>
+                    <li><input type="submit" name="__tag_search_btn" value="Dairy Products"
+                            formaction="dairyproducts.php" style="color:white; font-weight:bold"></li>
+                    <li><input type="submit" name="__tag_search_btn" value="Snacks" formaction="snacks.php" style="color:white; font-weight:bold"></li>
+                </ul>
+            </form>
         </div>
     </div>
 
@@ -88,7 +109,7 @@
     // =================== DESCRIPTION HANDLING ======================
 
     // Replace the content of this variable with your own product description
-    const description = "A 47g Mars chocolate bar (limited to 3 per costumer)";
+    const description = "A 50g Twix chocolate bar. (Limited to 3 per customer).";
 
     /**
      * This function will only show the first 15 caracters of the description of the product
@@ -118,8 +139,8 @@
         </div>
 
         <div class="beverage_right">
-            <h1 style="font-size:48; padding:2%; background-color:white;">Twix choclate bar</h1><br>
-            <p style="font-size:24px" id="description">A 47g Mars chocolate bar (limited to 3 per costumer)</p>
+            <h1 style="font-size:48; padding:2%; background-color:white;">Twix chocolate bar</h1><br>
+            <p style="font-size:24px" id="description">A 50g Twix chocolate bar (limited to 3 per costumer)</p>
             <button class="product_description_btn" onclick="showAllDescription();">More
                 Description...</button><br><br><br>
             <p>You may choose a different size using the options below...</p>
@@ -151,25 +172,20 @@
             <div class="media_links">
                 <a href="https://www.facebook.com/Caliprex-121401789649042" target="_blank">
                         <image src="../assets/Icons/facebook.png" alt="Facebook image"
-                            width="50" height="50">
-                    </a>
+                            width="50" height="50"></a>
                 <a href="https://www.instagram.com/caliprex/" target="_blank">
                         <image src="../assets/Icons/instagram.png" alt="Instagram image"
-                            width="50" height="50">
-                    </a>
+                            width="50" height="50"></a>
                 <a href="https://twitter.com/caliprex" target="_blank">
                         <image src="../assets/Icons/twitter.png" alt="Twitter image"
-                            width="50" height="50">
-                    </a>
+                            width="50" height="50"></a>
                 <a href="https://Pintrest.com/caliprex" target="_blank">
                         <image src="../assets/Icons/pinterest.png" alt="Pintrest image"
-                            width="50" height="50">
-                    </a>
+                            width="50" height="50"></a>
                 <a href="https://www.youtube.com/channel/UCvZRW67axwzk6fw5dBSw-iQ?view_as=subscriber"
                         target="_blank">
                         <image src="../assets/Icons/youtube.png" alt="Youtube image"
-                            width="50" height="50">
-                    </a>
+                            width="50" height="50"></a>
             </div>
                 
             <div class="aboutus_login">

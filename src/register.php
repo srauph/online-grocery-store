@@ -18,7 +18,7 @@ require_once('php/config.php');
 </head>
 
 <body>
-<div id="__top_banner">
+    <div id="__top_banner">
         <a class="white" href="login.php" title="Login to your account">Login</a>
         |
         <a class="white" href="register.php" title="First time user? Register now!">Register</a>
@@ -35,20 +35,21 @@ require_once('php/config.php');
             </button>
         </a>
     </div>
+
     <div style="text-align:center;">
         <div id="menu">
-                <div class="menu_item" onclick="goto('index.php')">
-                    <div style="margin-top:10px">Home</div>
-                </div>
-                <div class="menu_item" onclick="goto('all_items.php')">
-                    <div style="margin-top:10px">All products</div>
-                </div>
-                <div class="menu_item" onclick="goto('aisle.php')">
-                    <div style="margin-top:10px" onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</div>
-                </div>
-                <div class="menu_item" onclick="goto('all_items.php')">
-                    <div style="margin-top:10px">Contact us</div>
-                </div>
+            <div class="menu_item" onclick="goto('index.php')">
+                <div>Home</div>
+            </div>
+            <div class="menu_item" onclick="goto('all_items.php')">
+                <div>All products</div>
+            </div>
+            <div class="menu_item" onclick="goto('aisle.php')">
+                <div onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</div>
+            </div>
+            <div class="menu_item" onclick="goto('contactus.php')">
+                <div>Contact us</div>
+            </div>
         </div>
     </div>
     <div>
@@ -56,17 +57,17 @@ require_once('php/config.php');
             onmouseout="void_hideElement('menu_aisle');">
             <form action="register.php" method="POST">
                 <ul>
-                    <li><input type="submit" name="__tag_search_btn" value="Bakery" formaction="bakery.php"></li>
+                    <li><input type="submit" name="__tag_search_btn" value="Bakery" formaction="bakery.php" style="color:white; font-weight:bold"></li>
                     <li><input type="submit" name="__tag_search_btn" value="Beauty Products"
-                            formaction="beautyproducts.php"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Beverages" formaction="beverages.php"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Frozen" formaction="frozen.php"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Fruits" formaction="fruits.php"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Vegetables" formaction="vegetables.php">
+                            formaction="beautyproducts.php" style="color:white; font-weight:bold"></li>
+                    <li><input type="submit" name="__tag_search_btn" value="Beverages" formaction="beverages.php" style="color:white; font-weight:bold"></li>
+                    <li><input type="submit" name="__tag_search_btn" value="Frozen" formaction="frozen.php" style="color:white; font-weight:bold"></li>
+                    <li><input type="submit" name="__tag_search_btn" value="Fruits" formaction="fruits.php" style="color:white; font-weight:bold"></li>
+                    <li><input type="submit" name="__tag_search_btn" value="Vegetables" formaction="vegetables.php" style="color:white; font-weight:bold">
                     </li>
                     <li><input type="submit" name="__tag_search_btn" value="Dairy Products"
-                            formaction="dairyproducts.php"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Snacks" formaction="snacks.php"></li>
+                            formaction="dairyproducts.php" style="color:white; font-weight:bold"></li>
+                    <li><input type="submit" name="__tag_search_btn" value="Snacks" formaction="snacks.php" style="color:white; font-weight:bold"></li>
                 </ul>
             </form>
         </div>
@@ -140,25 +141,20 @@ require_once('php/config.php');
             <div class="media_links">
                 <a href="https://www.facebook.com/Caliprex-121401789649042" target="_blank">
                         <image src="../assets/Icons/facebook.png" alt="Facebook image"
-                            width="50" height="50">
-                    </a>
+                            width="50" height="50"></a>
                 <a href="https://www.instagram.com/caliprex/" target="_blank">
                         <image src="../assets/Icons/instagram.png" alt="Instagram image"
-                            width="50" height="50">
-                    </a>
+                            width="50" height="50"></a>
                 <a href="https://twitter.com/caliprex" target="_blank">
                         <image src="../assets/Icons/twitter.png" alt="Twitter image"
-                            width="50" height="50">
-                    </a>
+                            width="50" height="50"></a>
                 <a href="https://Pintrest.com/caliprex" target="_blank">
                         <image src="../assets/Icons/pinterest.png" alt="Pintrest image"
-                            width="50" height="50">
-                    </a>
+                            width="50" height="50"></a>
                 <a href="https://www.youtube.com/channel/UCvZRW67axwzk6fw5dBSw-iQ?view_as=subscriber"
                         target="_blank">
                         <image src="../assets/Icons/youtube.png" alt="Youtube image"
-                            width="50" height="50">
-                    </a>
+                            width="50" height="50"></a>
             </div>
                 
             <div class="aboutus_login">

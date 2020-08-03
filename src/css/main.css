@@ -135,77 +135,45 @@ a:visited {
     width: auto;
     grid-column-gap: 10px;
     grid-template-columns: auto auto auto auto;
-    grid-template-rows: 1fr;
     background-color: rgb(108, 108, 108);
-    /**/
     height: 60px;
-    padding-bottom: 0px;
-    padding-top: 0px !important;
-    margin-top: 0;
+    line-height: 60px;
     font-size: 20px;
     font-family: "Roboto";
-    cursor: pointer;
     color: white;
 }
 
 .menu_item {
-    align-content: center;
     height: 100%;
     transition: 0.5s all;
+    cursor: pointer;
 }
 
 .menu_item:hover {
     background-color: #e53134;
 }
 
-#menu ul li {
-    display: inline-block;
-    list-style-type: none;
-    padding: 20px;
-    cursor: pointer;
-    transition: 0.5s all;
-}
-
-#menu ul li:hover {
-    background-color: #e53134;
-}
-
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1080px) {
     #menu {
         display: grid;
         width: auto;
         grid-column-gap: 10px;
         grid-template-columns: auto auto auto auto;
-        grid-template-rows: 1fr;
         background-color: rgb(108, 108, 108);
-        /**/
         height: 60px;
-        padding-bottom: 0px;
-        padding-top: 0px !important;
+        line-height: 60px;
         padding-left: 25%;
         padding-right: 25%;
-        margin-top: 0;
         font-size: 32px;
         font-family: "Roboto";
-        cursor: pointer;
         color: white;
     }
     .menu_item {
-        align-content: center;
         height: 100%;
         transition: 0.5s all;
+        cursor: pointer;
     }
     .menu_item:hover {
-        background-color: #e53134;
-    }
-    #menu ul li {
-        display: inline-block;
-        list-style-type: none;
-        padding: 20px;
-        cursor: pointer;
-        transition: 0.5s all;
-    }
-    #menu ul li:hover {
         background-color: #e53134;
     }
 }
@@ -224,14 +192,20 @@ a:visited {
     padding-left: 40px;
 }
 
+@media only screen and (max-width: 1000px) {
+    #menu_aisle {
+        display: none !important;
+    }
+}
+
 #menu_aisle {
-    box-shadow: 10px 10px 5px rgba(128, 128, 128, 0.6);
+    box-shadow: 10px 10px 5px rgba(64, 64, 64, 0.8);
     width: 250px;
     position: absolute;
-    top: 150px;
+    top: 130px;
     left: 50%;
     z-index: 3;
-    background-color: rgba(150, 150, 150, 0.6);
+    background-color: rgba(128, 128, 128, 0.95);
     display: none;
 }
 

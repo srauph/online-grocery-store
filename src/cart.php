@@ -49,12 +49,8 @@
         }
         
         function removeItem(id) {
-            console.log(id);
             for (i of items) {
-                console.log(i);
-                console.log(i.id);
                 if (i.id == id) {
-                    console.log("found");
                     var index = items.indexOf(i);
                 }
             }
@@ -168,8 +164,8 @@
 
                 DOM.innerHTML +=
                     `<tr class="cart_list">
-                        <td style = "text-align:center">
-                            <img src = "../assets/Images/${item.image}" alt = "" width = "150" height = "150" >
+                        <td style = "text-align:center;">
+                            <img src = "../assets/Images/${item.image}" alt = "" style="box-shadow: 5px 5px 10px rgba(192, 192, 192, 0.6);" width = "150" height = "150" >
                         </td>
                         <td style = "text-align:center" >
                             <div><h2>${item.name}</h2></div>
@@ -190,7 +186,7 @@
                             <div><h2> $${item.cost} </h2></div> 
                         </td>
                         <td style = "text-align:center" >
-                            <input type="button" class="cart_remove_btn" onclick="removeItem(${item.id});" value="Remove Item" /> 
+                            <button type="submit" class="cart_remove_btn" onclick="removeItem(${item.id});">Remove Item</button>
                         </td> 
                     </tr>`;
             }
@@ -212,7 +208,7 @@
 </head>
 
 <body>
-<div id="__top_banner">
+    <div id="__top_banner">
         <a class="white" href="login.php" title="Login to your account">Login</a>
         |
         <a class="white" href="register.php" title="First time user? Register now!">Register</a>
@@ -229,22 +225,45 @@
             </button>
         </a>
     </div>
+
     <div style="text-align:center;">
         <div id="menu">
-                <div class="menu_item" onclick="goto('index.php')">
-                    <div style="margin-top:10px">Home</div>
-                </div>
-                <div class="menu_item" onclick="goto('all_items.php')">
-                    <div style="margin-top:10px">All products</div>
-                </div>
-                <div class="menu_item" onclick="goto('aisle.php')">
-                    <div style="margin-top:10px" onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</div>
-                </div>
-                <div class="menu_item" onclick="goto('all_items.php')">
-                    <div style="margin-top:10px">Contact us</div>
-                </div>
+            <div class="menu_item" onclick="goto('index.php')">
+                <div>Home</div>
+            </div>
+            <div class="menu_item" onclick="goto('all_items.php')">
+                <div>All products</div>
+            </div>
+            <div class="menu_item" onclick="goto('aisle.php')">
+                <div onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</div>
+            </div>
+            <div class="menu_item" onclick="goto('contactus.php')">
+                <div>Contact us</div>
+            </div>
         </div>
     </div>
+    <div>
+        <div class="sub_menus" id="menu_aisle" onmouseover="void_showElement('menu_aisle');"
+            onmouseout="void_hideElement('menu_aisle');">
+            <form action="register.php" method="POST">
+                <ul>
+                    <li><input type="submit" name="__tag_search_btn" value="Bakery" formaction="bakery.php" style="color:white; font-weight:bold"></li>
+                    <li><input type="submit" name="__tag_search_btn" value="Beauty Products"
+                            formaction="beautyproducts.php" style="color:white; font-weight:bold"></li>
+                    <li><input type="submit" name="__tag_search_btn" value="Beverages" formaction="beverages.php" style="color:white; font-weight:bold"></li>
+                    <li><input type="submit" name="__tag_search_btn" value="Frozen" formaction="frozen.php" style="color:white; font-weight:bold"></li>
+                    <li><input type="submit" name="__tag_search_btn" value="Fruits" formaction="fruits.php" style="color:white; font-weight:bold"></li>
+                    <li><input type="submit" name="__tag_search_btn" value="Vegetables" formaction="vegetables.php" style="color:white; font-weight:bold">
+                    </li>
+                    <li><input type="submit" name="__tag_search_btn" value="Dairy Products"
+                            formaction="dairyproducts.php" style="color:white; font-weight:bold"></li>
+                    <li><input type="submit" name="__tag_search_btn" value="Snacks" formaction="snacks.php" style="color:white; font-weight:bold"></li>
+                </ul>
+            </form>
+        </div>
+    </div>
+
+    
 
     <h1 style="font-size:48; padding:2%; text-align:center; background-color:white;">Cart</h1>
 
@@ -268,19 +287,19 @@
                         <div><h2 class="grey">Total Price</h2></div>
                     </th>
                     <td>
-                        <input type="button" class="cart_btn" style="font-size: 16px;" onclick="clearCart();" value="Clear All" />
+                        <button type="submit" class="cart_btn" style="font-size: 20px; padding:10%" onclick="clearCart();">Clear All</button>
                     </td>
                 </tr>
                 <!-- <tr><td id="___cart_content_table_r2" colspan="5"></td></tr> -->
             </table>
         </div>
         <div class="cart_right">
-            <div class="border">
+            <div class="border2">
                 <h1>CART SUMMARY</h1>
                 <label class="name">Estimated total</label><br>
                 <input id="bigTotal" type="text" style="height:80px; font-size:40; width:300;" value="$0.00" readonly><br><br>
 
-                <input type="submit" class="cart_btn" style="width:300; size:20;" value="PLACE ORDER">
+                <button type="submit" class="cart_btn" style="width:300; size:20;">PLACE ORDER</button>
 
                 <h3 class="red" style= "font-size:17; font-family:'Courier New';" >Price Breakdown:</h3>
 
@@ -308,7 +327,7 @@
                 </table>
             </div>
 
-            <div class="border">
+            <div class="border2">
                 <h1 style="font-size:26;"> PROMOTIONAL CODE<h1>
                         <table style="width:100%;">
                             <tr>
@@ -319,10 +338,9 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td><input type="text" style="height:60px;font-size:10;width:200px;"
+                                <td><input type="text" style="height:60px;font-size:15;width:200px;"
                                         placeholder="EX: PROMCODE1     "></td>
-                                <td style="text-align:right;"><input type="submit" style="height:60; text-align:center; padding: 22px;" class="cart_btn"
-                                        value="APPLY"></td>
+                                <td style="text-align:right;"><button type="submit" style="height:60; text-align:center; padding-left:20px; padding-right:20px;" class="cart_btn">APPLY</button></td>
                             </tr>
                         </table>
             </div>
@@ -352,8 +370,7 @@
                     </table>
                     <br>
 
-                    <<a href="login.php"><input type="submit" class="cart_btn" style="width:300; size=20;"
-                            value="MY POSITION"></a>
+                    <a href="login.php"><button type="submit" class="cart_btn" style="width:300; size=20;">MY POSITION</button></a>
                 </center>
 
 
@@ -387,25 +404,20 @@
             <div class="media_links">
                 <a href="https://www.facebook.com/Caliprex-121401789649042" target="_blank">
                         <image src="../assets/Icons/facebook.png" alt="Facebook image"
-                            width="50" height="50">
-                    </a>
+                            width="50" height="50"></a>
                 <a href="https://www.instagram.com/caliprex/" target="_blank">
                         <image src="../assets/Icons/instagram.png" alt="Instagram image"
-                            width="50" height="50">
-                    </a>
+                            width="50" height="50"></a>
                 <a href="https://twitter.com/caliprex" target="_blank">
                         <image src="../assets/Icons/twitter.png" alt="Twitter image"
-                            width="50" height="50">
-                    </a>
+                            width="50" height="50"></a>
                 <a href="https://Pintrest.com/caliprex" target="_blank">
                         <image src="../assets/Icons/pinterest.png" alt="Pintrest image"
-                            width="50" height="50">
-                    </a>
+                            width="50" height="50"></a>
                 <a href="https://www.youtube.com/channel/UCvZRW67axwzk6fw5dBSw-iQ?view_as=subscriber"
                         target="_blank">
                         <image src="../assets/Icons/youtube.png" alt="Youtube image"
-                            width="50" height="50">
-                    </a>
+                            width="50" height="50"></a>
             </div>
                 
             <div class="aboutus_login">

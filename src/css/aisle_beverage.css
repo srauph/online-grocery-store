@@ -68,6 +68,9 @@
         grid-row-start: 1;
         grid-row-end: 5;
     }
+    .beverage_aisle_item_img img {
+        box-shadow: 5px 5px 10px rgba(192, 192, 192, 0.6);
+    }
 }
 
 @media only screen and (min-width: 1000px) {
@@ -99,6 +102,9 @@
         grid-row: 1;
         grid-column: 1;
         width: 100%;
+    }
+    .beverage_aisle_item_img img {
+        box-shadow: 5px 5px 10px rgba(192, 192, 192, 0.6);
     }
 }
 
