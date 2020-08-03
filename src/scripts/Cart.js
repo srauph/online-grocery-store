@@ -37,11 +37,20 @@ class Cart {
             }
             if (index == -1) {
                 this.items.push(Item_item);
-            } else if ((this.items[index].quantity + Item_item.quantity) > Item_item.limit) {
-                if ((Item_item.limit - this.items[index].quantity) == 0) {
-                    alert("Cannot add to cart:\nAdding this quantity would exceed the quantity limit.\n\nYou already have the quantity limit in your cart.");
+            } else if (
+                this.items[index].quantity + Item_item.quantity >
+                Item_item.limit
+            ) {
+                if (Item_item.limit - this.items[index].quantity == 0) {
+                    alert(
+                        "Cannot add to cart:\nAdding this quantity would exceed the quantity limit.\n\nYou already have the quantity limit in your cart."
+                    );
                 } else {
-                    alert("Cannot add to cart:\nAdding this quantity would exceed the quantity limit.\n\nPlease lower the quantity to at most " + (Item_item.limit - this.items[index].quantity) + " and try again.");
+                    alert(
+                        "Cannot add to cart:\nAdding this quantity would exceed the quantity limit.\n\nPlease lower the quantity to at most " +
+                        (Item_item.limit - this.items[index].quantity) +
+                        " and try again."
+                    );
                 }
                 return;
             } else {
@@ -52,26 +61,26 @@ class Cart {
         // this.items.push(Item_item);
 
         // Push changes to the server
-        this.private_void_updateValue();
         this.protected_void_flush();
 
-        // this.items = [];
+        this.private_void_updateValue();
 
+        // this.items = [];
     }
 
-    private_void_updateValue(ItemsArray_array) {
+    private_void_updateValue() {
         let sum = 0;
-        let items = ItemsArray_array || this.items;
-        let totalQuantity = 0;
+        let items = JSON.parse(localStorage.getItem("cart")) || [];
+        let total = 0;
         for (const item of items) {
-            sum += Number(item.cost) * Number(item.quantity);
-            totalQuantity += Number(item.quantity);
+            sum += item.cost * Number(item.quantity);
+            total += Number(item.quantity);
         }
 
-        this.HTMLSpamElement_valueContainer.innerHTML = `(${totalQuantity}) \$${sum.toFixed(2)} (+ tax)`;
+        this.HTMLSpamElement_valueContainer.innerHTML = `(${total}) \$${sum.toFixed(
+			2
+		)}`;
     }
-
-
 
     /**
      * This function pushes all the item changes to the localStorag BECAUSE WE ARE NOT ALLOWED TO USE PHP NOW FOR SOME REASON
@@ -91,7 +100,6 @@ class Cart {
 
         // localStorage.setItem("cart", JSON.stringify(previousItems));
         localStorage.setItem("cart", JSON.stringify(this.items));
-        this.private_void_updateValue();
     }
 
     void_toString() {
