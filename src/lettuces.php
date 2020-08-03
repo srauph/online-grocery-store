@@ -1,18 +1,34 @@
+<!DOCTYPE>
 <html>
-
 <head>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/aisle_beverage.css">
-    <title id="productTitle">McCain Fries</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="css/aisle_beverage.css"/>
+	<title id="productTitle">
+		Lettuces (Butterhead Variety)
+	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <script type="text/javascript" src="scripts/Util.js"></script>
-    <script type="text/javascript" src="scripts/Cart.js"></script>
-    <script type="text/javascript" src="scripts/Item.js"></script>
-    <script type="text/javascript" src="scripts/Sales.js"></script>
-    <script type="text/javascript" src="scripts/AbstractComponent.js"></script>
-    <script type="text/javascript" src="scripts/Beverage.js"></script>
-    <script type="text/javascript" src="scripts/main.js"></script>
+	<script type="text/javascript" src="scripts/Util.js">
+		
+	</script>
+    <script type="text/javascript" src="scripts/Cart.js">
+    	
+    </script>
+    <script type="text/javascript" src="scripts/Item.js">
+    	
+    </script>
+    <script type="text/javascript" src="scripts/Sales.js">
+    	
+    </script>
+    <script type="text/javascript" src="scripts/AbstractComponent.js">
+    	
+    </script>
+    <script type="text/javascript" src="scripts/Beverage.js">
+        
+    </script>
+    <script type="text/javascript" src="scripts/main.js">
+    	
+    </script>
 </head>
 
 <script>
@@ -24,13 +40,13 @@
      * img:     Link to the object image file
      * options: Amount of different options available (eg different product sizes)
      */
-    name = "Mccain fries (454g Bag)";
-    desc = "Mccain fries, crunchy and tasty fries.From the Mccain fries company, Mccain fries is crunchy and tasty. It is a great choice for breakfast, lunch , and dinner.Mccain fries also come in a 650 bag and a 900g bag";
-    price = 3.99;
-    img = "../assets/frozenfries1.jpg";
-    option = 3;
-    limit = 24;
-    id = 39;
+    name = "Lettuces (Butterhead Variety)";
+    desc = "Lettuces, a healthy leaf vegetable freshly grown from local farms around the area. <br><br> Lettuces are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Leaf and Romaine varieties.";
+    price = 1.59;
+    img = "../assets/Images/lettuces.jpg";
+    options = 3;
+    limit = 20;
+    id = 304;
 
     /** 
      * Saves the session data. 
@@ -44,11 +60,10 @@
      * closing the browser/tab completely. (sessionStorage "forgets" everything when you close
      * the tab, only preserves info while refreshing and navigating within the site)
      */
-
     function saveSessionData() {
-        sessionStorage.spriteQty = qty;
-        sessionStorage.spriteCurrentItem = currentItem;
-        sessionStorage.spriteShowAll = showAll;
+        sessionStorage.lettucesQty = qty;
+        sessionStorage.lettucesCurrentItem = currentItem;
+        sessionStorage.lettucesShowAll = showAll;
     }
 
     /**  
@@ -57,13 +72,13 @@
      * used to load the page to the original state.
      */
     function loadSessionData() {
-        if (sessionStorage.frozenfriesurrentItem) {
-            currentItem = parseInt(sessionStorage.frozenfriesCurrentItem);
+        if (sessionStorage.lettucesCurrentItem) {
+            currentItem = parseInt(sessionStorage.lettucesCurrentItem);
         }
-        if (sessionStorage.frozenfriesQty) {
-            qty = parseInt(sessionStorage.frozenfriesQty);
+        if (sessionStorage.lettucesQty) {
+            qty = parseInt(sessionStorage.lettucesQty);
         }
-        if (sessionStorage.frozenfriesShowAll == "true") {
+        if (sessionStorage.lettucesShowAll == "true") {
             document.getElementById("showDescBtn").innerHTML = "More Description...";
             showAll = false;
         }
@@ -73,55 +88,53 @@
         setQty(qty);
         displayDesc();
     }
-    function changeProduct(type) {
-
-switch (type) {
-
-    case 2: // If the option selected is the 710mL Bottle
-
-        // Update relevant variables
-        name = "Mccainfries (900g Bag)";
-        desc = "Mccain fries, crunchy and tasty fries. From the Mccain fries company, Mccain fries is crunchy and tasty. It is a great choice for breakfast, lunch , and dinner.Mccain fries also come in a 454g bag and a 900g bag";
-        price = 7.00;
-        img = "../assets/Images/mccainfries_900g.jpg";
-        alt="900 bag mccain fries";
-        limit = 12;
-        id = 40;
-        currentItem = 3;
-
-        updatePageContents(); 
-        break;
-
-    case 3:
-        name = "Mccainfries (650g Bag)";
-        desc = "Mccain fries, crunchy and tasty fries.From the Mccain fries company, Mccain fries is crunchy and tasty. It is a great choice for breakfast, lunch , and dinner.Mccain fries also come in a 454g bag and a 650g bag";
-        price = 5.50;
-        img = "../assets/Images/mcfries.jpg";
-        limit = 6;
-        id = 41;
-        currentItem = 2;
-        updatePageContents(); 
-        break;
-
-    default: // 454g Bag
-        name = "Mccainfries (454 Bag)";
-        desc = "Mccain fries, crunchy and tasty fries.From the Mccain fries company, Mccain fries is crunchy and tasty. It is a great choice for breakfast, lunch , and dinner.Mccain fries also come in a 650g bag and a 900g bag";
-        price = 3.99;
-        img = "../assets/Images/frozenfries1.jpg";
-        limit = 24;
-        id = 39;
-        currentItem = 1;
-        updatePageContents();
-        break;
-}
-}
 
     /** 
      * This function determines what happens when you click a button to select a product option. 
      * The page title, image, item title, item description, and item price all need to be updated
      * when a new option is selected.
      */
-    
+    function changeProduct(type) {
+
+        switch (type) {
+
+            case 2: // If the option selected is the Leaf variety
+
+                // Update relevant variables
+                name = "Lettuces (Leaf Variety)";
+                desc = "Lettuces, a healthy leaf vegetable freshly grown from local farms around the area. <br><br> Lettuces are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Butterhead and Romaine varieties.";
+                price = 1.79;
+                img = "../assets/Images/lettucesoption2.jpg";
+                currentItem = 2;
+                limit = 20;
+                id = 305;   
+                updatePageContents(); // Ditto.
+                break;
+
+            case 3: // Romaine variety
+                name = "Lettuces (Romaine Variety)";
+                desc = "Lettuces, a healthy leaf vegetable freshly grown from local farms around the area. <br><br> Lettuces are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Butterhead and Leaf varieties.";
+                price = 1.99;
+                img = "../assets/Images/lettucesoption3.jpg";
+                currentItem = 3;
+                limit = 20;
+                id = 306;
+                updatePageContents(); 
+                break;
+
+            default: // Butterhead variety
+                name = "Lettuces (Butterhead Variety)";
+                desc = "Lettuces, a healthy leaf vegetable freshly grown from local farms around the area. <br><br> Lettuces are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Leaf and Romaine varieties.";
+                price = 1.59;
+                img = "../assets/Images/lettucesoption1.jpg";
+                currentItem = 1;
+                limit = 20;
+                id = 304;
+                updatePageContents();
+                break;
+        }
+    }
+        
 </script>
 
 <body>
@@ -158,44 +171,68 @@ switch (type) {
                 </div>
         </div>
     </div>
-
-    <div class="beverage_page">
-
-        <div class="beverage_left">
-            <img id="productImg" src="" style="width:80%; height=80%;" alt="" />
-        </div>
-
-        <div class="beverage_right">
-            <!-- Product details -->
-            <h1 id="productName" style="font-size:48;"></h1><br>
-            <p><span id="productPrice" class="product_price"></span></p><br><hr>
-            <p id="productDesc" class="product_desc"></p>
-            <button id="showDescBtn" type="submit" class="product_description_btn" onclick="showHideDesc();">More Description...</button><br><br><br>
-
-            <!-- Product option selection buttons -->
-            <p>You may choose a different size using the options below...</p>
-            <button id="productOption1" type="submit" class="product_option_btn" onclick="changeProduct(1);">454g Bag</button>
-            <button id="productOption2" type="submit" class="product_option_btn" onclick="changeProduct(2);">650g Bag</button>
-            <button id="productOption3" type="submit" class="product_option_btn" onclick="changeProduct(3);">900g Bag</button><br><br><br>
-
-            <!-- Quantity selector and Add to Cart functionality -->
-            <div class="cart_grid">
+	
+	<div class="beverage_page">
+		<div class="beverage_left">
+			<img id="productImg" src="" style="width: 80%" alt=""/>
+		</div>
+		<div class="beverage_right">
+			<h1 id="productName" style="font-size: 48; padding: 2%; background-color: white;">
+			</h1>
+			<br/>
+			<p>
+				<span id="productPrice" class="product_price">
+                    
+                </span>
+			</p>
+			<br/>
+            <hr/>
+            <p id="productDesc" class="product_desc">
+                
+            </p>
+			<button id="showDescBtn" type="submit" class="product_description_btn" onclick="showHideDesc();">
+				More Description...
+			</button>
+			<br/>
+			<br/>
+			<br/>
+			<p>
+				You may choose a different size using the options below...
+			</p>
+			<button id="productOption1" type="submit" class="product_option_btn" onclick="changeProduct(1);">
+				A bag of Butterhead lettuces
+			</button>
+			<button id="productOption2" type="submit" class="product_option_btn" onclick="changeProduct(2);">
+				A bag of Leaf lettuces
+			</button>
+			<button id="productOption3" type="submit" class="product_option_btn" onclick="changeProduct(3);">
+				A bag of Romaine lettuces
+			</button>
+			<br/>
+			<br/>
+			<br/>
+			<div class="cart_grid">
                 <div class="cart_qty_selector">
-                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(false);">-</button>
-                    <input id="productQty" type="text" class="cart_qty" value="0" readonly></input>
-                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(true);">+</button>
+                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(false);">
+                        -
+                    </button>
+                    <input id="productQty" type="text" class="cart_qty" value="0" readonly/>
+                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(true);">
+                        +
+                    </button>
                 </div>
                 <div id="productMax" class="cart_qty_max_msg">
                     Quantity Limit: 20
                 </div>
-                <button type="submit" class="cart_btn" onclick="addToCart();">Add To Cart</button>
+                <button type="submit" class="cart_btn" onclick="addToCart();">
+                	Add To Cart
+                </button>
             </div>
-        </div>
-    </div>
-    <br />
-    <br />
-    </div>
-    <div id="footer">
+		</div>
+	</div>
+	
+	</div>
+	<div id="footer">
         <div class="store_name">
             Caliprex
         </div>
@@ -243,5 +280,4 @@ switch (type) {
         
     </div>
 </body>
-
 </html>

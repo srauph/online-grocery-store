@@ -1,19 +1,32 @@
+<!DOCTYPE>
 <html>
-
 <head>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/aisle_beverage.css">
-    <title>Vegetables</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" type="text/css" href="css/main.css"/>
+   <link rel="stylesheet" type="text/css" href="css/aisle_beverage.css"/>
+   <title>
+      Vegetables
+   </title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <script type="text/javascript" src="scripts/Util.js"></script>
-    <script type="text/javascript" src="scripts/Cart.js"></script>
-    <script type="text/javascript" src="scripts/Item.js"></script>
-    <script type="text/javascript" src="scripts/Sales.js"></script>
-    <script type="text/javascript" src="scripts/AbstractComponent.js"></script>
-    <script type="text/javascript" src="scripts/main.js"></script>
+   <script type="text/javascript" src="scripts/Util.js">
+      
+   </script>
+   <script type="text/javascript" src="scripts/Cart.js">
+      
+   </script>
+   <script type="text/javascript" src="scripts/Item.js">
+      
+   </script>
+   <script type="text/javascript" src="scripts/Sales.js">
+      
+   </script>
+   <script type="text/javascript" src="scripts/AbstractComponent.js">
+      
+   </script>
+   <script type="text/javascript" src="scripts/main.js">
+      
+   </script>
 </head>
-
 <body>
 <div id="__top_banner">
         <a class="white" href="login.php" title="Login to your account">Login</a>
@@ -78,83 +91,147 @@
             </div>
         </div>
 
-        <div id="beverages">
-            <div id="beverage_items">
-                <br><br>
-                <table id="beverage_table">
-                    <tr style="text-align:center; height:80px; background-color:white;">
-                        <th colspan="4">
-                            <h2 style="color:crimson;"> Click on a product image (or its corresponding title) to go to
-                                the corresponding product page.</h2>
-                        </th>
-                    </tr>
 
-                    <tr style="text-align:center; height:80px; background-color:white;">
-                        <th>
-                            <h2>Product Image</h2>
-                        </th>
-                        <th>
-                            <h2>Product Title</h2>
-                        </th>
-                        <th>
-                            <h2>Brief Description</h2>
-                        </th>
-                        <th>
-                            <h2>Product Price</h2>
-                        </th>
-                    </tr>
+      <div id="beverages">
+         <div id="beverage_items">
+            <br>
+            <br>
+            <table id="beverage_table">
+               <tr style="text-align: center; height: 80px; background-color: white;">
+                  <th colspan="4">
+                     <h2 style="color: crimson;">
+                        Click on a product image (or its corresponding title) to go to the corresponding product page.
+                     </h2>
+                  </th>
+               </tr>
+               <tr style="text-align: center; height: 80px; background-color: white;">
+                  <th>
+                     <h2>
+                        Product Image
+                     </h2>
+                  </th>
+                  <th>
+                     <h2>
+                        Product Title
+                     </h2>
+                  </th>
+                  <th>
+                     <h2>
+                        Brief Description
+                     </h2>
+                  </th>
+                  <th>
+                     <h2>
+                        Product Price
+                     </h2>
+                  </th>
+               </tr>
 
-                    <tr class="beverage_list">
-                        <td><a href="carrots.php">
-                                <img src="../assets/Images/carrots.jpg" style="width:100px; height=100px;"
-                                    alt="carrots image">
-                        </td></a>
-                        <td><a href="carrots.php" style="color:mediumslateblue;">Carrots (One Bag)</td></a>
-                        <td>A bag of carrots.</td>
-                        <td>$1.49</td>
-                    </tr>
+               <tr class="beverage_list">
+                  <td>
+                     <a href="carrots.php">
+                        <img src="../assets/Images/carrots.jpg" style="width: 100px; height: 100px;" alt="carrots image"/>
+                     </a>
+                  </td>
+                  <td>
+                     <a href="carrots.php" style="color: mediumslateblue;">
+                        Carrots (One 1 kg Weighed Bag)
+                     </a>
+                  </td>
+                  <td>
+                     A 1 kg weighed bag of carrots.
+                  </td>
+                  <td>
+                     $1.29
+                  </td>
+               </tr>
 
-                    <tr class="beverage_list">
-                        <td><a href="cucumbers.php">
-                                <img src="../assets/Images/cucumbers.jpg" style="width:100px; height=100px;"
-                                    alt="cucumbers image">
-                        </td></a>
-                        <td><a href="cucumbers.php" style="color:mediumslateblue;">Cucumbers (One Bag)</td></a>
-                        <td>A bag of cucumbers.</td>
-                        <td>$1.69</td>
-                    </tr>
+               <tr class="beverage_list">
+                  <td>
+                     <a href="cucumbers.php">
+                        <img src="../assets/Images/cucumbers.jpg" style="width: 100px; height: 100px;"
+                        alt="cucumbers image"/>
+                     </a>
+                  </td>
+                  <td>
+                     <a href="cucumbers.php" style="color:mediumslateblue;">
+                        Cucumbers (One 1 kg Weighed Bag)
+                     </a>
+                  </td>
+                  <td>
+                     A 1 kg weighed bag of cucumbers.
+                  </td>
+                  <td>
+                     $1.49
+                  </td>
+               </tr>
 
-                    <tr class="beverage_list">
-                        <td><a href="onions.php">
-                                <img src="../assets/Images/onions.jpeg" style="width:100px; height=100px;"
-                                    alt="onions image">
-                        </td></a>
-                        <td><a href="onions.php" style="color:mediumslateblue;">
-                                Onions (One Bag)</td></a>
-                        <td>A bag of onions.</td>
-                        <td>$0.99</td>
-                    </tr>
+               <tr class="beverage_list">
+                  <td>
+                     <a href="onions.php">
+                        <img src="../assets/Images/onions.jpg" style="width: 100px; height: 100px;" alt="onions image"/>
+                     </a>
+                  </td>
+                  <td>
+                     <a href="onions.php" style="color: mediumslateblue;">
+                        Onions (One 1 kg Weighed Bag)
+                     </a>
+                  </td>
+                  <td>
+                     A 1 kg weighed bag of onions.
+                  </td>
+                  <td>
+                     $0.99
+                  </td>
+               </tr>
 
-                    <tr class="beverage_list">
-                        <td><a href="tomatoes.php">
-                                <img src="../assets/Images/tomato.jpg" style="width:100px; height=100px;"
-                                    alt="tomatoes image">
-                        </td></a>
-                        <td><a href="tomatoes.php" style="color:mediumslateblue;">Tomatoes (One Bag)</td></a>
-                        <td>A bag of tomatoes.</td>
-                        <td>$2.00</td>
-                    </tr>
+               <tr class="beverage_list">
+                  <td>
+                     <a href="tomatoes.php">
+                        <img src="../assets/Images/tomatoes.jpg" style="width: 100px; height: 100px;"
+                        alt="tomatoes image"/>
+                     </a>
+                  </td>
+                  <td>
+                     <a href="tomatoes.php" style="color: mediumslateblue;">
+                        Tomatoes (One 1 kg Weighed Bag)
+                     </a>
+                  </td>
+                  <td>
+                     A 1 kg weighed bag of tomatoes.
+                  </td>
+                  <td>
+                     $1.39
+                  </td>
+               </tr>
 
-                </table>
-            </div>
-        </div>
-    </div>
+               <tr class="beverage_list">
+                  <td>
+                     <a href="lettuces.php">
+                        <img src="../assets/Images/lettuces.jpg" style="width: 100px; height: 100px;" alt="lettuces image"/>
+                     </a>
+                  </td>
+                  <td>
+                     <a href="lettuces.php" style="color: mediumslateblue;">
+                        Lettuces (One 1 kg Weighed Bag)
+                     </a>
+                  </td>
+                  <td>
+                     A 1 kg weighed bag of lettuces.
+                  </td>
+                  <td>
+                     $1.59
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </div>
+</div>
+<br/>
+<br/>
 
-    <br />
-    <br />
-    </div>
-
-    <div id="footer">
+<div id="footer">
         <div class="store_name">
             Caliprex
         </div>
@@ -202,5 +279,4 @@
         
     </div>
 </body>
-
 </html>

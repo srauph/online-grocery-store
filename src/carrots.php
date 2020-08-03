@@ -1,21 +1,141 @@
 <!DOCTYPE>
 <html>
-
 <head>
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <link rel="stylesheet" type="text/css" href="css/aisle_beverage.css" />
-    <title>
-        Product: Carrots
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/aisle_beverage.css"/>
+    <title id="productTitle">
+        Carrots (Nantes Variety)
     </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <script type="text/javascript" src="scripts/Util.js"></script>
-    <script type="text/javascript" src="scripts/Cart.js"></script>
-    <script type="text/javascript" src="scripts/Item.js"></script>
-    <script type="text/javascript" src="scripts/Sales.js"></script>
-    <script type="text/javascript" src="scripts/AbstractComponent.js"></script>
-    <script type="text/javascript" src="scripts/main.js"></script>
+    <script type="text/javascript" src="scripts/Util.js">
+        
+    </script>
+    <script type="text/javascript" src="scripts/Cart.js">
+        
+    </script>
+    <script type="text/javascript" src="scripts/Item.js">
+        
+    </script>
+    <script type="text/javascript" src="scripts/Sales.js">
+        
+    </script>
+    <script type="text/javascript" src="scripts/AbstractComponent.js">
+        
+    </script>
+    <script type="text/javascript" src="scripts/Beverage.js">
+        
+    </script>
+    <script type="text/javascript" src="scripts/main.js">
+        
+    </script>
 </head>
+
+<script>
+
+    /** 
+     * name:    Name of the object. Used in the page title, the item title, and as the alt image text
+     * desc:    Full description of the object.
+     * price:   Price of the object
+     * img:     Link to the object image file
+     * options: Amount of different options available (eg different product sizes)
+     */
+    name = "Carrots (Nantes Variety)";
+    desc = "Carrots, a healthy root vegetable freshly grown from local farms around the area. <br><br> Carrots are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Baby and Danvers varieties.";
+    price = 1.29;
+    img = "../assets/Images/carrots.jpg";
+    options = 3;
+    limit = 30;
+    id = 104;
+
+    /** 
+     * Saves the session data. 
+     * The only important info to keep is... 
+     *      The current quantity entered
+     *      The current option selected
+     *      Whether or not the description is collapsed.
+     * 
+     * These three variables will allow the restoration of the page to its previous state.
+     * `localStorage` can be used instead of `sessionstorage` to preserver contents even after 
+     * closing the browser/tab completely. (sessionStorage "forgets" everything when you close
+     * the tab, only preserves info while refreshing and navigating within the site)
+     */
+    function saveSessionData() {
+        sessionStorage.carrotsQty = qty;
+        sessionStorage.carrotsCurrentItem = currentItem;
+        sessionStorage.carrotsShowAll = showAll;
+    }
+
+    /**  
+     * Loads the session data from the three variables.
+     * Each variable needs to be checked if it exists with the if statement before it can be
+     * used to load the page to the original state.
+     */
+    function loadSessionData() {
+        if (sessionStorage.carrotsCurrentItem) {
+            currentItem = parseInt(sessionStorage.carrotsCurrentItem);
+        }
+        if (sessionStorage.carrotsQty) {
+            qty = parseInt(sessionStorage.carrotsQty);
+        }
+        if (sessionStorage.carrotsShowAll == "true") {
+            document.getElementById("showDescBtn").innerHTML = "More Description...";
+            showAll = false;
+        }
+
+        // Restore the page to the original state
+        changeProduct(currentItem);
+        setQty(qty);
+        displayDesc();
+    }
+
+    /** 
+     * This function determines what happens when you click a button to select a product option. 
+     * The page title, image, item title, item description, and item price all need to be updated
+     * when a new option is selected.
+     */
+    function changeProduct(type) {
+
+        switch (type) {
+
+            case 2: // If the option selected is the Baby variety
+
+                // Update relevant variables
+                name = "Carrots (Baby Variety)";
+                desc = "Carrots, a healthy root vegetable freshly grown from local farms around the area. <br><br> Carrots are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Nantes and Danvers varieties.";
+                price = 1.49;
+                img = "../assets/Images/carrotsoption2.jpg";
+                currentItem = 2;
+                limit = 30;
+                id = 105;
+                updatePageContents(); // Ditto.
+                break;
+
+            case 3: // Danvers variety
+                name = "Carrots (Danvers Variety)";
+                desc = "Carrots, a healthy root vegetable freshly grown from local farms around the area. <br><br> Carrots are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Nantes and Baby varieties.";
+                price = 1.69;
+                img = "../assets/Images/carrotsoption3.jpg";
+                currentItem = 3;
+                limit - 30;
+                id = 106;
+                updatePageContents(); 
+                break;
+
+            default: // Nantes variety
+                name = "Carrots (Nantes Variety)";
+                desc = "Carrots, a healthy root vegetable freshly grown from local farms around the area. <br><br> Carrots are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Baby and Danvers varieties.";
+                price = 1.29;
+                img = "../assets/Images/carrotsoption1.jpg";
+                currentItem = 1;
+                limit = 30;
+                id = 104;
+                updatePageContents();
+                break;
+        }
+    }
+        
+</script>
 
 <body>
 <div id="__top_banner">
@@ -54,44 +174,62 @@
 
     <div class="beverage_page">
         <div class="beverage_left">
-            <img src="../assets/Images/carrots.jpg" style="width:80%" alt="carrots image" />
+            <img id="productImg" src="" style="width: 80%" alt="" />
         </div>
         <div class="beverage_right">
-            <h1 style="font-size:48; padding:2%; background-color:white;">
-                Carrots (One Bag)
+            <h1 id="productName" style="font-size: 48; padding: 2%; background-color: white;">
             </h1>
-            <br />
-            <p style="font-size:24px">
-                Carrots freshly grown from your local farms.
+            <br/>
+            <p>
+                <span id="productPrice" class="product_price">
+                    
+                </span>
             </p>
-            <button type="submit" class="product_description_btn">
+            <br/>
+            <hr/>
+            <p id="productDesc" class="product_desc">
+                
+            </p>
+            <button id="showDescBtn" type="submit" class="product_description_btn" onclick="showHideDesc();">
                 More Description...
             </button>
-            <br />
-            <br />
-            <br />
+            <br/>
+            <br/>
+            <br/>
             <p>
                 You may choose a different size using the options below...
             </p>
-            <button type="submit" class="product_option_btn">
-                A bag of 5 carrots
+            <button id="productOption1" type="submit" class="product_option_btn" onclick="changeProduct(1);">
+                A bag of Nantes carrots
             </button>
-            <button type="submit" class="product_option_btn">
-                A bag of 10 carrots
+            <button id="productOption2" type="submit" class="product_option_btn" onclick="changeProduct(2);">
+                A bag of Baby carrots
             </button>
-            <button type="submit" class="product_option_btn">
-                A bag of 25 carrots
+            <button id="productOption3" type="submit" class="product_option_btn" onclick="changeProduct(3);">
+                A bag of Danvers carrots
             </button>
-            <br />
-            <br />
-            <br />
-            <button type="submit" class="btn">
-                Add To Cart
-            </button>
+            <br/>
+            <br/>
+            <br/>
+            <div class="cart_grid">
+                <div class="cart_qty_selector">
+                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(false);">
+                        -
+                    </button>
+                    <input id="productQty" type="text" class="cart_qty" value="0" readonly/>
+                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(true);">
+                        +
+                    </button>
+                </div>
+                <div id="productMax" class="cart_qty_max_msg">
+                    Quantity Limit: 30
+                </div>
+                <button type="submit" class="cart_btn" onclick="addToCart();">
+                    Add To Cart
+                </button>
+            </div>
         </div>
     </div>
-    <br />
-    <br />
 
     </div>
     <div id="footer">
@@ -142,5 +280,4 @@
         
     </div>
 </body>
-
 </html>

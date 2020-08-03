@@ -14,6 +14,12 @@
     <script type="text/javascript" src="scripts/main.js"></script>
 </head>
 
+<script>
+    function addToCart(id, name, img, price, limit) {
+        cart.void_add(new Item(id, name, 1, img.substring(17), price, 1, limit, 0, ''));
+    }
+</script>
+
 <body>
 <div id="__top_banner">
         <a class="white" href="login.php" title="Login to your account">Login</a>
@@ -80,40 +86,66 @@
 
         <div id="beverages">
             <div id="beverage_items">
-                <br><br>
+
                 <table id="beverage_table">
-                    <tr style="text-align:center; height:80px; background-color:white;">
-                        <th colspan="4">
-                            <h2 style="color:crimson;"> Click on a product image (or its corresponding title) to go to
+                    <tr>
+                        <br><h2 style="color:crimson; text-align:center;"> Click on a product image (or its corresponding title) to go to
                                 the corresponding product page.</h2>
-                        </th>
                     </tr>
 
-                    <tr style="text-align:center; height:80px; background-color:white;">
-                        <th>
-                            <h2>Product Image</h2>
-                        </th>
-                        <th>
-                            <h2>Product Title</h2>
-                        </th>
-                        <th>
-                            <h2>Brief Description</h2>
-                        </th>
-                        <th>
-                            <h2>Product Price</h2>
-                        </th>
+                    <tr> 
+                        <div class="beverage_aisle_head">
+                            <div class="beverage_aisle_item_img">
+                                <h2>Product Image</h2>
+                            </div>
+
+                            <div class="beverage_aisle_item">
+                                <h2>Product Title</h2>
+                            </div>
+
+                            <div class="beverage_aisle_item">
+                                <h2>Brief Description</h2>
+                            </div>
+
+                            <div class="beverage_aisle_item">
+                                <h2>Product Price</h2>
+                            </div>
+
+                            <div class="beverage_aisle_item">
+                                <h2>Add to Cart</h2>
+                            </div>
+                        </div>
+                        
+                        <div class="beverage_aisle_head_mobile">
+                            <div class="beverage_aisle_item">
+                                <h2>Product Image</h2>
+                            </div>
+
+                            <div class="beverage_aisle_item">
+                                <h2>Description</h2>
+                            </div>
+                        </div>
                     </tr>
 
-                    <tr class="beverage_list">
-                        <td><a href="apple.php">
-                                <img src="../assets/Images/apple.jpg" style="width:100px; height=300px;" alt="Apple">
-                        </td></a>
-                        <td><a href="apple.php" style="color:mediumslateblue;">Apple (One Apple)</td></a>
-                        <td>A soft green apple.</td>
-                        <td>$1.99</td>
+                    <tr>
+                        <div class="beverage_aisle">
+                            <div class="beverage_aisle_item_img">
+                                <a href="apple.php">
+                                    <img src="../assets/Images/apple.jpg" style="width:100px; height:100px;"alt="apple">
+                                </a>
+                            </div>
+                            
+                                <div class="beverage_aisle_item"><a href="apple.php" style="color:mediumslateblue;">Apple (One Apple)</a></div>
+                                <div class="beverage_aisle_item">A soft green apple.</div>
+                                <div class="beverage_aisle_item">$1.99</div>
+                                <div class="beverage_aisle_item">
+                                    <!-- Fill these variable with the defaults listed towards the top of the item page -->
+                                    <!-- Use single quotes for strings -->
+                                    <button type="submit" class="cart_btn_aisle" onclick="addToCart(301, 'Regular Red Apple', '../assets/Images/apple.jpg', 1.99, 20);">
+                                    Add To Cart</button>
+                                </div>
+                        </div>
                     </tr>
-
-
                 </table>
             </div>
         </div>
