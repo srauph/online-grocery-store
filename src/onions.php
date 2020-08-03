@@ -1,227 +1,283 @@
 <!DOCTYPE>
 <html>
-
 <head>
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <link rel="stylesheet" type="text/css" href="css/aisle_beverage.css" />
-    <title>
-        Product: Onions
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/aisle_beverage.css"/>
+    <title id="productTitle">
+        Onions (White Variety)
     </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <script type="text/javascript" src="scripts/Util.js"></script>
-    <script type="text/javascript" src="scripts/Cart.js"></script>
-    <script type="text/javascript" src="scripts/Item.js"></script>
-    <script type="text/javascript" src="scripts/Sales.js"></script>
-    <script type="text/javascript" src="scripts/AbstractComponent.js"></script>
-    <script type="text/javascript" src="scripts/main.js"></script>
+    <script type="text/javascript" src="scripts/Util.js">
+        
+    </script>
+    <script type="text/javascript" src="scripts/Cart.js">
+        
+    </script>
+    <script type="text/javascript" src="scripts/Item.js">
+        
+    </script>
+    <script type="text/javascript" src="scripts/Sales.js">
+        
+    </script>
+    <script type="text/javascript" src="scripts/AbstractComponent.js">
+        
+    </script>
+    <script type="text/javascript" src="scripts/Beverage.js">
+        
+    </script>
+    <script type="text/javascript" src="scripts/main.js">
+        
+    </script>
 </head>
 
+<script>
+
+    /** 
+     * name:    Name of the object. Used in the page title, the item title, and as the alt image text
+     * desc:    Full description of the object.
+     * price:   Price of the object
+     * img:     Link to the object image file
+     * options: Amount of different options available (eg different product sizes)
+     */
+    name = "Onions (White Variety)";
+    desc = "Onions, a healthy vegetable freshly grown from local farms around the area. <br><br> Onions are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Yellow and Red varieties.";
+    price = 0.99;
+    img = "../assets/Images/onions.jpg";
+    options = 3;
+    limit = 20;
+    id = 404;
+
+    /** 
+     * Saves the session data. 
+     * The only important info to keep is... 
+     *      The current quantity entered
+     *      The current option selected
+     *      Whether or not the description is collapsed.
+     * 
+     * These three variables will allow the restoration of the page to its previous state.
+     * `localStorage` can be used instead of `sessionstorage` to preserver contents even after 
+     * closing the browser/tab completely. (sessionStorage "forgets" everything when you close
+     * the tab, only preserves info while refreshing and navigating within the site)
+     */
+    function saveSessionData() {
+        sessionStorage.onionsQty = qty;
+        sessionStorage.onionsCurrentItem = currentItem;
+        sessionStorage.onionsShowAll = showAll;
+    }
+
+    /**  
+     * Loads the session data from the three variables.
+     * Each variable needs to be checked if it exists with the if statement before it can be
+     * used to load the page to the original state.
+     */
+    function loadSessionData() {
+        if (sessionStorage.onionsCurrentItem) {
+            currentItem = parseInt(sessionStorage.onionsCurrentItem);
+        }
+        if (sessionStorage.onionsQty) {
+            qty = parseInt(sessionStorage.onionsQty);
+        }
+        if (sessionStorage.onionsShowAll == "true") {
+            document.getElementById("showDescBtn").innerHTML = "More Description...";
+            showAll = false;
+        }
+
+        // Restore the page to the original state
+        changeProduct(currentItem);
+        setQty(qty);
+        displayDesc();
+    }
+
+    /** 
+     * This function determines what happens when you click a button to select a product option. 
+     * The page title, image, item title, item description, and item price all need to be updated
+     * when a new option is selected.
+     */
+    function changeProduct(type) {
+
+        switch (type) {
+
+            case 2: // If the option selected is the Yellow variety
+
+                // Update relevant variables
+                name = "Onione (Yellow Variety)";
+                desc = "Onions, a healthy vegetable freshly grown from local farms around the area. <br><br> Onions are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in White and Red varieties.";
+                price = 1.19;
+                img = "../assets/Images/onionsoption2.jpg";
+                currentItem = 2;
+                limit = 20;
+                id = 405;   
+                updatePageContents(); // Ditto.
+                break;
+
+            case 3: // Red variety
+                name = "Onions (Red Variety)";
+                desc = "Onions, a healthy vegetable freshly grown from local farms around the area. <br><br> Onions are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in White and Yellow varieties.";
+                price = 1.39;
+                img = "../assets/Images/onionsoption3.jpg";
+                currentItem = 3;
+                limit = 20;
+                id = 406;
+                updatePageContents(); 
+                break;
+
+            default: // White variety
+                name = "Onions (White Variety)";
+                desc = "Onions, a healthy vegetable freshly grown from local farms around the area. <br><br> Onions are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Yellow and Red varieties.";
+                price = 0.99;
+                img = "../assets/Images/onionsoption1.jpg";
+                currentItem = 1;
+                limit = 20;
+                id = 404;
+                updatePageContents();
+                break;
+        }
+    }
+        
+</script>
+
 <body>
-    <div id="__top_banner">
-        <a class="white" href="login.php" title="Login to your account">
-            Login
-        </a>
+<div id="__top_banner">
+        <a class="white" href="login.php" title="Login to your account">Login</a>
         |
-        <a class="white" href="register.php" title="First time user? Register now!">
-            Register
-        </a>
+        <a class="white" href="register.php" title="First time user? Register now!">Register</a>
 
         <!-- cart -->
         <a href="cart.php">
             <button id="cart_button">
-                <br />
-                <br />
-                <img src="../assets/Icons/cart.png" alt="cart image" style="float:left; margin-right:0.5em" width="25"
-                    height="25" />
+                <br>
+                <br>
+                <img src="../assets/Icons/cart.png" style="float:left; margin-right:0.5em" width="25" height="25">
                 <span id="cart_total_value">
                     $0.00
                 </span>
             </button>
         </a>
     </div>
-
-    <div id="menu">
-        <ul>
-            <li>
-                <a href="index.php">
-                    Home
-                </a>
-            </li>
-            <li>
-                Sales
-            </li>
-            <li onmouseover="void_showElement('menu_aisle');" on mouseout="void_hideElement('menu_aisle');">
-                <a href="aisle.php">
-                    Aisle
-                </a>
-            <li>
-                <a href="contactus.php">
-                    Contact us
-                </a>
-            </li>
-            <ul>
+    <div style="text-align:center;">
+        <div id="menu">
+                <div class="menu_item" onclick="goto('index.php')">
+                    <div style="margin-top:10px">Home</div>
+                </div>
+                <div class="menu_item" onclick="goto('all_items.php')">
+                    <div style="margin-top:10px">All products</div>
+                </div>
+                <div class="menu_item" onclick="goto('aisle.php')">
+                    <div style="margin-top:10px" onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</div>
+                </div>
+                <div class="menu_item" onclick="goto('all_items.php')">
+                    <div style="margin-top:10px">Contact us</div>
+                </div>
+        </div>
     </div>
 
     <div class="beverage_page">
         <div class="beverage_left">
-            <img src="../assets/Images/onions.jpeg" style="width:80%" alt="onions image" />
+            <img id="productImg" src="" style="width: 80%" alt=""/>
         </div>
         <div class="beverage_right" colspan="4">
-            <h1 style="font-size:48; padding:2%; background-color:white;">
-                Onions (One Bag)
+            <h1 id="productName" style="font-size: 48; padding: 2%; background-color: white;">
             </h1>
-            <br />
-            <p style="font-size:24px">
-                Onions freshly grown from your local farms.
+            <br/>
+            <p>
+                 <span id="productPrice" class="product_price">
+                    
+                </span>
             </p>
-            <button type="submit" class="product_description_btn">
+            <br/>
+            <hr/>
+            <p id="productDesc" class="product_desc">
+                
+            </p>
+            <button id="showDescBtn" type="submit" class="product_description_btn" onclick="showHideDesc();">
                 More Description...
             </button>
-            <br />
-            <br />
-            <br />
+            <br/>
+            <br/>
+            <br/>
             <p>
                 You may choose a different size using the options below...
             </p>
-            <button type="submit" class="product_option_btn">
-                A bag of 5 onions
+            <button id="productOption1" type="submit" class="product_option_btn" onclick="changeProduct(1);">
+                A bag of White onions
             </button>
-            <button type="submit" class="product_option_btn">
-                A bag of 10 onions
+            <button id="productOption2" type="submit" class="product_option_btn" onclick="changeProduct(2);">
+                A bag of Yellow onions
             </button>
-            <button type="submit" class="product_option_btn">
-                A bag of 25 onions
+            <button id="productOption3" type="submit" class="product_option_btn" onclick="changeProduct(3);">
+                A bag of Red onions
             </button>
-            <br />
-            <br />
-            <br />
-            <button type="submit" class="btn">
-                Add To Cart
-            </button>
+            <br/>
+            <br/>
+            <br/>
+            <div class="cart_grid">
+                <div class="cart_qty_selector">
+                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(false);">
+                        -
+                    </button>
+                    <input id="productQty" type="text" class="cart_qty" value="0" readonly/>
+                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(true);">
+                        +
+                    </button>
+                </div>
+                <div id="productMax" class="cart_qty_max_msg">
+                    Quantity Limit: 20
+                </div>
+                <button type="submit" class="cart_btn" onclick="addToCart();">
+                    Add To Cart
+                </button>
+            </div>
         </div>
     </div>
-    <br />
-    <br />
 
     </div>
     <div id="footer">
-        <center>
-            <table>
-                <tr>
+        <div class="store_name">
+            Caliprex
+        </div>
+        <br>
+        <div class="footer_bottom">
+            <div class="newsletter_subscribe">
+                Subscribe to our Newsletter!
+                <input type="text" style="height:30px;font-size:20;width:200px;"
+                    placeholder="Email address">
+                <input type="submit" id="btn_work" style="border:1px solid white; height:auto;" class="btn" ; value="GO">
+            </div>
 
-                </tr>
-                <tr>
+            <div class="media_links">
+                <a href="https://www.facebook.com/Caliprex-121401789649042" target="_blank">
+                        <image src="../assets/Icons/facebook.png" alt="Facebook image"
+                            width="50" height="50">
+                    </a>
+                <a href="https://www.instagram.com/caliprex/" target="_blank">
+                        <image src="../assets/Icons/instagram.png" alt="Instagram image"
+                            width="50" height="50">
+                    </a>
+                <a href="https://twitter.com/caliprex" target="_blank">
+                        <image src="../assets/Icons/twitter.png" alt="Twitter image"
+                            width="50" height="50">
+                    </a>
+                <a href="https://Pintrest.com/caliprex" target="_blank">
+                        <image src="../assets/Icons/pinterest.png" alt="Pintrest image"
+                            width="50" height="50">
+                    </a>
+                <a href="https://www.youtube.com/channel/UCvZRW67axwzk6fw5dBSw-iQ?view_as=subscriber"
+                        target="_blank">
+                        <image src="../assets/Icons/youtube.png" alt="Youtube image"
+                            width="50" height="50">
+                    </a>
+            </div>
+                
+            <div class="aboutus_login">
+                <h3>
+                    <a href="contactus.php" style="color:white;">About Us |</a>
+                    <a href="login.php" style="color:white;">Login</a>
+                </h3>
+            </div>
 
-                </tr>
-                <tr>
-
-                </tr>
-                <tr>
-
-                </tr>
-                <tr>
-
-                </tr>
-                <td>
-
-                </td>
-                <td>
-
-                </td>
-                <td>
-
-                </td>
-                <td>
-
-                </td>
-                <td>
-
-                </td>
-                <td>
-
-                </td>
-                <th>
-                    <h3 style="color:white; text-align:center;">
-                        Caliprex
-                        <h3>
-                </th>
-                <tr>
-                    <th>
-                        <h3 style="color:white; font-style:robotto;">
-                            <br>
-                            Subscribe to our Newsletter!
-                        </h3>
-                    </th>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                    <th>
-                        <input type="text" style="height:30px;font-size:20;width:200px;" placeholder="Email address" />
-                    </th>
-                    <th>
-                        <input type="submit" id="btn_work" class="btn" size="20" ; value="GO" />
-                    </th>
-                    <td>
-                        <pre>
-
-						</pre>
-                    </td>
-                    <th>
-                        <a href="https://www.facebook.com/Caliprex-121401789649042" target="_blank">
-                            <image src="../assets/Icons/facebook.png" alt="Facebook image"
-                                style="float:right; margin-right:0.5em" width="50" height="35" />
-                        </a>
-                    </th>
-                    <th>
-                        <a href="https://www.instagram.com/caliprex/" target="_blank">
-                            <image src="../assets/Icons/instagram.png" alt="Instagram image"
-                                style="float:right; margin-right:0.5em" width="50" height="35" />
-                        </a>
-                    </th>
-                    <th>
-                        <a href="https://twitter.com/caliprex" target="_blank">
-                            <image src="../assets/Icons/twitter.png" alt="Twitter image"
-                                style="float:right; margin-right:0.5em" width="50" height="35" />
-                        </a>
-                    </th>
-                    <th>
-                        <a href="https://Pintrest.com/caliprex" target="_blank">
-                            <image src="../assets/Icons/pinterest.png" alt="Pintrest image"
-                                style="float:right; margin-right:0.5em" width="50" height="35" />
-                        </a>
-                    </th>
-                    <th>
-                        <a href="https://www.youtube.com/channel/UCvZRW67axwzk6fw5dBSw-iQ?view_as=subscriber"
-                            target="_blank">
-                            <image src="../assets/Icons/youtube.png" alt="Youtube image"
-                                style="float:right; margin-right:0.5em" width="50" height="35" />
-                        </a>
-                    </th>
-                    <th>
-                        <a href="contactus.php" style="color:white;">
-                            <h3>
-                                About Us |
-                            </h3>
-                        </a>
-                    </th>
-                    <th>
-                        <a href="login.php">
-                            <h3 style="color:white;">
-                                Login
-                            </h3>
-                        </a>
-                    </th>
-                </tr>
-            </table>
-        </center>
+        </div>
+        
     </div>
 </body>
-
 </html>

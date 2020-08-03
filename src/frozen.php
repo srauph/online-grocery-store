@@ -14,8 +14,14 @@
     <script type="text/javascript" src="scripts/main.js"></script>
 </head>
 
+<script>
+    function addToCart(id, name, img, price, limit) {
+        cart.void_add(new Item(id, name, 1, img.substring(17), price, 1, limit, 0, ''));
+    }
+</script>
+
 <body>
-    <div id="__top_banner">
+<div id="__top_banner">
         <a class="white" href="login.php" title="Login to your account">Login</a>
         |
         <a class="white" href="register.php" title="First time user? Register now!">Register</a>
@@ -32,16 +38,21 @@
             </button>
         </a>
     </div>
-    <div id="menu">
-        <ul>
-            <li><a href="index.php">Home</li></a>
-            <li>Sales</li>
-            <a href="aisle.php">
-                <li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle
-                </li>
-            </a>
-            <li>Contact us</li>
-            <ul>
+    <div style="text-align:center;">
+        <div id="menu">
+                <div class="menu_item" onclick="goto('index.php')">
+                    <div style="margin-top:10px">Home</div>
+                </div>
+                <div class="menu_item" onclick="goto('all_items.php')">
+                    <div style="margin-top:10px">All products</div>
+                </div>
+                <div class="menu_item" onclick="goto('aisle.php')">
+                    <div style="margin-top:10px" onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</div>
+                </div>
+                <div class="menu_item" onclick="goto('all_items.php')">
+                    <div style="margin-top:10px">Contact us</div>
+                </div>
+        </div>
     </div>
 
     <h1 style="font-size:48; padding:2%; text-align:center; background-color:white;">Frozen</h1>
@@ -75,40 +86,67 @@
 
         <div id="beverages">
             <div id="beverage_items">
-                <br><br>
+
                 <table id="beverage_table">
-                    <tr style="text-align:center; height:80px; background-color:white;">
-                        <th colspan="4">
-                            <h2 style="color:crimson;"> Click on a product image (or its corresponding title) to go to
+                    <tr>
+                        <br><h2 style="color:crimson; text-align:center;"> Click on a product image (or its corresponding title) to go to
                                 the corresponding product page.</h2>
-                        </th>
                     </tr>
 
-                    <tr style="text-align:center; height:80px; background-color:white;">
-                        <th>
-                            <h2>Product Image</h2>
-                        </th>
-                        <th>
-                            <h2>Product Title</h2>
-                        </th>
-                        <th>
-                            <h2>Brief Description</h2>
-                        </th>
-                        <th>
-                            <h2>Product Price</h2>
-                        </th>
+                    <tr> 
+                        <div class="beverage_aisle_head">
+                            <div class="beverage_aisle_item_img">
+                                <h2>Product Image</h2>
+                            </div>
+
+                            <div class="beverage_aisle_item">
+                                <h2>Product Title</h2>
+                            </div>
+
+                            <div class="beverage_aisle_item">
+                                <h2>Brief Description</h2>
+                            </div>
+
+                            <div class="beverage_aisle_item">
+                                <h2>Product Price</h2>
+                            </div>
+
+                            <div class="beverage_aisle_item">
+                                <h2>Add to Cart</h2>
+                            </div>
+                        </div>
+                        
+                        <div class="beverage_aisle_head_mobile">
+                            <div class="beverage_aisle_item">
+                                <h2>Product Image</h2>
+                            </div>
+
+                            <div class="beverage_aisle_item">
+                                <h2>Description</h2>
+                            </div>
+                        </div>
                     </tr>
 
-                    <tr class="beverage_list">
-                        <td><a href="frozenfries.php">
-                                <img src="../assets/Images/frozenfries.jpg" style="width:100px; height=300px;"
-                                    alt="Frozen Fries">
-                        </td></a>
-                        <td><a href="frozenfries.php" style="color:mediumslateblue;">Frozen Fries (One bag)</td></a>
-                        <td>A 550g bag of Frozen Fries.</td>
-                        <td>$3.99</td>
-                    </tr>
 
+                    <tr>
+                        <div class="beverage_aisle">
+                            <div class="beverage_aisle_item_img">
+                                <a href="frozenfries.php">
+                                    <img src="../assets/frozenfries1.jpg" style="width:100px; height:100px;"alt="Mccain fries">
+                                </a>
+                            </div>
+                            
+                                <div class="beverage_aisle_item"><a href="frozenfries.php" style="color:mediumslateblue;">Mccain fries (454g Bag)</a></div>
+                                <div class="beverage_aisle_item">A 550g bag of Frozen Fries.</div>
+                                <div class="beverage_aisle_item">$3.99</div>
+                                <div class="beverage_aisle_item">
+                                    <!-- Fill these variable with the defaults listed towards the top of the item page -->
+                                    <!-- Use single quotes for strings -->
+                                    <button type="submit" class="cart_btn_aisle" onclick="addToCart(39, 'Sprite (355mL Can)', '../assets/frozenfries1.jpg', 3.99, 24);">
+                                    Add To Cart</button>
+                                </div>
+                        </div>
+                    </tr>
 
                 </table>
             </div>
@@ -120,71 +158,51 @@
     </div>
 
     <div id="footer">
-        <center>
-            <table>
+        <div class="store_name">
+            Caliprex
+        </div>
+        <br>
+        <div class="footer_bottom">
+            <div class="newsletter_subscribe">
+                Subscribe to our Newsletter!
+                <input type="text" style="height:30px;font-size:20;width:200px;"
+                    placeholder="Email address">
+                <input type="submit" id="btn_work" style="border:1px solid white; height:auto;" class="btn" ; value="GO">
+            </div>
 
-                <tr></tr>
-                <tr></tr>
-                <tr></tr>
-                <tr></tr>
-                <tr></tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-
-                <th>
-                    <h3 style="color:white; text-align:center;">Caliprex<h3>
-
-
-                            <tr>
-                                <th>
-                                    <h3 style="color:white; font-style:robotto;"> <br>Subscribe to our Newsletter!</h3>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <th> <input type="text" style="height:30px;font-size:20;width:200px;"
-                                        placeholder="Email address">
-                                <th> <input type="submit" id="btn_work" class="btn" size="20" ; value="GO">
-                                <td>
-                                    <pre>	</pre>
-                                </td>
-                                <th><a href="https://www.facebook.com/Caliprex-121401789649042" target="_blank">
-                                        <image src="../assets/Icons/facebook.png" alt="Facebook image"
-                                            style="float:right; margin-right:0.5em" width="50" height="35">
-                                    </a>
-                                <th><a href="https://www.instagram.com/caliprex/" target="_blank">
-                                        <image src="../assets/Icons/instagram.png" alt="Instagram image"
-                                            style="float:right; margin-right:0.5em" width="50" height="35">
-                                    </a>
-                                <th><a href="https://twitter.com/caliprex" target="_blank">
-                                        <image src="../assets/Icons/twitter.png" alt="Twitter image"
-                                            style="float:right; margin-right:0.5em" width="50" height="35">
-                                    </a>
-                                <th><a href="https://Pintrest.com/caliprex" target="_blank">
-                                        <image src="../assets/Icons/pinterest.png" alt="Pintrest image"
-                                            style="float:right; margin-right:0.5em" width="50" height="35">
-                                    </a>
-                                <th><a href="https://www.youtube.com/channel/UCvZRW67axwzk6fw5dBSw-iQ?view_as=subscriber"
-                                        target="_blank">
-                                        <image src="../assets/Icons/youtube.png" alt="Youtube image"
-                                            style="float:right; margin-right:0.5em" width="50" height="35">
-                                    </a>
-
-                                <th><a href="contactus.php" style="color:white;">
-                                        <h3>About Us |
-                                    </a>
-                        </h3>
-                <th><a href="login.php">
-                        <h3 style="color:white;">Login</h3>
+            <div class="media_links">
+                <a href="https://www.facebook.com/Caliprex-121401789649042" target="_blank">
+                        <image src="../assets/Icons/facebook.png" alt="Facebook image"
+                            width="50" height="50">
                     </a>
+                <a href="https://www.instagram.com/caliprex/" target="_blank">
+                        <image src="../assets/Icons/instagram.png" alt="Instagram image"
+                            width="50" height="50">
+                    </a>
+                <a href="https://twitter.com/caliprex" target="_blank">
+                        <image src="../assets/Icons/twitter.png" alt="Twitter image"
+                            width="50" height="50">
+                    </a>
+                <a href="https://Pintrest.com/caliprex" target="_blank">
+                        <image src="../assets/Icons/pinterest.png" alt="Pintrest image"
+                            width="50" height="50">
+                    </a>
+                <a href="https://www.youtube.com/channel/UCvZRW67axwzk6fw5dBSw-iQ?view_as=subscriber"
+                        target="_blank">
+                        <image src="../assets/Icons/youtube.png" alt="Youtube image"
+                            width="50" height="50">
+                    </a>
+            </div>
+                
+            <div class="aboutus_login">
+                <h3>
+                    <a href="contactus.php" style="color:white;">About Us |</a>
+                    <a href="login.php" style="color:white;">Login</a>
+                </h3>
+            </div>
 
-                    </tr>
-
-            </table>
-        </center>
+        </div>
+        
     </div>
 </body>
 

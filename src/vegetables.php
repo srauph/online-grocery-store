@@ -1,21 +1,34 @@
+<!DOCTYPE>
 <html>
-
 <head>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/aisle_beverage.css">
-    <title>Vegetables</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" type="text/css" href="css/main.css"/>
+   <link rel="stylesheet" type="text/css" href="css/aisle_beverage.css"/>
+   <title>
+      Vegetables
+   </title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <script type="text/javascript" src="scripts/Util.js"></script>
-    <script type="text/javascript" src="scripts/Cart.js"></script>
-    <script type="text/javascript" src="scripts/Item.js"></script>
-    <script type="text/javascript" src="scripts/Sales.js"></script>
-    <script type="text/javascript" src="scripts/AbstractComponent.js"></script>
-    <script type="text/javascript" src="scripts/main.js"></script>
+   <script type="text/javascript" src="scripts/Util.js">
+      
+   </script>
+   <script type="text/javascript" src="scripts/Cart.js">
+      
+   </script>
+   <script type="text/javascript" src="scripts/Item.js">
+      
+   </script>
+   <script type="text/javascript" src="scripts/Sales.js">
+      
+   </script>
+   <script type="text/javascript" src="scripts/AbstractComponent.js">
+      
+   </script>
+   <script type="text/javascript" src="scripts/main.js">
+      
+   </script>
 </head>
-
 <body>
-    <div id="__top_banner">
+<div id="__top_banner">
         <a class="white" href="login.php" title="Login to your account">Login</a>
         |
         <a class="white" href="register.php" title="First time user? Register now!">Register</a>
@@ -32,21 +45,21 @@
             </button>
         </a>
     </div>
-    <div id="menu">
-        <ul>
-            <li><a href="index.php">Home</li></a>
-            <li>Sales</li>
-            <li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">
-                <a href="aisle.php">
-                    Aisle
-                </a>
-            </li>
-            <li>
-                <a href="contactus.php">
-                    Contact us
-                </a>
-            </li>
-            <ul>
+    <div style="text-align:center;">
+        <div id="menu">
+                <div class="menu_item" onclick="goto('index.php')">
+                    <div style="margin-top:10px">Home</div>
+                </div>
+                <div class="menu_item" onclick="goto('all_items.php')">
+                    <div style="margin-top:10px">All products</div>
+                </div>
+                <div class="menu_item" onclick="goto('aisle.php')">
+                    <div style="margin-top:10px" onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</div>
+                </div>
+                <div class="menu_item" onclick="goto('all_items.php')">
+                    <div style="margin-top:10px">Contact us</div>
+                </div>
+        </div>
     </div>
 
     <h1 style="font-size:48; padding:2%; text-align:center; background-color:white;">Vegetables</h1>
@@ -78,149 +91,192 @@
             </div>
         </div>
 
-        <div id="beverages">
-            <div id="beverage_items">
-                <br><br>
-                <table id="beverage_table">
-                    <tr style="text-align:center; height:80px; background-color:white;">
-                        <th colspan="4">
-                            <h2 style="color:crimson;"> Click on a product image (or its corresponding title) to go to
-                                the corresponding product page.</h2>
-                        </th>
-                    </tr>
 
-                    <tr style="text-align:center; height:80px; background-color:white;">
-                        <th>
-                            <h2>Product Image</h2>
-                        </th>
-                        <th>
-                            <h2>Product Title</h2>
-                        </th>
-                        <th>
-                            <h2>Brief Description</h2>
-                        </th>
-                        <th>
-                            <h2>Product Price</h2>
-                        </th>
-                    </tr>
+      <div id="beverages">
+         <div id="beverage_items">
+            <br>
+            <br>
+            <table id="beverage_table">
+               <tr style="text-align: center; height: 80px; background-color: white;">
+                  <th colspan="4">
+                     <h2 style="color: crimson;">
+                        Click on a product image (or its corresponding title) to go to the corresponding product page.
+                     </h2>
+                  </th>
+               </tr>
+               <tr style="text-align: center; height: 80px; background-color: white;">
+                  <th>
+                     <h2>
+                        Product Image
+                     </h2>
+                  </th>
+                  <th>
+                     <h2>
+                        Product Title
+                     </h2>
+                  </th>
+                  <th>
+                     <h2>
+                        Brief Description
+                     </h2>
+                  </th>
+                  <th>
+                     <h2>
+                        Product Price
+                     </h2>
+                  </th>
+               </tr>
 
-                    <tr class="beverage_list">
-                        <td><a href="carrots.php">
-                                <img src="../assets/Images/carrots.jpg" style="width:100px; height=100px;"
-                                    alt="carrots image">
-                        </td></a>
-                        <td><a href="carrots.php" style="color:mediumslateblue;">Carrots (One Bag)</td></a>
-                        <td>A bag of carrots.</td>
-                        <td>$1.49</td>
-                    </tr>
+               <tr class="beverage_list">
+                  <td>
+                     <a href="carrots.php">
+                        <img src="../assets/Images/carrots.jpg" style="width: 100px; height: 100px;" alt="carrots image"/>
+                     </a>
+                  </td>
+                  <td>
+                     <a href="carrots.php" style="color: mediumslateblue;">
+                        Carrots (One 1 kg Weighed Bag)
+                     </a>
+                  </td>
+                  <td>
+                     A 1 kg weighed bag of carrots.
+                  </td>
+                  <td>
+                     $1.29
+                  </td>
+               </tr>
 
-                    <tr class="beverage_list">
-                        <td><a href="cucumbers.php">
-                                <img src="../assets/Images/cucumbers.jpg" style="width:100px; height=100px;"
-                                    alt="cucumbers image">
-                        </td></a>
-                        <td><a href="cucumbers.php" style="color:mediumslateblue;">Cucumbers (One Bag)</td></a>
-                        <td>A bag of cucumbers.</td>
-                        <td>$1.69</td>
-                    </tr>
+               <tr class="beverage_list">
+                  <td>
+                     <a href="cucumbers.php">
+                        <img src="../assets/Images/cucumbers.jpg" style="width: 100px; height: 100px;"
+                        alt="cucumbers image"/>
+                     </a>
+                  </td>
+                  <td>
+                     <a href="cucumbers.php" style="color:mediumslateblue;">
+                        Cucumbers (One 1 kg Weighed Bag)
+                     </a>
+                  </td>
+                  <td>
+                     A 1 kg weighed bag of cucumbers.
+                  </td>
+                  <td>
+                     $1.49
+                  </td>
+               </tr>
 
-                    <tr class="beverage_list">
-                        <td><a href="onions.php">
-                                <img src="../assets/Images/onions.jpeg" style="width:100px; height=100px;"
-                                    alt="onions image">
-                        </td></a>
-                        <td><a href="onions.php" style="color:mediumslateblue;">
-                                Onions (One Bag)</td></a>
-                        <td>A bag of onions.</td>
-                        <td>$0.99</td>
-                    </tr>
+               <tr class="beverage_list">
+                  <td>
+                     <a href="onions.php">
+                        <img src="../assets/Images/onions.jpg" style="width: 100px; height: 100px;" alt="onions image"/>
+                     </a>
+                  </td>
+                  <td>
+                     <a href="onions.php" style="color: mediumslateblue;">
+                        Onions (One 1 kg Weighed Bag)
+                     </a>
+                  </td>
+                  <td>
+                     A 1 kg weighed bag of onions.
+                  </td>
+                  <td>
+                     $0.99
+                  </td>
+               </tr>
 
-                    <tr class="beverage_list">
-                        <td><a href="tomatoes.php">
-                                <img src="../assets/Images/tomato.jpg" style="width:100px; height=100px;"
-                                    alt="tomatoes image">
-                        </td></a>
-                        <td><a href="tomatoes.php" style="color:mediumslateblue;">Tomatoes (One Bag)</td></a>
-                        <td>A bag of tomatoes.</td>
-                        <td>$2.00</td>
-                    </tr>
+               <tr class="beverage_list">
+                  <td>
+                     <a href="tomatoes.php">
+                        <img src="../assets/Images/tomatoes.jpg" style="width: 100px; height: 100px;"
+                        alt="tomatoes image"/>
+                     </a>
+                  </td>
+                  <td>
+                     <a href="tomatoes.php" style="color: mediumslateblue;">
+                        Tomatoes (One 1 kg Weighed Bag)
+                     </a>
+                  </td>
+                  <td>
+                     A 1 kg weighed bag of tomatoes.
+                  </td>
+                  <td>
+                     $1.39
+                  </td>
+               </tr>
 
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <br />
-    <br />
-    </div>
-
-    <div id="footer">
-        <center>
-            <table>
-
-                <tr></tr>
-                <tr></tr>
-                <tr></tr>
-                <tr></tr>
-                <tr></tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-
-                <th>
-                    <h3 style="color:white; text-align:center;">Caliprex<h3>
-
-
-                            <tr>
-                                <th>
-                                    <h3 style="color:white; font-style:robotto;"> <br>Subscribe to our Newsletter!</h3>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <th> <input type="text" style="height:30px;font-size:20;width:200px;"
-                                        placeholder="Email address">
-                                <th> <input type="submit" id="btn_work" class="btn" size="20" ; value="GO">
-                                <td>
-                                    <pre>  </pre>
-                                </td>
-                                <th><a href="https://www.facebook.com/Caliprex-121401789649042" target="_blank">
-                                        <image src="../assets/Icons/facebook.png" alt="Facebook image"
-                                            style="float:right; margin-right:0.5em" width="50" height="35">
-                                    </a>
-                                <th><a href="https://www.instagram.com/caliprex/" target="_blank">
-                                        <image src="../assets/Icons/instagram.png" alt="Instagram image"
-                                            style="float:right; margin-right:0.5em" width="50" height="35">
-                                    </a>
-                                <th><a href="https://twitter.com/caliprex" target="_blank">
-                                        <image src="../assets/Icons/twitter.png" alt="Twitter image"
-                                            style="float:right; margin-right:0.5em" width="50" height="35">
-                                    </a>
-                                <th><a href="https://Pintrest.com/caliprex" target="_blank">
-                                        <image src="../assets/Icons/pinterest.png" alt="Pintrest image"
-                                            style="float:right; margin-right:0.5em" width="50" height="35">
-                                    </a>
-                                <th><a href="https://www.youtube.com/channel/UCvZRW67axwzk6fw5dBSw-iQ?view_as=subscriber"
-                                        target="_blank">
-                                        <image src="../assets/Icons/youtube.png" alt="Youtube image"
-                                            style="float:right; margin-right:0.5em" width="50" height="35">
-                                    </a>
-
-                                <th><a href="contactus.php" style="color:white;">
-                                        <h3>About Us |
-                                    </a>
-                        </h3>
-                <th><a href="login.php">
-                        <h3 style="color:white;">Login</h3>
-                    </a>
-
-                    </tr>
-
+               <tr class="beverage_list">
+                  <td>
+                     <a href="lettuces.php">
+                        <img src="../assets/Images/lettuces.jpg" style="width: 100px; height: 100px;" alt="lettuces image"/>
+                     </a>
+                  </td>
+                  <td>
+                     <a href="lettuces.php" style="color: mediumslateblue;">
+                        Lettuces (One 1 kg Weighed Bag)
+                     </a>
+                  </td>
+                  <td>
+                     A 1 kg weighed bag of lettuces.
+                  </td>
+                  <td>
+                     $1.59
+                  </td>
+               </tr>
             </table>
-        </center>
+         </div>
+      </div>
+   </div>
+</div>
+<br/>
+<br/>
+
+<div id="footer">
+        <div class="store_name">
+            Caliprex
+        </div>
+        <br>
+        <div class="footer_bottom">
+            <div class="newsletter_subscribe">
+                Subscribe to our Newsletter!
+                <input type="text" style="height:30px;font-size:20;width:200px;"
+                    placeholder="Email address">
+                <input type="submit" id="btn_work" style="border:1px solid white; height:auto;" class="btn" ; value="GO">
+            </div>
+
+            <div class="media_links">
+                <a href="https://www.facebook.com/Caliprex-121401789649042" target="_blank">
+                        <image src="../assets/Icons/facebook.png" alt="Facebook image"
+                            width="50" height="50">
+                    </a>
+                <a href="https://www.instagram.com/caliprex/" target="_blank">
+                        <image src="../assets/Icons/instagram.png" alt="Instagram image"
+                            width="50" height="50">
+                    </a>
+                <a href="https://twitter.com/caliprex" target="_blank">
+                        <image src="../assets/Icons/twitter.png" alt="Twitter image"
+                            width="50" height="50">
+                    </a>
+                <a href="https://Pintrest.com/caliprex" target="_blank">
+                        <image src="../assets/Icons/pinterest.png" alt="Pintrest image"
+                            width="50" height="50">
+                    </a>
+                <a href="https://www.youtube.com/channel/UCvZRW67axwzk6fw5dBSw-iQ?view_as=subscriber"
+                        target="_blank">
+                        <image src="../assets/Icons/youtube.png" alt="Youtube image"
+                            width="50" height="50">
+                    </a>
+            </div>
+                
+            <div class="aboutus_login">
+                <h3>
+                    <a href="contactus.php" style="color:white;">About Us |</a>
+                    <a href="login.php" style="color:white;">Login</a>
+                </h3>
+            </div>
+
+        </div>
+        
     </div>
 </body>
-
 </html>

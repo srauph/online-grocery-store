@@ -123,7 +123,7 @@
         }
 
         function updateCartValue(ItemsArray_array) {
-            document.getElementById("cart_total_value").innerHTML = `(${numberOfItems}) \$${(totalPrice * 1.14975).toFixed(2)} (+ tax)`;
+            document.getElementById("cart_total_value").innerHTML = `(${numberOfItems}) \$${(totalPrice * 1.14975).toFixed(2)}`;
         }
         
         /**
@@ -139,11 +139,13 @@
                 DOM.innerHTML = "<h2>Cart is empty.</h2> Let's add some stuff to this!";
                 
                 // Write the GST and QST
+                document.getElementById("numberOfItems").innerHTML = 0;
                 document.getElementById("bigTotal").value = "$" + (0).toFixed(2);
                 document.getElementById("subtotal").innerHTML = "$" + (0).toFixed(2);
                 document.getElementById("qst").innerHTML = "$" + (0).toFixed(2);
                 document.getElementById("gst").innerHTML = "$" + (0).toFixed(2);
                 document.getElementById("total").innerHTML = "$" + (0).toFixed(2);
+                document.getElementById("cart_total_value").innerHTML = `(0) \$${(0).toFixed(2)}`;
                 return;
             }
 
@@ -210,11 +212,12 @@
 </head>
 
 <body>
-    <div id="__top_banner">
+<div id="__top_banner">
         <a class="white" href="login.php" title="Login to your account">Login</a>
         |
         <a class="white" href="register.php" title="First time user? Register now!">Register</a>
 
+        <!-- cart -->
         <a href="cart.php">
             <button id="cart_button">
                 <br>
@@ -225,33 +228,21 @@
                 </span>
             </button>
         </a>
-
     </div>
-
-    <div id="menu">
-        <ul>
-            <li onclick="goto('index.php')">Home</li>
-            <li onclick="goto('all_items.php')">All products</li>
-            <a href="aisle.php" class="white">
-                <li onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle
-                </li>
-            </a>
-            <a href="contactus.php" class="white">
-                <li>Contact us</li>
-            </a>
-            <ul>
-    </div>
-    <div name="sub_menus">
-        <div id="menu_aisle" onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">
-            <ul>
-                <li>Bakery</li>
-                <li>Beauty Products</li>
-                <li>Beverages</li>
-                <li>Frozen</li>
-                <li>Fruits & Vegetables</li>
-                <li>Dairy Products</li>
-                <li>Snacks</li>
-            </ul>
+    <div style="text-align:center;">
+        <div id="menu">
+                <div class="menu_item" onclick="goto('index.php')">
+                    <div style="margin-top:10px">Home</div>
+                </div>
+                <div class="menu_item" onclick="goto('all_items.php')">
+                    <div style="margin-top:10px">All products</div>
+                </div>
+                <div class="menu_item" onclick="goto('aisle.php')">
+                    <div style="margin-top:10px" onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</div>
+                </div>
+                <div class="menu_item" onclick="goto('all_items.php')">
+                    <div style="margin-top:10px">Contact us</div>
+                </div>
         </div>
     </div>
 
@@ -381,73 +372,52 @@
     <br />
 
     <div id="footer">
-        <center>
-            <table>
+        <div class="store_name">
+            Caliprex
+        </div>
+        <br>
+        <div class="footer_bottom">
+            <div class="newsletter_subscribe">
+                Subscribe to our Newsletter!
+                <input type="text" style="height:30px;font-size:20;width:200px;"
+                    placeholder="Email address">
+                <input type="submit" id="btn_work" style="border:1px solid white; height:auto;" class="btn" ; value="GO">
+            </div>
 
-                <tr></tr>
-                <tr></tr>
-                <tr></tr>
-                <tr></tr>
-                <tr></tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-
-                <th>
-                    <h3 style="color:white; text-align:center;">Caliprex<h3>
-
-
-                            <tr>
-                                <th>
-                                    <h3 style="color:white; font-style:robotto;"> <br>Subscribe to our Newsletter!</h3>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <th> <input type="text" style="height:30px;font-size:20;width:200px;"
-                                        placeholder="Email address">
-                                <th> <input type="submit" id="btn_work" class="btn" size="20" ; value="GO">
-                                <td>
-                                    <pre>	</pre>
-                                </td>
-                                <th><a href="https://www.facebook.com/Caliprex-121401789649042" target="_blank">
-                                        <image src="../assets/Icons/facebook.png" alt="Facebook image"
-                                            style="float:right; margin-right:0.5em" width="50" height="35">
-                                    </a>
-                                <th><a href="https://www.instagram.com/caliprex/" target="_blank">
-                                        <image src="../assets/Icons/instagram.png" alt="Instagram image"
-                                            style="float:right; margin-right:0.5em" width="50" height="35">
-                                    </a>
-                                <th><a href="https://twitter.com/caliprex" target="_blank">
-                                        <image src="../assets/Icons/twitter.png" alt="Twitter image"
-                                            style="float:right; margin-right:0.5em" width="50" height="35">
-                                    </a>
-                                <th><a href="https://Pintrest.com/caliprex" target="_blank">
-                                        <image src="../assets/Icons/pinterest.png" alt="Pintrest image"
-                                            style="float:right; margin-right:0.5em" width="50" height="35">
-                                    </a>
-                                <th><a href="https://www.youtube.com/channel/UCvZRW67axwzk6fw5dBSw-iQ?view_as=subscriber"
-                                        target="_blank">
-                                        <image src="../assets/Icons/youtube.png" alt="Youtube image"
-                                            style="float:right; margin-right:0.5em" width="50" height="35">
-                                    </a>
-
-                                <th><a href="contactus.php" style="color:white;">
-                                        <h3>About Us |
-                                    </a>
-                        </h3>
-                <th><a href="login.php">
-                        <h3 style="color:white;">Login</h3>
+            <div class="media_links">
+                <a href="https://www.facebook.com/Caliprex-121401789649042" target="_blank">
+                        <image src="../assets/Icons/facebook.png" alt="Facebook image"
+                            width="50" height="50">
                     </a>
+                <a href="https://www.instagram.com/caliprex/" target="_blank">
+                        <image src="../assets/Icons/instagram.png" alt="Instagram image"
+                            width="50" height="50">
+                    </a>
+                <a href="https://twitter.com/caliprex" target="_blank">
+                        <image src="../assets/Icons/twitter.png" alt="Twitter image"
+                            width="50" height="50">
+                    </a>
+                <a href="https://Pintrest.com/caliprex" target="_blank">
+                        <image src="../assets/Icons/pinterest.png" alt="Pintrest image"
+                            width="50" height="50">
+                    </a>
+                <a href="https://www.youtube.com/channel/UCvZRW67axwzk6fw5dBSw-iQ?view_as=subscriber"
+                        target="_blank">
+                        <image src="../assets/Icons/youtube.png" alt="Youtube image"
+                            width="50" height="50">
+                    </a>
+            </div>
+                
+            <div class="aboutus_login">
+                <h3>
+                    <a href="contactus.php" style="color:white;">About Us |</a>
+                    <a href="login.php" style="color:white;">Login</a>
+                </h3>
+            </div>
 
-                    </tr>
-
-            </table>
-        </center>
+        </div>
+        
     </div>
-    </center>
 
 
 

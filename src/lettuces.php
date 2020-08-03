@@ -1,18 +1,34 @@
+<!DOCTYPE>
 <html>
-
 <head>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/aisle_beverage.css">
-    <title id="productTitle">Coca-Cola (355mL Can)</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="css/aisle_beverage.css"/>
+	<title id="productTitle">
+		Lettuces (Butterhead Variety)
+	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <script type="text/javascript" src="scripts/Util.js"></script>
-    <script type="text/javascript" src="scripts/Cart.js"></script>
-    <script type="text/javascript" src="scripts/Item.js"></script>
-    <script type="text/javascript" src="scripts/Sales.js"></script>
-    <script type="text/javascript" src="scripts/AbstractComponent.js"></script>
-    <script type="text/javascript" src="scripts/main.js"></script>
-    <script type="text/javascript" src="scripts/Beverage.js"></script>
+	<script type="text/javascript" src="scripts/Util.js">
+		
+	</script>
+    <script type="text/javascript" src="scripts/Cart.js">
+    	
+    </script>
+    <script type="text/javascript" src="scripts/Item.js">
+    	
+    </script>
+    <script type="text/javascript" src="scripts/Sales.js">
+    	
+    </script>
+    <script type="text/javascript" src="scripts/AbstractComponent.js">
+    	
+    </script>
+    <script type="text/javascript" src="scripts/Beverage.js">
+        
+    </script>
+    <script type="text/javascript" src="scripts/main.js">
+    	
+    </script>
 </head>
 
 <script>
@@ -24,13 +40,13 @@
      * img:     Link to the object image file
      * options: Amount of different options available (eg different product sizes)
      */
-    name = "Coca-Cola (355mL Can)";
-    desc = "Coca-Cola, a lemon-lime flavored soft drink. <br><br>Coca-Cola is one of the best-selling soft drinks in the world. Coca-Cola also comes in 710mL bottles or 2L bottles.";
-    price = 0.99;
-    img = "../assets/Images/cocacola.jpg";
+    name = "Lettuces (Butterhead Variety)";
+    desc = "Lettuces, a healthy leaf vegetable freshly grown from local farms around the area. <br><br> Lettuces are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Leaf and Romaine varieties.";
+    price = 1.59;
+    img = "../assets/Images/lettuces.jpg";
     options = 3;
-    limit = 24;
-    id = 201;
+    limit = 20;
+    id = 304;
 
     /** 
      * Saves the session data. 
@@ -45,9 +61,9 @@
      * the tab, only preserves info while refreshing and navigating within the site)
      */
     function saveSessionData() {
-        sessionStorage.cocacolaQty = qty;
-        sessionStorage.cocacolaCurrentItem = currentItem;
-        sessionStorage.cocacolaShowAll = showAll;
+        sessionStorage.lettucesQty = qty;
+        sessionStorage.lettucesCurrentItem = currentItem;
+        sessionStorage.lettucesShowAll = showAll;
     }
 
     /**  
@@ -56,15 +72,15 @@
      * used to load the page to the original state.
      */
     function loadSessionData() {
-        if (sessionStorage.cocacolaCurrentItem) {
-            currentItem = parseInt(sessionStorage.cocacolaCurrentItem);
+        if (sessionStorage.lettucesCurrentItem) {
+            currentItem = parseInt(sessionStorage.lettucesCurrentItem);
         }
-        if (sessionStorage.cocacolaQty) {
-            qty = parseInt(sessionStorage.cocacolaQty);
+        if (sessionStorage.lettucesQty) {
+            qty = parseInt(sessionStorage.lettucesQty);
         }
-        if (sessionStorage.cocacolaShowAll == "true") {
-            document.getElementById("showDescBtn").innerHTML = "Less Description...";
-            showAll = true;
+        if (sessionStorage.lettucesShowAll == "true") {
+            document.getElementById("showDescBtn").innerHTML = "More Description...";
+            showAll = false;
         }
 
         // Restore the page to the original state
@@ -82,42 +98,43 @@
 
         switch (type) {
 
-            case 2: // If the option selected is the 710mL Bottle
+            case 2: // If the option selected is the Leaf variety
 
                 // Update relevant variables
-                name = "Coca-Cola (710mL Bottle)";
-                desc = "Coca-Cola, the ubiquitous flavored soft drink. <br><br>Coca-Cola is one of the best-selling soft drinks in the world. Coca-Cola also comes in 355mL cans or 2L bottles.";
-                price = 1.49;
-                img = "../assets/Images/cocacola_710ml.jpg";
-                limit = 12;
-                id = 202;
+                name = "Lettuces (Leaf Variety)";
+                desc = "Lettuces, a healthy leaf vegetable freshly grown from local farms around the area. <br><br> Lettuces are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Butterhead and Romaine varieties.";
+                price = 1.79;
+                img = "../assets/Images/lettucesoption2.jpg";
                 currentItem = 2;
+                limit = 20;
+                id = 305;   
                 updatePageContents(); // Ditto.
                 break;
 
-            case 3: // 2L Bottle
-                name = "Coca-Cola (2L Bottle)";
-                desc = "Coca-Cola, the ubiquitous flavored soft drink. <br><br>Coca-Cola is one of the best-selling soft drinks in the world. Coca-Cola also comes in 355mL cans or 710mL bottles.";
+            case 3: // Romaine variety
+                name = "Lettuces (Romaine Variety)";
+                desc = "Lettuces, a healthy leaf vegetable freshly grown from local farms around the area. <br><br> Lettuces are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Butterhead and Leaf varieties.";
                 price = 1.99;
-                img = "../assets/Images/cocacola_2l.jpg";
-                limit = 6;
-                id = 203;
+                img = "../assets/Images/lettucesoption3.jpg";
                 currentItem = 3;
+                limit = 20;
+                id = 306;
                 updatePageContents(); 
                 break;
 
-            default: // 355mL Can
-                name = "Coca-Cola (355mL Can)";
-                desc = "Coca-Cola, the ubiquitous flavored soft drink. <br><br>Coca-Cola is one of the best-selling soft drinks in the world. Coca-Cola also comes in 710mL bottles or 2L bottles.";
-                price = 0.99;
-                img = "../assets/Images/cocacola.jpg";
-                limit = 24;
-                id = 201;
+            default: // Butterhead variety
+                name = "Lettuces (Butterhead Variety)";
+                desc = "Lettuces, a healthy leaf vegetable freshly grown from local farms around the area. <br><br> Lettuces are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Leaf and Romaine varieties.";
+                price = 1.59;
+                img = "../assets/Images/lettucesoption1.jpg";
                 currentItem = 1;
-                updatePageContents(); 
+                limit = 20;
+                id = 304;
+                updatePageContents();
                 break;
         }
     }
+        
 </script>
 
 <body>
@@ -154,60 +171,68 @@
                 </div>
         </div>
     </div>
-
-
-
-
-
-
-    <div class="beverage_page">
-
-        <div class="beverage_left">
-            <img id="productImg" src="" style="width:80%; height=80%;" alt="" />
-        </div>
-
-        <div class="beverage_right">
-            <!-- Product details -->
-            <h1 id="productName" style="font-size:48;"></h1><br>
-            <p><span id="productPrice" class="product_price"></span></p><br><hr>
-            <p id="productDesc" class="product_desc"></p>
-            <button id="showDescBtn" type="submit" class="product_description_btn" onclick="showHideDesc();">More Description...</button><br><br><br>
-
-            <!-- Product option selection buttons -->
-            <p>You may choose a different size using the options below...</p>
-            <button id="productOption1" type="submit" class="product_option_btn" onclick="changeProduct(1);">355mL Can</button>
-            <button id="productOption2" type="submit" class="product_option_btn" onclick="changeProduct(2);">710mL Bottle</button>
-            <button id="productOption3" type="submit" class="product_option_btn" onclick="changeProduct(3);">2L Bottle</button><br><br><br>
-
-            <!-- Quantity selector and Add to Cart functionality -->
-            <div class="cart_grid">
+	
+	<div class="beverage_page">
+		<div class="beverage_left">
+			<img id="productImg" src="" style="width: 80%" alt=""/>
+		</div>
+		<div class="beverage_right">
+			<h1 id="productName" style="font-size: 48; padding: 2%; background-color: white;">
+			</h1>
+			<br/>
+			<p>
+				<span id="productPrice" class="product_price">
+                    
+                </span>
+			</p>
+			<br/>
+            <hr/>
+            <p id="productDesc" class="product_desc">
+                
+            </p>
+			<button id="showDescBtn" type="submit" class="product_description_btn" onclick="showHideDesc();">
+				More Description...
+			</button>
+			<br/>
+			<br/>
+			<br/>
+			<p>
+				You may choose a different size using the options below...
+			</p>
+			<button id="productOption1" type="submit" class="product_option_btn" onclick="changeProduct(1);">
+				A bag of Butterhead lettuces
+			</button>
+			<button id="productOption2" type="submit" class="product_option_btn" onclick="changeProduct(2);">
+				A bag of Leaf lettuces
+			</button>
+			<button id="productOption3" type="submit" class="product_option_btn" onclick="changeProduct(3);">
+				A bag of Romaine lettuces
+			</button>
+			<br/>
+			<br/>
+			<br/>
+			<div class="cart_grid">
                 <div class="cart_qty_selector">
-                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(false);">-</button>
-                    <input id="productQty" type="text" class="cart_qty"  value="0" readonly></input>
-                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(true);">+</button>
+                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(false);">
+                        -
+                    </button>
+                    <input id="productQty" type="text" class="cart_qty" value="0" readonly/>
+                    <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(true);">
+                        +
+                    </button>
                 </div>
                 <div id="productMax" class="cart_qty_max_msg">
-                    Quantity Limit: 0
+                    Quantity Limit: 20
                 </div>
-                <button type="submit" class="cart_btn" onclick="addToCart();">Add To Cart</button>
+                <button type="submit" class="cart_btn" onclick="addToCart();">
+                	Add To Cart
+                </button>
             </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-    <br />
-    <br />
-    </div>
-
-    <div id="footer">
+		</div>
+	</div>
+	
+	</div>
+	<div id="footer">
         <div class="store_name">
             Caliprex
         </div>
@@ -255,5 +280,4 @@
         
     </div>
 </body>
-
 </html>
