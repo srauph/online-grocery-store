@@ -109,7 +109,7 @@
     // =================== DESCRIPTION HANDLING ======================
 
     // Replace the content of this variable with your own product description
-    const description = "A 50g Twix chocolate bar. (Limited to 3 per customer).";
+    const description = "A 52g Twix chocolate bar. (Limited to 3 per customer).";
 
     /**
      * This function will only show the first 15 caracters of the description of the product
@@ -140,7 +140,7 @@
 
         <div class="beverage_right">
             <h1 style="font-size:48; padding:2%; background-color:white;">Twix chocolate bar</h1><br>
-            <p style="font-size:24px" id="description">A 50g Twix chocolate bar (limited to 3 per costumer)</p>
+            <p style="font-size:24px" id="description">A 52g Twix chocolate bar (limited to 3 per costumer)</p>
             <button class="product_description_btn" onclick="showAllDescription();">More
                 Description...</button><br><br><br>
             <p>You may choose a different size using the options below...</p>

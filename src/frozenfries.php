@@ -46,9 +46,9 @@
      */
 
     function saveSessionData() {
-        sessionStorage.spriteQty = qty;
-        sessionStorage.spriteCurrentItem = currentItem;
-        sessionStorage.spriteShowAll = showAll;
+        sessionStorage.frozenfriesQty = qty;
+        sessionStorage.frozenfriesCurrentItem = currentItem;
+        sessionStorage.frozenfriesShowAll = showAll;
     }
 
     /**  
@@ -57,7 +57,7 @@
      * used to load the page to the original state.
      */
     function loadSessionData() {
-        if (sessionStorage.frozenfriesurrentItem) {
+        if (sessionStorage.frozenfriesCurrentItem) {
             currentItem = parseInt(sessionStorage.frozenfriesCurrentItem);
         }
         if (sessionStorage.frozenfriesQty) {
