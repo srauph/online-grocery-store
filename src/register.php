@@ -18,62 +18,10 @@ require_once('php/config.php');
 </head>
 
 <body>
-    <div id="__top_banner">
-        <a class="white" href="login.php" title="Login to your account">Login</a>
-        |
-        <a class="white" href="register.php" title="First time user? Register now!">Register</a>
-
-        <!-- cart -->
-        <a href="cart.php">
-            <button id="cart_button">
-                <br>
-                <br>
-                <img src="../assets/Icons/cart.png" style="float:left; margin-right:0.5em" width="25" height="25">
-                <span id="cart_total_value">
-                    $0.00
-                </span>
-            </button>
-        </a>
-    </div>
-
-    <div style="text-align:center;">
-        <div id="menu">
-            <div class="menu_item" onclick="goto('index.php')">
-                <div>Home</div>
-            </div>
-            <div class="menu_item" onclick="goto('all_items.php')">
-                <div>All products</div>
-            </div>
-            <div class="menu_item" onclick="goto('aisle.php')">
-                <div onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</div>
-            </div>
-            <div class="menu_item" onclick="goto('contactus.php')">
-                <div>Contact us</div>
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="sub_menus" id="menu_aisle" onmouseover="void_showElement('menu_aisle');"
-            onmouseout="void_hideElement('menu_aisle');">
-            <form action="register.php" method="POST">
-                <ul>
-                    <li><input type="submit" name="__tag_search_btn" value="Bakery" formaction="bakery.php" style="color:white; font-weight:bold"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Beauty Products"
-                            formaction="beautyproducts.php" style="color:white; font-weight:bold"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Beverages" formaction="beverages.php" style="color:white; font-weight:bold"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Frozen" formaction="frozen.php" style="color:white; font-weight:bold"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Fruits" formaction="fruits.php" style="color:white; font-weight:bold"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Vegetables" formaction="vegetables.php" style="color:white; font-weight:bold">
-                    </li>
-                    <li><input type="submit" name="__tag_search_btn" value="Dairy Products"
-                            formaction="dairyproducts.php" style="color:white; font-weight:bold"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Snacks" formaction="snacks.php" style="color:white; font-weight:bold"></li>
-                </ul>
-            </form>
-        </div>
-    </div>
-    <br />
-    <br />
+    <?php
+    $header = file_get_contents('common/header.php');
+    echo $header;
+    ?>
 
     <div class="registration_form">
         <div class="message">
@@ -94,7 +42,7 @@ require_once('php/config.php');
                 Error! An error has occured while processing PHP query
             </div>
         </div>
-        <form method="POST" action="register.php">
+        <form method="POST" action="php/addUser.php">
             <h1>Sign up</h1>
             <table>
                 <tr>
@@ -125,90 +73,78 @@ require_once('php/config.php');
             <input type="submit" name="register" class="btn" value="Register" />
         </form>
     </div>
-    <div id="footer">
-        <div class="store_name">
-            Caliprex
-        </div>
-        <br>
-        <div class="footer_bottom">
-            <div class="newsletter_subscribe">
-                Subscribe to our Newsletter!
-                <input type="text" style="height:30px;font-size:20;width:200px;"
-                    placeholder="Email address">
-                <input type="submit" id="btn_work" style="border:1px solid white; height:auto;" class="btn" ; value="GO">
-            </div>
 
-            <div class="media_links">
-                <a href="https://www.facebook.com/Caliprex-121401789649042" target="_blank">
-                        <image src="../assets/Icons/facebook.png" alt="Facebook image"
-                            width="50" height="50"></a>
-                <a href="https://www.instagram.com/caliprex/" target="_blank">
-                        <image src="../assets/Icons/instagram.png" alt="Instagram image"
-                            width="50" height="50"></a>
-                <a href="https://twitter.com/caliprex" target="_blank">
-                        <image src="../assets/Icons/twitter.png" alt="Twitter image"
-                            width="50" height="50"></a>
-                <a href="https://Pintrest.com/caliprex" target="_blank">
-                        <image src="../assets/Icons/pinterest.png" alt="Pintrest image"
-                            width="50" height="50"></a>
-                <a href="https://www.youtube.com/channel/UCvZRW67axwzk6fw5dBSw-iQ?view_as=subscriber"
-                        target="_blank">
-                        <image src="../assets/Icons/youtube.png" alt="Youtube image"
-                            width="50" height="50"></a>
-            </div>
-                
-            <div class="aboutus_login">
-                <h3>
-                    <a href="contactus.php" style="color:white;">About Us |</a>
-                    <a href="login.php" style="color:white;">Login</a>
-                </h3>
-            </div>
 
-        </div>
-        
-    </div>
+    <?php
+    $footer = file_get_contents('common/footer.php');
+    echo $footer;
+    ?>
 
     <?php
 	include "php/debug.php";
 
-	if (isset($_POST['register'])) {
-		$username = $_POST['username'];
-		$password = $_POST['password'];
-		$cpassword = $_POST['confirm_password'];
-		$email = $_POST['email'];
+    if ($_SESSION["userExists"] == true) {
+        // there is already a user with the same username
+        echo '<script type="text/javascript">document.getElementById("user_error").style.display = "block";</script>';
+    } else if ($_SESSION["emailExists"] == true) {
+        // there is already a user with the same email
+        echo '<script type="text/javascript">document.getElementById("email_error").style.display = "block";</script>';
+    } else if ($_SESSION["badPass"] == true) {
+        // Invalid password
+        echo '<script type="text/javascript">document.getElementById("pass_error").style.display = "block";</script>';
+    } else if ($_SESSION["registrationSuccessful"] == true) {
+        // Registration successful
+        echo '<script type="text/javascript">document.getElementById("user_registered").style.display = "block";</script>';
+    }
 
-		if ($conn == false) {
-			echo "Connection error";
-		}
+    // Reset these variables
+    $_SESSION["userExists"] = false;
+    $_SESSION["emailExists"] = false;
+    $_SESSION["badPass"] = false;
+    $_SESSION["registrationSuccessful"] = false;
+	?>
 
-		if ($password == $cpassword) {
+    <?php
+	// include "php/debug.php";
 
-			$query = "SELECT * FROM users WHERE username='$username'";
-			$query_run = mysqli_query($conn, $query);
-			$query2 = "SELECT * FROM users WHERE email='$email'";
-			$query_run2 = mysqli_query($conn, $query2);
+	// if (isset($_POST['register'])) {
+	// 	$username = $_POST['username'];
+	// 	$password = $_POST['password'];
+	// 	$cpassword = $_POST['confirm_password'];
+	// 	$email = $_POST['email'];
 
-			if (mysqli_num_rows($query_run) > 0) {
-				// there is already a user with the same username
-				echo '<script type="text/javascript">document.getElementById("user_error").style.display = "block";</script>';
-			} else if (mysqli_num_rows($query_run2) > 0) {
-				// there is already a user with the same email
-				echo '<script type="text/javascript">document.getElementById("email_error").style.display = "block";</script>';
-			} else {
+	// 	if ($conn == false) {
+	// 		echo "Connection error";
+	// 	}
 
-				$query4 = "INSERT INTO `users` (`id`, `username`, `password`, `email`, `cart`) VALUES (NULL, '$username', '$password', '$email', '');";
+	// 	if ($password == $cpassword) {
 
-				if ($conn->query($query4) === TRUE) {
-					echo '<script type="text/javascript">document.getElementById("user_registered").style.display = "block";</script>';
-				   } else {
-					echo '<script type="text/javascript">document.getElementById("query_error").style.display = "block";</script>';
-					echo "Error: " . $sql . "<br>" . $conn->error;
-				   }
-			}
-		} else {
-			echo '<script type="text/javascript">document.getElementById("pass_error").style.display = "block";</script>';
-		}
-	}
+	// 		$query = "SELECT * FROM users WHERE username='$username'";
+	// 		$query_run = mysqli_query($conn, $query);
+	// 		$query2 = "SELECT * FROM users WHERE email='$email'";
+	// 		$query_run2 = mysqli_query($conn, $query2);
+
+	// 		if (mysqli_num_rows($query_run) > 0) {
+	// 			// there is already a user with the same username
+	// 			echo '<script type="text/javascript">document.getElementById("user_error").style.display = "block";</script>';
+	// 		} else if (mysqli_num_rows($query_run2) > 0) {
+	// 			// there is already a user with the same email
+	// 			echo '<script type="text/javascript">document.getElementById("email_error").style.display = "block";</script>';
+	// 		} else {
+
+	// 			$query4 = "INSERT INTO `users` (`id`, `username`, `password`, `email`, `cart`) VALUES (NULL, '$username', '$password', '$email', '');";
+
+	// 			if ($conn->query($query4) === TRUE) {
+	// 				echo '<script type="text/javascript">document.getElementById("user_registered").style.display = "block";</script>';
+	// 			   } else {
+	// 				echo '<script type="text/javascript">document.getElementById("query_error").style.display = "block";</script>';
+	// 				echo "Error: " . $sql . "<br>" . $conn->error;
+	// 			   }
+	// 		}
+	// 	} else {
+	// 		echo '<script type="text/javascript">document.getElementById("pass_error").style.display = "block";</script>';
+	// 	}
+	// }
 	?>
 </body>
 

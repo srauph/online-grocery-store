@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<users>
+    <user>
+        <username>admin</username>
+        <password>admin</password>
+        <email>admin@admin.com</email>
+        <admin>true</admin>
+    </user>
+    <user>
+        <username>admin2</username>
+        <password>admin2</password>
+        <email>admin2@admin.com</email>
+        <admin>true</admin>
+    </user>
+	<user>
+        <username>random</username>
+        <password>random</password>
+        <email>random@random.com</email>
+        <admin>false</admin>
+    </user>
+</users>
