@@ -124,9 +124,18 @@
 
 <body>
     <?php
-    $header = file_get_contents('common/header.php');
-    echo $header;
+    if ($_SESSION["currentLogin"] != null) {
+        $header = file_get_contents('common/headerloggedin.php');
+        echo $header;
+    } else {
+        $header = file_get_contents('common/header.php');
+        echo $header;
+    }
+    
     ?>
+    <script>
+        document.getElementById("helloUser").innerHTML="Hello, <?php echo $_SESSION["currentLogin"][0]; ?>!";
+    </script>
 
     <div class="beverage_page">
 

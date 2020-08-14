@@ -17,6 +17,7 @@ session_start();
 
 </head>
 
+
 <body>
     <?php
     if ($_SESSION["currentLogin"] != null) {
@@ -26,7 +27,11 @@ session_start();
         $header = file_get_contents('common/header.php');
         echo $header;
     }
+    
     ?>
+    <script>
+        document.getElementById("helloUser").innerHTML="Hello, <?php echo $_SESSION["currentLogin"][0]; ?>!";
+    </script>
 
 
     <div class="login_form" style="font-family: 'Roboto';">

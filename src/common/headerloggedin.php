@@ -1,7 +1,10 @@
 <div id="__top_banner">
-    <div class="white">You are logged in | 
+    <div class="white">
+        <div id="helloUser">Hello, !</div>
         <a class="white" href="php/logout.php" title="Log out of your account">Logout</a>
     </div>
+    
+    
 
     <!-- cart -->
     <a href="cart.php">
