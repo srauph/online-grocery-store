@@ -56,7 +56,7 @@ session_start();
     </script>
 
         <!-- This div is resposible for the display of the items on Sale -->
-        <div id="slidshow" style="">
+        <div id="slidshow">
             This text exists to show the div only
             <div id="slidshow_price">
                 $0.00

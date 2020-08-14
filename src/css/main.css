@@ -457,17 +457,20 @@ input {
     .newsletter_subscribe {
         color: white;
         font-family: "Roboto";
+        margin-left: 3%;
+        text-align: left;
     }
     .media_links {
         text-align: center;
     }
     .aboutus_login {
+        margin-right: 3%;
         text-align: right;
     }
 }
 
 
-}
+
 */ #__top_banner button img {
     height: 25px;
     width: 25px;

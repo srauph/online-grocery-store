@@ -1,30 +1,28 @@
 <html>
 	<head>
-<link rel="stylesheet" type="text/css" href="css/main.css">
-        <title>Edit a product</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-        </head>
-	<body>
-		<div id="__top_banner">
-			<a class="black"/a>
-			
-			<!-- cart -->
-			<a href="cart.php">
-				<button id="cart_button">
-					<br>
-					<br>
-					<br>
-					<img src="assets/icons/cart.png" style="float:left; margin-right:0.5em" width="25" height="25">
-					<span id="cart_total_value">
-						$0.00
-					</span>
-				</button>
-			</a>
-		</div>
-		<div id="menu">
-			<ul>
-				<li><a class="white" href="productedit.php">Edit a product</li></a>
-			<ul>
+	<head>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/aisle_beverage.css">
+    <title id="productTitle">Sprite (355mL Can)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script type="text/javascript" src="../scripts/Util.js"></script>
+    <script type="text/javascript" src="../scripts/Cart.js"></script>
+    <script type="text/javascript" src="../scripts/Item.js"></script>
+    <script type="text/javascript" src="../scripts/Sales.js"></script>
+    <script type="text/javascript" src="../scripts/AbstractComponent.js"></script>
+    <script type="text/javascript" src="../scripts/Beverage.js"></script>
+    <script type="text/javascript" src="../scripts/main.js"></script>
+</head>
+
+<body>
+	<?php
+    $header = file_get_contents('../common/headerbackend.php');
+	echo $header;
+    ?>
+    <script>
+        document.getElementById("helloUser").innerHTML="Hello, <?php echo $_SESSION["currentLogin"][0]; ?>!";
+	</script>
 		
 		<div class="cart_left">
         <div class="border4">
@@ -174,34 +172,8 @@
 
         </div>
 
-		<!-- FOOTER HERE -->
-		<div id="footer">
-			<center>
-			<table>
-
-				<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
-				<td></td><td></td><td></td><td></td><td></td><td></td>
-
-			<th><h3 style="color:white; text-align:center;">Caliprex<h3>					
-			<tr> 
-					<th><h3 style="color:white; font-style:robotto;"> <br>Subscribe to our Newsletter!</h3>
-					<td></td>
-					<td></td>
-					<td></td>
-					<th> <input type="text" style="height:30px;font-size:20;width:200px;"placeholder="Email address">
-					<th> <input type="submit" id="btn_work" class="btn" size="20"; value="GO">
-					<td><pre>	</pre></td>
-					<th><a href="https://www.facebook.com/Caliprex-121401789649042" target="_blank"><img src="assets/Icons/facebook.png" alt="Facebook image"style="float:right; margin-right:0.5em" width="50" height="35"></a>
-					<th><a href="https://www.instagram.com/caliprex/" target="_blank"><img src="assets/Icons/instagram.png" alt="Instagram image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
-					<th><a href="https://twitter.com/caliprex" target="_blank"><img src="assets/Icons/twitter.png" alt="Twitter image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
-					<th><a href="https://Pintrest.com/caliprex" target="_blank"><img src="assets/Icons/pinterest.png" alt="Pintrest image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
-					<th><a href="https://www.youtube.com/channel/UCvZRW67axwzk6fw5dBSw-iQ?view_as=subscriber" target="_blank">
-					<img src="assets/Icons/youtube.png" alt="Youtube image" style="float:right; margin-right:0.5em" width="50" height="35"></a>
-					<th><a href="contactus.php" style="color:white;"><h3>About Us |</a></h3>      
-					<th><a href="login.php" ><h3 style="color:white;">Login</h3></a>
-			</tr>
-			</table>
-			</center>
-		</div>
-
+	<?php
+    $footer = file_get_contents('../common/footerbackend.php');
+    echo $footer;
+    ?>
 </html>

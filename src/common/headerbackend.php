@@ -1,10 +1,10 @@
 <div id="__top_banner">
-    <a class="white" href="login.php" title="Login to your account">Login</a>
-    |
-    <a class="white" href="register.php" title="First time user? Register now!">Register</a>
+    <div class="white">
+        <div id="helloUser">Hello, !</div>
+        <a class="white" href="php/logout.php" title="Log out of your account">Logout</a>
+    </div>
 
-    <!-- cart -->
-    <a href="cart.php">
+    <!-- <a href="cart.php">
         <button id="cart_button">
             <br>
             <br>
@@ -13,22 +13,22 @@
                 $0.00
             </span>
         </button>
-    </a>
+    </a> -->
 </div>
 
 <div style="text-align:center;">
     <div id="menu">
-        <div class="menu_item" onclick="goto('index.php')">
+        <div class="menu_item" onclick="goto('../index.php')">
             <div>Home</div>
         </div>
-        <div class="menu_item" onclick="goto('all_items.php')">
-            <div>All products</div>
+        <div class="menu_item" onclick="goto('productlist.php')">
+            <div>Product List</div>
         </div>
-        <div class="menu_item" onclick="goto('aisle.php')">
-            <div onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</div>
+        <div class="menu_item" onclick="goto('userlist.php')">
+            <div>User List</div>
         </div>
-        <div class="menu_item" onclick="goto('contactus.php')">
-            <div>Contact us</div>
+        <div class="menu_item" onclick="goto('orderlist.php')">
+            <div>Order List</div>
         </div>
     </div>
 </div>
