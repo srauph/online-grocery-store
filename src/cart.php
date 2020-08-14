@@ -207,6 +207,11 @@ session_start();
             localStorage.removeItem("cart");
             init();
         }
+
+        function setOrderValue() {
+            document.placeorder.items.value = JSON.stringify(items);
+        }
+
     </script>
 </head>
 
@@ -261,8 +266,9 @@ session_start();
                 <label class="name">Estimated total</label><br>
                 <input id="bigTotal" type="text" style="height:80px; font-size:40; width:300;" value="$0.00" readonly><br><br>
                 
-                <form type="submit" method="POST" action="php/placeorder.php" name="placeorder">
-                    <button type="submit" class="cart_btn" style="width:300; size:20;">PLACE ORDER</button>
+                <form type="submit" method="POST" action="php/placeorder.php" id="placeorder" name="placeorder">
+                    <button type="submit" class="cart_btn" style="width:300; size:20;" onclick="setOrderValue();">PLACE ORDER</button>
+                    <input type="hidden" name="items" value="" />
                 </form>
 
                 <h3 class="red" style= "font-size:17; font-family:'Courier New';" >Price Breakdown:</h3>

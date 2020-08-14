@@ -1,4 +1,6 @@
 <?xml version="1.0"?>
+<root>
+
 <users>
     <user>
         <username>admin</username>
@@ -12,7 +14,7 @@
         <email>admin2@admin.com</email>
         <admin>true</admin>
     </user>
-	<user>
+    <user>
         <username>random</username>
         <password>random</password>
         <email>random@random.com</email>
@@ -21,5 +23,6 @@
 </users>
 
 <orders>
-    
 </orders>
+
+</root>
