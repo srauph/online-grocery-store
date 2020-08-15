@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!isset($_SESSION["currentLogin"])){
+    $_SESSION["currentLogin"] = null;
+}
 ?>
 <html>
 
@@ -36,13 +39,14 @@ session_start();
         var totalPrice;
         var numberOfItems;
         var items;
-        var orderPlaced = false;
+        // var orderPlaced;
 
         /** 
          * Saves the cart to localStorage
          */
         function saveSessionData() {
             localStorage.setItem("cart", JSON.stringify(items));
+            // sessionStorage.setItem("orderPlaced", orderPlaced);
         }
 
         /**  
@@ -50,6 +54,7 @@ session_start();
          */
         function loadSessionData() {
             items = JSON.parse(localStorage.getItem("cart"));
+            // orderPlaced = (sessionStorage.getItem("orderPlaced") == 'true');
         }
         
         function removeItem(id) {
@@ -112,6 +117,7 @@ session_start();
             document.getElementById("qst").innerHTML = "$" + (totalPrice * 0.09975).toFixed(2);
             document.getElementById("gst").innerHTML = "$" + (totalPrice * 0.05).toFixed(2);
             document.getElementById("total").innerHTML = "$" + (totalPrice * 1.14975).toFixed(2);
+            return [(totalPrice * 1.14975).toFixed(2), (totalPrice.toFixed(2)), (totalPrice * 0.09975).toFixed(2), (totalPrice * 0.05).toFixed(2)];
         }
 
         function getNumberOfItems() {
@@ -136,7 +142,13 @@ session_start();
 
             if (items == null || items.length == 0) {
                 //document.getElementById("___cart_content_table_r2").innerHTML = "<br><br>Cart is empty.";
-                DOM.innerHTML = "<h2>Cart is empty.</h2> Let's add some stuff to this!";
+                
+                // console.log(orderPlaced);
+                // if (orderPlaced) {
+                //     DOM.innerHTML = "<h2 style='color:chartreuse;'>Order placed successfully!</h2><br><h2>Cart is empty.</h2> Let's add some stuff to this!";
+                // } else {
+                    DOM.innerHTML = "<h2>Cart is empty.</h2> Let's add some stuff to this!";
+                // }
                 
                 // Write the GST and QST
                 document.getElementById("numberOfItems").innerHTML = 0;
@@ -198,10 +210,6 @@ session_start();
             // Write the GST and QST
             getNumberOfItems();
             calculateCost();
-
-            if (orderPlaced) {
-                DOM.innerHTML = "<h2 style='color:chartreuse;'>Order placed successfully!</h2><br><h2>Cart is empty.</h2> Let's add some stuff to this!";
-            }
         }
 
         document.addEventListener("DOMContentLoaded", function() {
@@ -218,10 +226,11 @@ session_start();
                 alert("You must add items to cart before you can place an order!")
                 return;
             }
+            // alert(JSON.stringify(items));
             document.placeorder.items.value = JSON.stringify(items);
+            document.placeorder.prices.value = JSON.stringify(calculateCost());
             document.getElementById("placeorder").submit();
-            const DOM = document.getElementById("__cart_content_table");
-            orderPlaced = true;
+            // orderPlaced = true;
             clearCart();
         }
 
@@ -282,6 +291,7 @@ session_start();
                 <form type="submit" method="POST" action="php/placeorder.php" id="placeorder" name="placeorder">
                     <button type="button" class="cart_btn" style="width:300; size:20;" onclick="placeOrder();">PLACE ORDER</button>
                     <input type="hidden" name="items" value="" />
+                    <input type="hidden" name="prices" value="" />
                 </form>
 
                 <h3 class="red" style= "font-size:17; font-family:'Courier New';" >Price Breakdown:</h3>

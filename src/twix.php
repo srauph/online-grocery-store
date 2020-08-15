@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION["currentLogin"])){
+    $_SESSION["currentLogin"] = null;
+}
+?>
 <html>
 
 <head>
@@ -135,7 +141,7 @@
     <div class="beverage_page">
 
         <div class="beverage_left">
-            <img src="../assets/Images/twix.jpg" style="width:80%; height=80%;" alt="Twix">
+            <img src="../assets/Images/twix.jpg" style="width:80%; height:80%;" alt="Twix">
         </div>
 
         <div class="beverage_right">

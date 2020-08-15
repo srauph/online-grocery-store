@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION["currentLogin"])){
+    $_SESSION["currentLogin"] = null;
+}
+?>
 <html>
 
 <head>
@@ -184,7 +190,7 @@
     <div class="beverage_page">
 
         <div class="beverage_left">
-            <img id="productImg" src="" style="width:80%; height=80%;" alt="" />
+            <img id="productImg" src="" style="width:80%; height:80%;" alt="" />
         </div>
 
         <div class="beverage_right">

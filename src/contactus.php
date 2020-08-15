@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION["currentLogin"])){
+    $_SESSION["currentLogin"] = null;
+}
+?>
 <html>
 
 <head>
@@ -206,7 +212,7 @@
                 <br>
                 <br>
                 <table>
-                    <h1 style=color;grey;>How Did you know about us?</h1>
+                    <h1 style=color:grey;>How Did you know about us?</h1>
                     <th><input type="radio" id="Website" name="Reccomend" value="webiste">
                         <label for="Website" style="font-size:20;">Website</label></th><br>
                     <th><input type="radio" id="Mobileapplication" name="Reccomend" value="mobileapplication">

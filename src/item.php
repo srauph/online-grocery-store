@@ -3,13 +3,58 @@ session_start();
 if (!isset($_SESSION["currentLogin"])){
     $_SESSION["currentLogin"] = null;
 }
+
+$doc = new DOMDocument();
+$doc->load("data.xml");
+
+$category = "beverages";
+$_SESSION['item'] = "sprite";
+$_SESSION['type'] = "t1";
+
+// if (!isset($_POST['item'])) {
+//     echo "item not set ";
+//     $_SESSION['item'] = "sprite";
+// } else {
+//     echo "item is set ";
+//     echo $_POST['item'];
+//     $_SESSION['item'] = $_POST['item'];
+// }
+
+// if (!isset($_POST['type'])) {
+//     echo "type not set ";
+//     $_SESSION['type'] = "sprite";
+// } else {
+//     echo "type is set ";
+//     echo $_POST['type'];
+//     $_SESSION['type'] = $_POST['type'];
+// }
+
+function loadItem() {
+    global $doc;
+    $docProducts = $doc->getElementsByTagName("product");
+    foreach($docProducts as $i) {
+        // echo $i->getElementsByTagName("item")->item(0)->nodeValue;
+        if ($i->getElementsByTagName("item")->item(0)->nodeValue == $_SESSION['item']) {
+            echo var_dump($i);
+                $j = $i->getElementsByTagName($_SESSION['type'])->item(0);
+                $_SESSION['id'] = $j->getElementsByTagName("id")->item(0)->nodeValue;
+                $_SESSION['name'] = $j->getElementsByTagName("name")->item(0)->nodeValue;
+                $_SESSION['description'] = $j->getElementsByTagName("description")->item(0)->nodeValue;
+                $_SESSION['price'] = $j->getElementsByTagName("price")->item(0)->nodeValue;
+                $_SESSION['image'] = $j->getElementsByTagName("image")->item(0)->nodeValue;
+                $_SESSION['options'] = $j->getElementsByTagName("options")->item(0)->nodeValue;
+                $_SESSION['limit'] = $j->getElementsByTagName("limit")->item(0)->nodeValue;
+        }
+    }
+}
+
 ?>
 <html>
 
 <head>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/aisle_beverage.css">
-    <title id="productTitle">Sprite (355mL Can)</title>
+    <title id="productTitle"><?php echo $_SESSION['name']; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script type="text/javascript" src="scripts/Util.js"></script>
@@ -30,13 +75,13 @@ if (!isset($_SESSION["currentLogin"])){
      * img:     Link to the object image file
      * options: Amount of different options available (eg different product sizes)
      */
-    name = "Sprite (355mL Can)";
-    desc = "Sprite, a lemon-lime flavored soft drink. <br><br>From the Coca-Cola Company, Sprite is one of the best-selling soft drinks in the world. Sprite also comes in 710mL bottles or 2L bottles.";
-    price = 0.99;
-    img = "../assets/Images/sprite.jpg";
-    options = 3;
-    limit = 24;
-    id = 101;
+    name = "<?php echo $_SESSION['name']; ?>";
+    desc = "<?php echo $_SESSION['description']; ?>";
+    price = "<?php echo $_SESSION['price']; ?>";
+    img = "<?php echo $_SESSION['image']; ?>";
+    options = "<?php echo $_SESSION['options']; ?>";
+    limit = "<?php echo $_SESSION['limit']; ?>";
+    id = "<?php echo $_SESSION['id']; ?>";
 
     /** 
      * Saves the session data. 
@@ -64,6 +109,7 @@ if (!isset($_SESSION["currentLogin"])){
     function loadSessionData() {
         if (sessionStorage.spriteCurrentItem) {
             currentItem = parseInt(sessionStorage.spriteCurrentItem);
+            // currentItem = "<?php echo $_SESSION['type'][1]; ?>";
         }
         if (sessionStorage.spriteQty) {
             qty = parseInt(sessionStorage.spriteQty);
@@ -77,6 +123,8 @@ if (!isset($_SESSION["currentLogin"])){
         changeProduct(currentItem);
         setQty(qty);
         displayDesc();
+
+        // updatePageContents();
     }
 
     /** 
@@ -85,6 +133,11 @@ if (!isset($_SESSION["currentLogin"])){
      * when a new option is selected.
      */
     function changeProduct(type) {
+
+        // document.changeproduct.item.value = "<?php echo $_SESSION['item']; ?>";
+        // document.changeproduct.item.value = "sprite";
+        // document.changeproduct.type.value = "t" + type;
+        // document.getElementById("changeproduct").submit();
 
         switch (type) {
 
@@ -138,6 +191,7 @@ if (!isset($_SESSION["currentLogin"])){
         echo $header;
     }
     
+    loadItem();
     ?>
     <script>
         document.getElementById("helloUser").innerHTML="Hello, <?php echo $_SESSION["currentLogin"][0]; ?>!";
@@ -158,9 +212,13 @@ if (!isset($_SESSION["currentLogin"])){
 
             <!-- Product option selection buttons -->
             <p>You may choose a different size using the options below...</p>
-            <button id="productOption1" type="submit" class="product_option_btn" onclick="changeProduct(1);">355mL Can</button>
-            <button id="productOption2" type="submit" class="product_option_btn" onclick="changeProduct(2);">710mL Bottle</button>
-            <button id="productOption3" type="submit" class="product_option_btn" onclick="changeProduct(3);">2L Bottle</button><br><br><br>
+            <form type="submit" id="changeproduct" action="item.php" name="changeproduct" method="POST">
+                <button id="productOption1" class="product_option_btn" onclick="changeProduct(1);">355mL Can</button>
+                <button id="productOption2" class="product_option_btn" onclick="changeProduct(2);">710mL Bottle</button>
+                <button id="productOption3" class="product_option_btn" onclick="changeProduct(3);">2L Bottle</button><br><br><br>
+                <input type="hidden" name="item" value="" />
+                <input type="hidden" name="type" value="" />
+            </form>
 
             <!-- Quantity selector and Add to Cart functionality -->
             <div class="cart_grid">

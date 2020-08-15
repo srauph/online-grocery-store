@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!isset($_SESSION["currentLogin"])){
+    $_SESSION["currentLogin"] = null;
+}
 ?>
 <html>
 

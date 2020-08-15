@@ -1,7 +1,8 @@
 <?php
 session_start();
-require_once('php/config.php');
-//phpinfo();
+if (!isset($_SESSION["currentLogin"])){
+    $_SESSION["currentLogin"] = null;
+}
 ?>
 <html>
 

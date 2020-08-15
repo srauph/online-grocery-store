@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION["currentLogin"])){
+    $_SESSION["currentLogin"] = null;
+}
+?>
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="../css/main.css"/>
