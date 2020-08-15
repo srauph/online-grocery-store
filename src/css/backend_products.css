@@ -1,0 +1,102 @@
+.products_list
+{
+	background-color: lightgrey;
+	width: center;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+
+.border_products_list
+{
+	background-color: white;
+	width: center;
+	padding: 50px;
+	margin-bottom: 10px;
+	height: 150px;
+}
+
+.table_products_list
+{
+	width: 100%;
+}
+
+.header_table
+{
+	text-align: center;
+	margin: auto;
+}
+
+.grey_products_list
+{
+	text-align: center;
+	color: grey;
+	margin: auto;
+	font-size: 20;
+}
+
+.data_cell_table
+{
+	text-align: center;
+	margin: auto;
+}
+
+.inputs_table
+{
+	margin: auto;
+	text-align: center;
+	width: 90;
+	height: 40;
+}
+
+.image_size
+{
+	margin: auto;
+	width: 150;
+	height: 100;
+}
+
+.btn_products_list
+{
+	color: white;
+	padding: 10px;
+	background-color: red;
+	cursor: pointer;
+	border: 0;
+	transition: all 1s;
+	text-align: center;
+	margin: auto;
+}
+
+#footer_products_list
+{
+	position: relative;
+	width: 100%;
+	height: 40%; /* Height of the footer */
+	background-color: black;
+	text-align: center;
+}
+
+.h3_heading_footer
+{
+	text-align: center;
+	color: white;
+	font-style: "Roboto";
+	margin: auto;
+}
+
+#email_address_footer
+{
+	margin: auto;
+	font-size: 20;
+	text-align:center;
+}
+
+.logos_footer
+{
+	float: right;
+	margin: auto;
+	width: 50;
+	height: 35;
+}

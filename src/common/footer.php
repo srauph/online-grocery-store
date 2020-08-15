@@ -33,7 +33,7 @@
         <div class="aboutus_login">
             <h3>
                 <a href="contactus.php" style="color:white;">About Us |</a>
-                <a href="login.php" style="color:white;">Login</a>
+                <a href="index.php" style="color:white;">Home</a>
             </h3>
         </div>
 

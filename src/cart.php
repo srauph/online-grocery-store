@@ -36,6 +36,7 @@ session_start();
         var totalPrice;
         var numberOfItems;
         var items;
+        var orderPlaced = false;
 
         /** 
          * Saves the cart to localStorage
@@ -197,6 +198,10 @@ session_start();
             // Write the GST and QST
             getNumberOfItems();
             calculateCost();
+
+            if (orderPlaced) {
+                DOM.innerHTML = "<h2 style='color:chartreuse;'>Order placed successfully!</h2><br><h2>Cart is empty.</h2> Let's add some stuff to this!";
+            }
         }
 
         document.addEventListener("DOMContentLoaded", function() {
@@ -208,8 +213,16 @@ session_start();
             init();
         }
 
-        function setOrderValue() {
+        function placeOrder() {
+            if (items == null) {
+                alert("You must add items to cart before you can place an order!")
+                return;
+            }
             document.placeorder.items.value = JSON.stringify(items);
+            document.getElementById("placeorder").submit();
+            const DOM = document.getElementById("__cart_content_table");
+            orderPlaced = true;
+            clearCart();
         }
 
     </script>
@@ -267,7 +280,7 @@ session_start();
                 <input id="bigTotal" type="text" style="height:80px; font-size:40; width:300;" value="$0.00" readonly><br><br>
                 
                 <form type="submit" method="POST" action="php/placeorder.php" id="placeorder" name="placeorder">
-                    <button type="submit" class="cart_btn" style="width:300; size:20;" onclick="setOrderValue();">PLACE ORDER</button>
+                    <button type="button" class="cart_btn" style="width:300; size:20;" onclick="placeOrder();">PLACE ORDER</button>
                     <input type="hidden" name="items" value="" />
                 </form>
 
