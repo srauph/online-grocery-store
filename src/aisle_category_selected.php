@@ -8,7 +8,7 @@ if (!isset($_SESSION["currentLogin"])){
 $doc = new DOMDocument();
 $doc->load("data.xml");
 
-$category = "beverages";
+$category = $_GET['category'];
 // $product = "cocacola";
 // $type = "t1";
 $product = [];
@@ -16,6 +16,41 @@ $item;
 $bvgqty = 0;
 
 // $currentobj = $type[1];
+$productsTop =
+"<tr>
+    <br><h2 style='color:crimson; text-align:center;'> Click on a product image (or its corresponding title) to go to
+            the corresponding product page.</h2>
+</tr>
+
+<tr> 
+    <div class='beverage_aisle_head'>
+        <div class='beverage_aisle_item_img'>
+            <h2>Product Image</h2>
+        </div>
+
+        <div class='beverage_aisle_item'>
+            <h2>Product Title</h2>
+        </div>
+
+        <div class='beverage_aisle_item'>
+            <h2>Brief Description</h2>
+        </div>
+
+        <div class='beverage_aisle_item'>
+            <h2>Product Price</h2>
+        </div>
+
+        <div class='beverage_aisle_item'>
+            <h2>Add to Cart</h2>
+        </div>
+    </div>
+</tr>";
+
+$noProducts = 
+"<div style='color:dodgerblue; text-align:center; font-size:28px;'>
+    <br><br><br>Looks like there are no items here... :(
+    <br><br> Check another category!<br><br>
+</div>";
 
 function loadItem() {
     global $doc, $category, $bvgqty, $product, $item, $minidesc;
@@ -42,7 +77,9 @@ function loadItem() {
                 <div class='beverage_aisle'>
                     <form type='submit' method='GET' action='item.php'>
                         <div class='beverage_aisle_item_img'>
-                            <button name='item' value='$item' style='background:transparent; border:none;'> <img src='../assets/Images/$image[$bvgqty]' style='width:100px; height:100px;' alt='$item' value='$item' /> </button>
+                            <button name='item' value='$item' style='background:transparent; border:none;'> 
+                                <img src='../assets/Images/$image[$bvgqty]' style='width:100px; height:100px;' alt='$item' value='$item' /> 
+                            </button>
                         </div>
 
                         <div class='beverage_aisle_item'>
@@ -55,7 +92,7 @@ function loadItem() {
                         <div class='beverage_aisle_item'>
                             <!-- Fill these variable with the defaults listed towards the top of the item page -->
                             <!-- Use single quotes for strings -->
-                            <button type='submit' class='cart_btn_aisle' onclick='addToCart($id[$bvgqty], '$name[$bvgqty]', '../assets/Images/$image[$bvgqty]', $price[$bvgqty], $limit[$bvgqty]);'>
+                            <button type='button' class='cart_btn_aisle' onclick='addToCart($id[$bvgqty], \"$name[$bvgqty]\", \"$image[$bvgqty]\", $price[$bvgqty], $limit[$bvgqty]);' />
                             Add To Cart</button>
                         </div>
                     </form>
@@ -74,7 +111,7 @@ loadItem();
 <head>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/aisle_beverage.css">
-    <title>Beverages</title>
+    <title><?php echo $category; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script type="text/javascript" src="scripts/Util.js"></script>
@@ -87,68 +124,23 @@ loadItem();
 
 <script>
     function addToCart(id, name, img, price, limit) {
-        cart.void_add(new Item(id, name, 1, img.substring(17), price, 1, limit, 0, ''));
+        cart.void_add(new Item(id, name, 1, img, price, 1, limit, 0, ''));
     }
 </script>
 
 <body>
-    <div id="__top_banner">
-        <a class="white" href="login.php" title="Login to your account">Login</a>
-        |
-        <a class="white" href="register.php" title="First time user? Register now!">Register</a>
-
-        <!-- cart -->
-        <a href="cart.php">
-            <button id="cart_button">
-                <br>
-                <br>
-                <img src="../assets/Icons/cart.png" style="float:left; margin-right:0.5em" width="25" height="25">
-                <span id="cart_total_value">
-                    $0.00
-                </span>
-            </button>
-        </a>
-    </div>
-
-    <div style="text-align:center;">
-        <div id="menu">
-            <div class="menu_item" onclick="goto('index.php')">
-                <div>Home</div>
-            </div>
-            <div class="menu_item" onclick="goto('all_items.php')">
-                <div>All products</div>
-            </div>
-            <div class="menu_item" onclick="goto('aisle.php')">
-                <div onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</div>
-            </div>
-            <div class="menu_item" onclick="goto('contactus.php')">
-                <div>Contact us</div>
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="sub_menus" id="menu_aisle" onmouseover="void_showElement('menu_aisle');"
-            onmouseout="void_hideElement('menu_aisle');">
-            <form action="register.php" method="POST">
-                <ul>
-                    <li><input type="submit" name="__tag_search_btn" value="Bakery" formaction="bakery.php" style="color:white; font-weight:bold"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Beauty Products"
-                            formaction="beautyproducts.php" style="color:white; font-weight:bold"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Beverages" formaction="beverages.php" style="color:white; font-weight:bold"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Frozen" formaction="frozen.php" style="color:white; font-weight:bold"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Fruits" formaction="fruits.php" style="color:white; font-weight:bold"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Vegetables" formaction="vegetables.php" style="color:white; font-weight:bold">
-                    </li>
-                    <li><input type="submit" name="__tag_search_btn" value="Dairy Products"
-                            formaction="dairyproducts.php" style="color:white; font-weight:bold"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Snacks" formaction="snacks.php" style="color:white; font-weight:bold"></li>
-                </ul>
-            </form>
-        </div>
-    </div>
+    <?php
+    if ($_SESSION["currentLogin"] != null) {
+        $header = file_get_contents('common/headerloggedin.php');
+        echo $header;
+    } else {
+        $header = file_get_contents('common/header.php');
+        echo $header;
+    }
+    ?>
 
 
-    <h1 style="font-size:48; padding:2%; text-align:center; background-color:white;">Beverages</h1>
+    <h1 style="font-size:48; padding:2%; text-align:center; background-color:white;"><?php echo $category; ?></h1>
 
     <div id="beverage_grid">
 
@@ -157,7 +149,8 @@ loadItem();
             <h3 style="margin-right:100%; padding:2%;">Categories</h3>
 
             <div class="sub_menus" id="aisle_categories">
-                <form action="frozen.php" method="POST">
+                <?php echo file_get_contents('common/aisleform.php'); ?>
+                <!-- <form action="frozen.php" method="POST">
                     <ul>
                         <li><input type="submit" name="tag_search_btn" value="Bakery" formaction="bakery.php"></li>
                         <li><input type="submit" name="tag_search_btn" value="Beauty Products"
@@ -172,7 +165,7 @@ loadItem();
                                 formaction="dairyproducts.php"></li>
                         <li><input type="submit" name="tag_search_btn" value="Snacks" formaction="snacks.php"></li>
                     </ul>
-                </form>
+                </form> -->
             </div>
         </div>
 
@@ -180,7 +173,7 @@ loadItem();
             <div id="beverage_items">
 
                 <table id="beverage_table">
-                    <tr>
+                    <!-- <tr>
                         <br><h2 style="color:crimson; text-align:center;"> Click on a product image (or its corresponding title) to go to
                                 the corresponding product page.</h2>
                     </tr>
@@ -208,7 +201,7 @@ loadItem();
                             </div>
                         </div>
                         
-                        <!-- <div class="beverage_aisle_head_mobile">
+                        <div class="beverage_aisle_head_mobile">
                             <div class="beverage_aisle_item">
                                 <h2>Product Image</h2>
                             </div>
@@ -216,12 +209,17 @@ loadItem();
                             <div class="beverage_aisle_item">
                                 <h2>Description</h2>
                             </div>
-                        </div> -->
-                    </tr>
+                        </div>
+                    </tr> -->
 
                     <?php
-                        foreach ($product as $i) {
-                            echo $i;
+                        if (sizeof($product) != 0) {
+                            echo $productsTop;
+                            foreach ($product as $i) {
+                                echo $i;
+                            }
+                        } else {
+                            echo $noProducts;
                         }
                     ?>
 

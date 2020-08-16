@@ -38,19 +38,16 @@
 <div>
     <div class="sub_menus" id="menu_aisle" onmouseover="void_showElement('menu_aisle');"
         onmouseout="void_hideElement('menu_aisle');">
-        <form action="register.php" method="POST">
+        <form action="aisle_category_selected.php" method="GET">
             <ul>
-                <li><input type="submit" name="__tag_search_btn" value="Bakery" formaction="bakery.php" style="color:white; font-weight:bold"></li>
-                <li><input type="submit" name="__tag_search_btn" value="Beauty Products"
-                        formaction="beautyproducts.php" style="color:white; font-weight:bold"></li>
-                <li><input type="submit" name="__tag_search_btn" value="Beverages" formaction="beverages.php" style="color:white; font-weight:bold"></li>
-                <li><input type="submit" name="__tag_search_btn" value="Frozen" formaction="frozen.php" style="color:white; font-weight:bold"></li>
-                <li><input type="submit" name="__tag_search_btn" value="Fruits" formaction="fruits.php" style="color:white; font-weight:bold"></li>
-                <li><input type="submit" name="__tag_search_btn" value="Vegetables" formaction="vegetables.php" style="color:white; font-weight:bold">
-                </li>
-                <li><input type="submit" name="__tag_search_btn" value="Dairy Products"
-                        formaction="dairyproducts.php" style="color:white; font-weight:bold"></li>
-                <li><input type="submit" name="__tag_search_btn" value="Snacks" formaction="snacks.php" style="color:white; font-weight:bold"></li>
+                <li><input type="submit" name="category" style="color:white; font-weight:bold" value="Bakery"></li>
+                <li><input type="submit" name="category" style="color:white; font-weight:bold" value="Beauty Products"></li>
+                <li><input type="submit" name="category" style="color:white; font-weight:bold" value="Beverages"></li>
+                <li><input type="submit" name="category" style="color:white; font-weight:bold" value="Frozen"></li>
+                <li><input type="submit" name="category" style="color:white; font-weight:bold" value="Fruits"></li>
+                <li><input type="submit" name="category" style="color:white; font-weight:bold" value="Vegetables"></li>
+                <li><input type="submit" name="category" style="color:white; font-weight:bold" value="Dairy Products"></li>
+                <li><input type="submit" name="category" style="color:white; font-weight:bold" value="Snacks"></li>
             </ul>
         </form>
     </div>

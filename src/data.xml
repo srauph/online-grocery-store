@@ -3,7 +3,7 @@
 
 <products>
     <product>
-        <category>beverages</category>
+        <category>Beverages</category>
         <item>sprite</item>
         <options>3</options>
         <minidesc>Sprite, a lemon-lime flavored soft drink</minidesc>
@@ -33,7 +33,7 @@
         </t3>
     </product>
     <product>
-        <category>beverages</category>
+        <category>Beverages</category>
         <item>cocacola</item>
         <options>3</options>
         <minidesc>Coca-Cola, the ubiquitous soft drink</minidesc>

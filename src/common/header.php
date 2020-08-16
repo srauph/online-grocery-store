@@ -35,7 +35,19 @@
 <div>
     <div class="sub_menus" id="menu_aisle" onmouseover="void_showElement('menu_aisle');"
         onmouseout="void_hideElement('menu_aisle');">
-        <form action="register.php" method="POST">
+        <form action="aisle_category_selected.php" method="GET">
+            <ul>
+                <li><input type="submit" name="category" style="color:white; font-weight:bold" value="Bakery"></li>
+                <li><input type="submit" name="category" style="color:white; font-weight:bold" value="Beauty Products"></li>
+                <li><input type="submit" name="category" style="color:white; font-weight:bold" value="Beverages"></li>
+                <li><input type="submit" name="category" style="color:white; font-weight:bold" value="Frozen"></li>
+                <li><input type="submit" name="category" style="color:white; font-weight:bold" value="Fruits"></li>
+                <li><input type="submit" name="category" style="color:white; font-weight:bold" value="Vegetables"></li>
+                <li><input type="submit" name="category" style="color:white; font-weight:bold" value="Dairy Products"></li>
+                <li><input type="submit" name="category" style="color:white; font-weight:bold" value="Snacks"></li>
+            </ul>
+        </form>
+        <!-- <form action="register.php" method="POST">
             <ul>
                 <li><input type="submit" name="__tag_search_btn" value="Bakery" formaction="bakery.php" style="color:white; font-weight:bold"></li>
                 <li><input type="submit" name="__tag_search_btn" value="Beauty Products"
@@ -49,6 +61,6 @@
                         formaction="dairyproducts.php" style="color:white; font-weight:bold"></li>
                 <li><input type="submit" name="__tag_search_btn" value="Snacks" formaction="snacks.php" style="color:white; font-weight:bold"></li>
             </ul>
-        </form>
+        </form> -->
     </div>
 </div>
