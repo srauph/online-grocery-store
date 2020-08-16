@@ -121,11 +121,11 @@
       <email>random@random.com</email>
       <admin>false</admin>
     </user>
-  	<user>
-    	<username>random2</username>
-    	<password>random2</password>
-    	<email>random2@random2.com</email>
-    	<admin>false</admin>
+    <user>
+      <username>random2</username>
+      <password>random2</password>
+      <email>random2@random2.com</email>
+      <admin>false</admin>
     </user>
   </users>
 </root>

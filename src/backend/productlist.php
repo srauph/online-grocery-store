@@ -17,44 +17,44 @@ $productsTop =
 	<br/><br/>
 	<h1 style='margin:2%; font-size:36px;'>Product List</h1>
 	<form type='submit' method='GET' action='productedit.php'>
-		<button name='add' class='cart_btn_aisle' style='font-size:32px; padding:1%; padding-left:3%; padding-right:3%; margin:1%;' value='' />Add a Product</button>
+		<button name='add' class='item_btn_aisle' style='font-size:32px; padding:1%; padding-left:3%; padding-right:3%; margin:1%;' value='' />Add a Product</button>
 	</form>
 </div>
 <tr> 
-	<div class='beverage_aisle_head'>
-		<div class='beverage_aisle_item_img'>
+	<div class='item_list_head'>
+		<div class='item_list_item_img'>
 			<h2>Product ID</h2>
 		</div>
 
-        <div class='beverage_aisle_item_img'>
+        <div class='item_list_item_img'>
             <h2>Product Image</h2>
         </div>
 
-        <div class='beverage_aisle_item'>
+        <div class='item_list_item'>
             <h2>Product Title</h2>
         </div>
 
-        <div class='beverage_aisle_item'>
+        <div class='item_list_item'>
             <h2>Brief Description</h2>
         </div>
 
-        <div class='beverage_aisle_item'>
+        <div class='item_list_item'>
             <h2>Price</h2>
 		</div>
 
-		<div class='beverage_aisle_item'>
+		<div class='item_list_item'>
             <h2>Limit</h2>
 		</div>
 		
-		<div class='beverage_aisle_item'>
+		<div class='item_list_item'>
             <h2>Number of Options</h2>
 		</div>
 
-        <div class='beverage_aisle_item'>
+        <div class='item_list_item'>
             <h2>Product Category</h2>
 		</div>
 		
-		<div class='beverage_aisle_item'>
+		<div class='item_list_item'>
             <h2>Edit/Delete</h2>
         </div>
     </div>
@@ -89,26 +89,26 @@ function loadItems() {
 		$category[$bvgqty] = $i->getElementsByTagName("category")->item(0)->nodeValue;
 		$product[$bvgqty] =
 		"<tr>
-			<div class='beverage_aisle'>
-				<div class='beverage_aisle_item'>$id[$bvgqty]</div>
+			<div class='item_list'>
+				<div class='item_list_item'>$id[$bvgqty]</div>
 
-				<div class='beverage_aisle_item_img'>
+				<div class='item_list_item_img'>
 					<img src='../../assets/Images/$image[$bvgqty]' style='width:100px; height:100px;' alt='$item' value='$item' /> 
 				</div>
 
-				<div class='beverage_aisle_item' style='font-weight:bold;'>
+				<div class='item_list_item' style='font-weight:bold;'>
 					$name[$bvgqty]
 				</div>
 			
-				<div class='beverage_aisle_item'>$minidesc</div>
-				<div class='beverage_aisle_item' style='color:seagreen;'>$$price[$bvgqty]</div>
-				<div class='beverage_aisle_item' style='color:seagreen;'>$limit[$bvgqty]</div>
-				<div class='beverage_aisle_item' style='font-weight:bold;'>$options[$bvgqty]</div>
-				<div class='beverage_aisle_item' style='font-weight:bold;'>$category[$bvgqty]</div>
-				<div class='beverage_aisle_item'>
+				<div class='item_list_item'>$minidesc</div>
+				<div class='item_list_item' style='color:seagreen;'>$$price[$bvgqty]</div>
+				<div class='item_list_item' style='color:seagreen;'>$limit[$bvgqty]</div>
+				<div class='item_list_item' style='font-weight:bold;'>$options[$bvgqty]</div>
+				<div class='item_list_item' style='font-weight:bold;'>$category[$bvgqty]</div>
+				<div class='item_list_item'>
 					<form style='margin:auto;' type='submit' method='GET' action='productedit.php'>
-						<button name='item' class='cart_btn_aisle' value='$item' />Edit</button>
-						<button name='item' class='cart_btn_aisle' value='delete$item' />Delete</button>
+						<button name='item' class='item_btn_aisle' value='$item' />Edit</button>
+						<button name='item' class='item_btn_aisle' value='delete$item' />Delete</button>
 					</form>
 				</div>
 			</div>
