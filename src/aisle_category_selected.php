@@ -46,7 +46,7 @@ $productsTop =
 
 $noProducts = 
 "<div style='color:dodgerblue; text-align:center; font-size:28px;'>
-    <br><br><br>Looks like there are no items here... :(
+    <br><br>Looks like there are no items here... :(
     <br><br> Check another category!<br><br>
 </div>";
 

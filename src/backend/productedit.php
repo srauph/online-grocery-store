@@ -3,13 +3,241 @@ session_start();
 if (!isset($_SESSION["currentLogin"])){
     $_SESSION["currentLogin"] = null;
 }
+
+$doc = new DOMDocument();
+$doc->load("../data.xml");
+
+$productsTop =
+"
+<div style='text-align:center;'>
+	<br/><br/>
+	<h1 style='margin:2%; font-size:36px;'>Edit a Product</h1>
+		<button class='cart_btn_aisle' style='font-size:32px; padding:1%; padding-left:3%; padding-right:3%; margin:1%;' value='' />Save Changes</button>
+</div>
+<tr> 
+	<div class='edit_item_head'>
+
+		<div class='edit_item'>
+			<h2>Type #</h2>
+		</div>
+
+		<div class='edit_item'>
+			<h2>ID</h2>
+		</div>
+	
+		<div class='edit_item'>
+			<h2>Item Name (Lowercase)</h2>
+		</div>
+
+        <div class='edit_item'>
+            <h2>Product Image</h2>
+        </div>
+
+        <div class='edit_item'>
+            <h2>Product Title</h2>
+        </div>
+
+        <div class='edit_item'>
+            <h2>Brief Description</h2>
+        </div>
+
+        <div class='edit_item'>
+            <h2>Full Description</h2>
+		</div>
+
+		<div class='edit_item'>
+            <h2>Price</h2>
+		</div>
+
+        <div class='edit_item'>
+            <h2>Product Category</h2>
+		</div>
+    </div>
+</tr>
+<hr style='margin:2%; margin-top:0%;'/><br/>";
+
+$noProducts = 
+"<div style='color:dodgerblue; text-align:center; font-size:28px;'>
+    <br><br><br>Looks like there are no items here... :(
+    <br><br> Check another category!<br><br>
+</div>";
+
+$categories = [];
+$products = [];
+
+function loadItems() {
+    global $doc, $category, $bvgqty, $products, $item, $options, $minidesc;
+    global $name, $description, $price, $image, $category, $id;
+	$docProducts = $doc->getElementsByTagName("product");
+	
+    foreach($docProducts as $i) {
+		$item = $i->getElementsByTagName("item")->item(0)->nodeValue;
+		$options = $i->getElementsByTagName("options")->item(0)->nodeValue;
+		$minidesc = $i->getElementsByTagName("minidesc")->item(0)->nodeValue;
+		if ($item == $_GET['item']) {
+			for ($j=1; $j<=$options; $j++) {
+				$k = $i->getElementsByTagName("t".$j)->item(0);
+				$id[$bvgqty] = $k->getElementsByTagName("id")->item(0)->nodeValue;
+				$name[$bvgqty] = $k->getElementsByTagName("name")->item(0)->nodeValue;
+				$description[$bvgqty] = $k->getElementsByTagName("description")->item(0)->nodeValue;
+				$price[$bvgqty] = $k->getElementsByTagName("price")->item(0)->nodeValue;
+				$image[$bvgqty] = $k->getElementsByTagName("image")->item(0)->nodeValue;
+				$category[$bvgqty] = $i->getElementsByTagName("category")->item(0)->nodeValue;
+
+				if ($j == 1) {
+					$products[0] =
+					"<tr>
+						<div class='edit_items'>
+
+							<div class='edit_item'>
+								Type #$j
+							</div>
+
+							<div class='edit_item'>
+								<input name='id$j' placeholder='Item (Lowercase)' type='text' style='width:95%' value=\"$id[$bvgqty]\" />
+							</div>
+							
+							<div class='edit_item'>
+								<input name='item$j' placeholder='Item (Lowercase)' type='text' style='width:95%' value=\"$item\" />
+							</div>
+
+							<div class='edit_item'>
+								<input name='image$j' placeholder='Image' type='text' style='width:95%' value=\"$image[$bvgqty]\" />
+							</div>
+
+							<div class='edit_item'>
+								<input name='title$j' placeholder='Title' type='text' style='width:95%' value=\"$name[$bvgqty]\" />
+							</div>
+
+							<div class='edit_item'>
+								<input name='minidesc$j' placeholder='Brief Description' type='text' style='width:95%' value=\"$minidesc\" />
+							</div>
+
+							<div class='edit_item'>
+								<input name='desc$j' placeholder='Full Description' type='text' style='width:95%' value=\"$description[$bvgqty]\" />
+							</div>
+
+							<div class='edit_item' style='color:seagreen;'>
+								<input name='price$j' placeholder='Price' type='text' style='width:95%' value=\"$price[$bvgqty]\" />
+							</div>
+
+							<div class='edit_item' >
+								<input name='cat$j' placeholder='Category' type='text' style='width:95%' value=\"$category[$bvgqty]\" />
+							</div>
+						</div>
+					</tr>";
+				} else {
+					$products[$j-1] =
+					"<tr>
+						<div class='edit_items'>
+
+							<div class='edit_item'>
+								Type #$j
+							</div>
+
+							<div class='edit_item'>
+								<input name='id$j' placeholder='Item (Lowercase)' type='text' style='width:95%' value=\"$id[$bvgqty]\" />
+							</div>
+							
+							<div class='edit_item' style='color:grey;'>
+								(Item is same as 1st)
+							</div>
+	
+							<div class='edit_item'>
+								<input name='image$j' placeholder='Image' type='text' style='width:95%' value=\"$image[$bvgqty]\" />
+							</div>
+	
+							<div class='edit_item'>
+								<input name='title$j' placeholder='Title' type='text' style='width:95%' value=\"$name[$bvgqty]\" />
+							</div>
+	
+							<div class='edit_item' style='color:grey;'>
+								(Brief description is same as 1st)
+							</div>
+
+							<div class='edit_item'>
+								<input name='desc$j' placeholder='Full Description' type='text' style='width:95%' value=\"$description[$bvgqty]\" />
+							</div>
+
+							<div class='edit_item' style='color:seagreen;'>
+								<input name='price$j' placeholder='Price' type='text' style='width:95%' value=\"$price[$bvgqty]\" />
+							</div>
+
+							<div class='edit_item' style='color:grey;'>
+								(Category is same as 1st)
+							</div>
+							
+						</div>
+					</tr>";
+				}
+			}
+		}
+		$bvgqty++;
+    }
+}
+
+
+
+loadItems();
+
+$optionsp1 = ($options+1);
+
+$products[$optionsp1] =
+"<tr>
+	<div class='edit_items'>
+
+		<div class='edit_item'>
+			(Add a type)
+		</div>
+
+		<div class='edit_item'>
+			<input name='id$optionsp1' placeholder='ID' type='text' style='width:95%' value=\"\" />
+		</div>
+		
+		<div class='edit_item' style='color:grey;'>
+			(Item is same as 1st)
+		</div>
+
+		<div class='edit_item'>
+			<input name='image$optionsp1' placeholder='Image' type='text' style='width:95%' value=\"\" />
+		</div>
+
+		<div class='edit_item'>
+			<input name='title$optionsp1' placeholder='Title' type='text' style='width:95%' value=\"\" />
+		</div>
+
+		<div class='edit_item' style='color:grey;'>
+			(Brief description is same as 1st)
+		</div>
+
+		<div class='edit_item'>
+			<input name='desc$optionsp1' placeholder='Full Description' type='text' style='width:95%' value=\"\" />
+		</div>
+
+		<div class='edit_item' style='color:seagreen;'>
+			<input name='price$optionsp1' placeholder='Price' type='text' style='width:95%' value=\"\" />
+		</div>
+
+		<div class='edit_item' style='color:grey;'>
+			(Category is same as 1st)
+		</div>
+
+		<input name='options' type='hidden' value='$optionsp1' />
+		<input name='olditemname' type='hidden' value='".$_GET['item']."' />
+		
+	</div>
+</tr>";
+
+
 ?>
+
+
 <html>
 <head>
 <head>
     <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <link rel="stylesheet" type="text/css" href="../css/aisle_beverage.css">
-    <title id="productTitle">Sprite (355mL Can)</title>
+	<link rel="stylesheet" type="text/css" href="../css/backend_products.css">
+    <title id="productTitle">Edit a Product</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script type="text/javascript" src="../scripts/Util.js"></script>
@@ -29,52 +257,17 @@ if (!isset($_SESSION["currentLogin"])){
     <script>
         document.getElementById("helloUser").innerHTML="Hello, <?php echo $_SESSION["currentLogin"][0]; ?>!";
 	</script>
-		        
-		<div style="text-align:center">
-			<form method="POST">	
-				<ul> 
-					<input type="submit" name="__tag_search_btn" value="Save" style="width:120; height: 60" formaction="userlist.php">
-					<br>
-					<br>
-					<table style="width:100%">
-						<tr>
-							<th style="text-align:center; height:40px"><h2>Username</h2></th>
-							<th style="text-align:center; height:40px"><h2>E-mail</h2></th>
-							<th style="text-align:center; height:40px"><h2>Date joined (YYYY/MM/DD)</h2></th>
-							<th style="text-align:center; height:40px"><h2>Delete user?</h2></th>
-						</tr>
-						<tr>
-							<td style="text-align:center; height:40px"><input type="text" placeholder="admin" formaction=""></td>
-							<td style="text-align:center; height:40px"><input type="text" placeholder="admin@gmail.com" formaction=""></td>
-							<td style="text-align:center; height:40px">2020-01-01</td>
-							<td style="text-align:center; height:40px"><input type="submit" name="__tag_search_btn" value="Delete" formaction=""></td>
-						</tr>
-						<tr>
-							<td style="text-align:center; height:40px"><input type="text" placeholder="Username1" formaction=""></td>
-							<td style="text-align:center; height:40px"><input type="text" placeholder="Email1@gmail.com" formaction=""></td>
-							<td style="text-align:center; height:40px">2020-01-01</td>
-							<td style="text-align:center; height:40px"><input type="submit" name="__tag_search_btn" value="Delete" formaction=""></td>
-						</tr>
-						<tr>
-							<td style="text-align:center; height:40px"><input type="text" placeholder="Username2" formaction=""></td>
-							<td style="text-align:center; height:40px"><input type="text" placeholder="Email2@gmail.com" formaction=""></td>
-							<td style="text-align:center; height:40px">2020-02-02</td>
-							<td style="text-align:center; height:40px"><input type="submit" name="__tag_search_btn" value="Delete" formaction=""></td>
-						</tr>
-						<tr>
-							<td style="text-align:center; height:40px"><input type="text" placeholder="NEW USER: Username" formaction=""></td>
-							<td style="text-align:center; height:40px"><input type="text" placeholder="NEW USER: Email" formaction=""></td>
-							<td style="text-align:center; height:40px"><input type="text" placeholder="NEW USER: Join date" formaction=""></td>
-						</tr>
-					</table>
-				</ul>
-			</form>
-		</div>		
 
-		<br />
-		<br />
-		</div>
-		
+	<form type='submit' method='POST' action='../php/editProduct.php'>
+			<?php
+			echo $productsTop;
+			foreach ($products as $i) {
+				echo $i;
+			}
+			?>
+	</form>
+	<br/><br/>
+
 	<?php
     $footer = file_get_contents('../common/footerbackend.php');
     echo $footer;

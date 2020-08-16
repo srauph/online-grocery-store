@@ -1,102 +1,426 @@
-.products_list
-{
-	background-color: lightgrey;
-	width: center;
-	padding-left: 50px;
-	padding-right: 50px;
-	padding-top: 20px;
-	padding-bottom: 10px;
+/** for beverages aisle page **/
+
+#beverage_grid {
+    display: grid;
+    grid-row-gap: 5px;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+    padding: 2%;
 }
 
-.border_products_list
-{
-	background-color: white;
-	width: center;
-	padding: 50px;
-	margin-bottom: 10px;
-	height: 150px;
+@media only screen and (min-width: 1000px) {
+    #beverage_grid {
+        display: grid;
+        grid-column-gap: 5px;
+        grid-template-columns: 15% 85%;
+        padding: 2%;
+    }
 }
 
-.table_products_list
-{
-	width: 100%;
+#beverage_table {
+    text-align: center;
+    background-color: white;
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
-.header_table
-{
-	text-align: center;
-	margin: auto;
+#beverages {
+    height: 100%;
+    background-color: lightgray;
+    padding: 2%
 }
 
-.grey_products_list
-{
-	text-align: center;
-	color: grey;
-	margin: auto;
-	font-size: 20;
+#beverage_items {
+    background-color: white;
+    height: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
-.data_cell_table
-{
-	text-align: center;
-	margin: auto;
+.beverage_list {
+    text-align: center;
+    height: 120px;
 }
 
-.inputs_table
-{
-	margin: auto;
-	text-align: center;
-	width: 90;
-	height: 40;
+@media only screen and (max-width: 1000px) {
+    .beverage_aisle {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto auto auto auto;
+        background-color: white;
+        margin-bottom: 40px;
+        line-height: 2;
+    }
+    .beverage_aisle_head {
+        display: none !important;
+    }
+    .beverage_aisle_head_mobile {
+        display: grid;
+        grid-template-columns: 20% 80%;
+        grid-template-rows: auto auto auto auto;
+        background-color: white;
+    }
+    .beverage_aisle_item {
+        text-align: center;
+    }
+    .beverage_aisle_item_img {
+        text-align: center;
+        grid-row-start: 1;
+        grid-row-end: 5;
+    }
+    .beverage_aisle_item_img img {
+        box-shadow: 5px 5px 10px rgba(192, 192, 192, 0.6);
+    }
+
+    .edit_items {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto auto auto auto;
+        background-color: white;
+        margin-bottom: 40px;
+        line-height: 2;
+    }
+    .edit_item_head {
+        display: none !important;
+    }
+    .edit_item_mobile {
+        display: grid;
+        grid-template-columns: 20% 80%;
+        grid-template-rows: auto auto auto auto;
+        background-color: white;
+    }
+    .edit_item {
+        text-align: center;
+    }
 }
 
-.image_size
-{
-	margin: auto;
-	width: 150;
-	height: 100;
+@media only screen and (min-width: 1000px) {
+    .beverage_aisle {
+        display: grid;
+        grid-template-columns: 10% 10% 15% 20% 10% 10% 10% 15%;
+        /* grid-column-gap: 10px; */
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    .beverage_aisle_head {
+        display: grid;
+        grid-template-columns: 10% 10% 15% 20% 10% 10% 10% 15%;
+        /* grid-column-gap: 10px; */
+        width: 100%;
+    }
+    .beverage_aisle_head_mobile {
+        display: none !important;
+    }
+    .beverage_aisle_item {
+        font-size: 20px;
+        align-self: center;
+        text-align: center;
+        grid-row: 1;
+        width: 100%;
+    }
+    .beverage_aisle_item_img {
+        font-size: 20px;
+        align-self: center;
+        text-align: center;
+        grid-row: 1;
+        width: 100%;
+    }
+    .beverage_aisle_item_img img {
+        box-shadow: 5px 5px 10px rgba(192, 192, 192, 0.6);
+    }
+
+    .edit_items {
+        display: grid;
+        grid-template-columns: 8% 5% 10% 10% 10% 15% 22% 5% 15%;
+        /* grid-column-gap: 10px; */
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    .edit_item_head {
+        display: grid;
+        grid-template-columns: 8% 5% 10% 10% 10% 15% 22% 5% 15%;
+        /* grid-column-gap: 10px; */
+        width: 100%;
+    }
+    .edit_item_head_mobile {
+        display: none !important;
+    }
+    .edit_item {
+        font-size: 20px;
+        align-self: center;
+        text-align: center;
+        grid-row: 1;
+        width: 100%;
+    }
 }
 
-.btn_products_list
-{
-	color: white;
-	padding: 10px;
-	background-color: red;
-	cursor: pointer;
-	border: 0;
-	transition: all 1s;
-	text-align: center;
-	margin: auto;
+
+/** for individual beverage pages**/
+
+.beverage_page {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    background-color: lightgray;
+    padding: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
-#footer_products_list
-{
-	position: relative;
-	width: 100%;
-	height: 40%; /* Height of the footer */
-	background-color: black;
-	text-align: center;
+@media only screen and (min-width: 1000px) {
+    .beverage_page {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        grid-column-gap: 5px;
+        background-color: lightgray;
+        padding: 2%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
 }
 
-.h3_heading_footer
-{
-	text-align: center;
-	color: white;
-	font-style: "Roboto";
-	margin: auto;
+.beverage_left {
+    display: grid;
+    background-color: white;
+    padding: 2%;
 }
 
-#email_address_footer
-{
-	margin: auto;
-	font-size: 20;
-	text-align:center;
+.beverage_left img {
+    margin: auto;
 }
 
-.logos_footer
-{
-	float: right;
-	margin: auto;
-	width: 50;
-	height: 35;
+.beverage_right {
+    text-align: left;
+    background-color: white;
+    padding: 2%;
+}
+
+.product_price {
+    font-size: 24;
+    background-color: lightgreen;
+    color: #005511;
+    padding: 1%;
+    margin: auto;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: #80dd80;
+}
+
+.product_desc {
+    font-size: 24px;
+    transition: all 2s;
+}
+
+.product_option_btn {
+    color: black;
+    padding: 10px;
+    background-color: lightgray;
+    border: 0;
+    cursor: pointer;
+    transition: all 0.5s;
+    text-align: center;
+}
+
+.product_option_btn:hover {
+    background-color: #444444;
+    color: white;
+}
+
+.product_option_btn_selected {
+    color: white;
+    padding: 10px;
+    background-color: gray;
+    border: 0;
+    cursor: pointer;
+    transition: all 0.5s;
+    text-align: center;
+}
+
+.product_option_btn_selected:hover {
+    background-color: #444444;
+    color: white;
+}
+
+.product_description_btn {
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: gray;
+    border: 0;
+    cursor: pointer;
+    transition: all 0.5s;
+    text-align: center;
+}
+
+.product_description_btn:hover {
+    background-color: #e53134;
+}
+
+.product_description_btn:active {
+    background-color: #ff5154;
+    transition: all 0s;
+}
+
+
+/** Add to cart area **/
+
+.cart_grid {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto;
+    padding: 2%;
+    text-align: center;
+}
+
+@media only screen and (min-width: 1000px) {
+    .cart_grid {
+        display: grid;
+        grid-column-gap: 20px;
+        grid-row-gap: 10px;
+        grid-template-columns: 150px auto;
+        grid-template-rows: 40px auto;
+        margin-right: 55%;
+        padding: 2%;
+        text-align: center;
+    }
+}
+
+
+/* .cart_qty_selector {
+    grid-row-start: 1;
+    grid-column-start: 1;
+} */
+
+.cart_plus_minus_btn {
+    color: white;
+    font-weight: bold;
+    font-size: 20;
+    width: 40px;
+    height: 40px;
+    background-color: #000055;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000055;
+    cursor: pointer;
+    transition: all 0.5s;
+    text-align: center;
+}
+
+.cart_plus_minus_btn:hover {
+    background-color: slateblue;
+}
+
+.cart_plus_minus_btn:active {
+    background-color: #7a6aee;
+    transition: all 0s;
+}
+
+.cart_qty {
+    color: #000055;
+    font-weight: bold;
+    font-size: 20;
+    width: 60px;
+    height: 40px;
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000055;
+    cursor: pointer;
+    transition: all 0.5s;
+    text-align: center;
+}
+
+.cart_qty_max_msg {
+    grid-row-start: 2;
+    grid-column-start: 1;
+}
+
+@media only screen and (max-width: 1000px) {
+    .cart_btn {
+        color: white;
+        font-size: 20px;
+        padding: 2%;
+        background-color: #161616;
+        border: 0;
+        cursor: pointer;
+        transition: all 0.5s;
+        margin: auto;
+        margin-top: 20px;
+    }
+    .cart_btn_aisle {
+        color: white;
+        font-size: 12px;
+        padding: 3%;
+        padding-left:7%;
+        padding-right:7%;
+        background-color: #161616;
+        border: 0;
+        cursor: pointer;
+        transition: all 0.5s;
+        margin: auto;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .cart_btn {
+        color: white;
+        font-size: 20px;
+        padding: 2%;
+        background-color: #161616;
+        border: 0;
+        cursor: pointer;
+        transition: all 0.5s;
+        grid-column-start: 2;
+        grid-row-start: span 2;
+    }
+    .cart_btn_aisle {
+        color: white;
+        font-size: 20px;
+        padding: 5%;
+        padding-left:10%;
+        padding-right:10%;
+        background-color: #161616;
+        border: 0;
+        cursor: pointer;
+        transition: all 0.5s;
+        margin: auto;
+    }
+}
+
+.cart_btn:hover {
+    background-color: #e53134;
+}
+
+.cart_btn_aisle:hover {
+    background-color: #e53134;
+}
+
+.cart_btn_aisle:active {
+    background-color: #ff5154;
+    transition: all 0s;
+}
+
+.cart_btn:active {
+    background-color: #ff5154;
+    transition: all 0s;
+}
+
+.cart_subtotal_toadd {
+    font-size: 16px;
+}
+
+.cart_gst_toadd {
+    font-size: 16px;
+}
+
+.cart_qst_toadd {
+    font-size: 16px;
+}
+
+.cart_total_toadd {
+    font-size: 24px;
 }

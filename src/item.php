@@ -186,7 +186,7 @@ for ($i=1; $i<=$options; $i++) {
     <div class="beverage_page">
 
         <div class="beverage_left">
-            <img id="productImg" src="" style="width:80%; height:80%;" alt="" />
+            <img id="productImg" src="" style="width:80%;" alt="" />
         </div>
 
         <div class="beverage_right">

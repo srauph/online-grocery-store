@@ -3,13 +3,122 @@ session_start();
 if (!isset($_SESSION["currentLogin"])){
     $_SESSION["currentLogin"] = null;
 }
+
+$doc = new DOMDocument();
+$doc->load("../data.xml");
+
+$productsTop =
+"
+<div style='text-align:center;'>
+	<br/><br/>
+	<h1 style='margin:2%; font-size:36px;'>Product List</h1>
+	<form type='submit' method='GET' action='productedit.php'>
+		<button name='add' class='cart_btn_aisle' style='font-size:32px; padding:1%; padding-left:3%; padding-right:3%; margin:1%;' value='' />Add a Product</button>
+	</form>
+</div>
+<tr> 
+	<div class='beverage_aisle_head'>
+		<div class='beverage_aisle_item_img'>
+			<h2>Product ID</h2>
+		</div>
+
+        <div class='beverage_aisle_item_img'>
+            <h2>Product Image</h2>
+        </div>
+
+        <div class='beverage_aisle_item'>
+            <h2>Product Title</h2>
+        </div>
+
+        <div class='beverage_aisle_item'>
+            <h2>Brief Description</h2>
+        </div>
+
+        <div class='beverage_aisle_item'>
+            <h2>Product Price</h2>
+		</div>
+		
+		<div class='beverage_aisle_item'>
+            <h2>Number of Options</h2>
+		</div>
+
+        <div class='beverage_aisle_item'>
+            <h2>Product Category</h2>
+		</div>
+		
+		<div class='beverage_aisle_item'>
+            <h2>Edit/Delete</h2>
+        </div>
+    </div>
+</tr>
+<hr style='margin:2%; margin-top:0%;'/><br/>";
+
+$noProducts = 
+"<div style='color:dodgerblue; text-align:center; font-size:28px;'>
+    <br><br><br>Looks like there are no items here... :(
+    <br><br> Check another category!<br><br>
+</div>";
+
+$categories = [];
+$products = [];
+
+function loadItems() {
+    global $doc, $category, $bvgqty, $product, $item, $options, $minidesc;
+    global $name, $description, $price, $image, $category, $id;
+	$docProducts = $doc->getElementsByTagName("product");
+	
+    foreach($docProducts as $i) {
+		$item = $i->getElementsByTagName("item")->item(0)->nodeValue;
+		$options[$bvgqty] = $i->getElementsByTagName("options")->item(0)->nodeValue;
+		$minidesc = $i->getElementsByTagName("minidesc")->item(0)->nodeValue;
+		$k = $i->getElementsByTagName("t1")->item(0);
+		$id[$bvgqty] = $k->getElementsByTagName("id")->item(0)->nodeValue;
+		$name[$bvgqty] = $k->getElementsByTagName("name")->item(0)->nodeValue;
+		$description[$bvgqty] = $k->getElementsByTagName("description")->item(0)->nodeValue;
+		$price[$bvgqty] = $k->getElementsByTagName("price")->item(0)->nodeValue;
+		$image[$bvgqty] = $k->getElementsByTagName("image")->item(0)->nodeValue;
+		$category[$bvgqty] = $i->getElementsByTagName("category")->item(0)->nodeValue;
+		$product[$bvgqty] =
+		"<tr>
+			<div class='beverage_aisle'>
+				<div class='beverage_aisle_item'>$id[$bvgqty]</div>
+
+				<div class='beverage_aisle_item_img'>
+					<img src='../../assets/Images/$image[$bvgqty]' style='width:100px; height:100px;' alt='$item' value='$item' /> 
+				</div>
+
+				<div class='beverage_aisle_item' style='font-weight:bold;'>
+					$name[$bvgqty]
+				</div>
+			
+				<div class='beverage_aisle_item'>$minidesc</div>
+				<div class='beverage_aisle_item' style='color:seagreen;'>$$price[$bvgqty]</div>
+				<div class='beverage_aisle_item' style='font-weight:bold;'>$options[$bvgqty]</div>
+				<div class='beverage_aisle_item' style='font-weight:bold;'>$category[$bvgqty]</div>
+				<div class='beverage_aisle_item'>
+					<form style='margin:auto;' type='submit' method='GET' action='productedit.php'>
+						<button name='item' class='cart_btn_aisle' value='$item' />Edit</button>
+						<button name='item' class='cart_btn_aisle' value='$item' />Delete</button>
+					</form>
+				</div>
+			</div>
+		</tr>";
+		$bvgqty++;
+    }
+}
+
+loadItems();
+
+
 ?>
+
+
 <html>
 <head>
 <head>
     <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <link rel="stylesheet" type="text/css" href="../css/aisle_beverage.css">
-    <title id="productTitle">Sprite (355mL Can)</title>
+	<link rel="stylesheet" type="text/css" href="../css/backend_products.css">
+    <title id="productTitle">Product List</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script type="text/javascript" src="../scripts/Util.js"></script>
@@ -30,44 +139,17 @@ if (!isset($_SESSION["currentLogin"])){
         document.getElementById("helloUser").innerHTML="Hello, <?php echo $_SESSION["currentLogin"][0]; ?>!";
 	</script>	
         
-
-		<div style="text-align:center">
-			<form method="POST">	
-				<ul> 
-					<input type="submit" name="__tag_search_btn" value="Add a user" style="width:120; height: 60" formaction="useredit.php">
-					<input type="submit" name="__tag_search_btn" value="Edit users" style="width:120; height: 60" formaction="useredit.php">
-					<br>
-					<br>
-					<table style="width:100%">
-						<tr>
-							<th style="text-align:center; height:40px"><h2>Username</h2></th>
-							<th style="text-align:center; height:40px"><h2>E-mail</h2></th>
-							<th style="text-align:center; height:40px"><h2>Date joined (YYYY/MM/DD)</h2></th>
-							<th style="text-align:center; height:40px"><h2>Delete user?</h2></th>
-						</tr>
-						<tr>
-							<td style="text-align:center; height:40px">admin</td>
-							<td style="text-align:center; height:40px">admin@gmail.com</td>
-							<td style="text-align:center; height:40px">2020-01-01</td>
-							<td style="text-align:center; height:40px"><input type="submit" name="__tag_search_btn" value="Delete" formaction=""></td>
-						</tr>
-						<tr>
-							<td style="text-align:center; height:40px">Username1</td>
-							<td style="text-align:center; height:40px">Email1@gmail.com</td>
-							<td style="text-align:center; height:40px">2020-01-01</td>
-							<td style="text-align:center; height:40px"><input type="submit" name="__tag_search_btn" value="Delete" formaction=""></td>
-						</tr>
-						<tr>
-							<td style="text-align:center; height:40px">Username2</td>
-							<td style="text-align:center; height:40px">Email2@gmail.com</td>
-							<td style="text-align:center; height:40px">2020-02-02</td>
-							<td style="text-align:center; height:40px"><input type="submit" name="__tag_search_btn" value="Delete" formaction=""></td>
-							
-						</tr>
-					</table>
-				</ul>
-			</form>
-		</div>			
+		
+			<?php
+			if (sizeof($product) != 0) {
+				echo $productsTop;
+				foreach ($product as $i) {
+					echo $i;
+				}
+			} else {
+				echo $noProducts;
+			}
+		?>
 		<br>
 		<br>
 		</div>

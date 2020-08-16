@@ -1,4 +1,6 @@
+Processing...<br/><br/>
 <?php
+
 session_start();
 $doc = new DOMDocument();
 $doc->load("../data.xml");

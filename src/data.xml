@@ -1,129 +1,125 @@
 <?xml version="1.0"?>
 <root>
-
-<products>
+  <products>
     <product>
-        <category>Fruits</category>
-        <item>apple</item>
-        <options>4</options>
-        <minidesc>A soft green apple</minidesc>
-        <t1>
-            <id>311</id>
-            <name>Regular Red Apple</name>
-            <description>Apple, meet the world's favourite apple for snacks. &lt;br/&gt;&lt;br/&gt;The heart-shaped delicious apple has a bright surface. This delicious apple shines in fresh, crisp salads, for its crunchy texture and lightly sweet taste.</description>
-            <price>1.99</price>
-            <image>redapple.jpg</image>
-            <limit>20</limit>
-        </t1>
-        <t2>
-            <id>312</id>
-            <name>Regular Green Apple</name>
-            <description>Apple, meet the world's favourite apple for snacks. &lt;br/&gt;&lt;br/&gt;The heart-shaped delicious apple has a bright surface. This delicious apple shines in fresh, crisp salads, for its crunchy texture and lightly sweet taste.</description>
-            <price>1.99</price>
-            <image>greenapple.jpg</image>
-            <limit>20</limit>
-        </t2>
-        <t3>
-            <id>321</id>
-            <name>Mini Red Apple</name>
-            <description>Apple, meet the world's favourite apple for snacks. &lt;br/&gt;&lt;br/&gt;The heart-shaped delicious apple has a bright surface. This delicious apple shines in fresh, crisp salads, for its crunchy texture and lightly sweet taste.</description>
-            <price>0.99</price>
-            <image>redapple.jpg</image>
-            <limit>20</limit>
-        </t3>
-        <t4>
-            <id>322</id>
-            <name>Mini Green Apple</name>
-            <description>Apple, meet the world's favourite apple for snacks. &lt;br/&gt;&lt;br/&gt;The heart-shaped delicious apple has a bright surface. This delicious apple shines in fresh, crisp salads, for its crunchy texture and lightly sweet taste.</description>
-            <price>0.99</price>
-            <image>greenapple.jpg</image>
-            <limit>20</limit>
-        </t4>
+      <category>Fruits</category>
+      <item>apple</item>
+      <options>4</options>
+      <minidesc>A soft green apple</minidesc>
+      <t1>
+        <id>311</id>
+        <name>Regular Red Apple</name>
+        <description>Apple, meet the world's favourite apple for snacks. &lt;br/&gt;&lt;br/&gt;The heart-shaped delicious apple has a bright surface. This delicious apple shines in fresh, crisp salads, for its crunchy texture and lightly sweet taste.</description>
+        <price>1.99</price>
+        <image>redapple.jpg</image>
+        <limit>20</limit>
+      </t1>
+      <t2>
+        <id>312</id>
+        <name>Regular Green Apple</name>
+        <description>Apple, meet the world's favourite apple for snacks. &lt;br/&gt;&lt;br/&gt;The heart-shaped delicious apple has a bright surface. This delicious apple shines in fresh, crisp salads, for its crunchy texture and lightly sweet taste.</description>
+        <price>1.99</price>
+        <image>greenapple.jpg</image>
+        <limit>20</limit>
+      </t2>
+      <t3>
+        <id>321</id>
+        <name>Mini Red Apple</name>
+        <description>Apple, meet the world's favourite apple for snacks. &lt;br/&gt;&lt;br/&gt;The heart-shaped delicious apple has a bright surface. This delicious apple shines in fresh, crisp salads, for its crunchy texture and lightly sweet taste.</description>
+        <price>0.99</price>
+        <image>redapple.jpg</image>
+        <limit>20</limit>
+      </t3>
+      <t4>
+        <id>322</id>
+        <name>Mini Green Apple</name>
+        <description>Apple, meet the world's favourite apple for snacks. &lt;br/&gt;&lt;br/&gt;The heart-shaped delicious apple has a bright surface. This delicious apple shines in fresh, crisp salads, for its crunchy texture and lightly sweet taste.</description>
+        <price>0.99</price>
+        <image>greenapple.jpg</image>
+        <limit>20</limit>
+      </t4>
     </product>
     <product>
-        <category>Beverages</category>
-        <item>sprite</item>
-        <options>3</options>
-        <minidesc>Sprite, a lemon-lime flavored soft drink</minidesc>
-        <t1>
-            <id>101</id>
-            <name>Sprite (355mL Can)</name>
-            <description>Sprite, a lemon-lime flavored soft drink. &lt;br/&gt;&lt;br/&gt;From the Coca-Cola Company, Sprite is one of the best-selling soft drinks in the world. Sprite also comes in 710mL bottles or 2L bottles.</description>
-            <price>0.99</price>
-            <image>sprite.jpg</image>
-            <limit>24</limit>
-        </t1>
-        <t2>
-            <id>102</id>
-            <name>Sprite (710mL Bottle)</name>
-            <description>Sprite, a lemon-lime flavored soft drink. &lt;br/&gt;&lt;br/&gt;From the Coca-Cola Company, Sprite is one of the best-selling soft drinks in the world. Sprite also comes in 355mL cans or 2L bottles.</description>
-            <price>1.49</price>
-            <image>sprite_710ml.jpg</image>
-            <limit>12</limit>
-        </t2>
-        <t3>
-            <id>103</id>
-            <name>Sprite (2L Bottle)</name>
-            <description>Sprite, a lemon-lime flavored soft drink. &lt;br/&gt;&lt;br/&gt;From the Coca-Cola Company, Sprite is one of the best-selling soft drinks in the world. Sprite also comes in 355mL cans or 710mL bottles.</description>
-            <price>1.99</price>
-            <image>sprite_2l.jpg</image>
-            <limit>6</limit>
-        </t3>
+      <category>Beverages</category>
+      <item>sprite</item>
+      <options>3</options>
+      <minidesc>Sprite, a lemon-lime flavored soft drink</minidesc>
+      <t1>
+        <id>101</id>
+        <name>Sprite (355mL Can)</name>
+        <description>Sprite, a lemon-lime flavored soft drink. &lt;br/&gt;&lt;br/&gt;From the Coca-Cola Company, Sprite is one of the best-selling soft drinks in the world. Sprite also comes in 710mL bottles or 2L bottles.</description>
+        <price>0.99</price>
+        <image>sprite.jpg</image>
+        <limit>24</limit>
+      </t1>
+      <t2>
+        <id>102</id>
+        <name>Sprite (710mL Bottle)</name>
+        <description>Sprite, a lemon-lime flavored soft drink. &lt;br/&gt;&lt;br/&gt;From the Coca-Cola Company, Sprite is one of the best-selling soft drinks in the world. Sprite also comes in 355mL cans or 2L bottles.</description>
+        <price>1.49</price>
+        <image>sprite_710ml.jpg</image>
+        <limit>12</limit>
+      </t2>
+      <t3>
+        <id>103</id>
+        <name>Sprite (2L Bottle)</name>
+        <description>Sprite, a lemon-lime flavored soft drink. &lt;br/&gt;&lt;br/&gt;From the Coca-Cola Company, Sprite is one of the best-selling soft drinks in the world. Sprite also comes in 355mL cans or 710mL bottles.</description>
+        <price>1.99</price>
+        <image>sprite_2l.jpg</image>
+        <limit>6</limit>
+      </t3>
     </product>
     <product>
-        <category>Beverages</category>
-        <item>cocacola</item>
-        <options>3</options>
-        <minidesc>Coca-Cola, the ubiquitous soft drink</minidesc>
-        <t1>
-            <id>201</id>
-            <name>Coca-Cola (355mL Can)</name>
-            <description>Coca-Cola, the ubiquitous soft drink. &lt;br/&gt;&lt;br/&gt;Coca-Cola is one of the best-selling soft drinks in the world. Coca-Cola also comes in 710mL bottles or 2L bottles.</description>
-            <price>0.99</price>
-            <image>cocacola.jpg</image>
-            <limit>24</limit>
-        </t1>
-        <t2>
-            <id>202</id>
-            <name>Coca-Cola (710mL Bottle)</name>
-            <description>Coca-Cola, the ubiquitous soft drink. &lt;br/&gt;&lt;br/&gt;Coca-Cola is one of the best-selling soft drinks in the world. Coca-Cola also comes in 355mL cans or 2L bottles.</description>
-            <price>1.49</price>
-            <image>cocacola_710ml.jpg</image>
-            <limit>12</limit>
-        </t2>
-        <t3>
-            <id>203</id>
-            <name>Coca-Cola (2L Bottle)</name>
-            <description>Coca-Cola, the ubiquitous soft drink. &lt;br/&gt;&lt;br/&gt;Coca-Cola is one of the best-selling soft drinks in the world. Coca-Cola also comes in 355mL cans or 710mL bottles.</description>
-            <price>1.99</price>
-            <image>cocacola_2l.jpg</image>
-            <limit>6</limit>
-        </t3>
+      <category>Beverages</category>
+      <item>cocacola</item>
+      <options>3</options>
+      <minidesc>Coca-Cola, the ubiquitous soft drink</minidesc>
+      <t1>
+        <id>201</id>
+        <name>Coca-Cola (355mL Can)</name>
+        <description>Coca-Cola, the ubiquitous soft drink. &lt;br/&gt;&lt;br/&gt;Coca-Cola is one of the best-selling soft drinks in the world. Coca-Cola also comes in 710mL bottles or 2L bottles.</description>
+        <price>0.99</price>
+        <image>cocacola.jpg</image>
+        <limit>24</limit>
+      </t1>
+      <t2>
+        <id>202</id>
+        <name>Coca-Cola (710mL Bottle)</name>
+        <description>Coca-Cola, the ubiquitous soft drink. &lt;br/&gt;&lt;br/&gt;Coca-Cola is one of the best-selling soft drinks in the world. Coca-Cola also comes in 355mL cans or 2L bottles.</description>
+        <price>1.49</price>
+        <image>cocacola_710ml.jpg</image>
+        <limit>12</limit>
+      </t2>
+      <t3>
+        <id>203</id>
+        <name>Coca-Cola (2L Bottle)</name>
+        <description>Coca-Cola, the ubiquitous soft drink. &lt;br/&gt;&lt;br/&gt;Coca-Cola is one of the best-selling soft drinks in the world. Coca-Cola also comes in 355mL cans or 710mL bottles.</description>
+        <price>1.99</price>
+        <image>cocacola_2l.jpg</image>
+        <limit>6</limit>
+      </t3>
     </product>
-</products>
-
-<orders>
+  </products>
+  <orders>
 </orders>
-
-<users>
+  <users>
     <user>
-        <username>admin</username>
-        <password>admin</password>
-        <email>admin@admin.com</email>
-        <admin>true</admin>
+      <username>admin</username>
+      <password>admin</password>
+      <email>admin@admin.com</email>
+      <admin>true</admin>
     </user>
     <user>
-        <username>admin2</username>
-        <password>admin2</password>
-        <email>admin2@admin.com</email>
-        <admin>true</admin>
+      <username>admin2</username>
+      <password>admin2</password>
+      <email>admin2@admin.com</email>
+      <admin>true</admin>
     </user>
     <user>
-        <username>random</username>
-        <password>random</password>
-        <email>random@random.com</email>
-        <admin>false</admin>
+      <username>random</username>
+      <password>random</password>
+      <email>random@random.com</email>
+      <admin>false</admin>
     </user>
-</users>
-
+  </users>
 </root>
