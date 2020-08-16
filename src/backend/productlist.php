@@ -4,6 +4,14 @@ if (!isset($_SESSION["currentLogin"])){
     $_SESSION["currentLogin"] = null;
 }
 
+function alert($msg) {
+    echo "<script>alert('$msg');</script>";
+}
+
+if (isset($_POST['failed'])) {
+	alert("Invalid Item Form!");
+}
+
 $doc = new DOMDocument();
 $doc->load("../data.xml");
 
@@ -35,7 +43,11 @@ $productsTop =
         </div>
 
         <div class='beverage_aisle_item'>
-            <h2>Product Price</h2>
+            <h2>Price</h2>
+		</div>
+
+		<div class='beverage_aisle_item'>
+            <h2>Limit</h2>
 		</div>
 		
 		<div class='beverage_aisle_item'>
@@ -76,6 +88,7 @@ function loadItems() {
 		$name[$bvgqty] = $k->getElementsByTagName("name")->item(0)->nodeValue;
 		$description[$bvgqty] = $k->getElementsByTagName("description")->item(0)->nodeValue;
 		$price[$bvgqty] = $k->getElementsByTagName("price")->item(0)->nodeValue;
+		$limit[$bvgqty] = $k->getElementsByTagName("limit")->item(0)->nodeValue;
 		$image[$bvgqty] = $k->getElementsByTagName("image")->item(0)->nodeValue;
 		$category[$bvgqty] = $i->getElementsByTagName("category")->item(0)->nodeValue;
 		$product[$bvgqty] =
@@ -93,6 +106,7 @@ function loadItems() {
 			
 				<div class='beverage_aisle_item'>$minidesc</div>
 				<div class='beverage_aisle_item' style='color:seagreen;'>$$price[$bvgqty]</div>
+				<div class='beverage_aisle_item' style='color:seagreen;'>$limit[$bvgqty]</div>
 				<div class='beverage_aisle_item' style='font-weight:bold;'>$options[$bvgqty]</div>
 				<div class='beverage_aisle_item' style='font-weight:bold;'>$category[$bvgqty]</div>
 				<div class='beverage_aisle_item'>

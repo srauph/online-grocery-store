@@ -49,6 +49,10 @@ $productsTop =
             <h2>Price</h2>
 		</div>
 
+		<div class='edit_item'>
+            <h2>Limit</h2>
+		</div>
+
         <div class='edit_item'>
             <h2>Product Category</h2>
 		</div>
@@ -66,8 +70,16 @@ $categories = [];
 $products = [];
 
 function loadItems() {
-    global $doc, $category, $bvgqty, $products, $item, $options, $minidesc;
-    global $name, $description, $price, $image, $category, $id;
+	global $olditemname, $options;
+	if (isset($_GET['add'])) {
+		$options = 0;
+		$olditemname = 'oldItem';
+		return;
+	} else {
+		$olditemname = $_GET['item'];
+	}
+    global $doc, $category, $bvgqty, $products, $item, $minidesc;
+    global $name, $description, $price, $image, $category, $id, $limit;
 	$docProducts = $doc->getElementsByTagName("product");
 	
     foreach($docProducts as $i) {
@@ -83,13 +95,14 @@ function loadItems() {
 				$price[$bvgqty] = $k->getElementsByTagName("price")->item(0)->nodeValue;
 				$image[$bvgqty] = $k->getElementsByTagName("image")->item(0)->nodeValue;
 				$category[$bvgqty] = $i->getElementsByTagName("category")->item(0)->nodeValue;
+				$limit[$bvgqty] = $i->getElementsByTagName("limit")->item(0)->nodeValue;
 
 				if ($j == 1) {
 					$products[0] =
 					"<tr>
 						<div class='edit_items'>
 
-							<div class='edit_item'>
+							<div class='edit_item' style='font-weight:bold;'>
 								Type #$j
 							</div>
 
@@ -121,9 +134,14 @@ function loadItems() {
 								<input name='price$j' placeholder='Price' type='text' style='width:95%' value=\"$price[$bvgqty]\" />
 							</div>
 
+							<div class='edit_item' style='color:grey;'>
+								<input name='limit$j' placeholder='Limit' type='text' style='width:95%' value=\"$limit[$bvgqty]\" />
+							</div>
+
 							<div class='edit_item' >
 								<input name='cat$j' placeholder='Category' type='text' style='width:95%' value=\"$category[$bvgqty]\" />
 							</div>
+							
 						</div>
 					</tr>";
 				} else {
@@ -131,7 +149,7 @@ function loadItems() {
 					"<tr>
 						<div class='edit_items'>
 
-							<div class='edit_item'>
+							<div class='edit_item' style='font-weight:bold;'>
 								Type #$j
 							</div>
 
@@ -164,6 +182,10 @@ function loadItems() {
 							</div>
 
 							<div class='edit_item' style='color:grey;'>
+								<input name='limit$j' placeholder='Limit' type='text' style='width:95%' value=\"$limit[$bvgqty]\" />
+							</div>
+
+							<div class='edit_item' style='color:grey;'>
 								(Category is same as 1st)
 							</div>
 							
@@ -181,52 +203,107 @@ function loadItems() {
 loadItems();
 
 $optionsp1 = ($options+1);
+if (!isset($_GET['add'])) {
+	$products[$optionsp1] =
+	"<tr>
+		<div class='edit_items'>
 
-$products[$optionsp1] =
-"<tr>
-	<div class='edit_items'>
+			<div class='edit_item' style='font-weight:bold;'>
+				(Add a type)
+			</div>
 
-		<div class='edit_item'>
-			(Add a type)
+			<div class='edit_item'>
+				<input name='id$optionsp1' placeholder='ID' type='text' style='width:95%' value=\"\" />
+			</div>
+			
+			<div class='edit_item' style='color:grey;'>
+				(Item is same as 1st)
+			</div>
+
+			<div class='edit_item'>
+				<input name='image$optionsp1' placeholder='Image' type='text' style='width:95%' value=\"\" />
+			</div>
+
+			<div class='edit_item'>
+				<input name='title$optionsp1' placeholder='Title' type='text' style='width:95%' value=\"\" />
+			</div>
+
+			<div class='edit_item' style='color:grey;'>
+				(Brief description is same as 1st)
+			</div>
+
+			<div class='edit_item'>
+				<input name='desc$optionsp1' placeholder='Full Description' type='text' style='width:95%' value=\"\" />
+			</div>
+
+			<div class='edit_item' style='color:seagreen;'>
+				<input name='price$optionsp1' placeholder='Price' type='text' style='width:95%' value=\"\" />
+			</div>
+
+			<div class='edit_item' style='color:grey;'>
+				<input name='limit$optionsp1' placeholder='Limit' type='text' style='width:95%' value=\"\" />
+			</div>
+
+			<div class='edit_item' style='color:grey;'>
+				(Category is same as 1st)
+			</div>
+
+			<input name='options' type='hidden' value='$optionsp1' />
+			<input name='olditemname' type='hidden' value='".$olditemname."' />
+			
 		</div>
+	</tr>";
+} else {
+	$products[0] =
+	"<tr>
+		<div class='edit_items'>
 
-		<div class='edit_item'>
-			<input name='id$optionsp1' placeholder='ID' type='text' style='width:95%' value=\"\" />
-		</div>
-		
-		<div class='edit_item' style='color:grey;'>
-			(Item is same as 1st)
-		</div>
+			<div class='edit_item' style='font-weight:bold;'>
+				(Type #1)
+			</div>
 
-		<div class='edit_item'>
-			<input name='image$optionsp1' placeholder='Image' type='text' style='width:95%' value=\"\" />
-		</div>
+			<div class='edit_item'>
+				<input name='id$optionsp1' placeholder='ID' type='text' style='width:95%' value=\"\" />
+			</div>
+			
+			<div class='edit_item' style='color:grey;'>
+				<input name='item$optionsp1' placeholder='Item (Lowercase)' type='text' style='width:95%' value=\"\" />
+			</div>
 
-		<div class='edit_item'>
-			<input name='title$optionsp1' placeholder='Title' type='text' style='width:95%' value=\"\" />
-		</div>
+			<div class='edit_item'>
+				<input name='image$optionsp1' placeholder='Image' type='text' style='width:95%' value=\"\" />
+			</div>
 
-		<div class='edit_item' style='color:grey;'>
-			(Brief description is same as 1st)
-		</div>
+			<div class='edit_item'>
+				<input name='title$optionsp1' placeholder='Title' type='text' style='width:95%' value=\"\" />
+			</div>
 
-		<div class='edit_item'>
-			<input name='desc$optionsp1' placeholder='Full Description' type='text' style='width:95%' value=\"\" />
-		</div>
+			<div class='edit_item' style='color:grey;'>
+				<input name='minidesc$optionsp1' placeholder='Brief Description' type='text' style='width:95%' value=\"\" />
+			</div>
 
-		<div class='edit_item' style='color:seagreen;'>
-			<input name='price$optionsp1' placeholder='Price' type='text' style='width:95%' value=\"\" />
-		</div>
+			<div class='edit_item'>
+				<input name='desc$optionsp1' placeholder='Full Description' type='text' style='width:95%' value=\"\" />
+			</div>
 
-		<div class='edit_item' style='color:grey;'>
-			(Category is same as 1st)
-		</div>
+			<div class='edit_item' style='color:seagreen;'>
+				<input name='price$optionsp1' placeholder='Price' type='text' style='width:95%' value=\"\" />
+			</div>
 
-		<input name='options' type='hidden' value='$optionsp1' />
-		<input name='olditemname' type='hidden' value='".$_GET['item']."' />
-		
-	</div>
-</tr>";
+			<div class='edit_item' style='color:grey;'>
+				<input name='limit$optionsp1' placeholder='Limit' type='text' style='width:95%' value=\"\" />
+			</div>
+
+			<div class='edit_item' style='color:grey;'>
+				<input name='cat$optionsp1' placeholder='Category' type='text' style='width:95%' value=\"\" />
+			</div>
+
+			<input name='options' type='hidden' value='$optionsp1' />
+			<input name='olditemname' type='hidden' value='olditemname' />
+			<input name='addnew' type='hidden' />
+		</div>
+	</tr>";
+}
 
 
 ?>

@@ -98,14 +98,14 @@
 @media only screen and (min-width: 1000px) {
     .beverage_aisle {
         display: grid;
-        grid-template-columns: 10% 10% 15% 20% 10% 10% 10% 15%;
+        grid-template-columns: 10% 10% 15% 20% 5% 5% 10% 10% 15%;
         /* grid-column-gap: 10px; */
         width: 100%;
         margin-bottom: 40px;
     }
     .beverage_aisle_head {
         display: grid;
-        grid-template-columns: 10% 10% 15% 20% 10% 10% 10% 15%;
+        grid-template-columns: 10% 10% 15% 20% 5% 5% 10% 10% 15%;
         /* grid-column-gap: 10px; */
         width: 100%;
     }
@@ -132,14 +132,14 @@
 
     .edit_items {
         display: grid;
-        grid-template-columns: 8% 5% 10% 10% 10% 15% 22% 5% 15%;
+        grid-template-columns: 8% 5% 10% 10% 10% 15% 20% 5% 5% 12%;
         /* grid-column-gap: 10px; */
         width: 100%;
         margin-bottom: 40px;
     }
     .edit_item_head {
         display: grid;
-        grid-template-columns: 8% 5% 10% 10% 10% 15% 22% 5% 15%;
+        grid-template-columns: 8% 5% 10% 10% 10% 15% 20% 5% 5% 12%;
         /* grid-column-gap: 10px; */
         width: 100%;
     }
