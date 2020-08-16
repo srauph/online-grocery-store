@@ -1,22 +1,20 @@
 <div id="__top_banner">
     <div class="white">
         <div style="display: inline;" id="helloUser">You are currently logged in.</div>
-        <a class="white" href="php/logout.php" title="Log out of your account">| Logout</a>
+        <a class="white" href="php/logout.php" title="Log out of your account">Logout</a>
     </div>
     
     
 
     <!-- cart -->
-    <a href="cart.php">
-        <button id="cart_button">
-            <br>
-            <br>
+    <form action="cart.php">
+        <button id="cart_button" style="padding-top:3.5%;">
             <img src="../assets/Icons/cart.png" style="float:left; margin-right:0.5em" width="25" height="25">
             <span id="cart_total_value">
                 $0.00
             </span>
         </button>
-    </a>
+    </form>
 </div>
 
 <div style="text-align:center;">

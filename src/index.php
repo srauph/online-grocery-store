@@ -48,14 +48,16 @@ if (!isset($_SESSION["currentLogin"])){
     if ($_SESSION["currentLogin"] != null) {
         $header = file_get_contents('common/headerloggedin.php');
         echo $header;
+        if ($_SESSION["currentLogin"][2] == "true") {
+            echo '<script>document.getElementById("helloUser").innerHTML="Hello, '.$_SESSION["currentLogin"][0].'! | <a class=\'white\' href=\'backend/productlist.php\' title=\'Go to store back end\'>Backend</a> | "</script>';
+        } else {
+            echo '<script>document.getElementById("helloUser").innerHTML="Hello, '.$_SESSION["currentLogin"][0].'! | "</script>';
+        }
     } else {
         $header = file_get_contents('common/header.php');
         echo $header;
     }
     ?>
-    <script>
-        document.getElementById("helloUser").innerHTML="Hello, <?php echo $_SESSION["currentLogin"][0]; ?>!";
-    </script>
 
         <!-- This div is resposible for the display of the items on Sale -->
         <div id="slidshow">
