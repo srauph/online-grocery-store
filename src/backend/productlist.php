@@ -1,7 +1,8 @@
 <?php
 session_start();
-if (!isset($_SESSION["currentLogin"])){
-    $_SESSION["currentLogin"] = null;
+if (!isset($_SESSION["currentLogin"]) || $_SESSION["currentLogin"][2] !== "true"){
+    header("Location: ../index.php");
+    exit();
 }
 
 function alert($msg) {
