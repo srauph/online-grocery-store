@@ -1,8 +1,10 @@
 <?php
 session_start();
-if (!isset($_SESSION["currentLogin"])){
-    $_SESSION["currentLogin"] = null;
+if (!isset($_SESSION["currentLogin"]) || $_SESSION["currentLogin"][2] !== "true"){
+    header("Location: ../index.php");
+    exit();
 }
+
 if (isset($_GET['item'])) {
 	if (substr($_GET['item'],0,6) == "delete") {
 		$deleteItem =
@@ -20,7 +22,7 @@ $productsTop =
 <div style='text-align:center;'>
 	<br/><br/>
 	<h1 style='margin:2%; font-size:36px;'>Edit a Product</h1>
-		<button class='cart_btn_aisle' style='font-size:32px; padding:1%; padding-left:3%; padding-right:3%; margin:1%;' value='' />Save Changes</button>
+		<button class='item_btn_aisle' style='font-size:32px; padding:1%; padding-left:3%; padding-right:3%; margin:1%;' value='' />Save Changes</button>
 </div>
 <tr> 
 	<div class='edit_item_head'>
@@ -108,7 +110,7 @@ function loadItems() {
 				if ($j == 1) {
 					$products[0] =
 					"<tr>
-						<div class='edit_items'>
+						<div class='edit_item_list'>
 
 							<div class='edit_item' style='font-weight:bold;'>
 								Type #$j
@@ -155,7 +157,7 @@ function loadItems() {
 				} else {
 					$products[$j-1] =
 					"<tr>
-						<div class='edit_items'>
+						<div class='edit_item_list'>
 
 							<div class='edit_item' style='font-weight:bold;'>
 								Type #$j
@@ -214,7 +216,7 @@ $optionsp1 = ($options+1);
 if (!isset($_GET['add'])) {
 	$products[$optionsp1] =
 	"<tr>
-		<div class='edit_items'>
+		<div class='edit_item_list'>
 
 			<div class='edit_item' style='font-weight:bold;'>
 				(Add a type)
@@ -264,7 +266,7 @@ if (!isset($_GET['add'])) {
 } else {
 	$products[0] =
 	"<tr>
-		<div class='edit_items'>
+		<div class='edit_item_list'>
 
 			<div class='edit_item' style='font-weight:bold;'>
 				(Type #1)

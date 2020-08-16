@@ -77,10 +77,10 @@ if (isset($_POST['register'])) {
 
     $fragment->appendXML(
     "\t<user>
-        <username>$newUsername</username>
-        <password>$newPassword</password>
-        <email>$newEmail</email>
-        <admin>false</admin>
+    \t<username>$newUsername</username>
+    \t<password>$newPassword</password>
+    \t<email>$newEmail</email>
+    \t<admin>false</admin>
     </user>\n");
 
     $userList->appendChild($fragment);

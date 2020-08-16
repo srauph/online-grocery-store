@@ -1,6 +1,10 @@
 Processing...<br/><br/>
 <?php
 session_start();
+if (!isset($_SESSION["currentLogin"]) || $_SESSION["currentLogin"][2] !== "true"){
+    header("Location: ../index.php");
+    exit();
+}
 
 
 if (isset($_POST['toDelete'])) {

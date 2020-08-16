@@ -208,11 +208,16 @@ if (!isset($_SESSION["currentLogin"])){
                 return;
             }
             // alert(JSON.stringify(items));
+
+            // if ( == "false") {
+            //     alert("You must log in before you can place an order!");
+            //     return;
+            // }
             document.placeorder.items.value = JSON.stringify(items);
             document.placeorder.prices.value = JSON.stringify(calculateCost());
             document.getElementById("placeorder").submit();
-            // orderPlaced = true;
             clearCart();
+            
         }
 
     </script>
