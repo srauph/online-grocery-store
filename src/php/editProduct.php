@@ -33,33 +33,34 @@ foreach ($xml->products->product as $i) {
         $currentproduct = $i;
     }
 }
+echo $currentproduct;
 foreach ($toInclude as $t) {
     if ($t == $options) {
-        $i->options = $options;
+        $currentproduct->options = $options;
 
         $tt = 't'.$t;
 
-        $i->addChild($tt);
-        $i->$tt->addChild('id', $_POST['id'.$t]);
-        $i->$tt->addChild('image', $_POST['image'.$t]);
-        $i->$tt->addChild('name', $_POST['title'.$t]);
-        $i->$tt->addChild('description', $_POST['desc'.$t]);
-        $i->$tt->addChild('price', $_POST['price'.$t]);
+        $currentproduct->addChild($tt);
+        $currentproduct->$tt->addChild('id', $_POST['id'.$t]);
+        $currentproduct->$tt->addChild('image', $_POST['image'.$t]);
+        $currentproduct->$tt->addChild('name', $_POST['title'.$t]);
+        $currentproduct->$tt->addChild('description', $_POST['desc'.$t]);
+        $currentproduct->$tt->addChild('price', $_POST['price'.$t]);
         continue;
     }
 
     $tt = 't'.$t;
     if ($t == 1) {
-        $i->item = $_POST['item'.$t];
-        $i->minidesc = $_POST['minidesc'.$t];
-        $i->category = $_POST['cat'.$t];
+        $currentproduct->item = $_POST['item'.$t];
+        $currentproduct->minidesc = $_POST['minidesc'.$t];
+        $currentproduct->category = $_POST['cat'.$t];
     }
 
-    $i->$tt->id = $_POST['id'.$t];
-    $i->$tt->image = $_POST['image'.$t];
-    $i->$tt->name = $_POST['title'.$t];
-    $i->$tt->description = $_POST['desc'.$t];
-    $i->$tt->price = $_POST['price'.$t];
+    $currentproduct->$tt->id = $_POST['id'.$t];
+    $currentproduct->$tt->image = $_POST['image'.$t];
+    $currentproduct->$tt->name = $_POST['title'.$t];
+    $currentproduct->$tt->description = $_POST['desc'.$t];
+    $currentproduct->$tt->price = $_POST['price'.$t];
 }
 
     
