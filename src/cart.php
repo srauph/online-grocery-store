@@ -141,14 +141,8 @@ if (!isset($_SESSION["currentLogin"])){
             const DOM = document.getElementById("__cart_content_table");
 
             if (items == null || items.length == 0) {
-                //document.getElementById("___cart_content_table_r2").innerHTML = "<br><br>Cart is empty.";
-                
-                // console.log(orderPlaced);
-                // if (orderPlaced) {
-                //     DOM.innerHTML = "<h2 style='color:chartreuse;'>Order placed successfully!</h2><br><h2>Cart is empty.</h2> Let's add some stuff to this!";
-                // } else {
-                    DOM.innerHTML = "<h2>Cart is empty.</h2> Let's add some stuff to this!";
-                // }
+                    
+                DOM.innerHTML = "<h2>Cart is empty.</h2> Let's add some stuff to this!";
                 
                 // Write the GST and QST
                 document.getElementById("numberOfItems").innerHTML = 0;
@@ -164,19 +158,6 @@ if (!isset($_SESSION["currentLogin"])){
             DOM.innerHTML = document.getElementById("___init").innerHTML;
 
             for (const item of items) {
-                
-                /*
-                <div class="cart_grid">
-                    <div class="cart_qty_selector">
-                        <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(false);">-</button>
-                        <input id="productQty" type="text" class="cart_qty" value="0" readonly></input>
-                        <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(true);">+</button>
-                    </div>
-                    <div id="productMax" class="cart_qty_max_msg">
-                        Quantity Limit: 20
-                    </div>
-                </div>
-                */
 
                 DOM.innerHTML +=
                     `<tr class="cart_list">

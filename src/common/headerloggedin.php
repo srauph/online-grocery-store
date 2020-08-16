@@ -1,6 +1,6 @@
 <div id="__top_banner">
     <div class="white">
-        <div id="helloUser">Hello, !</div>
+        <div id="helloUser">You are currently logged in.</div>
         <a class="white" href="php/logout.php" title="Log out of your account">Logout</a>
     </div>
     

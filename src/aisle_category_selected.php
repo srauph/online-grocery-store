@@ -130,6 +130,9 @@ loadItem();
         echo $header;
     }
     ?>
+    <script>
+        document.getElementById("helloUser").innerHTML="Hello, <?php echo $_SESSION["currentLogin"][0]; ?>!";
+    </script>
 
 
     <h1 style="font-size:48; padding:2%; text-align:center; background-color:white;"><?php echo $category; ?></h1>

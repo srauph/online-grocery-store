@@ -50,6 +50,9 @@ if (!isset($_SESSION["currentLogin"])){
         echo $header;
     }
     ?>
+    <script>
+        document.getElementById("helloUser").innerHTML="Hello, <?php echo $_SESSION["currentLogin"][0]; ?>!";
+    </script>
     <br />
     <br />
 

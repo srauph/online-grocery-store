@@ -39,14 +39,6 @@
             <image>greenapple.jpg</image>
             <limit>20</limit>
         </t4>
-        <t5>
-            <id>322</id>
-            <name>MEME REVIEW</name>
-            <description>vbyudfvyufibvfbfuidfvbuidfvApple, meet the world's favourite apple for snacks. &lt;br/&gt;&lt;br/&gt;The heart-shaped delicious apple has a bright surface. This delicious apple shines in fresh, crisp salads, for its crunchy texture and lightly sweet taste.</description>
-            <price>4.20</price>
-            <image>apple.jpg</image>
-            <limit>69</limit>
-        </t5>
     </product>
     <product>
         <category>Beverages</category>

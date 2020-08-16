@@ -43,6 +43,9 @@ if (!isset($_SESSION["currentLogin"])){
     }
     
     ?>
+    <script>
+        document.getElementById("helloUser").innerHTML="Hello, <?php echo $_SESSION["currentLogin"][0]; ?>!";
+    </script>
 
         <br>
         <br>
