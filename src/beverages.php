@@ -9,15 +9,16 @@ $doc = new DOMDocument();
 $doc->load("data.xml");
 
 $category = "beverages";
-// $item = "cocacola";
+// $product = "cocacola";
 // $type = "t1";
-$item = [];
+$product = [];
+$item;
 $bvgqty = 0;
 
 // $currentobj = $type[1];
 
 function loadItem() {
-    global $doc, $category, $bvgqty, $item;
+    global $doc, $category, $bvgqty, $product, $item, $minidesc;
     global $name, $description, $price, $image, $limit, $id;
     $docProducts = $doc->getElementsByTagName("product");
     foreach($docProducts as $i) {
@@ -26,6 +27,8 @@ function loadItem() {
             
             // $options = $i->getElementsByTagName("options")->item(0)->nodeValue;
             // for ($j = 1; $j <= $options; $j++) {
+                $item = $i->getElementsByTagName("item")->item(0)->nodeValue;
+                $minidesc = $i->getElementsByTagName("minidesc")->item(0)->nodeValue;
                 $k = $i->getElementsByTagName("t1")->item(0);
                 $id[$bvgqty] = $k->getElementsByTagName("id")->item(0)->nodeValue;
                 $name[$bvgqty] = $k->getElementsByTagName("name")->item(0)->nodeValue;
@@ -34,24 +37,28 @@ function loadItem() {
                 $image[$bvgqty] = $k->getElementsByTagName("image")->item(0)->nodeValue;
                 $limit[$bvgqty] = $k->getElementsByTagName("limit")->item(0)->nodeValue;
             // }
-            $item[$bvgqty] =
+            $product[$bvgqty] =
             "<tr>
                 <div class='beverage_aisle'>
-                    <div class='beverage_aisle_item_img'>
-                        <a href='sprite.php'>
-                            <img src='../assets/Images/$image[$bvgqty]' style='width:100px; height:100px;' alt='Product Image'>
-                        </a>
-                    </div>
+                    <form type='submit' method='GET' action='item.php'>
+                        <div class='beverage_aisle_item_img'>
+                            <button name='item' value='$item' style='background:transparent; border:none;'> <img src='../assets/Images/$image[$bvgqty]' style='width:100px; height:100px;' alt='$item' value='$item' /> </button>
+                        </div>
+
+                        <div class='beverage_aisle_item'>
+                            <button name='item' class='btn_slim' value='$item'>$name[$bvgqty]</button>
+                        </div>
+                        <input name='category' type='hidden' value='$category'/>
                     
-                        <div class='beverage_aisle_item'><a href='item.php' style='color:mediumslateblue;'>$name[$bvgqty]</a></div>
-                        <div class='beverage_aisle_item'>$name[$bvgqty].</div>
-                        <div class='beverage_aisle_item'>$price[$bvgqty]</div>
+                        <div class='beverage_aisle_item'>$minidesc</div>
+                        <div class='beverage_aisle_item'>$$price[$bvgqty]</div>
                         <div class='beverage_aisle_item'>
                             <!-- Fill these variable with the defaults listed towards the top of the item page -->
                             <!-- Use single quotes for strings -->
                             <button type='submit' class='cart_btn_aisle' onclick='addToCart($id[$bvgqty], '$name[$bvgqty]', '../assets/Images/$image[$bvgqty]', $price[$bvgqty], $limit[$bvgqty]);'>
                             Add To Cart</button>
                         </div>
+                    </form>
                 </div>
             </tr>";
             $bvgqty++;
@@ -201,7 +208,7 @@ loadItem();
                             </div>
                         </div>
                         
-                        <div class="beverage_aisle_head_mobile">
+                        <!-- <div class="beverage_aisle_head_mobile">
                             <div class="beverage_aisle_item">
                                 <h2>Product Image</h2>
                             </div>
@@ -209,11 +216,11 @@ loadItem();
                             <div class="beverage_aisle_item">
                                 <h2>Description</h2>
                             </div>
-                        </div>
+                        </div> -->
                     </tr>
 
                     <?php
-                        foreach ($item as $i) {
+                        foreach ($product as $i) {
                             echo $i;
                         }
                     ?>

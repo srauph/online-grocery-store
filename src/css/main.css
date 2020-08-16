@@ -100,6 +100,22 @@ a:visited {
     background-color: #e53134;
 }
 
+.btn_slim {
+    color: black;
+    font-size: 14px;
+    padding: 3%;
+    background-color: lightgray;
+    border: 0;
+    cursor: pointer;
+    transition: all 0.5s;
+    text-align: center;
+}
+
+.btn_slim:hover {
+    background-color: #444444;
+    color: white;
+}
+
 .registration_form {
     padding: 30px;
     margin-left: 20%;

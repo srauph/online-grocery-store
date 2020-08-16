@@ -7,8 +7,11 @@ if (!isset($_SESSION["currentLogin"])){
 $doc = new DOMDocument();
 $doc->load("data.xml");
 
-$category = "beverages";
-$item = "cocacola";
+// $category = "beverages";
+// $item = "cocacola";
+
+$category = $_GET['category'];
+$item = $_GET['item'];
 $type = "t1";
 
 $currentobj = $type[1];
@@ -110,9 +113,9 @@ loadItem();
      * the tab, only preserves info while refreshing and navigating within the site)
      */
     function saveSessionData() {
-        sessionStorage.spriteQty = qty;
-        sessionStorage.spriteCurrentItem = currentItem;
-        sessionStorage.spriteShowAll = showAll;
+        sessionStorage.<?php echo $item; ?>Qty = qty;
+        sessionStorage.<?php echo $item; ?>CurrentItem = currentItem;
+        sessionStorage.<?php echo $item; ?>ShowAll = showAll;
     }
 
     /**  
@@ -121,14 +124,14 @@ loadItem();
      * used to load the page to the original state.
      */
     function loadSessionData() {
-        if (sessionStorage.spriteCurrentItem) {
-            currentItem = parseInt(sessionStorage.spriteCurrentItem);
+        if (sessionStorage.<?php echo $item; ?>CurrentItem) {
+            currentItem = parseInt(sessionStorage.<?php echo $item; ?>CurrentItem);
             // currentItem = "<?php echo $type[1]; ?>";
         }
-        if (sessionStorage.spriteQty) {
-            qty = parseInt(sessionStorage.spriteQty);
+        if (sessionStorage.<?php echo $item; ?>Qty) {
+            qty = parseInt(sessionStorage.<?php echo $item; ?>Qty);
         }
-        if (sessionStorage.spriteShowAll == "true") {
+        if (sessionStorage.<?php echo $item; ?>ShowAll == "true") {
             document.getElementById("showDescBtn").innerHTML = "Less Description...";
             showAll = true;
         }
@@ -152,6 +155,9 @@ loadItem();
         // document.changeproduct.item.value = "sprite";
         // document.changeproduct.type.value = "t" + type;
         // document.getElementById("changeproduct").submit();
+
+        document.changeproduct.item.value = "<?php echo $item; ?>";
+        document.changeproduct.category.value = "<?php echo $category; ?>";
 
         switch (type) {
 
@@ -247,12 +253,12 @@ loadItem();
 
             <!-- Product option selection buttons -->
             <p>You may choose a different size using the options below...</p>
-            <form type="submit" id="changeproduct" action="item.php" name="changeproduct" method="POST">
+            <form type="submit" id="changeproduct" action="item.php" name="changeproduct" method="GET">
                 <button id="productOption1" class="product_option_btn" onclick="changeProduct(1);">355mL Can</button>
                 <button id="productOption2" class="product_option_btn" onclick="changeProduct(2);">710mL Bottle</button>
                 <button id="productOption3" class="product_option_btn" onclick="changeProduct(3);">2L Bottle</button><br><br><br>
-                <input type="hidden" name="item" value="" />
-                <input type="hidden" name="type" value="" />
+                <input type="hidden" id="category" name="category" value="" />
+                <input type="hidden" id="item" name="item" value="" />
             </form>
 
             <!-- Quantity selector and Add to Cart functionality -->
