@@ -63,7 +63,8 @@ if (!isset($_SESSION["currentLogin"])){
         <br />
         <br />
         <br />
-        <?php 
+        <form type="submit" method="GET" action="item.php">
+            <?php 
 
             include 'php/Debug.php';
 
@@ -100,22 +101,21 @@ if (!isset($_SESSION["currentLogin"])){
 
                             <h2>$$price[$bvgqty]</h2>
 
-                            <form action=\"itemDescription.php?id=$id[$bvgqty]\">
-                                <input class=\"__learn_more_btn\" type=\"submit\" value=\"Learn more\" />
+                             <button class=\"__learn_more_btn\" name=\"item\" type=\"button\" value=\"$item\" onclick=\"window.location.href = 'item.php?item=$item';\">
+                                Learn more
+                             </button>
 
-                                 <!-- Add to cart button -->
+                            <!-- Add to cart button -->
 
-                                <input type=\"button\" value=\"Add to cart\" onclick=\"cart.void_add(
-                                        new Item($id[$bvgqty], '$item, '$category[$bvgqty]', '$image[$bvgqty]', $price[$bvgqty], $limit[$bvgqty], false)
-                                        )\" />
-                                </form>
-                            
+                            <input type=\"button\" value=\"Add to cart\" onclick=\"cart.void_add(
+                                        new Item($id[$bvgqty], '$item', '$category[$bvgqty]', '$image[$bvgqty]', $price[$bvgqty], $limit[$bvgqty], false)
+                                        )\" />                 
                         </div>";
-
                 $bvgqty++;
             }
         
         ?>
+        </form>
     </div>
 
     <br />

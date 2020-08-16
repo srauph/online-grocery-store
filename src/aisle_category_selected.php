@@ -115,9 +115,9 @@ loadItem();
 </head>
 
 <script>
-    function addToCart(id, name, img, price, limit) {
-        cart.void_add(new Item(id, name, 1, img, price, 1, limit, 0, ''));
-    }
+function addToCart(id, name, img, price, limit) {
+    cart.void_add(new Item(id, name, 1, img, price, 1, limit, 0, ''));
+}
 </script>
 
 <body>
