@@ -47,7 +47,7 @@ if (!isset($_SESSION["currentLogin"])){
      * options: Amount of different options available (eg different product sizes)
      */
     name = "Lettuces (Butterhead Variety)";
-    desc = "Lettuces, a healthy leaf vegetable freshly grown from local farms around the area. <br><br> Lettuces are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Leaf and Romaine varieties.";
+    desc = "Lettuces, a healthy leaf vegetable freshly grown from local farms around the area. <br/><br/> Lettuces are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Leaf and Romaine varieties.";
     price = 1.59;
     img = "../assets/Images/lettuces.jpg";
     options = 3;
@@ -108,7 +108,7 @@ if (!isset($_SESSION["currentLogin"])){
 
                 // Update relevant variables
                 name = "Lettuces (Leaf Variety)";
-                desc = "Lettuces, a healthy leaf vegetable freshly grown from local farms around the area. <br><br> Lettuces are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Butterhead and Romaine varieties.";
+                desc = "Lettuces, a healthy leaf vegetable freshly grown from local farms around the area. <br/><br/> Lettuces are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Butterhead and Romaine varieties.";
                 price = 1.79;
                 img = "../assets/Images/lettucesoption2.jpg";
                 currentItem = 2;
@@ -119,7 +119,7 @@ if (!isset($_SESSION["currentLogin"])){
 
             case 3: // Romaine variety
                 name = "Lettuces (Romaine Variety)";
-                desc = "Lettuces, a healthy leaf vegetable freshly grown from local farms around the area. <br><br> Lettuces are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Butterhead and Leaf varieties.";
+                desc = "Lettuces, a healthy leaf vegetable freshly grown from local farms around the area. <br/><br/> Lettuces are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Butterhead and Leaf varieties.";
                 price = 1.99;
                 img = "../assets/Images/lettucesoption3.jpg";
                 currentItem = 3;
@@ -130,7 +130,7 @@ if (!isset($_SESSION["currentLogin"])){
 
             default: // Butterhead variety
                 name = "Lettuces (Butterhead Variety)";
-                desc = "Lettuces, a healthy leaf vegetable freshly grown from local farms around the area. <br><br> Lettuces are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Leaf and Romaine varieties.";
+                desc = "Lettuces, a healthy leaf vegetable freshly grown from local farms around the area. <br/><br/> Lettuces are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Leaf and Romaine varieties.";
                 price = 1.59;
                 img = "../assets/Images/lettucesoption1.jpg";
                 currentItem = 1;
@@ -152,8 +152,8 @@ if (!isset($_SESSION["currentLogin"])){
         <!-- cart -->
         <a href="cart.php">
             <button id="cart_button">
-                <br>
-                <br>
+                <br/>
+                <br/>
                 <img src="../assets/Icons/cart.png" style="float:left; margin-right:0.5em" width="25" height="25">
                 <span id="cart_total_value">
                     $0.00
@@ -265,7 +265,7 @@ if (!isset($_SESSION["currentLogin"])){
         <div class="store_name">
             Caliprex
         </div>
-        <br>
+        <br/>
         <div class="footer_bottom">
             <div class="newsletter_subscribe">
                 Subscribe to our Newsletter!

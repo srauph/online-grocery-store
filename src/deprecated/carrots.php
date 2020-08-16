@@ -47,7 +47,7 @@ if (!isset($_SESSION["currentLogin"])){
      * options: Amount of different options available (eg different product sizes)
      */
     name = "Carrots (Nantes Variety)";
-    desc = "Carrots, a healthy root vegetable freshly grown from local farms around the area. <br><br> Carrots are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Baby and Danvers varieties.";
+    desc = "Carrots, a healthy root vegetable freshly grown from local farms around the area. <br/><br/> Carrots are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Baby and Danvers varieties.";
     price = 1.29;
     img = "../assets/Images/carrots.jpg";
     options = 3;
@@ -108,7 +108,7 @@ if (!isset($_SESSION["currentLogin"])){
 
                 // Update relevant variables
                 name = "Carrots (Baby Variety)";
-                desc = "Carrots, a healthy root vegetable freshly grown from local farms around the area. <br><br> Carrots are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Nantes and Danvers varieties.";
+                desc = "Carrots, a healthy root vegetable freshly grown from local farms around the area. <br/><br/> Carrots are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Nantes and Danvers varieties.";
                 price = 1.49;
                 img = "../assets/Images/carrotsoption2.jpg";
                 currentItem = 2;
@@ -119,7 +119,7 @@ if (!isset($_SESSION["currentLogin"])){
 
             case 3: // Danvers variety
                 name = "Carrots (Danvers Variety)";
-                desc = "Carrots, a healthy root vegetable freshly grown from local farms around the area. <br><br> Carrots are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Nantes and Baby varieties.";
+                desc = "Carrots, a healthy root vegetable freshly grown from local farms around the area. <br/><br/> Carrots are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Nantes and Baby varieties.";
                 price = 1.69;
                 img = "../assets/Images/carrotsoption3.jpg";
                 currentItem = 3;
@@ -130,7 +130,7 @@ if (!isset($_SESSION["currentLogin"])){
 
             default: // Nantes variety
                 name = "Carrots (Nantes Variety)";
-                desc = "Carrots, a healthy root vegetable freshly grown from local farms around the area. <br><br> Carrots are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Baby and Danvers varieties.";
+                desc = "Carrots, a healthy root vegetable freshly grown from local farms around the area. <br/><br/> Carrots are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Baby and Danvers varieties.";
                 price = 1.29;
                 img = "../assets/Images/carrotsoption1.jpg";
                 currentItem = 1;
@@ -152,8 +152,8 @@ if (!isset($_SESSION["currentLogin"])){
         <!-- cart -->
         <a href="cart.php">
             <button id="cart_button">
-                <br>
-                <br>
+                <br/>
+                <br/>
                 <img src="../assets/Icons/cart.png" style="float:left; margin-right:0.5em" width="25" height="25">
                 <span id="cart_total_value">
                     $0.00
@@ -265,7 +265,7 @@ if (!isset($_SESSION["currentLogin"])){
         <div class="store_name">
             Caliprex
         </div>
-        <br>
+        <br/>
         <div class="footer_bottom">
             <div class="newsletter_subscribe">
                 Subscribe to our Newsletter!

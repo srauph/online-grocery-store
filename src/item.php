@@ -35,7 +35,7 @@ function loadItem() {
 loadItem();
 
 
-for ($i=1; $i<$options; $i++) {
+for ($i=0; $i<$options; $i++) {
     $changeProductCases[$i] =
     "case " . ($i+1) . ":
         currentItem = " . ($i+1) . ";

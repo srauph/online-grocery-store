@@ -47,7 +47,7 @@ if (!isset($_SESSION["currentLogin"])){
      * options: Amount of different options available (eg different product sizes)
      */
     name = "Cucumbers (Slicing Variety)";
-    desc = "Cucumbers, a healthy creeping vine plant freshly grown from local farms around the area. <br><br> Cucumbers are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Pickling and Seedless varieties.";
+    desc = "Cucumbers, a healthy creeping vine plant freshly grown from local farms around the area. <br/><br/> Cucumbers are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Pickling and Seedless varieties.";
     price = 1.49;
     img = "../assets/Images/cucumbers.jpg";
     options = 3;
@@ -108,7 +108,7 @@ if (!isset($_SESSION["currentLogin"])){
 
                 // Update relevant variables
                 name = "Cucumbers (Pickling Variety)";
-                desc = "Cucumbers, a healthy creeping vine plant freshly grown from local farms around the area. <br><br> Cucumbers are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Slicing and Seedless varieties.";
+                desc = "Cucumbers, a healthy creeping vine plant freshly grown from local farms around the area. <br/><br/> Cucumbers are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Slicing and Seedless varieties.";
                 price = 1.69;
                 img = "../assets/Images/cucumbersoption2.jpg";
                 currentItem = 2;
@@ -119,7 +119,7 @@ if (!isset($_SESSION["currentLogin"])){
 
             case 3: // Seedless variety
                 name = "Cucumbers (Seedless Variety)";
-                desc = "Cucumbers, a healthy creeping vine plant freshly grown from local farms around the area. <br><br> Cucumbers are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Slicing and Pickling varieties.";
+                desc = "Cucumbers, a healthy creeping vine plant freshly grown from local farms around the area. <br/><br/> Cucumbers are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Slicing and Pickling varieties.";
                 price = 1.89;
                 img = "../assets/Images/cucumbersoption3.jpg";
                 currentItem = 3;
@@ -130,7 +130,7 @@ if (!isset($_SESSION["currentLogin"])){
 
             default: // Slicing variety
                 name = "Cucumbers (Slicing Variety)";
-                desc = "Cucumbers, a healthy creeping vine plant freshly grown from local farms around the area. <br><br> Cucumbers are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Pickling and Seedless varieties.";
+                desc = "Cucumbers, a healthy creeping vine plant freshly grown from local farms around the area. <br/><br/> Cucumbers are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Pickling and Seedless varieties.";
                 price = 1.49;
                 img = "../assets/Images/cucumbersoption1.jpg";
                 currentItem = 1;
@@ -152,8 +152,8 @@ if (!isset($_SESSION["currentLogin"])){
         <!-- cart -->
         <a href="cart.php">
             <button id="cart_button">
-                <br>
-                <br>
+                <br/>
+                <br/>
                 <img src="../assets/Icons/cart.png" style="float:left; margin-right:0.5em" width="25" height="25">
                 <span id="cart_total_value">
                     $0.00
@@ -265,7 +265,7 @@ if (!isset($_SESSION["currentLogin"])){
         <div class="store_name">
             Caliprex
         </div>
-        <br>
+        <br/>
         <div class="footer_bottom">
             <div class="newsletter_subscribe">
                 Subscribe to our Newsletter!

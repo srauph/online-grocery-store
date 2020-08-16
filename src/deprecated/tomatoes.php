@@ -47,7 +47,7 @@ if (!isset($_SESSION["currentLogin"])){
      * options: Amount of different options available (eg different product sizes)
      */
     name = "Tomatoes (Cherry Variety)";
-    desc = "Tomatoes, a healthy fruit from the tomato plant (often seen as a vegetable) freshly grown from local farms around the area. <br><br> Tomatoes are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in San Marzano and Better Boy varieties.";
+    desc = "Tomatoes, a healthy fruit from the tomato plant (often seen as a vegetable) freshly grown from local farms around the area. <br/><br/> Tomatoes are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in San Marzano and Better Boy varieties.";
     price = 1.59;
     img = "../assets/Images/tomatoes.jpg";
     options = 3;
@@ -108,7 +108,7 @@ if (!isset($_SESSION["currentLogin"])){
 
                 // Update relevant variables
                 name = "Tomatoes (San Marzano Variety)";
-                desc = "Tomatoes, a healthy fruit from the tomato plant (often seen as a vegetable) freshly grown from local farms around the area. <br><br> Tomatoes are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Cherry and Better Boy varieties.";
+                desc = "Tomatoes, a healthy fruit from the tomato plant (often seen as a vegetable) freshly grown from local farms around the area. <br/><br/> Tomatoes are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Cherry and Better Boy varieties.";
                 price = 1.79;
                 img = "../assets/Images/tomatoesoption2.jpg";
                 currentItem = 2;
@@ -119,7 +119,7 @@ if (!isset($_SESSION["currentLogin"])){
 
             case 3: // Better Boy variety
                 name = "Tomatoes (Better Boy Variety)";
-                desc = "Tomatoes, a healthy fruit from the tomato plant (often seen as a vegetable) freshly grown from local farms around the area. <br><br> Tomatoes are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Cherry and San Marzano varieties.";
+                desc = "Tomatoes, a healthy fruit from the tomato plant (often seen as a vegetable) freshly grown from local farms around the area. <br/><br/> Tomatoes are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Cherry and San Marzano varieties.";
                 price = 1.99;
                 img = "../assets/Images/tomatoesoption3.jpg";
                 currentItem = 3;
@@ -130,7 +130,7 @@ if (!isset($_SESSION["currentLogin"])){
 
             default: // Cherry variety
                 name = "Tomatoes (Cherry Variety)";
-                desc = "Tomatoes, a healthy fruit from the tomato plant (often seen as a vegetable) freshly grown from local farms around the area. <br><br> Tomatoes are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in San Marzano and Better Boy varieties";
+                desc = "Tomatoes, a healthy fruit from the tomato plant (often seen as a vegetable) freshly grown from local farms around the area. <br/><br/> Tomatoes are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in San Marzano and Better Boy varieties";
                 price = 1.59;
                 img = "../assets/Images/tomatoesoption1.jpg";
                 currentItem = 1;
@@ -152,8 +152,8 @@ if (!isset($_SESSION["currentLogin"])){
         <!-- cart -->
         <a href="cart.php">
             <button id="cart_button">
-                <br>
-                <br>
+                <br/>
+                <br/>
                 <img src="../assets/Icons/cart.png" style="float:left; margin-right:0.5em" width="25" height="25">
                 <span id="cart_total_value">
                     $0.00
@@ -263,7 +263,7 @@ if (!isset($_SESSION["currentLogin"])){
         <div class="store_name">
             Caliprex
         </div>
-        <br>
+        <br/>
         <div class="footer_bottom">
             <div class="newsletter_subscribe">
                 Subscribe to our Newsletter!
