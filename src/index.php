@@ -58,23 +58,25 @@ if (!isset($_SESSION["currentLogin"])){
         echo $header;
     }
     ?>
+    <br />
+    <br />
 
-        <!-- This div is resposible for the display of the items on Sale -->
-        <div id="slidshow">
-            This text exists to show the div only
-            <div id="slidshow_price">
-                $0.00
-            </div>
+    <!-- This div is resposible for the display of the items on Sale -->
+    <div id="slidshow">
+        This text exists to show the div only
+        <div id="slidshow_price">
+            $0.00
         </div>
-        <div id="__search_result">
-        </div>
+    </div>
+    <div id="__search_result">
+    </div>
 
     <?php
     $footer = file_get_contents('common/footer.php');
     echo $footer;
     ?>
 
-        <?php 
+    <?php 
 			if (isset($_POST['__tag_search_btn']))	{
 				$temp_tag = $_POST['__tag_search_btn'];
 				ItemArray_searchByTag($temp_tag);

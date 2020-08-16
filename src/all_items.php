@@ -40,6 +40,7 @@ if (!isset($_SESSION["currentLogin"])){
 			Sales.void_processSales($js_array);
 	});</script>";
 ?>
+
 <body>
     <?php
     if ($_SESSION["currentLogin"] != null) {
@@ -59,37 +60,67 @@ if (!isset($_SESSION["currentLogin"])){
     <br />
 
     <div id="all_items">
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+        <br />
+        <br />
+        <br />
+        <?php 
+
+            include 'php/Debug.php';
+
+            $doc = new DOMDocument();
+            $doc->load("data.xml");
+            
+            global $doc, $category, $bvgqty, $product, $item, $options, $minidesc;
+            global $name, $description, $price, $image, $category, $id;
+            $products = $doc->getElementsByTagName("product");
+
+            //var_dump($doc);
+           // Debug::log($doc);
+
+            foreach($products as $i) {   
+                $item = $i->getElementsByTagName("item")->item(0)->nodeValue;
+                $minidesc = $i->getElementsByTagName("minidesc")->item(0)->nodeValue;
+
+                $k = $i->getElementsByTagName("t1")->item(0);
+                $id[$bvgqty] = $k->getElementsByTagName("id")->item(0)->nodeValue;
+                $image[$bvgqty] = $k->getElementsByTagName("image")->item(0)->nodeValue;
+                $price[$bvgqty] = $k->getElementsByTagName("price")->item(0)->nodeValue;
+
+                $category[$bvgqty] = $i->getElementsByTagName("category")->item(0)->nodeValue;
+                $limit[$bvgqty] = $k->getElementsByTagName("limit")->item(0)->nodeValue;
+           
+                echo "<div class=\"__search_result_block\">
+                            <h1>$item</h1>
+                            <img src=\"../assets/Images/$image[$bvgqty]\" title=\"$item\" />
+					        <br />
+                            <br />
+                            
+                            <span>$minidesc</span>
+                            <br />
+
+                            <h2>$$price[$bvgqty]</h2>
+
+                            <form action=\"itemDescription.php?id=$id[$bvgqty]\">
+                                <input class=\"__learn_more_btn\" type=\"submit\" value=\"Learn more\" />
+
+                                 <!-- Add to cart button -->
+
+                                <input type=\"button\" value=\"Add to cart\" onclick=\"cart.void_add(
+                                        new Item($id[$bvgqty], '$item, '$category[$bvgqty]', '$image[$bvgqty]', $price[$bvgqty], $limit[$bvgqty], false)
+                                        )\" />
+                                </form>
+                            
+                        </div>";
+
+                $bvgqty++;
+            }
         
-        <center style="font-size:36px; color:dodgerblue;">
-            Under construction!
-        </center>
-        
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+        ?>
     </div>
+
+    <br />
+    <br />
+    <br />
 
     <?php
     $footer = file_get_contents('common/footer.php');
@@ -99,22 +130,22 @@ if (!isset($_SESSION["currentLogin"])){
 
     <?php 
         
-            // load all the items in the database
-            $result = ItemArray_getAllItems();
+            // // load all the items in the database
+            // $result = ItemArray_getAllItems();
             
-            // Convert this to JS array
-			$js_array = "[";
+            // // Convert this to JS array
+			// $js_array = "[";
 
-			for ($i = 0; $i < count($result); $i++) {
-				$js_array = $js_array . "new Item(". $result[$i]->toString() ."), ";
-			}
+			// for ($i = 0; $i < count($result); $i++) {
+			// 	$js_array = $js_array . "new Item(". $result[$i]->toString() ."), ";
+			// }
 
-            $js_array = $js_array . "]";
+            // $js_array = $js_array . "]";
             
-			// Exceute script
-			echo "<script>window.addEventListener('load', function()	{
-				Sales.void_displayItems($js_array, 'all_items');
-			});</script>";        
+			// // Exceute script
+			// echo "<script>window.addEventListener('load', function()	{
+			// 	Sales.void_displayItems($js_array, 'all_items');
+			// });</script>";        
         ?>
 </body>
 

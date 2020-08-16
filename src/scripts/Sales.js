@@ -14,9 +14,9 @@ class Sales {
 		// Verify that all items are on sale indeed
 		let onsale_items = [];
 		for (const item of ItemArray_items) {
-			if (item.onSale == true || onSale.onSale == 1) {
-				onsale_items.push(item);
-			}
+			//if (item.onSale == true || item.onSale == 1) {
+			onsale_items.push(item);
+			//}
 		}
 
 		// Start the animation
