@@ -3,6 +3,64 @@ session_start();
 if (!isset($_SESSION["currentLogin"])){
     $_SESSION["currentLogin"] = null;
 }
+
+
+$doc = new DOMDocument();
+$doc->load("data.xml");
+
+$category = "beverages";
+// $item = "cocacola";
+// $type = "t1";
+$item = [];
+$bvgqty = 0;
+
+// $currentobj = $type[1];
+
+function loadItem() {
+    global $doc, $category, $bvgqty, $item;
+    global $name, $description, $price, $image, $limit, $id;
+    $docProducts = $doc->getElementsByTagName("product");
+    foreach($docProducts as $i) {
+        // echo $i->getElementsByTagName("item")->item(0)->nodeValue;
+        if ($i->getElementsByTagName("category")->item(0)->nodeValue == $category) {
+            
+            // $options = $i->getElementsByTagName("options")->item(0)->nodeValue;
+            // for ($j = 1; $j <= $options; $j++) {
+                $k = $i->getElementsByTagName("t1")->item(0);
+                $id[$bvgqty] = $k->getElementsByTagName("id")->item(0)->nodeValue;
+                $name[$bvgqty] = $k->getElementsByTagName("name")->item(0)->nodeValue;
+                $description[$bvgqty] = $k->getElementsByTagName("description")->item(0)->nodeValue;
+                $price[$bvgqty] = $k->getElementsByTagName("price")->item(0)->nodeValue;
+                $image[$bvgqty] = $k->getElementsByTagName("image")->item(0)->nodeValue;
+                $limit[$bvgqty] = $k->getElementsByTagName("limit")->item(0)->nodeValue;
+            // }
+            $item[$bvgqty] =
+            "<tr>
+                <div class='beverage_aisle'>
+                    <div class='beverage_aisle_item_img'>
+                        <a href='sprite.php'>
+                            <img src='../assets/Images/$image[$bvgqty]' style='width:100px; height:100px;' alt='Product Image'>
+                        </a>
+                    </div>
+                    
+                        <div class='beverage_aisle_item'><a href='item.php' style='color:mediumslateblue;'>$name[$bvgqty]</a></div>
+                        <div class='beverage_aisle_item'>$name[$bvgqty].</div>
+                        <div class='beverage_aisle_item'>$price[$bvgqty]</div>
+                        <div class='beverage_aisle_item'>
+                            <!-- Fill these variable with the defaults listed towards the top of the item page -->
+                            <!-- Use single quotes for strings -->
+                            <button type='submit' class='cart_btn_aisle' onclick='addToCart($id[$bvgqty], '$name[$bvgqty]', '../assets/Images/$image[$bvgqty]', $price[$bvgqty], $limit[$bvgqty]);'>
+                            Add To Cart</button>
+                        </div>
+                </div>
+            </tr>";
+            $bvgqty++;
+        }
+    }
+}
+
+loadItem();
+
 ?>
 <html>
 
@@ -154,45 +212,11 @@ if (!isset($_SESSION["currentLogin"])){
                         </div>
                     </tr>
 
-                    <tr>
-                        <div class="beverage_aisle">
-                            <div class="beverage_aisle_item_img">
-                                <a href="sprite.php">
-                                    <img src="../assets/Images/sprite.jpg" style="width:100px; height:100px;"alt="Sprite Can">
-                                </a>
-                            </div>
-                            
-                                <div class="beverage_aisle_item"><a href="sprite.php" style="color:mediumslateblue;">Sprite (355mL Can)</a></div>
-                                <div class="beverage_aisle_item">A 355mL can of Sprite.</div>
-                                <div class="beverage_aisle_item">$0.99</div>
-                                <div class="beverage_aisle_item">
-                                    <!-- Fill these variable with the defaults listed towards the top of the item page -->
-                                    <!-- Use single quotes for strings -->
-                                    <button type="submit" class="cart_btn_aisle" onclick="addToCart(101, 'Sprite (355mL Can)', '../assets/Images/sprite.jpg', 0.99, 24);">
-                                    Add To Cart</button>
-                                </div>
-                        </div>
-                    </tr>
-
-                    <tr>
-                        <div class="beverage_aisle">
-                            <div class="beverage_aisle_item_img">
-                                <a href="cocacola.php">
-                                <img src="../assets/Images/cocacola.jpg" style="width:100px; height:100px;" alt="Coca-Cola Can">
-                                </a>
-                            </div>
-                            
-                                <div class="beverage_aisle_item"><a href="cocacola.php" style="color:mediumslateblue;">Coca-Cola (355mL Can)</a></div>
-                                <div class="beverage_aisle_item">A 355mL can of Coca-Cola.</div>
-                                <div class="beverage_aisle_item">$0.99</div>
-                                <div class="beverage_aisle_item">
-                                    <!-- Fill these variable with the defaults listed towards the top of the item page -->
-                                    <!-- Use single quotes for strings -->
-                                    <button type="submit" class="cart_btn_aisle" onclick="addToCart(201, 'Coca-Cola (355mL Can)', '../assets/Images/cocacola.jpg', 0.99, 24);">
-                                    Add To Cart</button>
-                                </div>
-                        </div>
-                    </tr>
+                    <?php
+                        foreach ($item as $i) {
+                            echo $i;
+                        }
+                    ?>
 
                 </table>
             </div>

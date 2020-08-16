@@ -8,59 +8,57 @@ $doc = new DOMDocument();
 $doc->load("data.xml");
 
 $category = "beverages";
-$item = "cocacola";
-$type = "t1";
+$_SESSION['item'] = "sprite";
+$_SESSION['type'] = "t1";
 
-$currentobj = $type[1];
+$_SESSION['currentobj'] = $_SESSION['type'][1]-1;
 
 // if (!isset($_POST['item'])) {
 //     echo "item not set ";
-//     $item = "sprite";
+//     $_SESSION['item'] = "sprite";
 // } else {
 //     echo "item is set ";
 //     echo $_POST['item'];
-//     $item = $_POST['item'];
+//     $_SESSION['item'] = $_POST['item'];
 // }
 
 // if (!isset($_POST['type'])) {
 //     echo "type not set ";
-//     $type = "sprite";
+//     $_SESSION['type'] = "sprite";
 // } else {
 //     echo "type is set ";
 //     echo $_POST['type'];
-//     $type = $_POST['type'];
+//     $_SESSION['type'] = $_POST['type'];
 // }
 
 function loadItem() {
-    global $doc, $item;
-    global $name, $description, $price, $image, $options, $limit, $id;
+    global $doc;
     $docProducts = $doc->getElementsByTagName("product");
     foreach($docProducts as $i) {
         // echo $i->getElementsByTagName("item")->item(0)->nodeValue;
-        if ($i->getElementsByTagName("item")->item(0)->nodeValue == $item) {
-            $options = $i->getElementsByTagName("options")->item(0)->nodeValue;
-            for ($j = 1; $j <= $options; $j++) {
-                $k = $i->getElementsByTagName("t".$j)->item(0);
-                $id[$j-1] = $k->getElementsByTagName("id")->item(0)->nodeValue;
-                $name[$j-1] = $k->getElementsByTagName("name")->item(0)->nodeValue;
-                $description[$j-1] = $k->getElementsByTagName("description")->item(0)->nodeValue;
-                $price[$j-1] = $k->getElementsByTagName("price")->item(0)->nodeValue;
-                $image[$j-1] = $k->getElementsByTagName("image")->item(0)->nodeValue;
-                $limit[$j-1] = $k->getElementsByTagName("limit")->item(0)->nodeValue;
+        if ($i->getElementsByTagName("item")->item(0)->nodeValue == $_SESSION['item']) {
+            $_SESSION['options'] = $i->getElementsByTagName("options")->item(0)->nodeValue;
+            for ($j = 0; $j < $_SESSION['options']; $j++) {
+                $k = $i->getElementsByTagName($_SESSION['type'])->item(0);
+                $_SESSION['id'][$j] = $k->getElementsByTagName("id")->item(0)->nodeValue;
+                $_SESSION['name'][$j] = $k->getElementsByTagName("name")->item(0)->nodeValue;
+                $_SESSION['description'][$j] = $k->getElementsByTagName("description")->item(0)->nodeValue;
+                $_SESSION['price'][$j] = $k->getElementsByTagName("price")->item(0)->nodeValue;
+                $_SESSION['image'][$j] = $k->getElementsByTagName("image")->item(0)->nodeValue;
+                $_SESSION['limit'][$j] = $k->getElementsByTagName("limit")->item(0)->nodeValue;
             }
         }
     }
 }
 
-loadItem();
-
-// echo var_dump($name);
-// echo $description[0];
-// echo $price[0];
-// echo $image[0];
-// echo $options[0];
-// echo $limit[0];
-// echo $id[0];
+echo $_SESSION['name'];
+echo "<br>";
+echo $_SESSION['description'][0];
+echo $_SESSION['price'][0];
+echo $_SESSION['image'][0];
+echo $_SESSION['options'][0];
+echo $_SESSION['limit'][0];
+echo $_SESSION['id'][0];
 
 ?>
 <html>
@@ -68,7 +66,7 @@ loadItem();
 <head>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/aisle_beverage.css">
-    <title id="productTitle"><?php echo $name[0]; ?></title>
+    <title id="productTitle"><?php echo $_SESSION['name']; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script type="text/javascript" src="scripts/Util.js"></script>
@@ -89,13 +87,13 @@ loadItem();
      * img:     Link to the object image file
      * options: Amount of different options available (eg different product sizes)
      */
-    name = "<?php echo $name[0]; ?>";
-    desc = "<?php echo $description[0]; ?>";
-    price = "<?php echo $price[0]; ?>";
-    img = "<?php echo $image[0]; ?>";
-    options = "<?php echo $options[0]; ?>";
-    limit = "<?php echo $limit[0]; ?>";
-    id = "<?php echo $id[0]; ?>";
+    name = "<?php echo $_SESSION['name'][0]; ?>";
+    desc = "<?php echo $_SESSION['description'][0]; ?>";
+    price = "<?php echo $_SESSION['price'][0]; ?>";
+    img = "<?php echo $_SESSION['image'][0]; ?>";
+    options = "<?php echo $_SESSION['options'][0]; ?>";
+    limit = "<?php echo $_SESSION['limit'][0]; ?>";
+    id = "<?php echo $_SESSION['id'][0]; ?>";
 
     /** 
      * Saves the session data. 
@@ -123,7 +121,7 @@ loadItem();
     function loadSessionData() {
         if (sessionStorage.spriteCurrentItem) {
             currentItem = parseInt(sessionStorage.spriteCurrentItem);
-            // currentItem = "<?php echo $type[1]; ?>";
+            // currentItem = "<?php echo $_SESSION['type'][1]; ?>";
         }
         if (sessionStorage.spriteQty) {
             qty = parseInt(sessionStorage.spriteQty);
@@ -148,7 +146,7 @@ loadItem();
      */
     function changeProduct(type) {
 
-        // document.changeproduct.item.value = "<?php echo $item; ?>";
+        // document.changeproduct.item.value = "<?php echo $_SESSION['item']; ?>";
         // document.changeproduct.item.value = "sprite";
         // document.changeproduct.type.value = "t" + type;
         // document.getElementById("changeproduct").submit();
@@ -164,14 +162,14 @@ loadItem();
                 // img = "../assets/Images/sprite_710ml.jpg";
                 // limit = 12;
                 // id = 102;
-                currentItem = "<?php $currentobj = 2; echo $currentobj; ?>";
-
-                name = "<?php echo $name[1]; ?>";
-                desc = "<?php echo $description[1]; ?>";
-                price = "<?php echo $price[1]; ?>";
-                img = "../assets/Images/<?php echo $image[1]; ?>";
-                limit = "<?php echo $limit[1]; ?>";
-                id = "<?php echo $id[1]; ?>";
+                // currentItem = 2;
+                name = "<?php echo $_SESSION['name'][1]; ?>";
+                desc = "<?php echo $_SESSION['description'][1]; ?>";
+                price = "<?php echo $_SESSION['price'][1]; ?>";
+                img = "<?php echo $_SESSION['image'][1]; ?>";
+                options = "<?php echo $_SESSION['options'][1]; ?>";
+                limit = "<?php echo $_SESSION['limit'][1]; ?>";
+                id = "<?php echo $_SESSION['id'][1]; ?>";
 
                 updatePageContents(); // Ditto.
                 break;
@@ -183,14 +181,15 @@ loadItem();
                 // img = "../assets/Images/sprite_2l.jpg";
                 // limit = 6;
                 // id = 103;
-                currentItem = "<?php $currentobj = 3; echo $currentobj; ?>";
+                // currentItem = 3;
 
-                name = "<?php echo $name[2]; ?>";
-                desc = "<?php echo $description[2]; ?>";
-                price = "<?php echo $price[2]; ?>";
-                img = "../assets/Images/<?php echo $image[2]; ?>";
-                limit = "<?php echo $limit[2]; ?>";
-                id = "<?php echo $id[2]; ?>";
+                name = "<?php echo $_SESSION['name'][2]; ?>";
+                desc = "<?php echo $_SESSION['description'][2]; ?>";
+                price = "<?php echo $_SESSION['price'][2]; ?>";
+                img = "<?php echo $_SESSION['image'][2]; ?>";
+                options = "<?php echo $_SESSION['options'][2]; ?>";
+                limit = "<?php echo $_SESSION['limit'][2]; ?>";
+                id = "<?php echo $_SESSION['id'][2]; ?>";
 
                 updatePageContents(); 
                 break;
@@ -202,14 +201,15 @@ loadItem();
                 // img = "../assets/Images/sprite.jpg";
                 // limit = 24;
                 // id = 101;
-                currentItem = "<?php $currentobj = 1; echo $currentobj; ?>";
+                // currentItem = 1;
 
-                name = "<?php echo $name[0]; ?>";
-                desc = "<?php echo $description[0]; ?>";
-                price = "<?php echo $price[0]; ?>";
-                img = "../assets/Images/<?php echo $image[0]; ?>";
-                limit = "<?php echo $limit[0]; ?>";
-                id = "<?php echo $id[0]; ?>";
+                name = "<?php echo $_SESSION['name'][0]; ?>";
+                desc = "<?php echo $_SESSION['description'][0]; ?>";
+                price = "<?php echo $_SESSION['price'][0]; ?>";
+                img = "<?php echo $_SESSION['image'][0]; ?>";
+                options = "<?php echo $_SESSION['options'][0]; ?>";
+                limit = "<?php echo $_SESSION['limit'][0]; ?>";
+                id = "<?php echo $_SESSION['id'][0]; ?>";
 
                 updatePageContents();
                 break;
@@ -227,6 +227,8 @@ loadItem();
         $header = file_get_contents('common/header.php');
         echo $header;
     }
+    
+    loadItem();
     ?>
     <script>
         document.getElementById("helloUser").innerHTML="Hello, <?php echo $_SESSION["currentLogin"][0]; ?>!";
