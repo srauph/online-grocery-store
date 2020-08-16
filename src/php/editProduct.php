@@ -11,7 +11,7 @@ if (isset($_POST['toDelete'])) {
         }
     }
     unset($currentproduct[0]);
-    
+
     $doc = new DOMDocument(1.0);
     $doc->preserveWhiteSpace = false;
     $doc->formatOutput = true;
@@ -33,6 +33,14 @@ if (isset($_POST['addnew'])) {
     $new = false;
 }
 
+if ($_POST['item1'] == "" or $_POST['image1'] == "" or $_POST['title1'] == "" or $_POST['minidesc1'] == "" or $_POST['desc1'] == "" or $_POST['price1'] == "" or $_POST['cat1'] == "") {
+
+    $failed =
+    "<form name='failed' id='failed' method='POST' action='../backend/productlist.php' type='submit'><input id=failed name='failed' value='failed'/></form>
+    <script>document.getElementById(\"failed\").submit();</script>";
+    echo $failed;
+    exit();
+}
 
 
 for ($i=2; $i <= $options; $i++) {
@@ -40,9 +48,6 @@ for ($i=2; $i <= $options; $i++) {
         array_push($toInclude, $i);
     }
 }
-
-
-
 
 $xml = simplexml_load_file("../data.xml");
 
@@ -54,13 +59,15 @@ if ($new) {
         }
     }
     
+    
+    
+    $t = 1;
+    $tt = 't'.$t;
     $currentproduct->addChild('category', $_POST['cat'.$t]);
     $currentproduct->addChild('item', $_POST['item'.$t]);
     $currentproduct->addChild('options', '1');
     $currentproduct->addChild('minidesc', $_POST['minidesc'.$t]);
-    
-    $t = 1;
-    $tt = 't'.$t;
+
     $currentproduct->addChild($tt);
     $currentproduct->$tt->addChild('id', $_POST['id'.$t]);
     $currentproduct->$tt->addChild('name', $_POST['title'.$t]);

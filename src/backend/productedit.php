@@ -3,12 +3,13 @@ session_start();
 if (!isset($_SESSION["currentLogin"])){
     $_SESSION["currentLogin"] = null;
 }
-
-if (substr($_GET['item'],0,6) == "delete") {
-	$deleteItem =
-	"<form name='toDelete' id='toDelete' method='POST' action='../php/editProduct.php' type='submit'><input id=toDelete name='toDelete' value='".substr($_GET['item'],6)."'/></form>
-	<script>document.getElementById(\"toDelete\").submit();</script>";
-	echo $deleteItem;
+if (isset($_GET['item'])) {
+	if (substr($_GET['item'],0,6) == "delete") {
+		$deleteItem =
+		"<form name='toDelete' id='toDelete' method='POST' action='../php/editProduct.php' type='submit'><input id=toDelete name='toDelete' value='".substr($_GET['item'],6)."'/></form>
+		<script>document.getElementById(\"toDelete\").submit();</script>";
+		echo $deleteItem;
+	}
 }
 
 $doc = new DOMDocument();
