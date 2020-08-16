@@ -108,7 +108,7 @@ function loadItems() {
 				<div class='beverage_aisle_item'>
 					<form style='margin:auto;' type='submit' method='GET' action='productedit.php'>
 						<button name='item' class='cart_btn_aisle' value='$item' />Edit</button>
-						<button name='item' class='cart_btn_aisle' value='$item' />Delete</button>
+						<button name='item' class='cart_btn_aisle' value='delete$item' />Delete</button>
 					</form>
 				</div>
 			</div>

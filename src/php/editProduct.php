@@ -1,12 +1,28 @@
 Processing...<br/><br/>
 <?php
 session_start();
-// $doc = new DOMDocument();
-// $doc->load("../data.xml");
+
+
+if (isset($_POST['toDelete'])) {
+    $xml = simplexml_load_file("../data.xml");
+    foreach ($xml->products->product as $i) {
+        if ($i->item == $_POST['toDelete']) {
+            $currentproduct = $i;
+        }
+    }
+    unset($currentproduct[0]);
+    
+    $doc = new DOMDocument(1.0);
+    $doc->preserveWhiteSpace = false;
+    $doc->formatOutput = true;
+    $doc->loadXML($xml->asXML());
+    $doc->save("../data.xml");
+
+    header("Location: ../backend/productlist.php");
+    exit();
+}
 
 $options = $_POST['options'];
-
-// echo var_dump($_POST);
 
 $c = 1;
 $toInclude[0] = 1;
@@ -17,13 +33,7 @@ if (isset($_POST['addnew'])) {
     $new = false;
 }
 
-if ($_POST['item1'] == "" or $_POST['image1'] == "" or $_POST['title1'] == "" or $_POST['minidesc1'] == "" or $_POST['desc1'] == "" or $_POST['price1'] == "" or $_POST['cat1'] == "") {
-    $failed =
-    "<form name='failed' id='failed' method='POST' action='../backend/productlist.php' type='submit'><input id=failed name='failed' value='failed'/></form>
-    <script>document.getElementById(\"failed\").submit();</script>";
-    echo $failed;
-    exit();
-}
+
 
 for ($i=2; $i <= $options; $i++) {
     if ($_POST['image'.$i] != "" and $_POST['title'.$i] != "" and $_POST['desc'.$i] != "" and $_POST['price'.$i] != "") {
@@ -32,12 +42,10 @@ for ($i=2; $i <= $options; $i++) {
 }
 
 
-// $doc->formatOutput = true;
+
 
 $xml = simplexml_load_file("../data.xml");
 
-// $products = $xml->products->product;
-// echo var_dump($products);
 if ($new) {
     $xml->products->addChild('product');
     foreach ($xml->products->product as $i) {
