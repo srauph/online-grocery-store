@@ -8,10 +8,6 @@ function alert($msg) {
     echo "<script>alert('$msg');</script>";
 }
 
-if (isset($_POST['failed'])) {
-	alert("Invalid Item Form!");
-}
-
 $doc = new DOMDocument();
 $doc->load("../data.xml");
 
@@ -155,6 +151,12 @@ loadItems();
         
 		
 			<?php
+			if (isset($_POST['failed'])) {
+				alert("Invalid Item Form!");
+			}
+			elseif (isset($_POST['failed'])) {
+				alert("Item edited (or added) successfully!");
+			}
 			if (sizeof($product) != 0) {
 				echo $productsTop;
 				foreach ($product as $i) {

@@ -95,7 +95,7 @@ function loadItems() {
 				$price[$bvgqty] = $k->getElementsByTagName("price")->item(0)->nodeValue;
 				$image[$bvgqty] = $k->getElementsByTagName("image")->item(0)->nodeValue;
 				$category[$bvgqty] = $i->getElementsByTagName("category")->item(0)->nodeValue;
-				$limit[$bvgqty] = $i->getElementsByTagName("limit")->item(0)->nodeValue;
+				$limit[$bvgqty] = $k->getElementsByTagName("limit")->item(0)->nodeValue;
 
 				if ($j == 1) {
 					$products[0] =

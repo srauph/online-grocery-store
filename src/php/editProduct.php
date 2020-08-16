@@ -18,7 +18,10 @@ if (isset($_POST['addnew'])) {
 }
 
 if ($_POST['item1'] == "" or $_POST['image1'] == "" or $_POST['title1'] == "" or $_POST['minidesc1'] == "" or $_POST['desc1'] == "" or $_POST['price1'] == "" or $_POST['cat1'] == "") {
-    header("Location: ../backend/productlist.php");
+    $failed =
+    "<form name='failed' id='failed' method='POST' action='../backend/productlist.php' type='submit'><input id=failed name='failed' value='failed'/></form>
+    <script>document.getElementById(\"failed\").submit();</script>";
+    echo $failed;
     exit();
 }
 
@@ -93,7 +96,7 @@ if ($new) {
         $currentproduct->$tt->name = $_POST['title'.$t];
         $currentproduct->$tt->description = $_POST['desc'.$t];
         $currentproduct->$tt->price = $_POST['price'.$t];
-        $currentproduct->$tt->price = $_POST['limit'.$t];
+        $currentproduct->$tt->limit = $_POST['limit'.$t];
     }
 }
     
@@ -111,3 +114,6 @@ $doc->preserveWhiteSpace = false;
 $doc->formatOutput = true;
 $doc->loadXML($xml->asXML());
 $doc->save("../data.xml");
+
+header("Location: ../backend/productlist.php");
+?>
