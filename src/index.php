@@ -52,7 +52,6 @@ if (!isset($_SESSION["currentLogin"])){
         $header = file_get_contents('common/header.php');
         echo $header;
     }
-    
     ?>
     <script>
         document.getElementById("helloUser").innerHTML="Hello, <?php echo $_SESSION["currentLogin"][0]; ?>!";
