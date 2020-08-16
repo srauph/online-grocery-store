@@ -7,39 +7,16 @@ if (!isset($_SESSION["currentLogin"])){
 $doc = new DOMDocument();
 $doc->load("data.xml");
 
-// $category = "beverages";
-// $item = "cocacola";
-
-$category = $_GET['category'];
 $item = $_GET['item'];
 $type = "t1";
 
 $currentobj = $type[1];
-
-// if (!isset($_POST['item'])) {
-//     echo "item not set ";
-//     $item = "sprite";
-// } else {
-//     echo "item is set ";
-//     echo $_POST['item'];
-//     $item = $_POST['item'];
-// }
-
-// if (!isset($_POST['type'])) {
-//     echo "type not set ";
-//     $type = "sprite";
-// } else {
-//     echo "type is set ";
-//     echo $_POST['type'];
-//     $type = $_POST['type'];
-// }
 
 function loadItem() {
     global $doc, $item;
     global $name, $description, $price, $image, $options, $limit, $id;
     $docProducts = $doc->getElementsByTagName("product");
     foreach($docProducts as $i) {
-        // echo $i->getElementsByTagName("item")->item(0)->nodeValue;
         if ($i->getElementsByTagName("item")->item(0)->nodeValue == $item) {
             $options = $i->getElementsByTagName("options")->item(0)->nodeValue;
             for ($j = 1; $j <= $options; $j++) {
@@ -57,13 +34,30 @@ function loadItem() {
 
 loadItem();
 
-// echo var_dump($name);
-// echo $description[0];
-// echo $price[0];
-// echo $image[0];
-// echo $options[0];
-// echo $limit[0];
-// echo $id[0];
+
+for ($i=1; $i<$options; $i++) {
+    $changeProductCases[$i] =
+    "case " . ($i+1) . ":
+        currentItem = " . ($i+1) . ";
+    
+        name = \"$name[$i]\";
+        desc = \"$description[$i]\";
+        price = $price[$i];
+        img = \"../assets/Images/$image[$i]\";
+        limit = $limit[$i];
+        id = $id[$i];
+    
+        updatePageContents(); // Ditto.
+        break;
+        
+        ";
+}
+
+for ($i=1; $i<=$options; $i++) {
+    $changeProductButtons[$i-1] =
+    " <button id='productOption$i' class='product_option_btn' onclick='changeProduct($i);'>".$name[$i-1]."</button> 
+    ";
+}
 
 ?>
 <html>
@@ -126,7 +120,6 @@ loadItem();
     function loadSessionData() {
         if (sessionStorage.<?php echo $item; ?>CurrentItem) {
             currentItem = parseInt(sessionStorage.<?php echo $item; ?>CurrentItem);
-            // currentItem = "<?php echo $type[1]; ?>";
         }
         if (sessionStorage.<?php echo $item; ?>Qty) {
             qty = parseInt(sessionStorage.<?php echo $item; ?>Qty);
@@ -140,8 +133,6 @@ loadItem();
         changeProduct(currentItem);
         setQty(qty);
         displayDesc();
-
-        // updatePageContents();
     }
 
     /** 
@@ -151,63 +142,17 @@ loadItem();
      */
     function changeProduct(type) {
 
-        // document.changeproduct.item.value = "<?php echo $item; ?>";
-        // document.changeproduct.item.value = "sprite";
-        // document.changeproduct.type.value = "t" + type;
-        // document.getElementById("changeproduct").submit();
-
         document.changeproduct.item.value = "<?php echo $item; ?>";
-        document.changeproduct.category.value = "<?php echo $category; ?>";
 
         switch (type) {
 
-            case 2: // If the option selected is the 710mL Bottle
+            <?php
+            foreach ($changeProductCases as $i){
+                echo $i;
+            }
+            ?>
 
-                // Update relevant variables
-                // name = "Sprite (710mL Bottle)";
-                // desc = "Sprite, a lemon-lime flavored soft drink. <br><br>From the Coca-Cola Company, Sprite is one of the best-selling soft drinks in the world. Sprite also comes in 355mL cans or 2L bottles.";
-                // price = 1.49;
-                // img = "../assets/Images/sprite_710ml.jpg";
-                // limit = 12;
-                // id = 102;
-                currentItem = "<?php $currentobj = 2; echo $currentobj; ?>";
-
-                name = "<?php echo $name[1]; ?>";
-                desc = "<?php echo $description[1]; ?>";
-                price = "<?php echo $price[1]; ?>";
-                img = "../assets/Images/<?php echo $image[1]; ?>";
-                limit = "<?php echo $limit[1]; ?>";
-                id = "<?php echo $id[1]; ?>";
-
-                updatePageContents(); // Ditto.
-                break;
-
-            case 3: // 2L Bottle
-                // name = "Sprite (2L Bottle)";
-                // desc = "Sprite, a lemon-lime flavored soft drink. <br><br>From the Coca-Cola Company, Sprite is one of the best-selling soft drinks in the world. Sprite also comes in 355mL cans or 710mL bottles.";
-                // price = 1.99;
-                // img = "../assets/Images/sprite_2l.jpg";
-                // limit = 6;
-                // id = 103;
-                currentItem = "<?php $currentobj = 3; echo $currentobj; ?>";
-
-                name = "<?php echo $name[2]; ?>";
-                desc = "<?php echo $description[2]; ?>";
-                price = "<?php echo $price[2]; ?>";
-                img = "../assets/Images/<?php echo $image[2]; ?>";
-                limit = "<?php echo $limit[2]; ?>";
-                id = "<?php echo $id[2]; ?>";
-
-                updatePageContents(); 
-                break;
-
-            default: // 355mL Can
-                // name = "Sprite (355mL Can)";
-                // desc = "Sprite, a lemon-lime flavored soft drink. <br><br>From the Coca-Cola Company, Sprite is one of the best-selling soft drinks in the world. Sprite also comes in 710mL bottles or 2L bottles.";
-                // price = 0.99;
-                // img = "../assets/Images/sprite.jpg";
-                // limit = 24;
-                // id = 101;
+            default:
                 currentItem = "<?php $currentobj = 1; echo $currentobj; ?>";
 
                 name = "<?php echo $name[0]; ?>";
@@ -254,9 +199,12 @@ loadItem();
             <!-- Product option selection buttons -->
             <p>You may choose a different size using the options below...</p>
             <form type="submit" id="changeproduct" action="item.php" name="changeproduct" method="GET">
-                <button id="productOption1" class="product_option_btn" onclick="changeProduct(1);">355mL Can</button>
-                <button id="productOption2" class="product_option_btn" onclick="changeProduct(2);">710mL Bottle</button>
-                <button id="productOption3" class="product_option_btn" onclick="changeProduct(3);">2L Bottle</button><br><br><br>
+                <?php
+                foreach ($changeProductButtons as $i) {
+                    echo $i;
+                }
+                ?>
+                <br><br><br>
                 <input type="hidden" id="category" name="category" value="" />
                 <input type="hidden" id="item" name="item" value="" />
             </form>

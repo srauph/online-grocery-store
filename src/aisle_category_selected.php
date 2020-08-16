@@ -9,13 +9,11 @@ $doc = new DOMDocument();
 $doc->load("data.xml");
 
 $category = $_GET['category'];
-// $product = "cocacola";
-// $type = "t1";
+
 $product = [];
 $item;
 $bvgqty = 0;
 
-// $currentobj = $type[1];
 $productsTop =
 "<tr>
     <br><h2 style='color:dodgerblue; text-align:center;'> Click on a product image (or its corresponding title) to go to
@@ -57,21 +55,16 @@ function loadItem() {
     global $name, $description, $price, $image, $limit, $id;
     $docProducts = $doc->getElementsByTagName("product");
     foreach($docProducts as $i) {
-        // echo $i->getElementsByTagName("item")->item(0)->nodeValue;
         if ($i->getElementsByTagName("category")->item(0)->nodeValue == $category) {
-            
-            // $options = $i->getElementsByTagName("options")->item(0)->nodeValue;
-            // for ($j = 1; $j <= $options; $j++) {
-                $item = $i->getElementsByTagName("item")->item(0)->nodeValue;
-                $minidesc = $i->getElementsByTagName("minidesc")->item(0)->nodeValue;
-                $k = $i->getElementsByTagName("t1")->item(0);
-                $id[$bvgqty] = $k->getElementsByTagName("id")->item(0)->nodeValue;
-                $name[$bvgqty] = $k->getElementsByTagName("name")->item(0)->nodeValue;
-                $description[$bvgqty] = $k->getElementsByTagName("description")->item(0)->nodeValue;
-                $price[$bvgqty] = $k->getElementsByTagName("price")->item(0)->nodeValue;
-                $image[$bvgqty] = $k->getElementsByTagName("image")->item(0)->nodeValue;
-                $limit[$bvgqty] = $k->getElementsByTagName("limit")->item(0)->nodeValue;
-            // }
+            $item = $i->getElementsByTagName("item")->item(0)->nodeValue;
+            $minidesc = $i->getElementsByTagName("minidesc")->item(0)->nodeValue;
+            $k = $i->getElementsByTagName("t1")->item(0);
+            $id[$bvgqty] = $k->getElementsByTagName("id")->item(0)->nodeValue;
+            $name[$bvgqty] = $k->getElementsByTagName("name")->item(0)->nodeValue;
+            $description[$bvgqty] = $k->getElementsByTagName("description")->item(0)->nodeValue;
+            $price[$bvgqty] = $k->getElementsByTagName("price")->item(0)->nodeValue;
+            $image[$bvgqty] = $k->getElementsByTagName("image")->item(0)->nodeValue;
+            $limit[$bvgqty] = $k->getElementsByTagName("limit")->item(0)->nodeValue;
             $product[$bvgqty] =
             "<tr>
                 <div class='beverage_aisle'>
@@ -85,7 +78,6 @@ function loadItem() {
                         <div class='beverage_aisle_item'>
                             <button name='item' class='btn_slim' value='$item'>$name[$bvgqty]</button>
                         </div>
-                        <input name='category' type='hidden' value='$category'/>
                     
                         <div class='beverage_aisle_item'>$minidesc</div>
                         <div class='beverage_aisle_item' style='color:seagreen;'>$$price[$bvgqty]</div>
@@ -150,22 +142,6 @@ loadItem();
 
             <div class="sub_menus" id="aisle_categories">
                 <?php echo file_get_contents('common/aisleform.php'); ?>
-                <!-- <form action="frozen.php" method="POST">
-                    <ul>
-                        <li><input type="submit" name="tag_search_btn" value="Bakery" formaction="bakery.php"></li>
-                        <li><input type="submit" name="tag_search_btn" value="Beauty Products"
-                                formaction="beautyproducts.php"></li>
-                        <li><input type="submit" name="tag_search_btn" value="Beverages" formaction="beverages.php">
-                        </li>
-                        <li><input type="submit" name="tag_search_btn" value="Frozen" formaction="frozen.php"></li>
-                        <li><input type="submit" name="tag_search_btn" value="Fruits" formaction="fruits.php"></li>
-                        <li><input type="submit" name="tag_search_btn" value="Vegetables" formaction="vegetables.php">
-                        </li>
-                        <li><input type="submit" name="tag_search_btn" value="Dairy Products"
-                                formaction="dairyproducts.php"></li>
-                        <li><input type="submit" name="tag_search_btn" value="Snacks" formaction="snacks.php"></li>
-                    </ul>
-                </form> -->
             </div>
         </div>
 
@@ -173,44 +149,6 @@ loadItem();
             <div id="beverage_items">
 
                 <table id="beverage_table">
-                    <!-- <tr>
-                        <br><h2 style="color:crimson; text-align:center;"> Click on a product image (or its corresponding title) to go to
-                                the corresponding product page.</h2>
-                    </tr>
-
-                    <tr> 
-                        <div class="beverage_aisle_head">
-                            <div class="beverage_aisle_item_img">
-                                <h2>Product Image</h2>
-                            </div>
-
-                            <div class="beverage_aisle_item">
-                                <h2>Product Title</h2>
-                            </div>
-
-                            <div class="beverage_aisle_item">
-                                <h2>Brief Description</h2>
-                            </div>
-
-                            <div class="beverage_aisle_item">
-                                <h2>Product Price</h2>
-                            </div>
-
-                            <div class="beverage_aisle_item">
-                                <h2>Add to Cart</h2>
-                            </div>
-                        </div>
-                        
-                        <div class="beverage_aisle_head_mobile">
-                            <div class="beverage_aisle_item">
-                                <h2>Product Image</h2>
-                            </div>
-
-                            <div class="beverage_aisle_item">
-                                <h2>Description</h2>
-                            </div>
-                        </div>
-                    </tr> -->
 
                     <?php
                         if (sizeof($product) != 0) {
