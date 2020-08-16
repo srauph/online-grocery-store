@@ -16,25 +16,25 @@ echo var_dump($items);
 
     $fragemntStr = 
     "\t<order>
-        <username>" . $username . "</username>";
+      <username>" . $username . "</username>";
 
     foreach ($items as $i) {
         $fragemntStr = $fragemntStr .
-        "\n\t\t<item>
-            <id>" . $i["id"] . "</id>
-            <name>" . $i["name"] . "</name>
-            <image>" . $i["image"] . "</image>
-            <quantity>" . $i["quantity"] . "</quantity>
-            <cost>" . $i["cost"] . "</cost>
-        </item>";
+        "\n\t\t\t<item>
+        <id>" . $i["id"] . "</id>
+        <name>" . $i["name"] . "</name>
+        <image>" . $i["image"] . "</image>
+        <quantity>" . $i["quantity"] . "</quantity>
+        <cost>" . $i["cost"] . "</cost>
+    \t</item>";
     }
 
     $fragemntStr = $fragemntStr .
-    "\n\t\t<price>" . $prices[0] ."</price>
+    "\n\t\t\t<price>" . $prices[0] ."</price>
     \t<subtotal>" . $prices[1] ."</subtotal>
     \t<qst>" . $prices[2] ."</qst>
     \t<gst>" . $prices[3] ."</gst>
-    </order>\n";
+    </order>\n  ";
 
     echo $fragemntStr;
 
