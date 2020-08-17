@@ -46,10 +46,11 @@
 @media only screen and (max-width: 1000px) {
     .beverage_aisle {
         display: grid;
-        grid-template-columns: 20% 80%;
-        grid-template-rows: auto auto auto auto;
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto auto auto auto;
         background-color: white;
         margin-bottom: 40px;
+        line-height: 2;
     }
     .beverage_aisle_head {
         display: none !important;
@@ -342,6 +343,15 @@
 
 .cart_btn:hover {
     background-color: #e53134;
+}
+
+.cart_btn_aisle:hover {
+    background-color: #e53134;
+}
+
+.cart_btn_aisle:active {
+    background-color: #ff5154;
+    transition: all 0s;
 }
 
 .cart_btn:active {

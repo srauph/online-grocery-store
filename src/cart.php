@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION["currentLogin"])){
+    $_SESSION["currentLogin"] = null;
+}
+?>
 <html>
 
 <head>
@@ -33,12 +39,14 @@
         var totalPrice;
         var numberOfItems;
         var items;
+        // var orderPlaced;
 
         /** 
          * Saves the cart to localStorage
          */
         function saveSessionData() {
             localStorage.setItem("cart", JSON.stringify(items));
+            // sessionStorage.setItem("orderPlaced", orderPlaced);
         }
 
         /**  
@@ -46,6 +54,7 @@
          */
         function loadSessionData() {
             items = JSON.parse(localStorage.getItem("cart"));
+            // orderPlaced = (sessionStorage.getItem("orderPlaced") == 'true');
         }
         
         function removeItem(id) {
@@ -108,6 +117,7 @@
             document.getElementById("qst").innerHTML = "$" + (totalPrice * 0.09975).toFixed(2);
             document.getElementById("gst").innerHTML = "$" + (totalPrice * 0.05).toFixed(2);
             document.getElementById("total").innerHTML = "$" + (totalPrice * 1.14975).toFixed(2);
+            return [(totalPrice * 1.14975).toFixed(2), (totalPrice.toFixed(2)), (totalPrice * 0.09975).toFixed(2), (totalPrice * 0.05).toFixed(2)];
         }
 
         function getNumberOfItems() {
@@ -131,7 +141,7 @@
             const DOM = document.getElementById("__cart_content_table");
 
             if (items == null || items.length == 0) {
-                //document.getElementById("___cart_content_table_r2").innerHTML = "<br><br>Cart is empty.";
+                    
                 DOM.innerHTML = "<h2>Cart is empty.</h2> Let's add some stuff to this!";
                 
                 // Write the GST and QST
@@ -148,19 +158,6 @@
             DOM.innerHTML = document.getElementById("___init").innerHTML;
 
             for (const item of items) {
-                
-                /*
-                <div class="cart_grid">
-                    <div class="cart_qty_selector">
-                        <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(false);">-</button>
-                        <input id="productQty" type="text" class="cart_qty" value="0" readonly></input>
-                        <button type="submit" class="cart_plus_minus_btn" onclick="updateQty(true);">+</button>
-                    </div>
-                    <div id="productMax" class="cart_qty_max_msg">
-                        Quantity Limit: 20
-                    </div>
-                </div>
-                */
 
                 DOM.innerHTML +=
                     `<tr class="cart_list">
@@ -204,64 +201,43 @@
             localStorage.removeItem("cart");
             init();
         }
+
+        function placeOrder() {
+            if (items == null) {
+                alert("You must add items to cart before you can place an order!")
+                return;
+            }
+            // alert(JSON.stringify(items));
+
+            // if ( == "false") {
+            //     alert("You must log in before you can place an order!");
+            //     return;
+            // }
+            document.placeorder.items.value = JSON.stringify(items);
+            document.placeorder.prices.value = JSON.stringify(calculateCost());
+            document.getElementById("placeorder").submit();
+            clearCart();
+            
+        }
+
     </script>
 </head>
 
 <body>
-    <div id="__top_banner">
-        <a class="white" href="login.php" title="Login to your account">Login</a>
-        |
-        <a class="white" href="register.php" title="First time user? Register now!">Register</a>
-
-        <!-- cart -->
-        <a href="cart.php">
-            <button id="cart_button">
-                <br>
-                <br>
-                <img src="../assets/Icons/cart.png" style="float:left; margin-right:0.5em" width="25" height="25">
-                <span id="cart_total_value">
-                    $0.00
-                </span>
-            </button>
-        </a>
-    </div>
-
-    <div style="text-align:center;">
-        <div id="menu">
-            <div class="menu_item" onclick="goto('index.php')">
-                <div>Home</div>
-            </div>
-            <div class="menu_item" onclick="goto('all_items.php')">
-                <div>All products</div>
-            </div>
-            <div class="menu_item" onclick="goto('aisle.php')">
-                <div onmouseover="void_showElement('menu_aisle');" onmouseout="void_hideElement('menu_aisle');">Aisle</div>
-            </div>
-            <div class="menu_item" onclick="goto('contactus.php')">
-                <div>Contact us</div>
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="sub_menus" id="menu_aisle" onmouseover="void_showElement('menu_aisle');"
-            onmouseout="void_hideElement('menu_aisle');">
-            <form action="register.php" method="POST">
-                <ul>
-                    <li><input type="submit" name="__tag_search_btn" value="Bakery" formaction="bakery.php" style="color:white; font-weight:bold"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Beauty Products"
-                            formaction="beautyproducts.php" style="color:white; font-weight:bold"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Beverages" formaction="beverages.php" style="color:white; font-weight:bold"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Frozen" formaction="frozen.php" style="color:white; font-weight:bold"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Fruits" formaction="fruits.php" style="color:white; font-weight:bold"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Vegetables" formaction="vegetables.php" style="color:white; font-weight:bold">
-                    </li>
-                    <li><input type="submit" name="__tag_search_btn" value="Dairy Products"
-                            formaction="dairyproducts.php" style="color:white; font-weight:bold"></li>
-                    <li><input type="submit" name="__tag_search_btn" value="Snacks" formaction="snacks.php" style="color:white; font-weight:bold"></li>
-                </ul>
-            </form>
-        </div>
-    </div>
+    <?php
+    if ($_SESSION["currentLogin"] != null) {
+        $header = file_get_contents('common/headerloggedin.php');
+        echo $header;
+        if ($_SESSION["currentLogin"][2] == "true") {
+            echo '<script>document.getElementById("helloUser").innerHTML="Hello, '.$_SESSION["currentLogin"][0].'! | <a class=\'white\' href=\'backend/productlist.php\' title=\'Go to store back end\'>Backend</a> | "</script>';
+        } else {
+            echo '<script>document.getElementById("helloUser").innerHTML="Hello, '.$_SESSION["currentLogin"][0].'! | "</script>';
+        }
+    } else {
+        $header = file_get_contents('common/header.php');
+        echo $header;
+    }
+    ?>
 
     
 
@@ -298,8 +274,12 @@
                 <h1>CART SUMMARY</h1>
                 <label class="name">Estimated total</label><br>
                 <input id="bigTotal" type="text" style="height:80px; font-size:40; width:300;" value="$0.00" readonly><br><br>
-
-                <button type="submit" class="cart_btn" style="width:300; size:20;">PLACE ORDER</button>
+                
+                <form type="submit" method="POST" action="php/placeorder.php" id="placeorder" name="placeorder">
+                    <button type="button" class="cart_btn" style="width:300; size:20;" onclick="placeOrder();">PLACE ORDER</button>
+                    <input type="hidden" name="items" value="" />
+                    <input type="hidden" name="prices" value="" />
+                </form>
 
                 <h3 class="red" style= "font-size:17; font-family:'Courier New';" >Price Breakdown:</h3>
 
@@ -370,7 +350,7 @@
                     </table>
                     <br>
 
-                    <a href="login.php"><button type="submit" class="cart_btn" style="width:300; size=20;">MY POSITION</button></a>
+                    <a href="login.php"><button type="submit" class="cart_btn" style="width:300; size:20;">MY POSITION</button></a>
                 </center>
 
 
@@ -388,51 +368,10 @@
     <br />
     <br />
 
-    <div id="footer">
-        <div class="store_name">
-            Caliprex
-        </div>
-        <br>
-        <div class="footer_bottom">
-            <div class="newsletter_subscribe">
-                Subscribe to our Newsletter!
-                <input type="text" style="height:30px;font-size:20;width:200px;"
-                    placeholder="Email address">
-                <input type="submit" id="btn_work" style="border:1px solid white; height:auto;" class="btn" ; value="GO">
-            </div>
-
-            <div class="media_links">
-                <a href="https://www.facebook.com/Caliprex-121401789649042" target="_blank">
-                        <image src="../assets/Icons/facebook.png" alt="Facebook image"
-                            width="50" height="50"></a>
-                <a href="https://www.instagram.com/caliprex/" target="_blank">
-                        <image src="../assets/Icons/instagram.png" alt="Instagram image"
-                            width="50" height="50"></a>
-                <a href="https://twitter.com/caliprex" target="_blank">
-                        <image src="../assets/Icons/twitter.png" alt="Twitter image"
-                            width="50" height="50"></a>
-                <a href="https://Pintrest.com/caliprex" target="_blank">
-                        <image src="../assets/Icons/pinterest.png" alt="Pintrest image"
-                            width="50" height="50"></a>
-                <a href="https://www.youtube.com/channel/UCvZRW67axwzk6fw5dBSw-iQ?view_as=subscriber"
-                        target="_blank">
-                        <image src="../assets/Icons/youtube.png" alt="Youtube image"
-                            width="50" height="50"></a>
-            </div>
-                
-            <div class="aboutus_login">
-                <h3>
-                    <a href="contactus.php" style="color:white;">About Us |</a>
-                    <a href="login.php" style="color:white;">Login</a>
-                </h3>
-            </div>
-
-        </div>
-        
-    </div>
-
-
-
+    <?php
+    $footer = file_get_contents('common/footer.php');
+    echo $footer;
+    ?>
 </body>
 
 </html>

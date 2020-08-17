@@ -94,8 +94,9 @@ function setQty(newQty) {
  * @param {*} direction When true, increment qty. Else, decrement qty.
  */
 function updateQty(direction) {
-
-    qty = document.getElementById("productQty").value;
+    
+    console.log(qty);
+    console.log(limit);
 
     if (qty < 0) {
         setQty(0);

@@ -1,0 +1,473 @@
+<?xml version="1.0"?>
+<root>
+  <products>
+    <product>
+      <category>Fruits</category>
+      <item>apple</item>
+      <options>4</options>
+      <minidesc>A soft green apple</minidesc>
+      <t1>
+        <id>311</id>
+        <name>Regular Red Apple</name>
+        <description>Apple, meet the world's favourite apple for snacks. &lt;br/&gt;&lt;br/&gt;The heart-shaped delicious apple has a bright surface. This delicious apple shines in fresh, crisp salads, for its crunchy texture and lightly sweet taste.</description>
+        <price>1.49</price>
+        <image>redapple.jpg</image>
+        <limit>20</limit>
+      </t1>
+      <t2>
+        <id>312</id>
+        <name>Regular Green Apple</name>
+        <description>Apple, meet the world's favourite apple for snacks. &lt;br/&gt;&lt;br/&gt;The heart-shaped delicious apple has a bright surface. This delicious apple shines in fresh, crisp salads, for its crunchy texture and lightly sweet taste.</description>
+        <price>1.99</price>
+        <image>greenapple.jpg</image>
+        <limit>20</limit>
+      </t2>
+      <t3>
+        <id>321</id>
+        <name>Mini Red Apple</name>
+        <description>Apple, meet the world's favourite apple for snacks. &lt;br/&gt;&lt;br/&gt;The heart-shaped delicious apple has a bright surface. This delicious apple shines in fresh, crisp salads, for its crunchy texture and lightly sweet taste.</description>
+        <price>0.99</price>
+        <image>redapple.jpg</image>
+        <limit>20</limit>
+      </t3>
+      <t4>
+        <id>322</id>
+        <name>Mini Green Apple</name>
+        <description>Apple, meet the world's favourite apple for snacks. &lt;br/&gt;&lt;br/&gt;The heart-shaped delicious apple has a bright surface. This delicious apple shines in fresh, crisp salads, for its crunchy texture and lightly sweet taste.</description>
+        <price>0.99</price>
+        <image>greenapple.jpg</image>
+        <limit>20</limit>
+      </t4>
+    </product>
+    <product>
+      <category>Beverages</category>
+      <item>sprite</item>
+      <options>3</options>
+      <minidesc>Sprite, a lemon-lime flavored soft drink</minidesc>
+      <t1>
+        <id>101</id>
+        <name>Sprite (355mL Can)</name>
+        <description>Sprite, a lemon-lime flavored soft drink. &lt;br/&gt;&lt;br/&gt;From the Coca-Cola Company, Sprite is one of the best-selling soft drinks in the world. Sprite also comes in 710mL bottles or 2L bottles.</description>
+        <price>0.99</price>
+        <image>sprite.jpg</image>
+        <limit>24</limit>
+      </t1>
+      <t2>
+        <id>102</id>
+        <name>Sprite (710mL Bottle)</name>
+        <description>Sprite, a lemon-lime flavored soft drink. &lt;br/&gt;&lt;br/&gt;From the Coca-Cola Company, Sprite is one of the best-selling soft drinks in the world. Sprite also comes in 355mL cans or 2L bottles.</description>
+        <price>1.49</price>
+        <image>sprite_710ml.jpg</image>
+        <limit>12</limit>
+      </t2>
+      <t3>
+        <id>103</id>
+        <name>Sprite (2L Bottle)</name>
+        <description>Sprite, a lemon-lime flavored soft drink. &lt;br/&gt;&lt;br/&gt;From the Coca-Cola Company, Sprite is one of the best-selling soft drinks in the world. Sprite also comes in 355mL cans or 710mL bottles.</description>
+        <price>1.99</price>
+        <image>sprite_2l.jpg</image>
+        <limit>6</limit>
+      </t3>
+    </product>
+    <product>
+      <category>Beverages</category>
+      <item>cocacola</item>
+      <options>3</options>
+      <minidesc>Coca-Cola, the ubiquitous soft drink</minidesc>
+      <t1>
+        <id>201</id>
+        <name>Coca-Cola (355mL Can)</name>
+        <description>Coca-Cola, the ubiquitous soft drink. &lt;br/&gt;&lt;br/&gt;Coca-Cola is one of the best-selling soft drinks in the world. Coca-Cola also comes in 710mL bottles or 2L bottles.</description>
+        <price>0.99</price>
+        <image>cocacola.jpg</image>
+        <limit>24</limit>
+      </t1>
+      <t2>
+        <id>202</id>
+        <name>Coca-Cola (710mL Bottle)</name>
+        <description>Coca-Cola, the ubiquitous soft drink. &lt;br/&gt;&lt;br/&gt;Coca-Cola is one of the best-selling soft drinks in the world. Coca-Cola also comes in 355mL cans or 2L bottles.</description>
+        <price>1.49</price>
+        <image>cocacola_710ml.jpg</image>
+        <limit>12</limit>
+      </t2>
+      <t3>
+        <id>203</id>
+        <name>Coca-Cola (2L Bottle)</name>
+        <description>Coca-Cola, the ubiquitous soft drink. &lt;br/&gt;&lt;br/&gt;Coca-Cola is one of the best-selling soft drinks in the world. Coca-Cola also comes in 355mL cans or 710mL bottles.</description>
+        <price>1.99</price>
+        <image>cocacola_2l.jpg</image>
+        <limit>6</limit>
+      </t3>
+    </product>
+    <product>
+      <category>Vegetables</category>
+      <item>carrots</item>
+      <options>3</options>
+      <minidesc>Carrots, a healthy root vegetable</minidesc>
+      <t1>
+        <id>104</id>
+        <name>Carrots (Nantes Variety)</name>
+        <description>Carrots, a healthy root vegetable freshly grown from local farms around the area. &lt;br/&gt;&lt;br/&gt; Carrots are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Baby and Danvers varieties.</description>
+        <price>1.29</price>
+        <image>carrots.jpg</image>
+        <limit>30</limit>
+      </t1>
+      <t2>
+        <id>105</id>
+        <name>Carrots (Baby Variety)</name>
+        <description>Carrots, a healthy root vegetable freshly grown from local farms around the area. &lt;br/&gt;&lt;br/&gt; Carrots are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Nantes and Danvers varieties.</description>
+        <price>1.49</price>
+        <image>carrotsoption2.jpg</image>
+        <limit>30</limit>
+      </t2>
+      <t3>
+        <id>106</id>
+        <name>Carrots (Danvers Variety)</name>
+        <description>Carrots, a healthy root vegetable freshly grown from local farms around the area. &lt;br/&gt;&lt;br/&gt; Carrots are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Nantes and Baby varieties.</description>
+        <price>1.69</price>
+        <image>carrotsoption3.jpg</image>
+        <limit>30</limit>
+      </t3>
+    </product>
+    <product>
+      <category>Vegetables</category>
+      <item>cucumbers</item>
+      <options>3</options>
+      <minidesc>Cucumbers, a healthy creeping vine plant</minidesc>
+      <t1>
+        <id>204</id>
+        <name>Cucumbers (Slicing Variety)</name>
+        <description>Cucumbers, a healthy creeping vine plant freshly grown from local farms around the area. &lt;br/&gt;&lt;br/&gt; Cucumbers are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Pickling and Seedless varieties.</description>
+        <price>1.49</price>
+        <image>cucumbers.jpg</image>
+        <limit>20</limit>
+      </t1>
+      <t2>
+        <id>205</id>
+        <name>Cucumbers (Pickling Variety)</name>
+        <description>Cucumbers, a healthy creeping vine plant freshly grown from local farms around the area. &lt;br/&gt;&lt;br/&gt; Cucumbers are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Slicing and Seedless varieties.</description>
+        <price>1.69</price>
+        <image>cucumbersoption2.jpg</image>
+        <limit>20</limit>
+      </t2>
+      <t3>
+        <id>206</id>
+        <name>Cucumbers (Seedless Variety)</name>
+        <description>Cucumbers, a healthy creeping vine plant freshly grown from local farms around the area. &lt;br/&gt;&lt;br/&gt; Cucumbers are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Slicing and Pickling varieties.</description>
+        <price>1.89</price>
+        <image>cucumbersoption3.jpg</image>
+        <limit>20</limit>
+      </t3>
+    </product>
+    <product>
+      <category>Vegetables</category>
+      <item>lettuces</item>
+      <options>3</options>
+      <minidesc>Lettuces, a healthy leaf vegetable</minidesc>
+      <t1>
+        <id>304</id>
+        <name>Lettuces (Butterhead Variety)</name>
+        <description>Lettuces, a healthy leaf vegetable freshly grown from local farms around the area. &lt;br/&gt;&lt;br/&gt; Lettuces are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Leaf and Romaine varieties.</description>
+        <price>1.59</price>
+        <image>lettuces.jpg</image>
+        <limit>20</limit>
+      </t1>
+      <t2>
+        <id>305</id>
+        <name>Lettuces (Leaf Variety)</name>
+        <description>Lettuces, a healthy leaf vegetable freshly grown from local farms around the area. &lt;br/&gt;&lt;br/&gt; Lettuces are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Butterhead and Romaine varieties.</description>
+        <price>1.79</price>
+        <image>lettucesoption2.jpg</image>
+        <limit>20</limit>
+      </t2>
+      <t3>
+        <id>306</id>
+        <name>Lettuces (Romaine Variety)</name>
+        <description>Lettuces, a healthy leaf vegetable freshly grown from local farms around the area. &lt;br/&gt;&lt;br/&gt; Lettuces are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Butterhead and Leaf varieties.</description>
+        <price>1.99</price>
+        <image>lettucesoption3.jpg</image>
+        <limit>20</limit>
+      </t3>
+    </product>
+    <product>
+      <category>Vegetables</category>
+      <item>onions</item>
+      <options>3</options>
+      <minidesc>Onions, a healthy vegetable</minidesc>
+      <t1>
+        <id>404</id>
+        <name>Onions (White Variety)</name>
+        <description>Onions, a healthy vegetable freshly grown from local farms around the area. &lt;br/&gt;&lt;br/&gt; Onions are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Yellow and Red varieties.</description>
+        <price>0.99</price>
+        <image>onions.jpg</image>
+        <limit>20</limit>
+      </t1>
+      <t2>
+        <id>405</id>
+        <name>Onions (Yellow Variety)</name>
+        <description>Onions, a healthy vegetable freshly grown from local farms around the area. &lt;br/&gt;&lt;br/&gt; Onions are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in White and Red varieties.</description>
+        <price>1.19</price>
+        <image>onionsoption2.jpg</image>
+        <limit>20</limit>
+      </t2>
+      <t3>
+        <id>406</id>
+        <name>Onions (Red Variety)</name>
+        <description>Onions, a healthy vegetable freshly grown from local farms around the area. &lt;br/&gt;&lt;br/&gt; Onions are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in White and Yellow varieties.</description>
+        <price>1.39</price>
+        <image>onionsoption3.jpg</image>
+        <limit>20</limit>
+      </t3>
+    </product>
+    <product>
+      <category>Vegetables</category>
+      <item>tomatoes</item>
+      <options>3</options>
+      <minidesc>Tomatoes, a healthy fruit from the tomato plant</minidesc>
+      <t1>
+        <id>504</id>
+        <name>Tomatoes (Cherry Variety)</name>
+        <description>Tomatoes, a healthy fruit from the tomato plant (often seen as a vegetable) freshly grown from local farms around the area. &lt;br/&gt;&lt;br/&gt; Tomatoes are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in San Marzano and Better Boy varieties.</description>
+        <price>1.49</price>
+        <image>tomatoes.jpg</image>
+        <limit>20</limit>
+      </t1>
+      <t2>
+        <id>505</id>
+        <name>Tomatoes (San Marzano Variety)</name>
+        <description>Tomatoes, a healthy fruit from the tomato plant (often seen as a vegetable) freshly grown from local farms around the area. &lt;br/&gt;&lt;br/&gt; Tomatoes are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Cherry and Better Boy varieties.</description>
+        <price>1.69</price>
+        <image>tomatoesoption2.jpg</image>
+        <limit>20</limit>
+      </t2>
+      <t3>
+        <id>506</id>
+        <name>Tomatoes (Better Boy Variety)</name>
+        <description>Tomatoes, a healthy fruit from the tomato plant (often seen as a vegetable) freshly grown from local farms around the area. &lt;br/&gt;&lt;br/&gt; Tomatoes are one of the most popular and widely used vegetables in the world. Come in 1 kg weighed bag format only. Also available in Cherry and San Marzano varieties.</description>
+        <price>1.89</price>
+        <image>tomatoesoption3.jpg</image>
+        <limit>20</limit>
+      </t3>
+    </product>
+    <product>
+      <category>Snacks</category>
+      <item>mars</item>
+      <options>1</options>
+      <minidesc>A 47g Mars chocolate bar</minidesc>
+      <t1>
+        <id>121</id>
+        <name>Mars</name>
+        <description>A 47g Mars chocolate bar. &lt;br/&gt;&lt;br/&gt; (Limited to 3 per customer).</description>
+        <price>1.49</price>
+        <image>mars.jpg</image>
+        <limit>3</limit>
+      </t1>
+    </product>
+    <product>
+      <category>Snacks</category>
+      <item>twix</item>
+      <options>1</options>
+      <minidesc>A 52g Twix chocolate bar</minidesc>
+      <t1>
+        <id>122</id>
+        <name>Twix</name>
+        <description>A 52g Twix chocolate bar. &lt;br/&gt;&lt;br/&gt; (Limited to 3 per customer).</description>
+        <price>1.49</price>
+        <image>twix.jpg</image>
+        <limit>3</limit>
+      </t1>
+    </product>
+    <product>
+      <category>Frozen</category>
+      <item>frozenfries</item>
+      <options>3</options>
+      <minidesc>Mccain fries, crunchy and tasty fries</minidesc>
+      <t1>
+        <id>39</id>
+        <name>Mccain fries (454g Bag)</name>
+        <description>Mccain fries, crunchy and tasty fries.From the Mccain fries company, Mccain fries is crunchy and tasty. It is a great choice for breakfast, lunch , and dinner.Mccain fries also come in a 650 bag and a 900g bag</description>
+        <price>3.99</price>
+        <image>mccainfries_454g.jpg</image>
+        <limit>24</limit>
+      </t1>
+      <t2>
+        <id>40</id>
+        <name>Mccainfries (650g Bag)</name>
+        <description>Mccain fries, crunchy and tasty fries. From the Mccain fries company, Mccain fries are crunchy and tasty. They are a great choice for breakfast, lunch, and dinner. Mccain fries also come in a 454g bag and a 900g bag.</description>
+        <price>5.50</price>
+        <image>mccainfries_650g.jpg</image>
+        <limit>12</limit>
+      </t2>
+      <t3>
+        <id>41</id>
+        <name>Mccainfries (900g Bag)</name>
+        <description>Mccain fries, crunchy and tasty fries. From the Mccain fries company, Mccain fries are crunchy and tasty. They are a great choice for breakfast, lunch, and dinner. Mccain fries also come in a 454g bag and a 650g bag.</description>
+        <price>7.00</price>
+        <image>mccainfries_900g.jpg</image>
+        <limit>6</limit>
+      </t3>
+    </product>
+    <product>
+      <category>Dairy Products</category>
+      <item>milk</item>
+      <options>2</options>
+      <minidesc>Quebon Milk</minidesc>
+      <t1>
+        <id>14</id>
+        <name>Quebon Milk</name>
+        <description>Quebon Milk. Can be categorized under milk, quebon milk, quebec milk, diary products, diary, white, calcium, quebon.</description>
+        <price>3.99</price>
+        <image>milk.jpg</image>
+        <limit>12</limit>
+      </t1>
+      <t2>
+        <id>15</id>
+        <name>Beatrice Milk</name>
+        <description>Beatrice Milk. Can be categorized under milk, quebon milk, quebec milk, diary products, diary, white, calcium, beatrice.</description>
+        <price>2.99</price>
+        <image>milk2.jpg</image>
+        <limit>12</limit>
+      </t2>
+    </product>
+    <product>
+      <category>Frozen</category>
+      <item>icecream</item>
+      <options>1</options>
+      <minidesc>Ben &amp; Jerry's Cookie Dough Ice Cream</minidesc>
+      <t1>
+        <id>36</id>
+        <name>Ben &amp; Jerry's Ice Cream</name>
+        <description>Ben &amp; Jerry's Cookie Dough Ice Cream. Can be categorized under ben &amp; jerry's cookie dough ice cream , ben &amp; jerry's, ben &amp; jerrys, ice cream, icecream, frozen, sweet, snacks, cold, cookie dough.</description>
+        <price>3.25</price>
+        <image>bjcookiedough.jpg</image>
+        <limit>16</limit>
+      </t1>
+    </product>
+    <product>
+      <category>Beauty Products</category>
+      <item>elvive</item>
+      <options>1</options>
+      <minidesc>Elvive Shampoo</minidesc>
+      <t1>
+        <id>33</id>
+        <name>Elvive Shampoo</name>
+        <description>Elvive Shampoo. Can be categorized under elvive shampoo, shampoo, elvive, beauty products, shower.</description>
+        <price>3.99</price>
+        <image>elvive.jpg</image>
+        <limit>12</limit>
+      </t1>
+    </product>
+    <product>
+      <category>Beauty Products</category>
+      <item>headshoulder</item>
+      <options>1</options>
+      <minidesc>Head and Shoulders Shampoo</minidesc>
+      <t1>
+        <id>32</id>
+        <name>Head and Shoulders</name>
+        <description>Head and Shoulders Shampoo. Can be categorized under shampoo, head and shoulders shampoo, head and shoulders, beauty products, shower.</description>
+        <price>5.99</price>
+        <image>headshoulder.png</image>
+        <limit>12</limit>
+      </t1>
+    </product>
+    <product>
+      <category>Bakery</category>
+      <item>bagels</item>
+      <options>1</options>
+      <minidesc>Pom Bagels</minidesc>
+      <t1>
+        <id>29</id>
+        <name>Pom Bagels</name>
+        <description>Multigrain Slice of Life toast. Can be categorized under pom bagels, pom, bagels, bagel, bread, bakery, grains.</description>
+        <price>1.09</price>
+        <image>bagels.jpg</image>
+        <limit>6</limit>
+      </t1>
+    </product>
+    <product>
+      <category>Bakery</category>
+      <item>toast</item>
+      <options>1</options>
+      <minidesc>Multigrain Slice of Life toast</minidesc>
+      <t1>
+        <id>30</id>
+        <name>Slice of Life Toast</name>
+        <description>Multigrain Slice of Life toast. Can be categorized under multigrain toast, toast, multigrain, slice of life toast, bakery, grains, break.</description>
+        <price>3.99</price>
+        <image>multigraintoast.jpg</image>
+        <limit>6</limit>
+      </t1>
+    </product>
+  </products>
+  <orders>
+  	<order>
+      <username>admin</username>
+			<item>
+        <id>101</id>
+        <name>Sprite (355mL Can)</name>
+        <image>sprite.jpg</image>
+        <quantity>3</quantity>
+        <cost>0.99</cost>
+    	</item>
+			<item>
+        <id>201</id>
+        <name>Coca-Cola (355mL Can)</name>
+        <image>cocacola.jpg</image>
+        <quantity>2</quantity>
+        <cost>0.99</cost>
+    	</item>
+			<price>5.69</price>
+    	<subtotal>4.95</subtotal>
+    	<qst>0.49</qst>
+    	<gst>0.25</gst>
+    </order>
+  	<order>
+      <username>admin</username>
+			<item>
+        <id>101</id>
+        <name>Sprite (355mL Can)</name>
+        <image>sprite.jpg</image>
+        <quantity>3</quantity>
+        <cost>0.99</cost>
+    	</item>
+			<item>
+        <id>201</id>
+        <name>Coca-Cola (355mL Can)</name>
+        <image>cocacola.jpg</image>
+        <quantity>1</quantity>
+        <cost>0.99</cost>
+    	</item>
+			<price>4.55</price>
+    	<subtotal>3.96</subtotal>
+    	<qst>0.40</qst>
+    	<gst>0.20</gst>
+    </order>
+  </orders>
+  <users>
+    <user>
+      <username>admin</username>
+      <password>admin</password>
+      <email>admin@admin.com</email>
+      <admin>true</admin>
+    </user>
+    <user>
+      <username>admin2</username>
+      <password>admin2</password>
+      <email>admin2@admin.com</email>
+      <admin>true</admin>
+    </user>
+    <user>
+      <username>random</username>
+      <password>random</password>
+      <email>random@random.com</email>
+      <admin>false</admin>
+    </user>
+    <user>
+      <username>random2</username>
+      <password>random2</password>
+      <email>random2@random2.com</email>
+      <admin>false</admin>
+    </user>
+  </users>
+</root>
