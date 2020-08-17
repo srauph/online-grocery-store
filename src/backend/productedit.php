@@ -203,6 +203,7 @@ function loadItems() {
 					</tr>";
 				}
 			}
+		break;
 		}
 		$bvgqty++;
     }
