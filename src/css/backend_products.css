@@ -131,6 +131,19 @@
         /* grid-column-gap: 10px; */
         width: 100%;
     }
+    .user_list {
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        /* grid-column-gap: 10px; */
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    .user_list_head {
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        /* grid-column-gap: 10px; */
+        width: 100%;
+    }
     .item_list_head_mobile {
         display: none !important;
     }
@@ -162,6 +175,12 @@
     .edit_item_head {
         display: grid;
         grid-template-columns: 8% 5% 10% 10% 10% 15% 20% 5% 5% 12%;
+        /* grid-column-gap: 10px; */
+        width: 100%;
+    }
+    .edit_user_head {
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
         /* grid-column-gap: 10px; */
         width: 100%;
     }

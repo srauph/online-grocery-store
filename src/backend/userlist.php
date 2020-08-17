@@ -1,21 +1,107 @@
 <?php
 session_start();
-if (!isset($_SESSION["currentLogin"]))
-{
+if (!isset($_SESSION["currentLogin"])){
     $_SESSION["currentLogin"] = null;
+}
+
+function alert($msg) {
+    echo "<script>alert('$msg');</script>";
 }
 
 $doc = new DOMDocument();
 $doc->load("../data.xml");
+
+$usersTop =
+"
+<div style='text-align:center;'>
+	<br/><br/>
+	<h1 style='margin:2%; font-size:36px;'>List of Registered Users</h1>
+	<form type='submit' method='GET' action='useredit.php'>
+		<button name='add' class='item_btn_aisle' style='font-size:32px; padding:1%; padding-left:3%; padding-right:3%; margin:1%;' value='' />Add a User</button>
+	</form>
+</div>
+<tr> 
+	<div class='user_list_head'>
+		<div class='item_list_item_img'>
+			<h2>Username</h2>
+		</div>
+
+		<div class='item_list_item_img'>
+			<h2>Password</h2>
+		</div>
+
+        <div class='item_list_item_img'>
+            <h2>E-mail</h2>
+        </div>
+
+        <div class='item_list_item'>
+            <h2>Admin?</h2>
+        </div>
+		
+		<div class='item_list_item'>
+            <h2>Edit/Delete</h2>
+        </div>
+    </div>
+</tr>
+<hr style='margin:2%; margin-top:0%;'/><br/>";
+
+$users = [];
+$usernames = [];
+$passwords = [];
+$emails = [];
+$admins = [];
+
+function loadUsers() {
+    global $doc, $user, $username, $password, $email, $admin, $userqty;
+	$docUsers = $doc->getElementsByTagName("user");
+	
+    foreach($docUsers as $i) {
+    	$username[$userqty] = $i->getElementsByTagName("username")->item(0)->nodeValue;
+		$password[$userqty] = $i->getElementsByTagName("password")->item(0)->nodeValue;
+		$email[$userqty] = $i->getElementsByTagName("email")->item(0)->nodeValue;
+		$admin[$userqty] = $i->getElementsByTagName("admin")->item(0)->nodeValue;
+		$user[$userqty] =
+		"<tr>
+			<div class='user_list'>
+				<div class='item_list_item' style='font-weight:bold;'>
+					$username[$userqty]
+				</div>
+
+				<div class='item_list_item' style='font-weight:bold;'>
+					$password[$userqty]
+				</div>
+
+				<div class='item_list_item' style='font-weight:bold;'>
+					$email[$userqty] 
+				</div>
+
+				<div class='item_list_item' style='font-weight:bold;'>
+					$admin[$userqty]
+				</div>
+				<div class='item_list_item'>
+					<form style='margin:auto;' type='submit' method='GET' action='useredit.php'>
+						<button name='user' class='item_btn_aisle' value='$username[$userqty]' />Edit</button>
+						<button name='user' class='item_btn_aisle' value='delete$username[$userqty]' />Delete</button>
+					</form>
+				</div>
+			</div>
+		</tr>";
+		$userqty++;
+    }
+}
+
+loadUsers();
 ?>
+
 <html>
 <head>
+<head>
     <link rel="stylesheet" type="text/css" href="../css/main.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/backend_users.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/backend_products.css"/>
     <title id="productTitle">
-    	List of registered users
+    	List of Registered Users
     </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <script type="text/javascript" src="../scripts/Util.js">
     	
     </script>
@@ -48,124 +134,21 @@ $doc->load("../data.xml");
         document.getElementById("helloUser").innerHTML="Hello, <?php echo $_SESSION["currentLogin"][0]; ?>!";
 	</script>	
         
-		<div style="text-align:center">
-			<form method="POST" action="php/addUserBackend.php">	
-				<ul>
-					<table style="margin-left: auto; margin-right: auto">
-						<tr>
-							<th style="text-align:center; margin: auto; display: block">
-								<div>
-									<h2>
-										User Addition:
-									</h2>
-								</div>
-							</th> 
-							<th style="text-align:center; height:40px">
-								<input type="submit" value="Add a User" class="user_delete_btn" formaction="useredit.php"/>
-							</th>
-						</tr>
-					</table>
-					<br>
-					<br>
-					<table style="width:100%">
-						<tr>
-							<th style="text-align:center; height:40px">
-								<h2>
-									Username
-								</h2>
-							</th>
-							<th style="text-align:center; height:40px">
-								<h2>
-									E-mail
-								</h2>
-							</th>
-							<th style="text-align:center; height:40px">
-								<h2>
-									User's Specific Role
-								</h2>
-							</th>
-							<th style="text-align:center; height:40px">
-								<h2>
-									Edit User?
-								</h2>
-							</th>
-						</tr>
-						<tr>
-							<td style="text-align:center; height:40px">
-								Admin
-							</td>
-							<td style="text-align:center; height:40px">
-								admin@gmail.com
-							</td>
-							<td style="text-align:center; height:40px">
-								<div>
-									<input type="radio" name="role" value="Admin"/>
-									<label for="Admin">
-										Admin
-									</label>
-									<input type="radio" name="role" value="Regular User"/>
-									<label for="Regular User">
-										Regular User
-									</label>
-								</div>
-							</td>
-							<td style="text-align:center; height:40px">
-								<input type="submit" class="user_delete_btn" value="Edit" formaction="useredit.php"/>
-							</td>
-						</tr>
-						<tr>
-							<td style="text-align:center; height:40px">
-								Username1
-							</td>
-							<td style="text-align:center; height:40px">
-								Email1@gmail.com
-							</td>
-							<td style="text-align:center; height:40px">
-								<div>
-									<input type="radio" name="role" value="Admin"/>
-									<label for="Admin">
-										Admin
-									</label>
-									<input type="radio" name="role" value="Regular User"/>
-									<label for="Regular User">
-										Regular User
-									</label>
-								</div>
-							</td>
-							<td style="text-align:center; height:40px">
-								<input type="submit" class="user_delete_btn" value="Edit" formaction="useredit.php"/>
-							</td>
-						</tr>
-						<tr>
-							<td style="text-align:center; height:40px">
-								Username2
-							</td>
-							<td style="text-align:center; height:40px">
-								Email2@gmail.com
-							</td>
-							<td style="text-align:center; height:40px">
-								<div>
-									<input type="radio" name="role" value="Admin"/>
-									<label for="Admin">
-										Admin
-									</label>
-									<input type="radio" name="role" value="Regular User"/>
-									<label for="Regular User">
-										Regular User
-									</label>
-								</div>
-							</td>
-							<td style="text-align:center; height:40px">
-								<input type="submit" class="user_delete_btn" value="Edit" formaction="useredit.php"/>
-							</td>
-						</tr>
-					</table>
-				</ul>
-			</form>
-		</div>			
+			<?php
+			if (isset($_POST['failed'])) {
+				alert("Invalid User Registration Form!");
+			}
+
+			if (sizeof($user) != 0) {
+				echo $usersTop;
+				foreach ($user as $i) {
+					echo $i;
+				}
+			}
+		?>
 		<br>
 		<br>
-		</div>
+		
 	<?php
     $footer = file_get_contents('../common/footerbackend.php');
     echo $footer;
