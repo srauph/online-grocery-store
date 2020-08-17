@@ -155,9 +155,6 @@ loadItems();
 			if (isset($_POST['failed'])) {
 				alert("Invalid Item Form!");
 			}
-			elseif (isset($_POST['failed'])) {
-				alert("Item edited (or added) successfully!");
-			}
 			if (sizeof($product) != 0) {
 				echo $productsTop;
 				foreach ($product as $i) {

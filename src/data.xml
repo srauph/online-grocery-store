@@ -401,6 +401,48 @@
     </product>
   </products>
   <orders>
+  	<order>
+      <username>admin</username>
+			<item>
+        <id>101</id>
+        <name>Sprite (355mL Can)</name>
+        <image>sprite.jpg</image>
+        <quantity>3</quantity>
+        <cost>0.99</cost>
+    	</item>
+			<item>
+        <id>201</id>
+        <name>Coca-Cola (355mL Can)</name>
+        <image>cocacola.jpg</image>
+        <quantity>2</quantity>
+        <cost>0.99</cost>
+    	</item>
+			<price>5.69</price>
+    	<subtotal>4.95</subtotal>
+    	<qst>0.49</qst>
+    	<gst>0.25</gst>
+    </order>
+  	<order>
+      <username>admin</username>
+			<item>
+        <id>101</id>
+        <name>Sprite (355mL Can)</name>
+        <image>sprite.jpg</image>
+        <quantity>3</quantity>
+        <cost>0.99</cost>
+    	</item>
+			<item>
+        <id>201</id>
+        <name>Coca-Cola (355mL Can)</name>
+        <image>cocacola.jpg</image>
+        <quantity>1</quantity>
+        <cost>0.99</cost>
+    	</item>
+			<price>4.55</price>
+    	<subtotal>3.96</subtotal>
+    	<qst>0.40</qst>
+    	<gst>0.20</gst>
+    </order>
   </orders>
   <users>
     <user>
