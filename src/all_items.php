@@ -108,7 +108,7 @@ if (!isset($_SESSION["currentLogin"])){
                             <!-- Add to cart button -->
 
                             <input type=\"button\" value=\"Add to cart\" onclick=\"cart.void_add(
-                                        new Item($id[$bvgqty], '$item', '$category[$bvgqty]', '$image[$bvgqty]', $price[$bvgqty], $limit[$bvgqty], false)
+                                        new Item($id[$bvgqty], '$item', '$category[$bvgqty]', '$image[$bvgqty]', $price[$bvgqty], 1, false)
                                         )\" />                 
                         </div>";
                 $bvgqty++;
