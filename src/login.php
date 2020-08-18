@@ -45,6 +45,11 @@ if (!isset($_SESSION["currentLogin"])){
         <br />
 
         <h1 class="center">Sign In</h1><br>
+        <div style='text-align:center; color:slateblue;'>
+            <p>NOTE: You may use the following credentials:</p>
+            <p style='color:dodgerblue;'>Username: admin<br/>Password: admin</p>
+            <p>to log in as administrator.<br/>This notice is only for testing purposes, and will be removed later.<br/><br/><br/></p>
+        </div>
         <form action="php/attemptLogin.php" method="POST">
             <center>
                 <table>
