@@ -321,43 +321,47 @@ if (!isset($_GET['add'])) {
 
 
 <html>
-<head>
-<head>
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
-	<link rel="stylesheet" type="text/css" href="../css/backend_products.css">
-    <title id="productTitle">Edit a Product</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script type="text/javascript" src="../scripts/Util.js"></script>
-    <script type="text/javascript" src="../scripts/Cart.js"></script>
-    <script type="text/javascript" src="../scripts/Item.js"></script>
-    <script type="text/javascript" src="../scripts/Sales.js"></script>
-    <script type="text/javascript" src="../scripts/AbstractComponent.js"></script>
-    <script type="text/javascript" src="../scripts/Beverage.js"></script>
-    <script type="text/javascript" src="../scripts/main.js"></script>
-</head>
+<head>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link rel="stylesheet" type="text/css" href="../css/backend_products.css">
+        <title id="productTitle">Edit a Product</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script type="text/javascript" src="../scripts/Util.js"></script>
+        <script type="text/javascript" src="../scripts/Cart.js"></script>
+        <script type="text/javascript" src="../scripts/Item.js"></script>
+        <script type="text/javascript" src="../scripts/Sales.js"></script>
+        <script type="text/javascript" src="../scripts/AbstractComponent.js"></script>
+        <script type="text/javascript" src="../scripts/Beverage.js"></script>
+        <script type="text/javascript" src="../scripts/main.js"></script>
+    </head>
 
 <body>
-	<?php
+    <?php
     $header = file_get_contents('../common/headerbackend.php');
 	echo $header;
     ?>
     <script>
-        document.getElementById("helloUser").innerHTML="Hello, <?php echo $_SESSION["currentLogin"][0]; ?>!";
-	</script>
+    document.getElementById("helloUser").innerHTML = "Hello, <?php echo $_SESSION["
+    currentLogin "][0]; ?>!";
+    </script>
 
-	<form type='submit' method='POST' action='../php/editProduct.php'>
-			<?php
+    <form type='submit' method='POST' action='../php/editProduct.php'>
+        <?php
 			echo $productsTop;
 			foreach ($products as $i) {
 				echo $i;
 			}
 			?>
-	</form>
-	<br/><br/>
+    </form>
+    <br /><br />
 
-	<?php
+    <?php
     $footer = file_get_contents('../common/footerbackend.php');
     echo $footer;
     ?>
+
 </html>

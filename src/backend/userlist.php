@@ -94,47 +94,50 @@ loadUsers();
 ?>
 
 <html>
+
 <head>
-<head>
-    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
-	<link rel="stylesheet" type="text/css" href="../css/backend_products.css"/>
-    <title id="productTitle">
-    	List of Registered Users
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <script type="text/javascript" src="../scripts/Util.js">
-    	
-    </script>
-    <script type="text/javascript" src="../scripts/Cart.js">
-    	
-    </script>
-    <script type="text/javascript" src="../scripts/Item.js">
-    	
-    </script>
-    <script type="text/javascript" src="../scripts/Sales.js">
-    	
-    </script>
-    <script type="text/javascript" src="../scripts/AbstractComponent.js">
-    	
-    </script>
-    <script type="text/javascript" src="../scripts/Beverage.js">
-    	
-    </script>
-    <script type="text/javascript" src="../scripts/main.js">
-    	
-    </script>
-</head>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="../css/main.css" />
+        <link rel="stylesheet" type="text/css" href="../css/backend_products.css" />
+        <title id="productTitle">
+            List of Registered Users
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script type="text/javascript" src="../scripts/Util.js">
+
+        </script>
+        <script type="text/javascript" src="../scripts/Cart.js">
+
+        </script>
+        <script type="text/javascript" src="../scripts/Item.js">
+
+        </script>
+        <script type="text/javascript" src="../scripts/Sales.js">
+
+        </script>
+        <script type="text/javascript" src="../scripts/AbstractComponent.js">
+
+        </script>
+        <script type="text/javascript" src="../scripts/Beverage.js">
+
+        </script>
+        <script type="text/javascript" src="../scripts/main.js">
+
+        </script>
+    </head>
 
 <body>
-	<?php
+    <?php
     $header = file_get_contents('../common/headerbackend.php');
 	echo $header;
     ?>
     <script>
-        document.getElementById("helloUser").innerHTML="Hello, <?php echo $_SESSION["currentLogin"][0]; ?>!";
-	</script>	
-        
-			<?php
+    document.getElementById("helloUser").innerHTML = "Hello, <?php echo $_SESSION["
+    currentLogin "][0]; ?>!";
+    </script>
+
+    <?php
 			if (isset($_POST['failed'])) {
 				alert("Invalid User Registration Form!");
 			}
@@ -146,11 +149,12 @@ loadUsers();
 				}
 			}
 		?>
-		<br>
-		<br>
-		
-	<?php
+    <br>
+    <br>
+
+    <?php
     $footer = file_get_contents('../common/footerbackend.php');
     echo $footer;
     ?>
+
 </html>
