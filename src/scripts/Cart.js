@@ -77,7 +77,7 @@ class Cart {
             total += Number(item.quantity);
         }
 
-        this.HTMLSpamElement_valueContainer.innerHTML = `(${total}) \$${sum.toFixed(
+        this.HTMLSpamElement_valueContainer?.innerHTML = `(${total}) \$${sum.toFixed(
 			2
 		)}`;
     }
