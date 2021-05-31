@@ -9,9 +9,8 @@
 class Cart {
     constructor(items = []) {
         //super();
-        this.HTMLSpamElement_valueContainer = document.getElementById(
-            "cart_total_value"
-        );
+        this.HTMLSpamElement_valueContainer =
+            document.getElementById("cart_total_value");
         this.items = items; // Array of items
     }
 
@@ -77,9 +76,10 @@ class Cart {
             total += Number(item.quantity);
         }
 
-        this.HTMLSpamElement_valueContainer?.innerHTML = `(${total}) \$${sum.toFixed(
-			2
-		)}`;
+        if (this.HTMLSpamElement_valueContainer)
+            this.HTMLSpamElement_valueContainer.innerHTML = `(${total}) \$${sum.toFixed(
+				2
+			)}`;
     }
 
     /**
