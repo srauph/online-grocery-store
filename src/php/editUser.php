@@ -1,4 +1,3 @@
-Processing...<br/><br/>
 <?php
 session_start();
 
