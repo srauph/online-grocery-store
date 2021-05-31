@@ -19,7 +19,7 @@ if (!isset($_SESSION["currentLogin"])){
 
     <!-- Load on sale items to display them-->
     <?php
-        include "php/Util.php";
+        include ".php/Util.php";
 
         $result = ItemsArray_getItem("onsale", 1);
         
